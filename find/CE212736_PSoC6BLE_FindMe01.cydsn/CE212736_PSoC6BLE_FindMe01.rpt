@@ -1,0 +1,8 @@
+Loading plugins phase: Elapsed time ==> 0s.100ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p D:\Microprocess2\find\CE212736_PSoC6BLE_FindMe01.cydsn\CE212736_PSoC6BLE_FindMe01.cyprj -d CY8C6347BZI-BLD53 -s D:\Microprocess2\find\CE212736_PSoC6BLE_FindMe01.cydsn\Generated_Source\PSoC6 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
+ADD: fit.M0067: information: Clock Information: (The WCO is enabled. Chip startup will be slower because clock configuration cannot continue until the WCO is ready. See the device datasheet for WCO startup timing. If WCO is not required during startup, consider starting it in main() for faster chip startup.).
+ * D:\Microprocess2\find\CE212736_PSoC6BLE_FindMe01.cydsn\CE212736_PSoC6BLE_FindMe01.cydwr (WCO)
+
+Error: fit.M0051: The given PDL path '' is invalid. Unable to find required PDSC file.

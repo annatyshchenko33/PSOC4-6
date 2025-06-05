@@ -1,0 +1,6 @@
+D:\Microprocess2\Lab10\Workspace01\Exam_A22_Tyshchenko.cydsn\Exam_A22_Tyshchenko.cyprj|0b5884bd-ce72-4923-98c5-56be9c1b0889
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|ce487160-ac8c-4a0b-9001-cc146ac3323c
+C:\Users\Lenovo\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|d0748d94-419b-465f-8fd7-19fdea875d7b
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|02e8b3e6-f246-436f-a9b3-0b9c42e27524
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f5b30803-7c4e-49f9-839e-a7eee0c189d9
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|60e56478-ed59-4a4d-a323-c6c69dda4af6

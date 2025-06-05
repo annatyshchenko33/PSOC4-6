@@ -1,0 +1,2155 @@
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main_cm0p.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB321:
+  27              		.file 1 "main_cm0p.c"
+   1:main_cm0p.c   **** /* ========================================
+   2:main_cm0p.c   ****  *
+   3:main_cm0p.c   ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main_cm0p.c   ****  * All Rights Reserved
+   5:main_cm0p.c   ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main_cm0p.c   ****  *
+   7:main_cm0p.c   ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main_cm0p.c   ****  * WHICH IS THE PROPERTY OF your company.
+   9:main_cm0p.c   ****  *
+  10:main_cm0p.c   ****  * ========================================
+  11:main_cm0p.c   **** */
+  12:main_cm0p.c   **** #include "project.h"
+  13:main_cm0p.c   **** 
+  14:main_cm0p.c   **** int main(void)
+  15:main_cm0p.c   **** {
+  28              		.loc 1 15 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.LBB4:
+  38              	.LBB5:
+  39              		.file 2 "Generated_Source\\PSoC6\\pdl\\cmsis/include/cmsis_gcc.h"
+   1:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**************************************************************************//**
+   2:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 2
+
+
+   4:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @version  V5.0.3
+   5:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @date     16. January 2018
+   6:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /*
+   8:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
+   9:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  10:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  12:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  16:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  18:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * limitations under the License.
+  23:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+  24:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  25:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  28:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  34:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  38:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  39:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  43:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  46:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  49:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif                                           
+  52:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  55:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __USED
+  56:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  58:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 3
+
+
+  61:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  64:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  67:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  70:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  78:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  86:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  94:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 102:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 110:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 113:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 116:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 117:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 4
+
+
+ 118:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   @{
+ 122:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 123:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 124:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
+ 125:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 129:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
+ 131:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+  40              		.loc 2 131 0
+  41              		.syntax divided
+  42              	@ 131 "Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h" 1
+  43 0002 62B6     		cpsie i
+  44              	@ 0 "" 2
+  45              		.thumb
+  46              		.syntax unified
+  47              	.LBE5:
+  48              	.LBE4:
+  16:main_cm0p.c   ****     __enable_irq(); /* Enable global interrupts. */
+  17:main_cm0p.c   ****     /* Enable CM4.  CY_CORTEX_M4_APPL_ADDR must be updated if CM4 memory layout is changed. */
+  18:main_cm0p.c   ****     Cy_SysEnableCM4(CY_CORTEX_M4_APPL_ADDR); 
+  49              		.loc 1 18 0
+  50 0004 0148     		ldr	r0, .L3
+  51 0006 FFF7FEFF 		bl	Cy_SysEnableCM4
+  52              	.LVL0:
+  53              	.L2:
+  54 000a FEE7     		b	.L2
+  55              	.L4:
+  56              		.align	2
+  57              	.L3:
+  58 000c 00000810 		.word	268959744
+  59              		.cfi_endproc
+  60              	.LFE321:
+  61              		.size	main, .-main
+  62              		.text
+  63              	.Letext0:
+  64              		.file 3 "d:\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\include\\mac
+  65              		.file 4 "d:\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\include\\sys
+  66              		.file 5 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/device/cy_device.h"
+  67              		.file 6 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h"
+  68              		.file 7 "Generated_Source\\PSoC6/PWM.h"
+  69              		.file 8 "./system_psoc6.h"
+  70              		.section	.debug_info,"",%progbits
+  71              	.Ldebug_info0:
+  72 0000 C0060000 		.4byte	0x6c0
+  73 0004 0400     		.2byte	0x4
+  74 0006 00000000 		.4byte	.Ldebug_abbrev0
+  75 000a 04       		.byte	0x4
+  76 000b 01       		.uleb128 0x1
+  77 000c 06060000 		.4byte	.LASF138
+  78 0010 0C       		.byte	0xc
+  79 0011 82000000 		.4byte	.LASF139
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 5
+
+
+  80 0015 88040000 		.4byte	.LASF140
+  81 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  82 001d 00000000 		.4byte	0
+  83 0021 00000000 		.4byte	.Ldebug_line0
+  84 0025 02       		.uleb128 0x2
+  85 0026 02       		.byte	0x2
+  86 0027 05       		.byte	0x5
+  87 0028 A6050000 		.4byte	.LASF0
+  88 002c 02       		.uleb128 0x2
+  89 002d 01       		.byte	0x1
+  90 002e 08       		.byte	0x8
+  91 002f 84050000 		.4byte	.LASF1
+  92 0033 02       		.uleb128 0x2
+  93 0034 01       		.byte	0x1
+  94 0035 06       		.byte	0x6
+  95 0036 80010000 		.4byte	.LASF2
+  96 003a 03       		.uleb128 0x3
+  97 003b A9000000 		.4byte	.LASF3
+  98 003f 03       		.byte	0x3
+  99 0040 1D       		.byte	0x1d
+ 100 0041 2C000000 		.4byte	0x2c
+ 101 0045 03       		.uleb128 0x3
+ 102 0046 AF020000 		.4byte	.LASF4
+ 103 004a 03       		.byte	0x3
+ 104 004b 29       		.byte	0x29
+ 105 004c 25000000 		.4byte	0x25
+ 106 0050 03       		.uleb128 0x3
+ 107 0051 D7060000 		.4byte	.LASF5
+ 108 0055 03       		.byte	0x3
+ 109 0056 2B       		.byte	0x2b
+ 110 0057 5B000000 		.4byte	0x5b
+ 111 005b 02       		.uleb128 0x2
+ 112 005c 02       		.byte	0x2
+ 113 005d 07       		.byte	0x7
+ 114 005e 2A070000 		.4byte	.LASF6
+ 115 0062 02       		.uleb128 0x2
+ 116 0063 04       		.byte	0x4
+ 117 0064 05       		.byte	0x5
+ 118 0065 FB010000 		.4byte	.LASF7
+ 119 0069 03       		.uleb128 0x3
+ 120 006a 94020000 		.4byte	.LASF8
+ 121 006e 03       		.byte	0x3
+ 122 006f 41       		.byte	0x41
+ 123 0070 74000000 		.4byte	0x74
+ 124 0074 02       		.uleb128 0x2
+ 125 0075 04       		.byte	0x4
+ 126 0076 07       		.byte	0x7
+ 127 0077 2A030000 		.4byte	.LASF9
+ 128 007b 02       		.uleb128 0x2
+ 129 007c 08       		.byte	0x8
+ 130 007d 05       		.byte	0x5
+ 131 007e 72010000 		.4byte	.LASF10
+ 132 0082 02       		.uleb128 0x2
+ 133 0083 08       		.byte	0x8
+ 134 0084 07       		.byte	0x7
+ 135 0085 F8000000 		.4byte	.LASF11
+ 136 0089 04       		.uleb128 0x4
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 6
+
+
+ 137 008a 04       		.byte	0x4
+ 138 008b 05       		.byte	0x5
+ 139 008c 696E7400 		.ascii	"int\000"
+ 140 0090 02       		.uleb128 0x2
+ 141 0091 04       		.byte	0x4
+ 142 0092 07       		.byte	0x7
+ 143 0093 EE020000 		.4byte	.LASF12
+ 144 0097 03       		.uleb128 0x3
+ 145 0098 E4070000 		.4byte	.LASF13
+ 146 009c 04       		.byte	0x4
+ 147 009d 18       		.byte	0x18
+ 148 009e 3A000000 		.4byte	0x3a
+ 149 00a2 03       		.uleb128 0x3
+ 150 00a3 6A010000 		.4byte	.LASF14
+ 151 00a7 04       		.byte	0x4
+ 152 00a8 20       		.byte	0x20
+ 153 00a9 45000000 		.4byte	0x45
+ 154 00ad 03       		.uleb128 0x3
+ 155 00ae FB020000 		.4byte	.LASF15
+ 156 00b2 04       		.byte	0x4
+ 157 00b3 24       		.byte	0x24
+ 158 00b4 50000000 		.4byte	0x50
+ 159 00b8 03       		.uleb128 0x3
+ 160 00b9 FD050000 		.4byte	.LASF16
+ 161 00bd 04       		.byte	0x4
+ 162 00be 30       		.byte	0x30
+ 163 00bf 69000000 		.4byte	0x69
+ 164 00c3 02       		.uleb128 0x2
+ 165 00c4 04       		.byte	0x4
+ 166 00c5 07       		.byte	0x7
+ 167 00c6 74040000 		.4byte	.LASF17
+ 168 00ca 02       		.uleb128 0x2
+ 169 00cb 08       		.byte	0x8
+ 170 00cc 04       		.byte	0x4
+ 171 00cd A1060000 		.4byte	.LASF18
+ 172 00d1 05       		.uleb128 0x5
+ 173 00d2 B8       		.byte	0xb8
+ 174 00d3 05       		.byte	0x5
+ 175 00d4 34       		.byte	0x34
+ 176 00d5 E2040000 		.4byte	0x4e2
+ 177 00d9 06       		.uleb128 0x6
+ 178 00da DF000000 		.4byte	.LASF19
+ 179 00de 05       		.byte	0x5
+ 180 00df 37       		.byte	0x37
+ 181 00e0 B8000000 		.4byte	0xb8
+ 182 00e4 00       		.byte	0
+ 183 00e5 06       		.uleb128 0x6
+ 184 00e6 89020000 		.4byte	.LASF20
+ 185 00ea 05       		.byte	0x5
+ 186 00eb 38       		.byte	0x38
+ 187 00ec B8000000 		.4byte	0xb8
+ 188 00f0 04       		.byte	0x4
+ 189 00f1 06       		.uleb128 0x6
+ 190 00f2 12020000 		.4byte	.LASF21
+ 191 00f6 05       		.byte	0x5
+ 192 00f7 39       		.byte	0x39
+ 193 00f8 B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 7
+
+
+ 194 00fc 08       		.byte	0x8
+ 195 00fd 06       		.uleb128 0x6
+ 196 00fe 76050000 		.4byte	.LASF22
+ 197 0102 05       		.byte	0x5
+ 198 0103 3A       		.byte	0x3a
+ 199 0104 B8000000 		.4byte	0xb8
+ 200 0108 0C       		.byte	0xc
+ 201 0109 06       		.uleb128 0x6
+ 202 010a A1010000 		.4byte	.LASF23
+ 203 010e 05       		.byte	0x5
+ 204 010f 3B       		.byte	0x3b
+ 205 0110 B8000000 		.4byte	0xb8
+ 206 0114 10       		.byte	0x10
+ 207 0115 06       		.uleb128 0x6
+ 208 0116 D9010000 		.4byte	.LASF24
+ 209 011a 05       		.byte	0x5
+ 210 011b 3C       		.byte	0x3c
+ 211 011c B8000000 		.4byte	0xb8
+ 212 0120 14       		.byte	0x14
+ 213 0121 06       		.uleb128 0x6
+ 214 0122 59030000 		.4byte	.LASF25
+ 215 0126 05       		.byte	0x5
+ 216 0127 3D       		.byte	0x3d
+ 217 0128 B8000000 		.4byte	0xb8
+ 218 012c 18       		.byte	0x18
+ 219 012d 06       		.uleb128 0x6
+ 220 012e 79000000 		.4byte	.LASF26
+ 221 0132 05       		.byte	0x5
+ 222 0133 3E       		.byte	0x3e
+ 223 0134 B8000000 		.4byte	0xb8
+ 224 0138 1C       		.byte	0x1c
+ 225 0139 06       		.uleb128 0x6
+ 226 013a 6F080000 		.4byte	.LASF27
+ 227 013e 05       		.byte	0x5
+ 228 013f 3F       		.byte	0x3f
+ 229 0140 B8000000 		.4byte	0xb8
+ 230 0144 20       		.byte	0x20
+ 231 0145 06       		.uleb128 0x6
+ 232 0146 FD040000 		.4byte	.LASF28
+ 233 014a 05       		.byte	0x5
+ 234 014b 40       		.byte	0x40
+ 235 014c B8000000 		.4byte	0xb8
+ 236 0150 24       		.byte	0x24
+ 237 0151 06       		.uleb128 0x6
+ 238 0152 46040000 		.4byte	.LASF29
+ 239 0156 05       		.byte	0x5
+ 240 0157 43       		.byte	0x43
+ 241 0158 97000000 		.4byte	0x97
+ 242 015c 28       		.byte	0x28
+ 243 015d 06       		.uleb128 0x6
+ 244 015e 5F000000 		.4byte	.LASF30
+ 245 0162 05       		.byte	0x5
+ 246 0163 44       		.byte	0x44
+ 247 0164 97000000 		.4byte	0x97
+ 248 0168 29       		.byte	0x29
+ 249 0169 06       		.uleb128 0x6
+ 250 016a 65080000 		.4byte	.LASF31
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 8
+
+
+ 251 016e 05       		.byte	0x5
+ 252 016f 45       		.byte	0x45
+ 253 0170 97000000 		.4byte	0x97
+ 254 0174 2A       		.byte	0x2a
+ 255 0175 06       		.uleb128 0x6
+ 256 0176 EF040000 		.4byte	.LASF32
+ 257 017a 05       		.byte	0x5
+ 258 017b 46       		.byte	0x46
+ 259 017c 97000000 		.4byte	0x97
+ 260 0180 2B       		.byte	0x2b
+ 261 0181 06       		.uleb128 0x6
+ 262 0182 D8030000 		.4byte	.LASF33
+ 263 0186 05       		.byte	0x5
+ 264 0187 47       		.byte	0x47
+ 265 0188 97000000 		.4byte	0x97
+ 266 018c 2C       		.byte	0x2c
+ 267 018d 06       		.uleb128 0x6
+ 268 018e 00070000 		.4byte	.LASF34
+ 269 0192 05       		.byte	0x5
+ 270 0193 48       		.byte	0x48
+ 271 0194 97000000 		.4byte	0x97
+ 272 0198 2D       		.byte	0x2d
+ 273 0199 06       		.uleb128 0x6
+ 274 019a AA010000 		.4byte	.LASF35
+ 275 019e 05       		.byte	0x5
+ 276 019f 49       		.byte	0x49
+ 277 01a0 97000000 		.4byte	0x97
+ 278 01a4 2E       		.byte	0x2e
+ 279 01a5 06       		.uleb128 0x6
+ 280 01a6 53040000 		.4byte	.LASF36
+ 281 01aa 05       		.byte	0x5
+ 282 01ab 4A       		.byte	0x4a
+ 283 01ac 97000000 		.4byte	0x97
+ 284 01b0 2F       		.byte	0x2f
+ 285 01b1 06       		.uleb128 0x6
+ 286 01b2 BD060000 		.4byte	.LASF37
+ 287 01b6 05       		.byte	0x5
+ 288 01b7 4B       		.byte	0x4b
+ 289 01b8 97000000 		.4byte	0x97
+ 290 01bc 30       		.byte	0x30
+ 291 01bd 06       		.uleb128 0x6
+ 292 01be 4E030000 		.4byte	.LASF38
+ 293 01c2 05       		.byte	0x5
+ 294 01c3 4E       		.byte	0x4e
+ 295 01c4 97000000 		.4byte	0x97
+ 296 01c8 31       		.byte	0x31
+ 297 01c9 06       		.uleb128 0x6
+ 298 01ca 9B000000 		.4byte	.LASF39
+ 299 01ce 05       		.byte	0x5
+ 300 01cf 4F       		.byte	0x4f
+ 301 01d0 97000000 		.4byte	0x97
+ 302 01d4 32       		.byte	0x32
+ 303 01d5 06       		.uleb128 0x6
+ 304 01d6 E2020000 		.4byte	.LASF40
+ 305 01da 05       		.byte	0x5
+ 306 01db 50       		.byte	0x50
+ 307 01dc 97000000 		.4byte	0x97
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 9
+
+
+ 308 01e0 33       		.byte	0x33
+ 309 01e1 06       		.uleb128 0x6
+ 310 01e2 9F080000 		.4byte	.LASF41
+ 311 01e6 05       		.byte	0x5
+ 312 01e7 51       		.byte	0x51
+ 313 01e8 97000000 		.4byte	0x97
+ 314 01ec 34       		.byte	0x34
+ 315 01ed 06       		.uleb128 0x6
+ 316 01ee 63070000 		.4byte	.LASF42
+ 317 01f2 05       		.byte	0x5
+ 318 01f3 52       		.byte	0x52
+ 319 01f4 A2000000 		.4byte	0xa2
+ 320 01f8 36       		.byte	0x36
+ 321 01f9 06       		.uleb128 0x6
+ 322 01fa 2C020000 		.4byte	.LASF43
+ 323 01fe 05       		.byte	0x5
+ 324 01ff 53       		.byte	0x53
+ 325 0200 A2000000 		.4byte	0xa2
+ 326 0204 38       		.byte	0x38
+ 327 0205 06       		.uleb128 0x6
+ 328 0206 B1070000 		.4byte	.LASF44
+ 329 020a 05       		.byte	0x5
+ 330 020b 54       		.byte	0x54
+ 331 020c A2000000 		.4byte	0xa2
+ 332 0210 3A       		.byte	0x3a
+ 333 0211 06       		.uleb128 0x6
+ 334 0212 CA010000 		.4byte	.LASF45
+ 335 0216 05       		.byte	0x5
+ 336 0217 55       		.byte	0x55
+ 337 0218 97000000 		.4byte	0x97
+ 338 021c 3C       		.byte	0x3c
+ 339 021d 06       		.uleb128 0x6
+ 340 021e 53020000 		.4byte	.LASF46
+ 341 0222 05       		.byte	0x5
+ 342 0223 56       		.byte	0x56
+ 343 0224 97000000 		.4byte	0x97
+ 344 0228 3D       		.byte	0x3d
+ 345 0229 06       		.uleb128 0x6
+ 346 022a DF050000 		.4byte	.LASF47
+ 347 022e 05       		.byte	0x5
+ 348 022f 57       		.byte	0x57
+ 349 0230 97000000 		.4byte	0x97
+ 350 0234 3E       		.byte	0x3e
+ 351 0235 06       		.uleb128 0x6
+ 352 0236 6D000000 		.4byte	.LASF48
+ 353 023a 05       		.byte	0x5
+ 354 023b 58       		.byte	0x58
+ 355 023c 97000000 		.4byte	0x97
+ 356 0240 3F       		.byte	0x3f
+ 357 0241 06       		.uleb128 0x6
+ 358 0242 08050000 		.4byte	.LASF49
+ 359 0246 05       		.byte	0x5
+ 360 0247 59       		.byte	0x59
+ 361 0248 97000000 		.4byte	0x97
+ 362 024c 40       		.byte	0x40
+ 363 024d 06       		.uleb128 0x6
+ 364 024e 9F020000 		.4byte	.LASF50
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 10
+
+
+ 365 0252 05       		.byte	0x5
+ 366 0253 5A       		.byte	0x5a
+ 367 0254 97000000 		.4byte	0x97
+ 368 0258 41       		.byte	0x41
+ 369 0259 06       		.uleb128 0x6
+ 370 025a 62030000 		.4byte	.LASF51
+ 371 025e 05       		.byte	0x5
+ 372 025f 5B       		.byte	0x5b
+ 373 0260 97000000 		.4byte	0x97
+ 374 0264 42       		.byte	0x42
+ 375 0265 06       		.uleb128 0x6
+ 376 0266 E4040000 		.4byte	.LASF52
+ 377 026a 05       		.byte	0x5
+ 378 026b 5C       		.byte	0x5c
+ 379 026c 97000000 		.4byte	0x97
+ 380 0270 43       		.byte	0x43
+ 381 0271 06       		.uleb128 0x6
+ 382 0272 1B020000 		.4byte	.LASF53
+ 383 0276 05       		.byte	0x5
+ 384 0277 5D       		.byte	0x5d
+ 385 0278 97000000 		.4byte	0x97
+ 386 027c 44       		.byte	0x44
+ 387 027d 06       		.uleb128 0x6
+ 388 027e 00000000 		.4byte	.LASF54
+ 389 0282 05       		.byte	0x5
+ 390 0283 5E       		.byte	0x5e
+ 391 0284 B8000000 		.4byte	0xb8
+ 392 0288 48       		.byte	0x48
+ 393 0289 06       		.uleb128 0x6
+ 394 028a 04020000 		.4byte	.LASF55
+ 395 028e 05       		.byte	0x5
+ 396 028f 5F       		.byte	0x5f
+ 397 0290 B8000000 		.4byte	0xb8
+ 398 0294 4C       		.byte	0x4c
+ 399 0295 06       		.uleb128 0x6
+ 400 0296 B0080000 		.4byte	.LASF56
+ 401 029a 05       		.byte	0x5
+ 402 029b 60       		.byte	0x60
+ 403 029c 97000000 		.4byte	0x97
+ 404 02a0 50       		.byte	0x50
+ 405 02a1 06       		.uleb128 0x6
+ 406 02a2 44010000 		.4byte	.LASF57
+ 407 02a6 05       		.byte	0x5
+ 408 02a7 61       		.byte	0x61
+ 409 02a8 97000000 		.4byte	0x97
+ 410 02ac 51       		.byte	0x51
+ 411 02ad 06       		.uleb128 0x6
+ 412 02ae D4070000 		.4byte	.LASF58
+ 413 02b2 05       		.byte	0x5
+ 414 02b3 62       		.byte	0x62
+ 415 02b4 97000000 		.4byte	0x97
+ 416 02b8 52       		.byte	0x52
+ 417 02b9 06       		.uleb128 0x6
+ 418 02ba 8D080000 		.4byte	.LASF59
+ 419 02be 05       		.byte	0x5
+ 420 02bf 63       		.byte	0x63
+ 421 02c0 97000000 		.4byte	0x97
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 11
+
+
+ 422 02c4 53       		.byte	0x53
+ 423 02c5 06       		.uleb128 0x6
+ 424 02c6 ED050000 		.4byte	.LASF60
+ 425 02ca 05       		.byte	0x5
+ 426 02cb 64       		.byte	0x64
+ 427 02cc 97000000 		.4byte	0x97
+ 428 02d0 54       		.byte	0x54
+ 429 02d1 06       		.uleb128 0x6
+ 430 02d2 56010000 		.4byte	.LASF61
+ 431 02d6 05       		.byte	0x5
+ 432 02d7 65       		.byte	0x65
+ 433 02d8 97000000 		.4byte	0x97
+ 434 02dc 55       		.byte	0x55
+ 435 02dd 06       		.uleb128 0x6
+ 436 02de 16030000 		.4byte	.LASF62
+ 437 02e2 05       		.byte	0x5
+ 438 02e3 66       		.byte	0x66
+ 439 02e4 97000000 		.4byte	0x97
+ 440 02e8 56       		.byte	0x56
+ 441 02e9 06       		.uleb128 0x6
+ 442 02ea 6E030000 		.4byte	.LASF63
+ 443 02ee 05       		.byte	0x5
+ 444 02ef 67       		.byte	0x67
+ 445 02f0 97000000 		.4byte	0x97
+ 446 02f4 57       		.byte	0x57
+ 447 02f5 06       		.uleb128 0x6
+ 448 02f6 1A000000 		.4byte	.LASF64
+ 449 02fa 05       		.byte	0x5
+ 450 02fb 68       		.byte	0x68
+ 451 02fc 97000000 		.4byte	0x97
+ 452 0300 58       		.byte	0x58
+ 453 0301 06       		.uleb128 0x6
+ 454 0302 92050000 		.4byte	.LASF65
+ 455 0306 05       		.byte	0x5
+ 456 0307 69       		.byte	0x69
+ 457 0308 97000000 		.4byte	0x97
+ 458 030c 59       		.byte	0x59
+ 459 030d 06       		.uleb128 0x6
+ 460 030e 7D040000 		.4byte	.LASF66
+ 461 0312 05       		.byte	0x5
+ 462 0313 6E       		.byte	0x6e
+ 463 0314 AD000000 		.4byte	0xad
+ 464 0318 5A       		.byte	0x5a
+ 465 0319 06       		.uleb128 0x6
+ 466 031a 3D070000 		.4byte	.LASF67
+ 467 031e 05       		.byte	0x5
+ 468 031f 6F       		.byte	0x6f
+ 469 0320 AD000000 		.4byte	0xad
+ 470 0324 5C       		.byte	0x5c
+ 471 0325 06       		.uleb128 0x6
+ 472 0326 E9000000 		.4byte	.LASF68
+ 473 032a 05       		.byte	0x5
+ 474 032b 70       		.byte	0x70
+ 475 032c 97000000 		.4byte	0x97
+ 476 0330 5E       		.byte	0x5e
+ 477 0331 06       		.uleb128 0x6
+ 478 0332 57050000 		.4byte	.LASF69
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 12
+
+
+ 479 0336 05       		.byte	0x5
+ 480 0337 71       		.byte	0x71
+ 481 0338 97000000 		.4byte	0x97
+ 482 033c 5F       		.byte	0x5f
+ 483 033d 06       		.uleb128 0x6
+ 484 033e D3040000 		.4byte	.LASF70
+ 485 0342 05       		.byte	0x5
+ 486 0343 72       		.byte	0x72
+ 487 0344 97000000 		.4byte	0x97
+ 488 0348 60       		.byte	0x60
+ 489 0349 06       		.uleb128 0x6
+ 490 034a 30050000 		.4byte	.LASF71
+ 491 034e 05       		.byte	0x5
+ 492 034f 73       		.byte	0x73
+ 493 0350 B8000000 		.4byte	0xb8
+ 494 0354 64       		.byte	0x64
+ 495 0355 06       		.uleb128 0x6
+ 496 0356 1E010000 		.4byte	.LASF72
+ 497 035a 05       		.byte	0x5
+ 498 035b 76       		.byte	0x76
+ 499 035c AD000000 		.4byte	0xad
+ 500 0360 68       		.byte	0x68
+ 501 0361 06       		.uleb128 0x6
+ 502 0362 04030000 		.4byte	.LASF73
+ 503 0366 05       		.byte	0x5
+ 504 0367 77       		.byte	0x77
+ 505 0368 AD000000 		.4byte	0xad
+ 506 036c 6A       		.byte	0x6a
+ 507 036d 06       		.uleb128 0x6
+ 508 036e 90030000 		.4byte	.LASF74
+ 509 0372 05       		.byte	0x5
+ 510 0373 78       		.byte	0x78
+ 511 0374 AD000000 		.4byte	0xad
+ 512 0378 6C       		.byte	0x6c
+ 513 0379 06       		.uleb128 0x6
+ 514 037a BB030000 		.4byte	.LASF75
+ 515 037e 05       		.byte	0x5
+ 516 037f 79       		.byte	0x79
+ 517 0380 AD000000 		.4byte	0xad
+ 518 0384 6E       		.byte	0x6e
+ 519 0385 06       		.uleb128 0x6
+ 520 0386 B0050000 		.4byte	.LASF76
+ 521 038a 05       		.byte	0x5
+ 522 038b 7B       		.byte	0x7b
+ 523 038c 97000000 		.4byte	0x97
+ 524 0390 70       		.byte	0x70
+ 525 0391 06       		.uleb128 0x6
+ 526 0392 8C010000 		.4byte	.LASF77
+ 527 0396 05       		.byte	0x5
+ 528 0397 7C       		.byte	0x7c
+ 529 0398 97000000 		.4byte	0x97
+ 530 039c 71       		.byte	0x71
+ 531 039d 06       		.uleb128 0x6
+ 532 039e 77080000 		.4byte	.LASF78
+ 533 03a2 05       		.byte	0x5
+ 534 03a3 7D       		.byte	0x7d
+ 535 03a4 97000000 		.4byte	0x97
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 13
+
+
+ 536 03a8 72       		.byte	0x72
+ 537 03a9 06       		.uleb128 0x6
+ 538 03aa AE040000 		.4byte	.LASF79
+ 539 03ae 05       		.byte	0x5
+ 540 03af 7E       		.byte	0x7e
+ 541 03b0 97000000 		.4byte	0x97
+ 542 03b4 73       		.byte	0x73
+ 543 03b5 06       		.uleb128 0x6
+ 544 03b6 63020000 		.4byte	.LASF80
+ 545 03ba 05       		.byte	0x5
+ 546 03bb 80       		.byte	0x80
+ 547 03bc AD000000 		.4byte	0xad
+ 548 03c0 74       		.byte	0x74
+ 549 03c1 06       		.uleb128 0x6
+ 550 03c2 ED060000 		.4byte	.LASF81
+ 551 03c6 05       		.byte	0x5
+ 552 03c7 81       		.byte	0x81
+ 553 03c8 AD000000 		.4byte	0xad
+ 554 03cc 76       		.byte	0x76
+ 555 03cd 06       		.uleb128 0x6
+ 556 03ce 3E020000 		.4byte	.LASF82
+ 557 03d2 05       		.byte	0x5
+ 558 03d3 82       		.byte	0x82
+ 559 03d4 AD000000 		.4byte	0xad
+ 560 03d8 78       		.byte	0x78
+ 561 03d9 06       		.uleb128 0x6
+ 562 03da B3000000 		.4byte	.LASF83
+ 563 03de 05       		.byte	0x5
+ 564 03df 83       		.byte	0x83
+ 565 03e0 AD000000 		.4byte	0xad
+ 566 03e4 7A       		.byte	0x7a
+ 567 03e5 06       		.uleb128 0x6
+ 568 03e6 01080000 		.4byte	.LASF84
+ 569 03ea 05       		.byte	0x5
+ 570 03eb 86       		.byte	0x86
+ 571 03ec 97000000 		.4byte	0x97
+ 572 03f0 7C       		.byte	0x7c
+ 573 03f1 06       		.uleb128 0x6
+ 574 03f2 A0070000 		.4byte	.LASF85
+ 575 03f6 05       		.byte	0x5
+ 576 03f7 87       		.byte	0x87
+ 577 03f8 97000000 		.4byte	0x97
+ 578 03fc 7D       		.byte	0x7d
+ 579 03fd 06       		.uleb128 0x6
+ 580 03fe 2E000000 		.4byte	.LASF86
+ 581 0402 05       		.byte	0x5
+ 582 0403 88       		.byte	0x88
+ 583 0404 97000000 		.4byte	0x97
+ 584 0408 7E       		.byte	0x7e
+ 585 0409 06       		.uleb128 0x6
+ 586 040a 75020000 		.4byte	.LASF87
+ 587 040e 05       		.byte	0x5
+ 588 040f 89       		.byte	0x89
+ 589 0410 97000000 		.4byte	0x97
+ 590 0414 7F       		.byte	0x7f
+ 591 0415 06       		.uleb128 0x6
+ 592 0416 CE020000 		.4byte	.LASF88
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 14
+
+
+ 593 041a 05       		.byte	0x5
+ 594 041b 8A       		.byte	0x8a
+ 595 041c 97000000 		.4byte	0x97
+ 596 0420 80       		.byte	0x80
+ 597 0421 06       		.uleb128 0x6
+ 598 0422 89070000 		.4byte	.LASF89
+ 599 0426 05       		.byte	0x5
+ 600 0427 8D       		.byte	0x8d
+ 601 0428 B8000000 		.4byte	0xb8
+ 602 042c 84       		.byte	0x84
+ 603 042d 06       		.uleb128 0x6
+ 604 042e C8000000 		.4byte	.LASF90
+ 605 0432 05       		.byte	0x5
+ 606 0433 8E       		.byte	0x8e
+ 607 0434 B8000000 		.4byte	0xb8
+ 608 0438 88       		.byte	0x88
+ 609 0439 06       		.uleb128 0x6
+ 610 043a EC070000 		.4byte	.LASF91
+ 611 043e 05       		.byte	0x5
+ 612 043f 8F       		.byte	0x8f
+ 613 0440 B8000000 		.4byte	0xb8
+ 614 0444 8C       		.byte	0x8c
+ 615 0445 06       		.uleb128 0x6
+ 616 0446 5F040000 		.4byte	.LASF92
+ 617 044a 05       		.byte	0x5
+ 618 044b 90       		.byte	0x90
+ 619 044c B8000000 		.4byte	0xb8
+ 620 0450 90       		.byte	0x90
+ 621 0451 06       		.uleb128 0x6
+ 622 0452 B9020000 		.4byte	.LASF93
+ 623 0456 05       		.byte	0x5
+ 624 0457 91       		.byte	0x91
+ 625 0458 B8000000 		.4byte	0xb8
+ 626 045c 94       		.byte	0x94
+ 627 045d 06       		.uleb128 0x6
+ 628 045e 25040000 		.4byte	.LASF94
+ 629 0462 05       		.byte	0x5
+ 630 0463 92       		.byte	0x92
+ 631 0464 B8000000 		.4byte	0xb8
+ 632 0468 98       		.byte	0x98
+ 633 0469 06       		.uleb128 0x6
+ 634 046a 40080000 		.4byte	.LASF95
+ 635 046e 05       		.byte	0x5
+ 636 046f 93       		.byte	0x93
+ 637 0470 B8000000 		.4byte	0xb8
+ 638 0474 9C       		.byte	0x9c
+ 639 0475 06       		.uleb128 0x6
+ 640 0476 2E010000 		.4byte	.LASF96
+ 641 047a 05       		.byte	0x5
+ 642 047b 94       		.byte	0x94
+ 643 047c B8000000 		.4byte	0xb8
+ 644 0480 A0       		.byte	0xa0
+ 645 0481 06       		.uleb128 0x6
+ 646 0482 B5010000 		.4byte	.LASF97
+ 647 0486 05       		.byte	0x5
+ 648 0487 95       		.byte	0x95
+ 649 0488 AD000000 		.4byte	0xad
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 15
+
+
+ 650 048c A4       		.byte	0xa4
+ 651 048d 06       		.uleb128 0x6
+ 652 048e 10040000 		.4byte	.LASF98
+ 653 0492 05       		.byte	0x5
+ 654 0493 96       		.byte	0x96
+ 655 0494 AD000000 		.4byte	0xad
+ 656 0498 A6       		.byte	0xa6
+ 657 0499 06       		.uleb128 0x6
+ 658 049a 4B050000 		.4byte	.LASF99
+ 659 049e 05       		.byte	0x5
+ 660 049f 97       		.byte	0x97
+ 661 04a0 AD000000 		.4byte	0xad
+ 662 04a4 A8       		.byte	0xa8
+ 663 04a5 06       		.uleb128 0x6
+ 664 04a6 C9060000 		.4byte	.LASF100
+ 665 04aa 05       		.byte	0x5
+ 666 04ab 98       		.byte	0x98
+ 667 04ac AD000000 		.4byte	0xad
+ 668 04b0 AA       		.byte	0xaa
+ 669 04b1 06       		.uleb128 0x6
+ 670 04b2 9F030000 		.4byte	.LASF101
+ 671 04b6 05       		.byte	0x5
+ 672 04b7 99       		.byte	0x99
+ 673 04b8 AD000000 		.4byte	0xad
+ 674 04bc AC       		.byte	0xac
+ 675 04bd 06       		.uleb128 0x6
+ 676 04be C5040000 		.4byte	.LASF102
+ 677 04c2 05       		.byte	0x5
+ 678 04c3 9A       		.byte	0x9a
+ 679 04c4 AD000000 		.4byte	0xad
+ 680 04c8 AE       		.byte	0xae
+ 681 04c9 06       		.uleb128 0x6
+ 682 04ca 46070000 		.4byte	.LASF103
+ 683 04ce 05       		.byte	0x5
+ 684 04cf 9D       		.byte	0x9d
+ 685 04d0 AD000000 		.4byte	0xad
+ 686 04d4 B0       		.byte	0xb0
+ 687 04d5 06       		.uleb128 0x6
+ 688 04d6 4B000000 		.4byte	.LASF104
+ 689 04da 05       		.byte	0x5
+ 690 04db 9E       		.byte	0x9e
+ 691 04dc B8000000 		.4byte	0xb8
+ 692 04e0 B4       		.byte	0xb4
+ 693 04e1 00       		.byte	0
+ 694 04e2 03       		.uleb128 0x3
+ 695 04e3 E4030000 		.4byte	.LASF105
+ 696 04e7 05       		.byte	0x5
+ 697 04e8 9F       		.byte	0x9f
+ 698 04e9 D1000000 		.4byte	0xd1
+ 699 04ed 02       		.uleb128 0x2
+ 700 04ee 01       		.byte	0x1
+ 701 04ef 08       		.byte	0x8
+ 702 04f0 AD060000 		.4byte	.LASF106
+ 703 04f4 02       		.uleb128 0x2
+ 704 04f5 04       		.byte	0x4
+ 705 04f6 04       		.byte	0x4
+ 706 04f7 2A050000 		.4byte	.LASF107
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 16
+
+
+ 707 04fb 02       		.uleb128 0x2
+ 708 04fc 08       		.byte	0x8
+ 709 04fd 04       		.byte	0x4
+ 710 04fe 37020000 		.4byte	.LASF108
+ 711 0502 02       		.uleb128 0x2
+ 712 0503 01       		.byte	0x1
+ 713 0504 02       		.byte	0x2
+ 714 0505 7E050000 		.4byte	.LASF109
+ 715 0509 07       		.uleb128 0x7
+ 716 050a E3010000 		.4byte	.LASF141
+ 717 050e 64       		.byte	0x64
+ 718 050f 06       		.byte	0x6
+ 719 0510 2F       		.byte	0x2f
+ 720 0511 42060000 		.4byte	0x642
+ 721 0515 06       		.uleb128 0x6
+ 722 0516 22050000 		.4byte	.LASF110
+ 723 051a 06       		.byte	0x6
+ 724 051b 31       		.byte	0x31
+ 725 051c B8000000 		.4byte	0xb8
+ 726 0520 00       		.byte	0
+ 727 0521 06       		.uleb128 0x6
+ 728 0522 0F010000 		.4byte	.LASF111
+ 729 0526 06       		.byte	0x6
+ 730 0527 33       		.byte	0x33
+ 731 0528 B8000000 		.4byte	0xb8
+ 732 052c 04       		.byte	0x4
+ 733 052d 06       		.uleb128 0x6
+ 734 052e 8E000000 		.4byte	.LASF112
+ 735 0532 06       		.byte	0x6
+ 736 0533 34       		.byte	0x34
+ 737 0534 B8000000 		.4byte	0xb8
+ 738 0538 08       		.byte	0x8
+ 739 0539 06       		.uleb128 0x6
+ 740 053a 01040000 		.4byte	.LASF113
+ 741 053e 06       		.byte	0x6
+ 742 053f 35       		.byte	0x35
+ 743 0540 B8000000 		.4byte	0xb8
+ 744 0544 0C       		.byte	0xc
+ 745 0545 06       		.uleb128 0x6
+ 746 0546 12000000 		.4byte	.LASF114
+ 747 054a 06       		.byte	0x6
+ 748 054b 36       		.byte	0x36
+ 749 054c B8000000 		.4byte	0xb8
+ 750 0550 10       		.byte	0x10
+ 751 0551 06       		.uleb128 0x6
+ 752 0552 70070000 		.4byte	.LASF115
+ 753 0556 06       		.byte	0x6
+ 754 0557 37       		.byte	0x37
+ 755 0558 B8000000 		.4byte	0xb8
+ 756 055c 14       		.byte	0x14
+ 757 055d 06       		.uleb128 0x6
+ 758 055e 78070000 		.4byte	.LASF116
+ 759 0562 06       		.byte	0x6
+ 760 0563 38       		.byte	0x38
+ 761 0564 B8000000 		.4byte	0xb8
+ 762 0568 18       		.byte	0x18
+ 763 0569 06       		.uleb128 0x6
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 17
+
+
+ 764 056a C4050000 		.4byte	.LASF117
+ 765 056e 06       		.byte	0x6
+ 766 056f 39       		.byte	0x39
+ 767 0570 02050000 		.4byte	0x502
+ 768 0574 1C       		.byte	0x1c
+ 769 0575 06       		.uleb128 0x6
+ 770 0576 98060000 		.4byte	.LASF118
+ 771 057a 06       		.byte	0x6
+ 772 057b 3A       		.byte	0x3a
+ 773 057c B8000000 		.4byte	0xb8
+ 774 0580 20       		.byte	0x20
+ 775 0581 06       		.uleb128 0x6
+ 776 0582 80070000 		.4byte	.LASF119
+ 777 0586 06       		.byte	0x6
+ 778 0587 3B       		.byte	0x3b
+ 779 0588 B8000000 		.4byte	0xb8
+ 780 058c 24       		.byte	0x24
+ 781 058d 06       		.uleb128 0x6
+ 782 058e 3C030000 		.4byte	.LASF120
+ 783 0592 06       		.byte	0x6
+ 784 0593 3C       		.byte	0x3c
+ 785 0594 02050000 		.4byte	0x502
+ 786 0598 28       		.byte	0x28
+ 787 0599 06       		.uleb128 0x6
+ 788 059a 0D070000 		.4byte	.LASF121
+ 789 059e 06       		.byte	0x6
+ 790 059f 3E       		.byte	0x3e
+ 791 05a0 B8000000 		.4byte	0xb8
+ 792 05a4 2C       		.byte	0x2c
+ 793 05a5 06       		.uleb128 0x6
+ 794 05a6 F4030000 		.4byte	.LASF122
+ 795 05aa 06       		.byte	0x6
+ 796 05ab 3F       		.byte	0x3f
+ 797 05ac B8000000 		.4byte	0xb8
+ 798 05b0 30       		.byte	0x30
+ 799 05b1 06       		.uleb128 0x6
+ 800 05b2 C6070000 		.4byte	.LASF123
+ 801 05b6 06       		.byte	0x6
+ 802 05b7 40       		.byte	0x40
+ 803 05b8 B8000000 		.4byte	0xb8
+ 804 05bc 34       		.byte	0x34
+ 805 05bd 06       		.uleb128 0x6
+ 806 05be 6D050000 		.4byte	.LASF124
+ 807 05c2 06       		.byte	0x6
+ 808 05c3 41       		.byte	0x41
+ 809 05c4 B8000000 		.4byte	0xb8
+ 810 05c8 38       		.byte	0x38
+ 811 05c9 06       		.uleb128 0x6
+ 812 05ca 82030000 		.4byte	.LASF125
+ 813 05ce 06       		.byte	0x6
+ 814 05cf 42       		.byte	0x42
+ 815 05d0 B8000000 		.4byte	0xb8
+ 816 05d4 3C       		.byte	0x3c
+ 817 05d5 06       		.uleb128 0x6
+ 818 05d6 D5050000 		.4byte	.LASF126
+ 819 05da 06       		.byte	0x6
+ 820 05db 44       		.byte	0x44
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 18
+
+
+ 821 05dc B8000000 		.4byte	0xb8
+ 822 05e0 40       		.byte	0x40
+ 823 05e1 06       		.uleb128 0x6
+ 824 05e2 30080000 		.4byte	.LASF127
+ 825 05e6 06       		.byte	0x6
+ 826 05e7 45       		.byte	0x45
+ 827 05e8 B8000000 		.4byte	0xb8
+ 828 05ec 44       		.byte	0x44
+ 829 05ed 06       		.uleb128 0x6
+ 830 05ee 1E070000 		.4byte	.LASF128
+ 831 05f2 06       		.byte	0x6
+ 832 05f3 47       		.byte	0x47
+ 833 05f4 B8000000 		.4byte	0xb8
+ 834 05f8 48       		.byte	0x48
+ 835 05f9 06       		.uleb128 0x6
+ 836 05fa 54070000 		.4byte	.LASF129
+ 837 05fe 06       		.byte	0x6
+ 838 05ff 48       		.byte	0x48
+ 839 0600 B8000000 		.4byte	0xb8
+ 840 0604 4C       		.byte	0x4c
+ 841 0605 06       		.uleb128 0x6
+ 842 0606 3B040000 		.4byte	.LASF130
+ 843 060a 06       		.byte	0x6
+ 844 060b 4A       		.byte	0x4a
+ 845 060c B8000000 		.4byte	0xb8
+ 846 0610 50       		.byte	0x50
+ 847 0611 06       		.uleb128 0x6
+ 848 0612 AD030000 		.4byte	.LASF131
+ 849 0616 06       		.byte	0x6
+ 850 0617 4B       		.byte	0x4b
+ 851 0618 B8000000 		.4byte	0xb8
+ 852 061c 54       		.byte	0x54
+ 853 061d 06       		.uleb128 0x6
+ 854 061e 41000000 		.4byte	.LASF132
+ 855 0622 06       		.byte	0x6
+ 856 0623 4D       		.byte	0x4d
+ 857 0624 B8000000 		.4byte	0xb8
+ 858 0628 58       		.byte	0x58
+ 859 0629 06       		.uleb128 0x6
+ 860 062a 56080000 		.4byte	.LASF133
+ 861 062e 06       		.byte	0x6
+ 862 062f 4E       		.byte	0x4e
+ 863 0630 B8000000 		.4byte	0xb8
+ 864 0634 5C       		.byte	0x5c
+ 865 0635 06       		.uleb128 0x6
+ 866 0636 B2060000 		.4byte	.LASF134
+ 867 063a 06       		.byte	0x6
+ 868 063b 50       		.byte	0x50
+ 869 063c B8000000 		.4byte	0xb8
+ 870 0640 60       		.byte	0x60
+ 871 0641 00       		.byte	0
+ 872 0642 03       		.uleb128 0x3
+ 873 0643 16080000 		.4byte	.LASF135
+ 874 0647 06       		.byte	0x6
+ 875 0648 51       		.byte	0x51
+ 876 0649 09050000 		.4byte	0x509
+ 877 064d 08       		.uleb128 0x8
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 19
+
+
+ 878 064e 15050000 		.4byte	.LASF142
+ 879 0652 02       		.byte	0x2
+ 880 0653 81       		.byte	0x81
+ 881 0654 03       		.byte	0x3
+ 882 0655 09       		.uleb128 0x9
+ 883 0656 5E020000 		.4byte	.LASF143
+ 884 065a 01       		.byte	0x1
+ 885 065b 0E       		.byte	0xe
+ 886 065c 89000000 		.4byte	0x89
+ 887 0660 00000000 		.4byte	.LFB321
+ 888 0664 10000000 		.4byte	.LFE321-.LFB321
+ 889 0668 01       		.uleb128 0x1
+ 890 0669 9C       		.byte	0x9c
+ 891 066a 91060000 		.4byte	0x691
+ 892 066e 0A       		.uleb128 0xa
+ 893 066f 4D060000 		.4byte	0x64d
+ 894 0673 02000000 		.4byte	.LBB4
+ 895 0677 02000000 		.4byte	.LBE4-.LBB4
+ 896 067b 01       		.byte	0x1
+ 897 067c 10       		.byte	0x10
+ 898 067d 0B       		.uleb128 0xb
+ 899 067e 0A000000 		.4byte	.LVL0
+ 900 0682 B7060000 		.4byte	0x6b7
+ 901 0686 0C       		.uleb128 0xc
+ 902 0687 01       		.uleb128 0x1
+ 903 0688 50       		.byte	0x50
+ 904 0689 05       		.uleb128 0x5
+ 905 068a 0C       		.byte	0xc
+ 906 068b 00000810 		.4byte	0x10080000
+ 907 068f 00       		.byte	0
+ 908 0690 00       		.byte	0
+ 909 0691 0D       		.uleb128 0xd
+ 910 0692 41050000 		.4byte	.LASF136
+ 911 0696 05       		.byte	0x5
+ 912 0697 A7       		.byte	0xa7
+ 913 0698 9C060000 		.4byte	0x69c
+ 914 069c 0E       		.uleb128 0xe
+ 915 069d 04       		.byte	0x4
+ 916 069e A2060000 		.4byte	0x6a2
+ 917 06a2 0F       		.uleb128 0xf
+ 918 06a3 E2040000 		.4byte	0x4e2
+ 919 06a7 0D       		.uleb128 0xd
+ 920 06a8 E2060000 		.4byte	.LASF137
+ 921 06ac 07       		.byte	0x7
+ 922 06ad 1F       		.byte	0x1f
+ 923 06ae B2060000 		.4byte	0x6b2
+ 924 06b2 0F       		.uleb128 0xf
+ 925 06b3 42060000 		.4byte	0x642
+ 926 06b7 10       		.uleb128 0x10
+ 927 06b8 C8030000 		.4byte	.LASF144
+ 928 06bc C8030000 		.4byte	.LASF144
+ 929 06c0 08       		.byte	0x8
+ 930 06c1 2502     		.2byte	0x225
+ 931 06c3 00       		.byte	0
+ 932              		.section	.debug_abbrev,"",%progbits
+ 933              	.Ldebug_abbrev0:
+ 934 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 20
+
+
+ 935 0001 11       		.uleb128 0x11
+ 936 0002 01       		.byte	0x1
+ 937 0003 25       		.uleb128 0x25
+ 938 0004 0E       		.uleb128 0xe
+ 939 0005 13       		.uleb128 0x13
+ 940 0006 0B       		.uleb128 0xb
+ 941 0007 03       		.uleb128 0x3
+ 942 0008 0E       		.uleb128 0xe
+ 943 0009 1B       		.uleb128 0x1b
+ 944 000a 0E       		.uleb128 0xe
+ 945 000b 55       		.uleb128 0x55
+ 946 000c 17       		.uleb128 0x17
+ 947 000d 11       		.uleb128 0x11
+ 948 000e 01       		.uleb128 0x1
+ 949 000f 10       		.uleb128 0x10
+ 950 0010 17       		.uleb128 0x17
+ 951 0011 00       		.byte	0
+ 952 0012 00       		.byte	0
+ 953 0013 02       		.uleb128 0x2
+ 954 0014 24       		.uleb128 0x24
+ 955 0015 00       		.byte	0
+ 956 0016 0B       		.uleb128 0xb
+ 957 0017 0B       		.uleb128 0xb
+ 958 0018 3E       		.uleb128 0x3e
+ 959 0019 0B       		.uleb128 0xb
+ 960 001a 03       		.uleb128 0x3
+ 961 001b 0E       		.uleb128 0xe
+ 962 001c 00       		.byte	0
+ 963 001d 00       		.byte	0
+ 964 001e 03       		.uleb128 0x3
+ 965 001f 16       		.uleb128 0x16
+ 966 0020 00       		.byte	0
+ 967 0021 03       		.uleb128 0x3
+ 968 0022 0E       		.uleb128 0xe
+ 969 0023 3A       		.uleb128 0x3a
+ 970 0024 0B       		.uleb128 0xb
+ 971 0025 3B       		.uleb128 0x3b
+ 972 0026 0B       		.uleb128 0xb
+ 973 0027 49       		.uleb128 0x49
+ 974 0028 13       		.uleb128 0x13
+ 975 0029 00       		.byte	0
+ 976 002a 00       		.byte	0
+ 977 002b 04       		.uleb128 0x4
+ 978 002c 24       		.uleb128 0x24
+ 979 002d 00       		.byte	0
+ 980 002e 0B       		.uleb128 0xb
+ 981 002f 0B       		.uleb128 0xb
+ 982 0030 3E       		.uleb128 0x3e
+ 983 0031 0B       		.uleb128 0xb
+ 984 0032 03       		.uleb128 0x3
+ 985 0033 08       		.uleb128 0x8
+ 986 0034 00       		.byte	0
+ 987 0035 00       		.byte	0
+ 988 0036 05       		.uleb128 0x5
+ 989 0037 13       		.uleb128 0x13
+ 990 0038 01       		.byte	0x1
+ 991 0039 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 21
+
+
+ 992 003a 0B       		.uleb128 0xb
+ 993 003b 3A       		.uleb128 0x3a
+ 994 003c 0B       		.uleb128 0xb
+ 995 003d 3B       		.uleb128 0x3b
+ 996 003e 0B       		.uleb128 0xb
+ 997 003f 01       		.uleb128 0x1
+ 998 0040 13       		.uleb128 0x13
+ 999 0041 00       		.byte	0
+ 1000 0042 00       		.byte	0
+ 1001 0043 06       		.uleb128 0x6
+ 1002 0044 0D       		.uleb128 0xd
+ 1003 0045 00       		.byte	0
+ 1004 0046 03       		.uleb128 0x3
+ 1005 0047 0E       		.uleb128 0xe
+ 1006 0048 3A       		.uleb128 0x3a
+ 1007 0049 0B       		.uleb128 0xb
+ 1008 004a 3B       		.uleb128 0x3b
+ 1009 004b 0B       		.uleb128 0xb
+ 1010 004c 49       		.uleb128 0x49
+ 1011 004d 13       		.uleb128 0x13
+ 1012 004e 38       		.uleb128 0x38
+ 1013 004f 0B       		.uleb128 0xb
+ 1014 0050 00       		.byte	0
+ 1015 0051 00       		.byte	0
+ 1016 0052 07       		.uleb128 0x7
+ 1017 0053 13       		.uleb128 0x13
+ 1018 0054 01       		.byte	0x1
+ 1019 0055 03       		.uleb128 0x3
+ 1020 0056 0E       		.uleb128 0xe
+ 1021 0057 0B       		.uleb128 0xb
+ 1022 0058 0B       		.uleb128 0xb
+ 1023 0059 3A       		.uleb128 0x3a
+ 1024 005a 0B       		.uleb128 0xb
+ 1025 005b 3B       		.uleb128 0x3b
+ 1026 005c 0B       		.uleb128 0xb
+ 1027 005d 01       		.uleb128 0x1
+ 1028 005e 13       		.uleb128 0x13
+ 1029 005f 00       		.byte	0
+ 1030 0060 00       		.byte	0
+ 1031 0061 08       		.uleb128 0x8
+ 1032 0062 2E       		.uleb128 0x2e
+ 1033 0063 00       		.byte	0
+ 1034 0064 03       		.uleb128 0x3
+ 1035 0065 0E       		.uleb128 0xe
+ 1036 0066 3A       		.uleb128 0x3a
+ 1037 0067 0B       		.uleb128 0xb
+ 1038 0068 3B       		.uleb128 0x3b
+ 1039 0069 0B       		.uleb128 0xb
+ 1040 006a 27       		.uleb128 0x27
+ 1041 006b 19       		.uleb128 0x19
+ 1042 006c 20       		.uleb128 0x20
+ 1043 006d 0B       		.uleb128 0xb
+ 1044 006e 00       		.byte	0
+ 1045 006f 00       		.byte	0
+ 1046 0070 09       		.uleb128 0x9
+ 1047 0071 2E       		.uleb128 0x2e
+ 1048 0072 01       		.byte	0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 22
+
+
+ 1049 0073 3F       		.uleb128 0x3f
+ 1050 0074 19       		.uleb128 0x19
+ 1051 0075 03       		.uleb128 0x3
+ 1052 0076 0E       		.uleb128 0xe
+ 1053 0077 3A       		.uleb128 0x3a
+ 1054 0078 0B       		.uleb128 0xb
+ 1055 0079 3B       		.uleb128 0x3b
+ 1056 007a 0B       		.uleb128 0xb
+ 1057 007b 27       		.uleb128 0x27
+ 1058 007c 19       		.uleb128 0x19
+ 1059 007d 49       		.uleb128 0x49
+ 1060 007e 13       		.uleb128 0x13
+ 1061 007f 8701     		.uleb128 0x87
+ 1062 0081 19       		.uleb128 0x19
+ 1063 0082 11       		.uleb128 0x11
+ 1064 0083 01       		.uleb128 0x1
+ 1065 0084 12       		.uleb128 0x12
+ 1066 0085 06       		.uleb128 0x6
+ 1067 0086 40       		.uleb128 0x40
+ 1068 0087 18       		.uleb128 0x18
+ 1069 0088 9742     		.uleb128 0x2117
+ 1070 008a 19       		.uleb128 0x19
+ 1071 008b 01       		.uleb128 0x1
+ 1072 008c 13       		.uleb128 0x13
+ 1073 008d 00       		.byte	0
+ 1074 008e 00       		.byte	0
+ 1075 008f 0A       		.uleb128 0xa
+ 1076 0090 1D       		.uleb128 0x1d
+ 1077 0091 00       		.byte	0
+ 1078 0092 31       		.uleb128 0x31
+ 1079 0093 13       		.uleb128 0x13
+ 1080 0094 11       		.uleb128 0x11
+ 1081 0095 01       		.uleb128 0x1
+ 1082 0096 12       		.uleb128 0x12
+ 1083 0097 06       		.uleb128 0x6
+ 1084 0098 58       		.uleb128 0x58
+ 1085 0099 0B       		.uleb128 0xb
+ 1086 009a 59       		.uleb128 0x59
+ 1087 009b 0B       		.uleb128 0xb
+ 1088 009c 00       		.byte	0
+ 1089 009d 00       		.byte	0
+ 1090 009e 0B       		.uleb128 0xb
+ 1091 009f 898201   		.uleb128 0x4109
+ 1092 00a2 01       		.byte	0x1
+ 1093 00a3 11       		.uleb128 0x11
+ 1094 00a4 01       		.uleb128 0x1
+ 1095 00a5 31       		.uleb128 0x31
+ 1096 00a6 13       		.uleb128 0x13
+ 1097 00a7 00       		.byte	0
+ 1098 00a8 00       		.byte	0
+ 1099 00a9 0C       		.uleb128 0xc
+ 1100 00aa 8A8201   		.uleb128 0x410a
+ 1101 00ad 00       		.byte	0
+ 1102 00ae 02       		.uleb128 0x2
+ 1103 00af 18       		.uleb128 0x18
+ 1104 00b0 9142     		.uleb128 0x2111
+ 1105 00b2 18       		.uleb128 0x18
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 23
+
+
+ 1106 00b3 00       		.byte	0
+ 1107 00b4 00       		.byte	0
+ 1108 00b5 0D       		.uleb128 0xd
+ 1109 00b6 34       		.uleb128 0x34
+ 1110 00b7 00       		.byte	0
+ 1111 00b8 03       		.uleb128 0x3
+ 1112 00b9 0E       		.uleb128 0xe
+ 1113 00ba 3A       		.uleb128 0x3a
+ 1114 00bb 0B       		.uleb128 0xb
+ 1115 00bc 3B       		.uleb128 0x3b
+ 1116 00bd 0B       		.uleb128 0xb
+ 1117 00be 49       		.uleb128 0x49
+ 1118 00bf 13       		.uleb128 0x13
+ 1119 00c0 3F       		.uleb128 0x3f
+ 1120 00c1 19       		.uleb128 0x19
+ 1121 00c2 3C       		.uleb128 0x3c
+ 1122 00c3 19       		.uleb128 0x19
+ 1123 00c4 00       		.byte	0
+ 1124 00c5 00       		.byte	0
+ 1125 00c6 0E       		.uleb128 0xe
+ 1126 00c7 0F       		.uleb128 0xf
+ 1127 00c8 00       		.byte	0
+ 1128 00c9 0B       		.uleb128 0xb
+ 1129 00ca 0B       		.uleb128 0xb
+ 1130 00cb 49       		.uleb128 0x49
+ 1131 00cc 13       		.uleb128 0x13
+ 1132 00cd 00       		.byte	0
+ 1133 00ce 00       		.byte	0
+ 1134 00cf 0F       		.uleb128 0xf
+ 1135 00d0 26       		.uleb128 0x26
+ 1136 00d1 00       		.byte	0
+ 1137 00d2 49       		.uleb128 0x49
+ 1138 00d3 13       		.uleb128 0x13
+ 1139 00d4 00       		.byte	0
+ 1140 00d5 00       		.byte	0
+ 1141 00d6 10       		.uleb128 0x10
+ 1142 00d7 2E       		.uleb128 0x2e
+ 1143 00d8 00       		.byte	0
+ 1144 00d9 3F       		.uleb128 0x3f
+ 1145 00da 19       		.uleb128 0x19
+ 1146 00db 3C       		.uleb128 0x3c
+ 1147 00dc 19       		.uleb128 0x19
+ 1148 00dd 6E       		.uleb128 0x6e
+ 1149 00de 0E       		.uleb128 0xe
+ 1150 00df 03       		.uleb128 0x3
+ 1151 00e0 0E       		.uleb128 0xe
+ 1152 00e1 3A       		.uleb128 0x3a
+ 1153 00e2 0B       		.uleb128 0xb
+ 1154 00e3 3B       		.uleb128 0x3b
+ 1155 00e4 05       		.uleb128 0x5
+ 1156 00e5 00       		.byte	0
+ 1157 00e6 00       		.byte	0
+ 1158 00e7 00       		.byte	0
+ 1159              		.section	.debug_aranges,"",%progbits
+ 1160 0000 1C000000 		.4byte	0x1c
+ 1161 0004 0200     		.2byte	0x2
+ 1162 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 24
+
+
+ 1163 000a 04       		.byte	0x4
+ 1164 000b 00       		.byte	0
+ 1165 000c 0000     		.2byte	0
+ 1166 000e 0000     		.2byte	0
+ 1167 0010 00000000 		.4byte	.LFB321
+ 1168 0014 10000000 		.4byte	.LFE321-.LFB321
+ 1169 0018 00000000 		.4byte	0
+ 1170 001c 00000000 		.4byte	0
+ 1171              		.section	.debug_ranges,"",%progbits
+ 1172              	.Ldebug_ranges0:
+ 1173 0000 00000000 		.4byte	.LFB321
+ 1174 0004 10000000 		.4byte	.LFE321
+ 1175 0008 00000000 		.4byte	0
+ 1176 000c 00000000 		.4byte	0
+ 1177              		.section	.debug_line,"",%progbits
+ 1178              	.Ldebug_line0:
+ 1179 0000 FE010000 		.section	.debug_str,"MS",%progbits,1
+ 1179      0200DD01 
+ 1179      00000201 
+ 1179      FB0E0D00 
+ 1179      01010101 
+ 1180              	.LASF54:
+ 1181 0000 70726F74 		.ascii	"protBusMasterMask\000"
+ 1181      4275734D 
+ 1181      61737465 
+ 1181      724D6173 
+ 1181      6B00
+ 1182              	.LASF114:
+ 1183 0012 72756E4D 		.ascii	"runMode\000"
+ 1183      6F646500 
+ 1184              	.LASF64:
+ 1185 001a 666C6173 		.ascii	"flashCtlMainWs3Freq\000"
+ 1185      6843746C 
+ 1185      4D61696E 
+ 1185      57733346 
+ 1185      72657100 
+ 1186              	.LASF86:
+ 1187 002e 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
+ 1187      50727443 
+ 1187      6667496E 
+ 1187      4F666673 
+ 1187      657400
+ 1188              	.LASF132:
+ 1189 0041 6B696C6C 		.ascii	"killInput\000"
+ 1189      496E7075 
+ 1189      7400
+ 1190              	.LASF104:
+ 1191 004b 6970634C 		.ascii	"ipcLockStatusOffset\000"
+ 1191      6F636B53 
+ 1191      74617475 
+ 1191      734F6666 
+ 1191      73657400 
+ 1192              	.LASF30:
+ 1193 005f 63727970 		.ascii	"cryptoVersion\000"
+ 1193      746F5665 
+ 1193      7273696F 
+ 1193      6E00
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 25
+
+
+ 1194              	.LASF48:
+ 1195 006d 70657269 		.ascii	"periClockNr\000"
+ 1195      436C6F63 
+ 1195      6B4E7200 
+ 1196              	.LASF26:
+ 1197 0079 70617373 		.ascii	"passBase\000"
+ 1197      42617365 
+ 1197      00
+ 1198              	.LASF139:
+ 1199 0082 6D61696E 		.ascii	"main_cm0p.c\000"
+ 1199      5F636D30 
+ 1199      702E6300 
+ 1200              	.LASF112:
+ 1201 008e 70776D41 		.ascii	"pwmAlignment\000"
+ 1201      6C69676E 
+ 1201      6D656E74 
+ 1201      00
+ 1202              	.LASF39:
+ 1203 009b 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 1203      73497063 
+ 1203      4972714E 
+ 1203      7200
+ 1204              	.LASF3:
+ 1205 00a9 5F5F7569 		.ascii	"__uint8_t\000"
+ 1205      6E74385F 
+ 1205      7400
+ 1206              	.LASF83:
+ 1207 00b3 70657269 		.ascii	"periDiv24_5CtlOffset\000"
+ 1207      44697632 
+ 1207      345F3543 
+ 1207      746C4F66 
+ 1207      66736574 
+ 1208              	.LASF90:
+ 1209 00c8 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
+ 1209      73436D34 
+ 1209      436C6F63 
+ 1209      6B43746C 
+ 1209      4F666673 
+ 1210              	.LASF19:
+ 1211 00df 63707573 		.ascii	"cpussBase\000"
+ 1211      73426173 
+ 1211      6500
+ 1212              	.LASF68:
+ 1213 00e9 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 1213      43746C50 
+ 1213      72696F50 
+ 1213      6F7300
+ 1214              	.LASF11:
+ 1215 00f8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1215      206C6F6E 
+ 1215      6720756E 
+ 1215      7369676E 
+ 1215      65642069 
+ 1216              	.LASF111:
+ 1217 010f 636C6F63 		.ascii	"clockPrescaler\000"
+ 1217      6B507265 
+ 1217      7363616C 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 26
+
+
+ 1217      657200
+ 1218              	.LASF72:
+ 1219 011e 70657269 		.ascii	"periTrCmdOffset\000"
+ 1219      5472436D 
+ 1219      644F6666 
+ 1219      73657400 
+ 1220              	.LASF96:
+ 1221 012e 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ 1221      73537973 
+ 1221      5469636B 
+ 1221      43746C4F 
+ 1221      66667365 
+ 1222              	.LASF57:
+ 1223 0144 666C6173 		.ascii	"flashPipeRequired\000"
+ 1223      68506970 
+ 1223      65526571 
+ 1223      75697265 
+ 1223      6400
+ 1224              	.LASF61:
+ 1225 0156 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 1225      6843746C 
+ 1225      4D61696E 
+ 1225      57733046 
+ 1225      72657100 
+ 1226              	.LASF14:
+ 1227 016a 696E7431 		.ascii	"int16_t\000"
+ 1227      365F7400 
+ 1228              	.LASF10:
+ 1229 0172 6C6F6E67 		.ascii	"long long int\000"
+ 1229      206C6F6E 
+ 1229      6720696E 
+ 1229      7400
+ 1230              	.LASF2:
+ 1231 0180 7369676E 		.ascii	"signed char\000"
+ 1231      65642063 
+ 1231      68617200 
+ 1232              	.LASF77:
+ 1233 018c 70657269 		.ascii	"periDivCmdTypeSelPos\000"
+ 1233      44697643 
+ 1233      6D645479 
+ 1233      70655365 
+ 1233      6C506F73 
+ 1234              	.LASF23:
+ 1235 01a1 70726F74 		.ascii	"protBase\000"
+ 1235      42617365 
+ 1235      00
+ 1236              	.LASF35:
+ 1237 01aa 69706356 		.ascii	"ipcVersion\000"
+ 1237      65727369 
+ 1237      6F6E00
+ 1238              	.LASF97:
+ 1239 01b5 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 1239      73436D30 
+ 1239      4E6D6943 
+ 1239      746C4F66 
+ 1239      66736574 
+ 1240              	.LASF45:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 27
+
+
+ 1241 01ca 73727373 		.ascii	"srssNumClkpath\000"
+ 1241      4E756D43 
+ 1241      6C6B7061 
+ 1241      746800
+ 1242              	.LASF24:
+ 1243 01d9 6873696F 		.ascii	"hsiomBase\000"
+ 1243      6D426173 
+ 1243      6500
+ 1244              	.LASF141:
+ 1245 01e3 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
+ 1245      74635F74 
+ 1245      6370776D 
+ 1245      5F70776D 
+ 1245      5F636F6E 
+ 1246              	.LASF7:
+ 1247 01fb 6C6F6E67 		.ascii	"long int\000"
+ 1247      20696E74 
+ 1247      00
+ 1248              	.LASF55:
+ 1249 0204 63727970 		.ascii	"cryptoMemSize\000"
+ 1249      746F4D65 
+ 1249      6D53697A 
+ 1249      6500
+ 1250              	.LASF21:
+ 1251 0212 70657269 		.ascii	"periBase\000"
+ 1251      42617365 
+ 1251      00
+ 1252              	.LASF53:
+ 1253 021b 73797350 		.ascii	"sysPmSimoPresent\000"
+ 1253      6D53696D 
+ 1253      6F507265 
+ 1253      73656E74 
+ 1253      00
+ 1254              	.LASF43:
+ 1255 022c 63707573 		.ascii	"cpussFmIrq\000"
+ 1255      73466D49 
+ 1255      727100
+ 1256              	.LASF108:
+ 1257 0237 646F7562 		.ascii	"double\000"
+ 1257      6C6500
+ 1258              	.LASF82:
+ 1259 023e 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 1259      44697631 
+ 1259      365F3543 
+ 1259      746C4F66 
+ 1259      66736574 
+ 1260              	.LASF46:
+ 1261 0253 73727373 		.ascii	"srssNumPll\000"
+ 1261      4E756D50 
+ 1261      6C6C00
+ 1262              	.LASF143:
+ 1263 025e 6D61696E 		.ascii	"main\000"
+ 1263      00
+ 1264              	.LASF80:
+ 1265 0263 70657269 		.ascii	"periDiv8CtlOffset\000"
+ 1265      44697638 
+ 1265      43746C4F 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 28
+
+
+ 1265      66667365 
+ 1265      7400
+ 1266              	.LASF87:
+ 1267 0275 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ 1267      50727443 
+ 1267      66674F75 
+ 1267      744F6666 
+ 1267      73657400 
+ 1268              	.LASF20:
+ 1269 0289 666C6173 		.ascii	"flashcBase\000"
+ 1269      68634261 
+ 1269      736500
+ 1270              	.LASF8:
+ 1271 0294 5F5F7569 		.ascii	"__uint32_t\000"
+ 1271      6E743332 
+ 1271      5F7400
+ 1272              	.LASF50:
+ 1273 029f 70617373 		.ascii	"passSarChannels\000"
+ 1273      53617243 
+ 1273      68616E6E 
+ 1273      656C7300 
+ 1274              	.LASF4:
+ 1275 02af 5F5F696E 		.ascii	"__int16_t\000"
+ 1275      7431365F 
+ 1275      7400
+ 1276              	.LASF93:
+ 1277 02b9 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
+ 1277      73436D34 
+ 1277      50777243 
+ 1277      746C4F66 
+ 1277      66736574 
+ 1278              	.LASF88:
+ 1279 02ce 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 1279      50727443 
+ 1279      66675369 
+ 1279      6F4F6666 
+ 1279      73657400 
+ 1280              	.LASF40:
+ 1281 02e2 63707573 		.ascii	"cpussDwChNr\000"
+ 1281      73447743 
+ 1281      684E7200 
+ 1282              	.LASF12:
+ 1283 02ee 756E7369 		.ascii	"unsigned int\000"
+ 1283      676E6564 
+ 1283      20696E74 
+ 1283      00
+ 1284              	.LASF15:
+ 1285 02fb 75696E74 		.ascii	"uint16_t\000"
+ 1285      31365F74 
+ 1285      00
+ 1286              	.LASF73:
+ 1287 0304 70657269 		.ascii	"periTrCmdGrSelMsk\000"
+ 1287      5472436D 
+ 1287      64477253 
+ 1287      656C4D73 
+ 1287      6B00
+ 1288              	.LASF62:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 29
+
+
+ 1289 0316 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 1289      6843746C 
+ 1289      4D61696E 
+ 1289      57733146 
+ 1289      72657100 
+ 1290              	.LASF9:
+ 1291 032a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1291      20756E73 
+ 1291      69676E65 
+ 1291      6420696E 
+ 1291      7400
+ 1292              	.LASF120:
+ 1293 033c 656E6162 		.ascii	"enableCompareSwap\000"
+ 1293      6C65436F 
+ 1293      6D706172 
+ 1293      65537761 
+ 1293      7000
+ 1294              	.LASF38:
+ 1295 034e 63707573 		.ascii	"cpussIpcNr\000"
+ 1295      73497063 
+ 1295      4E7200
+ 1296              	.LASF25:
+ 1297 0359 6770696F 		.ascii	"gpioBase\000"
+ 1297      42617365 
+ 1297      00
+ 1298              	.LASF51:
+ 1299 0362 65704D6F 		.ascii	"epMonitorNr\000"
+ 1299      6E69746F 
+ 1299      724E7200 
+ 1300              	.LASF63:
+ 1301 036e 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 1301      6843746C 
+ 1301      4D61696E 
+ 1301      57733246 
+ 1301      72657100 
+ 1302              	.LASF125:
+ 1303 0382 73776170 		.ascii	"swapInputMode\000"
+ 1303      496E7075 
+ 1303      744D6F64 
+ 1303      6500
+ 1304              	.LASF74:
+ 1305 0390 70657269 		.ascii	"periTrGrOffset\000"
+ 1305      54724772 
+ 1305      4F666673 
+ 1305      657400
+ 1306              	.LASF101:
+ 1307 039f 63707573 		.ascii	"cpussRam1Ctl0\000"
+ 1307      7352616D 
+ 1307      3143746C 
+ 1307      3000
+ 1308              	.LASF131:
+ 1309 03ad 6B696C6C 		.ascii	"killInputMode\000"
+ 1309      496E7075 
+ 1309      744D6F64 
+ 1309      6500
+ 1310              	.LASF75:
+ 1311 03bb 70657269 		.ascii	"periTrGrSize\000"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 30
+
+
+ 1311      54724772 
+ 1311      53697A65 
+ 1311      00
+ 1312              	.LASF144:
+ 1313 03c8 43795F53 		.ascii	"Cy_SysEnableCM4\000"
+ 1313      7973456E 
+ 1313      61626C65 
+ 1313      434D3400 
+ 1314              	.LASF33:
+ 1315 03d8 6770696F 		.ascii	"gpioVersion\000"
+ 1315      56657273 
+ 1315      696F6E00 
+ 1316              	.LASF105:
+ 1317 03e4 63795F73 		.ascii	"cy_stc_device_t\000"
+ 1317      74635F64 
+ 1317      65766963 
+ 1317      655F7400 
+ 1318              	.LASF122:
+ 1319 03f4 696E7665 		.ascii	"invertPWMOut\000"
+ 1319      72745057 
+ 1319      4D4F7574 
+ 1319      00
+ 1320              	.LASF113:
+ 1321 0401 64656164 		.ascii	"deadTimeClocks\000"
+ 1321      54696D65 
+ 1321      436C6F63 
+ 1321      6B7300
+ 1322              	.LASF98:
+ 1323 0410 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
+ 1323      73436D34 
+ 1323      4E6D6943 
+ 1323      746C4F66 
+ 1323      66736574 
+ 1324              	.LASF94:
+ 1325 0425 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
+ 1325      73547269 
+ 1325      6D52616D 
+ 1325      43746C4F 
+ 1325      66667365 
+ 1326              	.LASF130:
+ 1327 043b 73746172 		.ascii	"startInput\000"
+ 1327      74496E70 
+ 1327      757400
+ 1328              	.LASF29:
+ 1329 0446 63707573 		.ascii	"cpussVersion\000"
+ 1329      73566572 
+ 1329      73696F6E 
+ 1329      00
+ 1330              	.LASF36:
+ 1331 0453 70657269 		.ascii	"periVersion\000"
+ 1331      56657273 
+ 1331      696F6E00 
+ 1332              	.LASF92:
+ 1333 045f 63707573 		.ascii	"cpussCm0StatusOffset\000"
+ 1333      73436D30 
+ 1333      53746174 
+ 1333      75734F66 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 31
+
+
+ 1333      66736574 
+ 1334              	.LASF17:
+ 1335 0474 73697A65 		.ascii	"sizetype\000"
+ 1335      74797065 
+ 1335      00
+ 1336              	.LASF66:
+ 1337 047d 64774368 		.ascii	"dwChOffset\000"
+ 1337      4F666673 
+ 1337      657400
+ 1338              	.LASF140:
+ 1339 0488 443A5C4D 		.ascii	"D:\\Microprocess2\\Lab8\\Lab8\\Lab8.cydsn\000"
+ 1339      6963726F 
+ 1339      70726F63 
+ 1339      65737332 
+ 1339      5C4C6162 
+ 1340              	.LASF79:
+ 1341 04ae 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 1341      44697643 
+ 1341      6D645061 
+ 1341      54797065 
+ 1341      53656C50 
+ 1342              	.LASF102:
+ 1343 04c5 63707573 		.ascii	"cpussRam2Ctl0\000"
+ 1343      7352616D 
+ 1343      3243746C 
+ 1343      3000
+ 1344              	.LASF70:
+ 1345 04d3 64775374 		.ascii	"dwStatusChIdxPos\000"
+ 1345      61747573 
+ 1345      43684964 
+ 1345      78506F73 
+ 1345      00
+ 1346              	.LASF52:
+ 1347 04e4 75646250 		.ascii	"udbPresent\000"
+ 1347      72657365 
+ 1347      6E7400
+ 1348              	.LASF32:
+ 1349 04ef 666C6173 		.ascii	"flashcVersion\000"
+ 1349      68635665 
+ 1349      7273696F 
+ 1349      6E00
+ 1350              	.LASF28:
+ 1351 04fd 63727970 		.ascii	"cryptoBase\000"
+ 1351      746F4261 
+ 1351      736500
+ 1352              	.LASF49:
+ 1353 0508 736D6966 		.ascii	"smifDeviceNr\000"
+ 1353      44657669 
+ 1353      63654E72 
+ 1353      00
+ 1354              	.LASF142:
+ 1355 0515 5F5F656E 		.ascii	"__enable_irq\000"
+ 1355      61626C65 
+ 1355      5F697271 
+ 1355      00
+ 1356              	.LASF110:
+ 1357 0522 70776D4D 		.ascii	"pwmMode\000"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 32
+
+
+ 1357      6F646500 
+ 1358              	.LASF107:
+ 1359 052a 666C6F61 		.ascii	"float\000"
+ 1359      7400
+ 1360              	.LASF71:
+ 1361 0530 64775374 		.ascii	"dwStatusChIdxMsk\000"
+ 1361      61747573 
+ 1361      43684964 
+ 1361      784D736B 
+ 1361      00
+ 1362              	.LASF136:
+ 1363 0541 63795F64 		.ascii	"cy_device\000"
+ 1363      65766963 
+ 1363      6500
+ 1364              	.LASF99:
+ 1365 054b 63707573 		.ascii	"cpussRomCtl\000"
+ 1365      73526F6D 
+ 1365      43746C00 
+ 1366              	.LASF69:
+ 1367 0557 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 1367      43746C50 
+ 1367      7265656D 
+ 1367      70746162 
+ 1367      6C65506F 
+ 1368              	.LASF124:
+ 1369 056d 6B696C6C 		.ascii	"killMode\000"
+ 1369      4D6F6465 
+ 1369      00
+ 1370              	.LASF22:
+ 1371 0576 75646242 		.ascii	"udbBase\000"
+ 1371      61736500 
+ 1372              	.LASF109:
+ 1373 057e 5F426F6F 		.ascii	"_Bool\000"
+ 1373      6C00
+ 1374              	.LASF1:
+ 1375 0584 756E7369 		.ascii	"unsigned char\000"
+ 1375      676E6564 
+ 1375      20636861 
+ 1375      7200
+ 1376              	.LASF65:
+ 1377 0592 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
+ 1377      6843746C 
+ 1377      4D61696E 
+ 1377      57733446 
+ 1377      72657100 
+ 1378              	.LASF0:
+ 1379 05a6 73686F72 		.ascii	"short int\000"
+ 1379      7420696E 
+ 1379      7400
+ 1380              	.LASF76:
+ 1381 05b0 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 1381      44697643 
+ 1381      6D644469 
+ 1381      7653656C 
+ 1381      4D736B00 
+ 1382              	.LASF117:
+ 1383 05c4 656E6162 		.ascii	"enablePeriodSwap\000"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 33
+
+
+ 1383      6C655065 
+ 1383      72696F64 
+ 1383      53776170 
+ 1383      00
+ 1384              	.LASF126:
+ 1385 05d5 73776170 		.ascii	"swapInput\000"
+ 1385      496E7075 
+ 1385      7400
+ 1386              	.LASF47:
+ 1387 05df 73727373 		.ascii	"srssNumHfroot\000"
+ 1387      4E756D48 
+ 1387      66726F6F 
+ 1387      7400
+ 1388              	.LASF60:
+ 1389 05ed 666C6173 		.ascii	"flashEraseDelay\000"
+ 1389      68457261 
+ 1389      73654465 
+ 1389      6C617900 
+ 1390              	.LASF16:
+ 1391 05fd 75696E74 		.ascii	"uint32_t\000"
+ 1391      33325F74 
+ 1391      00
+ 1392              	.LASF138:
+ 1393 0606 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1393      43313120 
+ 1393      352E342E 
+ 1393      31203230 
+ 1393      31363036 
+ 1394 0639 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1394      20726576 
+ 1394      6973696F 
+ 1394      6E203233 
+ 1394      37373135 
+ 1395 066c 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1395      67202D66 
+ 1395      66756E63 
+ 1395      74696F6E 
+ 1395      2D736563 
+ 1396              	.LASF118:
+ 1397 0698 636F6D70 		.ascii	"compare0\000"
+ 1397      61726530 
+ 1397      00
+ 1398              	.LASF18:
+ 1399 06a1 6C6F6E67 		.ascii	"long double\000"
+ 1399      20646F75 
+ 1399      626C6500 
+ 1400              	.LASF106:
+ 1401 06ad 63686172 		.ascii	"char\000"
+ 1401      00
+ 1402              	.LASF134:
+ 1403 06b2 636F756E 		.ascii	"countInput\000"
+ 1403      74496E70 
+ 1403      757400
+ 1404              	.LASF37:
+ 1405 06bd 70726F74 		.ascii	"protVersion\000"
+ 1405      56657273 
+ 1405      696F6E00 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 34
+
+
+ 1406              	.LASF100:
+ 1407 06c9 63707573 		.ascii	"cpussRam0Ctl0\000"
+ 1407      7352616D 
+ 1407      3043746C 
+ 1407      3000
+ 1408              	.LASF5:
+ 1409 06d7 5F5F7569 		.ascii	"__uint16_t\000"
+ 1409      6E743136 
+ 1409      5F7400
+ 1410              	.LASF137:
+ 1411 06e2 50574D5F 		.ascii	"PWM_config\000"
+ 1411      636F6E66 
+ 1411      696700
+ 1412              	.LASF81:
+ 1413 06ed 70657269 		.ascii	"periDiv16CtlOffset\000"
+ 1413      44697631 
+ 1413      3643746C 
+ 1413      4F666673 
+ 1413      657400
+ 1414              	.LASF34:
+ 1415 0700 6873696F 		.ascii	"hsiomVersion\000"
+ 1415      6D566572 
+ 1415      73696F6E 
+ 1415      00
+ 1416              	.LASF121:
+ 1417 070d 696E7465 		.ascii	"interruptSources\000"
+ 1417      72727570 
+ 1417      74536F75 
+ 1417      72636573 
+ 1417      00
+ 1418              	.LASF128:
+ 1419 071e 72656C6F 		.ascii	"reloadInput\000"
+ 1419      6164496E 
+ 1419      70757400 
+ 1420              	.LASF6:
+ 1421 072a 73686F72 		.ascii	"short unsigned int\000"
+ 1421      7420756E 
+ 1421      7369676E 
+ 1421      65642069 
+ 1421      6E7400
+ 1422              	.LASF67:
+ 1423 073d 64774368 		.ascii	"dwChSize\000"
+ 1423      53697A65 
+ 1423      00
+ 1424              	.LASF103:
+ 1425 0746 69706353 		.ascii	"ipcStructSize\000"
+ 1425      74727563 
+ 1425      7453697A 
+ 1425      6500
+ 1426              	.LASF129:
+ 1427 0754 73746172 		.ascii	"startInputMode\000"
+ 1427      74496E70 
+ 1427      75744D6F 
+ 1427      646500
+ 1428              	.LASF42:
+ 1429 0763 63707573 		.ascii	"cpussIpc0Irq\000"
+ 1429      73497063 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 35
+
+
+ 1429      30497271 
+ 1429      00
+ 1430              	.LASF115:
+ 1431 0770 70657269 		.ascii	"period0\000"
+ 1431      6F643000 
+ 1432              	.LASF116:
+ 1433 0778 70657269 		.ascii	"period1\000"
+ 1433      6F643100 
+ 1434              	.LASF119:
+ 1435 0780 636F6D70 		.ascii	"compare1\000"
+ 1435      61726531 
+ 1435      00
+ 1436              	.LASF89:
+ 1437 0789 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
+ 1437      73436D30 
+ 1437      436C6F63 
+ 1437      6B43746C 
+ 1437      4F666673 
+ 1438              	.LASF85:
+ 1439 07a0 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+ 1439      50727443 
+ 1439      66674F66 
+ 1439      66736574 
+ 1439      00
+ 1440              	.LASF44:
+ 1441 07b1 63707573 		.ascii	"cpussNotConnectedIrq\000"
+ 1441      734E6F74 
+ 1441      436F6E6E 
+ 1441      65637465 
+ 1441      64497271 
+ 1442              	.LASF123:
+ 1443 07c6 696E7665 		.ascii	"invertPWMOutN\000"
+ 1443      72745057 
+ 1443      4D4F7574 
+ 1443      4E00
+ 1444              	.LASF58:
+ 1445 07d4 666C6173 		.ascii	"flashWriteDelay\000"
+ 1445      68577269 
+ 1445      74654465 
+ 1445      6C617900 
+ 1446              	.LASF13:
+ 1447 07e4 75696E74 		.ascii	"uint8_t\000"
+ 1447      385F7400 
+ 1448              	.LASF91:
+ 1449 07ec 63707573 		.ascii	"cpussCm4StatusOffset\000"
+ 1449      73436D34 
+ 1449      53746174 
+ 1449      75734F66 
+ 1449      66736574 
+ 1450              	.LASF84:
+ 1451 0801 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
+ 1451      50727449 
+ 1451      6E747243 
+ 1451      66674F66 
+ 1451      66736574 
+ 1452              	.LASF135:
+ 1453 0816 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cc4d5aYZ.s 			page 36
+
+
+ 1453      74635F74 
+ 1453      6370776D 
+ 1453      5F70776D 
+ 1453      5F636F6E 
+ 1454              	.LASF127:
+ 1455 0830 72656C6F 		.ascii	"reloadInputMode\000"
+ 1455      6164496E 
+ 1455      7075744D 
+ 1455      6F646500 
+ 1456              	.LASF95:
+ 1457 0840 63707573 		.ascii	"cpussTrimRomCtlOffset\000"
+ 1457      73547269 
+ 1457      6D526F6D 
+ 1457      43746C4F 
+ 1457      66667365 
+ 1458              	.LASF133:
+ 1459 0856 636F756E 		.ascii	"countInputMode\000"
+ 1459      74496E70 
+ 1459      75744D6F 
+ 1459      646500
+ 1460              	.LASF31:
+ 1461 0865 64775665 		.ascii	"dwVersion\000"
+ 1461      7273696F 
+ 1461      6E00
+ 1462              	.LASF27:
+ 1463 086f 69706342 		.ascii	"ipcBase\000"
+ 1463      61736500 
+ 1464              	.LASF78:
+ 1465 0877 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
+ 1465      44697643 
+ 1465      6D645061 
+ 1465      44697653 
+ 1465      656C506F 
+ 1466              	.LASF59:
+ 1467 088d 666C6173 		.ascii	"flashProgramDelay\000"
+ 1467      6850726F 
+ 1467      6772616D 
+ 1467      44656C61 
+ 1467      7900
+ 1468              	.LASF41:
+ 1469 089f 63707573 		.ascii	"cpussFlashPaSize\000"
+ 1469      73466C61 
+ 1469      73685061 
+ 1469      53697A65 
+ 1469      00
+ 1470              	.LASF56:
+ 1471 08b0 666C6173 		.ascii	"flashRwwRequired\000"
+ 1471      68527777 
+ 1471      52657175 
+ 1471      69726564 
+ 1471      00
+ 1472              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

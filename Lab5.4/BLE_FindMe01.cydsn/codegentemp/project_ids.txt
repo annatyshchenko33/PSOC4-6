@@ -1,0 +1,6 @@
+D:\Microprocess2\Lab5.4\BLE_FindMe01.cydsn\BLE_FindMe01.cyprj|54f4c91b-f0dc-437a-9763-87e4aefa82c5
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c7fe18c1-4410-4a7c-8128-b52f0cc82583
+C:\Users\Lenovo\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|a5bc712f-b127-4a53-a385-f5d64e7e91d7
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|cc7848dc-4471-410d-b0ff-55506c6b0585
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ebd1f82f-316c-4694-92bc-f9c5fdd7be23
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|ab1cd440-29f4-428f-9cac-f40268fa5f45

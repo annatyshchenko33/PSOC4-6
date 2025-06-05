@@ -1,0 +1,6 @@
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3a56c516-6711-4189-9fd7-3611f4d3412b
+C:\Users\Lenovo\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|2a0141ab-8462-49bb-bd82-13f923b999c3
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9d0ce8c9-a796-4023-95d2-74d001d06c9e
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|bec879fa-e186-44d9-a26f-469a504728e4
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e1abbb58-d7cb-4285-99b4-fd4957fe5473
+D:\Microprocess2\Lab8\Lab8\Lab8.cydsn\Lab8.cyprj|1e9413f4-4f4e-45fb-b465-9f6b281638d3

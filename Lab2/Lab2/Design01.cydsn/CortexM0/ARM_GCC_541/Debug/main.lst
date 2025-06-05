@@ -1,0 +1,1002 @@
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.GPIOIsrHandler,"ax",%progbits
+  20              		.align	2
+  21              		.global	GPIOIsrHandler
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	GPIOIsrHandler, %function
+  25              	GPIOIsrHandler:
+  26              	.LFB33:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #define DEFAULT_PRIORITY                    (3u)
+  14:main.c        **** #define HIGHER_PRIORITY                     (2u)
+  15:main.c        **** #define LIGHT_OFF                       (1u)
+  16:main.c        **** #define LIGHT_ON                        (0u)
+  17:main.c        **** /* Interrupt prototypes */
+  18:main.c        **** CY_ISR_PROTO(GPIOIsrHandler);
+  19:main.c        **** CY_ISR_PROTO(GPIOIsrHandler_0);
+  20:main.c        **** 
+  21:main.c        **** int8 K=1;
+  22:main.c        **** int main (void){
+  23:main.c        **** CyGlobalIntEnable;
+  24:main.c        ****     Clock_Start();
+  25:main.c        ****     PWM_Stop();
+  26:main.c        ****     Pin_Green_Write(LIGHT_ON);
+  27:main.c        ****     Pin_Blue_Write(LIGHT_OFF);
+  28:main.c        ****     
+  29:main.c        ****     for(;;){
+  30:main.c        ****     if (K==1){
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 2
+
+
+  31:main.c        ****     isr_GPIO_StartEx(GPIOIsrHandler);
+  32:main.c        ****     isr_GPIO_SetPriority(DEFAULT_PRIORITY);
+  33:main.c        ****     };
+  34:main.c        ****     if (K==0){
+  35:main.c        ****     isr_GPIO_StartEx(GPIOIsrHandler_0);
+  36:main.c        ****     isr_GPIO_SetPriority(DEFAULT_PRIORITY);
+  37:main.c        ****     };
+  38:main.c        ****     }
+  39:main.c        ****     
+  40:main.c        **** }
+  41:main.c        **** 
+  42:main.c        **** CY_ISR(GPIOIsrHandler){
+  28              		.loc 1 42 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  43:main.c        ****  Pin_Green_Write(LIGHT_OFF);
+  36              		.loc 1 43 0
+  37 0002 0120     		movs	r0, #1
+  38 0004 FFF7FEFF 		bl	Pin_Green_Write
+  39              	.LVL0:
+  44:main.c        ****     Pin_Blue_Write(LIGHT_OFF);
+  40              		.loc 1 44 0
+  41 0008 0120     		movs	r0, #1
+  42 000a FFF7FEFF 		bl	Pin_Blue_Write
+  43              	.LVL1:
+  45:main.c        ****     PWM_Start();
+  44              		.loc 1 45 0
+  45 000e FFF7FEFF 		bl	PWM_Start
+  46              	.LVL2:
+  46:main.c        ****     isr_GPIO_ClearPending();
+  47              		.loc 1 46 0
+  48 0012 FFF7FEFF 		bl	isr_GPIO_ClearPending
+  49              	.LVL3:
+  47:main.c        ****     Pin_SW2_ClearInterrupt();
+  50              		.loc 1 47 0
+  51 0016 FFF7FEFF 		bl	Pin_SW2_ClearInterrupt
+  52              	.LVL4:
+  48:main.c        ****     K=0;
+  53              		.loc 1 48 0
+  54 001a 0022     		movs	r2, #0
+  55 001c 014B     		ldr	r3, .L2
+  56 001e 1A70     		strb	r2, [r3]
+  49:main.c        **** }
+  57              		.loc 1 49 0
+  58              		@ sp needed
+  59 0020 10BD     		pop	{r4, pc}
+  60              	.L3:
+  61 0022 C046     		.align	2
+  62              	.L2:
+  63 0024 00000000 		.word	.LANCHOR0
+  64              		.cfi_endproc
+  65              	.LFE33:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 3
+
+
+  66              		.size	GPIOIsrHandler, .-GPIOIsrHandler
+  67              		.section	.text.GPIOIsrHandler_0,"ax",%progbits
+  68              		.align	2
+  69              		.global	GPIOIsrHandler_0
+  70              		.code	16
+  71              		.thumb_func
+  72              		.type	GPIOIsrHandler_0, %function
+  73              	GPIOIsrHandler_0:
+  74              	.LFB34:
+  50:main.c        **** 
+  51:main.c        **** 
+  52:main.c        **** CY_ISR(GPIOIsrHandler_0){
+  75              		.loc 1 52 0
+  76              		.cfi_startproc
+  77              		@ args = 0, pretend = 0, frame = 0
+  78              		@ frame_needed = 0, uses_anonymous_args = 0
+  79 0000 10B5     		push	{r4, lr}
+  80              		.cfi_def_cfa_offset 8
+  81              		.cfi_offset 4, -8
+  82              		.cfi_offset 14, -4
+  53:main.c        ****  Pin_Green_Write(LIGHT_ON);
+  83              		.loc 1 53 0
+  84 0002 0020     		movs	r0, #0
+  85 0004 FFF7FEFF 		bl	Pin_Green_Write
+  86              	.LVL5:
+  54:main.c        ****     Pin_Blue_Write(LIGHT_ON);
+  87              		.loc 1 54 0
+  88 0008 0020     		movs	r0, #0
+  89 000a FFF7FEFF 		bl	Pin_Blue_Write
+  90              	.LVL6:
+  55:main.c        ****     PWM_Stop();
+  91              		.loc 1 55 0
+  92 000e FFF7FEFF 		bl	PWM_Stop
+  93              	.LVL7:
+  56:main.c        ****     isr_GPIO_ClearPending();
+  94              		.loc 1 56 0
+  95 0012 FFF7FEFF 		bl	isr_GPIO_ClearPending
+  96              	.LVL8:
+  57:main.c        ****     Pin_SW2_ClearInterrupt();
+  97              		.loc 1 57 0
+  98 0016 FFF7FEFF 		bl	Pin_SW2_ClearInterrupt
+  99              	.LVL9:
+  58:main.c        ****     K=1;
+ 100              		.loc 1 58 0
+ 101 001a 0122     		movs	r2, #1
+ 102 001c 014B     		ldr	r3, .L5
+ 103 001e 1A70     		strb	r2, [r3]
+  59:main.c        **** }...
+ 104              		.loc 1 59 0
+ 105              		@ sp needed
+ 106 0020 10BD     		pop	{r4, pc}
+ 107              	.L6:
+ 108 0022 C046     		.align	2
+ 109              	.L5:
+ 110 0024 00000000 		.word	.LANCHOR0
+ 111              		.cfi_endproc
+ 112              	.LFE34:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 4
+
+
+ 113              		.size	GPIOIsrHandler_0, .-GPIOIsrHandler_0
+ 114              		.section	.text.main,"ax",%progbits
+ 115              		.align	2
+ 116              		.global	main
+ 117              		.code	16
+ 118              		.thumb_func
+ 119              		.type	main, %function
+ 120              	main:
+ 121              	.LFB32:
+  22:main.c        **** int main (void){
+ 122              		.loc 1 22 0
+ 123              		.cfi_startproc
+ 124              		@ Volatile: function does not return.
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127 0000 10B5     		push	{r4, lr}
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 4, -8
+ 130              		.cfi_offset 14, -4
+  23:main.c        **** CyGlobalIntEnable;
+ 131              		.loc 1 23 0
+ 132              		.syntax divided
+ 133              	@ 23 "main.c" 1
+ 134 0002 62B6     		CPSIE   i
+ 135              	@ 0 "" 2
+  24:main.c        ****     Clock_Start();
+ 136              		.loc 1 24 0
+ 137              		.thumb
+ 138              		.syntax unified
+ 139 0004 FFF7FEFF 		bl	Clock_Start
+ 140              	.LVL10:
+  25:main.c        ****     PWM_Stop();
+ 141              		.loc 1 25 0
+ 142 0008 FFF7FEFF 		bl	PWM_Stop
+ 143              	.LVL11:
+  26:main.c        ****     Pin_Green_Write(LIGHT_ON);
+ 144              		.loc 1 26 0
+ 145 000c 0020     		movs	r0, #0
+ 146 000e FFF7FEFF 		bl	Pin_Green_Write
+ 147              	.LVL12:
+  27:main.c        ****     Pin_Blue_Write(LIGHT_OFF);
+ 148              		.loc 1 27 0
+ 149 0012 0120     		movs	r0, #1
+ 150 0014 FFF7FEFF 		bl	Pin_Blue_Write
+ 151              	.LVL13:
+ 152              	.L9:
+  30:main.c        ****     if (K==1){
+ 153              		.loc 1 30 0
+ 154 0018 0B4B     		ldr	r3, .L11
+ 155 001a 1B78     		ldrb	r3, [r3]
+ 156 001c 5BB2     		sxtb	r3, r3
+ 157 001e 012B     		cmp	r3, #1
+ 158 0020 05D1     		bne	.L8
+  31:main.c        ****     isr_GPIO_StartEx(GPIOIsrHandler);
+ 159              		.loc 1 31 0
+ 160 0022 0A48     		ldr	r0, .L11+4
+ 161 0024 FFF7FEFF 		bl	isr_GPIO_StartEx
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 5
+
+
+ 162              	.LVL14:
+  32:main.c        ****     isr_GPIO_SetPriority(DEFAULT_PRIORITY);
+ 163              		.loc 1 32 0
+ 164 0028 0320     		movs	r0, #3
+ 165 002a FFF7FEFF 		bl	isr_GPIO_SetPriority
+ 166              	.LVL15:
+ 167              	.L8:
+  34:main.c        ****     if (K==0){
+ 168              		.loc 1 34 0
+ 169 002e 064B     		ldr	r3, .L11
+ 170 0030 1B78     		ldrb	r3, [r3]
+ 171 0032 5BB2     		sxtb	r3, r3
+ 172 0034 002B     		cmp	r3, #0
+ 173 0036 EFD1     		bne	.L9
+  35:main.c        ****     isr_GPIO_StartEx(GPIOIsrHandler_0);
+ 174              		.loc 1 35 0
+ 175 0038 0548     		ldr	r0, .L11+8
+ 176 003a FFF7FEFF 		bl	isr_GPIO_StartEx
+ 177              	.LVL16:
+  36:main.c        ****     isr_GPIO_SetPriority(DEFAULT_PRIORITY);
+ 178              		.loc 1 36 0
+ 179 003e 0320     		movs	r0, #3
+ 180 0040 FFF7FEFF 		bl	isr_GPIO_SetPriority
+ 181              	.LVL17:
+ 182 0044 E8E7     		b	.L9
+ 183              	.L12:
+ 184 0046 C046     		.align	2
+ 185              	.L11:
+ 186 0048 00000000 		.word	.LANCHOR0
+ 187 004c 00000000 		.word	GPIOIsrHandler
+ 188 0050 00000000 		.word	GPIOIsrHandler_0
+ 189              		.cfi_endproc
+ 190              	.LFE32:
+ 191              		.size	main, .-main
+ 192              		.global	K
+ 193              		.data
+ 194              		.set	.LANCHOR0,. + 0
+ 195              		.type	K, %object
+ 196              		.size	K, 1
+ 197              	K:
+ 198 0000 01       		.byte	1
+ 199              		.text
+ 200              	.Letext0:
+ 201              		.file 2 "Generated_Source\\PSoC4/Pin_Green.h"
+ 202              		.file 3 "Generated_Source\\PSoC4/Pin_Blue.h"
+ 203              		.file 4 "Generated_Source\\PSoC4/PWM.h"
+ 204              		.file 5 "Generated_Source\\PSoC4/isr_GPIO.h"
+ 205              		.file 6 "Generated_Source\\PSoC4/Pin_SW2.h"
+ 206              		.file 7 "Generated_Source\\PSoC4/Clock.h"
+ 207              		.file 8 "Generated_Source\\PSoC4/cytypes.h"
+ 208              		.section	.debug_info,"",%progbits
+ 209              	.Ldebug_info0:
+ 210 0000 5B020000 		.4byte	0x25b
+ 211 0004 0400     		.2byte	0x4
+ 212 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 213 000a 04       		.byte	0x4
+ 214 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 6
+
+
+ 215 000c C4000000 		.4byte	.LASF25
+ 216 0010 0C       		.byte	0xc
+ 217 0011 80010000 		.4byte	.LASF26
+ 218 0015 C5010000 		.4byte	.LASF27
+ 219 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 220 001d 00000000 		.4byte	0
+ 221 0021 00000000 		.4byte	.Ldebug_line0
+ 222 0025 02       		.uleb128 0x2
+ 223 0026 01       		.byte	0x1
+ 224 0027 06       		.byte	0x6
+ 225 0028 19020000 		.4byte	.LASF0
+ 226 002c 02       		.uleb128 0x2
+ 227 002d 01       		.byte	0x1
+ 228 002e 08       		.byte	0x8
+ 229 002f 15000000 		.4byte	.LASF1
+ 230 0033 02       		.uleb128 0x2
+ 231 0034 02       		.byte	0x2
+ 232 0035 05       		.byte	0x5
+ 233 0036 B1010000 		.4byte	.LASF2
+ 234 003a 02       		.uleb128 0x2
+ 235 003b 02       		.byte	0x2
+ 236 003c 07       		.byte	0x7
+ 237 003d 5B000000 		.4byte	.LASF3
+ 238 0041 02       		.uleb128 0x2
+ 239 0042 04       		.byte	0x4
+ 240 0043 05       		.byte	0x5
+ 241 0044 04020000 		.4byte	.LASF4
+ 242 0048 02       		.uleb128 0x2
+ 243 0049 04       		.byte	0x4
+ 244 004a 07       		.byte	0x7
+ 245 004b 49000000 		.4byte	.LASF5
+ 246 004f 02       		.uleb128 0x2
+ 247 0050 08       		.byte	0x8
+ 248 0051 05       		.byte	0x5
+ 249 0052 72010000 		.4byte	.LASF6
+ 250 0056 02       		.uleb128 0x2
+ 251 0057 08       		.byte	0x8
+ 252 0058 07       		.byte	0x7
+ 253 0059 9D000000 		.4byte	.LASF7
+ 254 005d 03       		.uleb128 0x3
+ 255 005e 04       		.byte	0x4
+ 256 005f 05       		.byte	0x5
+ 257 0060 696E7400 		.ascii	"int\000"
+ 258 0064 02       		.uleb128 0x2
+ 259 0065 04       		.byte	0x4
+ 260 0066 07       		.byte	0x7
+ 261 0067 90000000 		.4byte	.LASF8
+ 262 006b 04       		.uleb128 0x4
+ 263 006c 8B000000 		.4byte	.LASF28
+ 264 0070 08       		.byte	0x8
+ 265 0071 FF01     		.2byte	0x1ff
+ 266 0073 25000000 		.4byte	0x25
+ 267 0077 02       		.uleb128 0x2
+ 268 0078 04       		.byte	0x4
+ 269 0079 04       		.byte	0x4
+ 270 007a 0F000000 		.4byte	.LASF9
+ 271 007e 02       		.uleb128 0x2
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 7
+
+
+ 272 007f 08       		.byte	0x8
+ 273 0080 04       		.byte	0x4
+ 274 0081 6E000000 		.4byte	.LASF10
+ 275 0085 02       		.uleb128 0x2
+ 276 0086 01       		.byte	0x1
+ 277 0087 08       		.byte	0x8
+ 278 0088 87010000 		.4byte	.LASF11
+ 279 008c 02       		.uleb128 0x2
+ 280 008d 08       		.byte	0x8
+ 281 008e 04       		.byte	0x4
+ 282 008f 0D020000 		.4byte	.LASF12
+ 283 0093 02       		.uleb128 0x2
+ 284 0094 04       		.byte	0x4
+ 285 0095 07       		.byte	0x7
+ 286 0096 52010000 		.4byte	.LASF13
+ 287 009a 05       		.uleb128 0x5
+ 288 009b 8C010000 		.4byte	.LASF14
+ 289 009f 01       		.byte	0x1
+ 290 00a0 2A       		.byte	0x2a
+ 291 00a1 00000000 		.4byte	.LFB33
+ 292 00a5 28000000 		.4byte	.LFE33-.LFB33
+ 293 00a9 01       		.uleb128 0x1
+ 294 00aa 9C       		.byte	0x9c
+ 295 00ab F1000000 		.4byte	0xf1
+ 296 00af 06       		.uleb128 0x6
+ 297 00b0 08000000 		.4byte	.LVL0
+ 298 00b4 F9010000 		.4byte	0x1f9
+ 299 00b8 C2000000 		.4byte	0xc2
+ 300 00bc 07       		.uleb128 0x7
+ 301 00bd 01       		.uleb128 0x1
+ 302 00be 50       		.byte	0x50
+ 303 00bf 01       		.uleb128 0x1
+ 304 00c0 31       		.byte	0x31
+ 305 00c1 00       		.byte	0
+ 306 00c2 06       		.uleb128 0x6
+ 307 00c3 0E000000 		.4byte	.LVL1
+ 308 00c7 04020000 		.4byte	0x204
+ 309 00cb D5000000 		.4byte	0xd5
+ 310 00cf 07       		.uleb128 0x7
+ 311 00d0 01       		.uleb128 0x1
+ 312 00d1 50       		.byte	0x50
+ 313 00d2 01       		.uleb128 0x1
+ 314 00d3 31       		.byte	0x31
+ 315 00d4 00       		.byte	0
+ 316 00d5 08       		.uleb128 0x8
+ 317 00d6 12000000 		.4byte	.LVL2
+ 318 00da 0F020000 		.4byte	0x20f
+ 319 00de 08       		.uleb128 0x8
+ 320 00df 16000000 		.4byte	.LVL3
+ 321 00e3 1B020000 		.4byte	0x21b
+ 322 00e7 08       		.uleb128 0x8
+ 323 00e8 1A000000 		.4byte	.LVL4
+ 324 00ec 26020000 		.4byte	0x226
+ 325 00f0 00       		.byte	0
+ 326 00f1 05       		.uleb128 0x5
+ 327 00f2 7A000000 		.4byte	.LASF15
+ 328 00f6 01       		.byte	0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 8
+
+
+ 329 00f7 34       		.byte	0x34
+ 330 00f8 00000000 		.4byte	.LFB34
+ 331 00fc 28000000 		.4byte	.LFE34-.LFB34
+ 332 0100 01       		.uleb128 0x1
+ 333 0101 9C       		.byte	0x9c
+ 334 0102 48010000 		.4byte	0x148
+ 335 0106 06       		.uleb128 0x6
+ 336 0107 08000000 		.4byte	.LVL5
+ 337 010b F9010000 		.4byte	0x1f9
+ 338 010f 19010000 		.4byte	0x119
+ 339 0113 07       		.uleb128 0x7
+ 340 0114 01       		.uleb128 0x1
+ 341 0115 50       		.byte	0x50
+ 342 0116 01       		.uleb128 0x1
+ 343 0117 30       		.byte	0x30
+ 344 0118 00       		.byte	0
+ 345 0119 06       		.uleb128 0x6
+ 346 011a 0E000000 		.4byte	.LVL6
+ 347 011e 04020000 		.4byte	0x204
+ 348 0122 2C010000 		.4byte	0x12c
+ 349 0126 07       		.uleb128 0x7
+ 350 0127 01       		.uleb128 0x1
+ 351 0128 50       		.byte	0x50
+ 352 0129 01       		.uleb128 0x1
+ 353 012a 30       		.byte	0x30
+ 354 012b 00       		.byte	0
+ 355 012c 08       		.uleb128 0x8
+ 356 012d 12000000 		.4byte	.LVL7
+ 357 0131 31020000 		.4byte	0x231
+ 358 0135 08       		.uleb128 0x8
+ 359 0136 16000000 		.4byte	.LVL8
+ 360 013a 1B020000 		.4byte	0x21b
+ 361 013e 08       		.uleb128 0x8
+ 362 013f 1A000000 		.4byte	.LVL9
+ 363 0143 26020000 		.4byte	0x226
+ 364 0147 00       		.byte	0
+ 365 0148 09       		.uleb128 0x9
+ 366 0149 75000000 		.4byte	.LASF29
+ 367 014d 01       		.byte	0x1
+ 368 014e 16       		.byte	0x16
+ 369 014f 5D000000 		.4byte	0x5d
+ 370 0153 00000000 		.4byte	.LFB32
+ 371 0157 54000000 		.4byte	.LFE32-.LFB32
+ 372 015b 01       		.uleb128 0x1
+ 373 015c 9C       		.byte	0x9c
+ 374 015d EA010000 		.4byte	0x1ea
+ 375 0161 08       		.uleb128 0x8
+ 376 0162 08000000 		.4byte	.LVL10
+ 377 0166 3D020000 		.4byte	0x23d
+ 378 016a 08       		.uleb128 0x8
+ 379 016b 0C000000 		.4byte	.LVL11
+ 380 016f 31020000 		.4byte	0x231
+ 381 0173 06       		.uleb128 0x6
+ 382 0174 12000000 		.4byte	.LVL12
+ 383 0178 F9010000 		.4byte	0x1f9
+ 384 017c 86010000 		.4byte	0x186
+ 385 0180 07       		.uleb128 0x7
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 9
+
+
+ 386 0181 01       		.uleb128 0x1
+ 387 0182 50       		.byte	0x50
+ 388 0183 01       		.uleb128 0x1
+ 389 0184 30       		.byte	0x30
+ 390 0185 00       		.byte	0
+ 391 0186 06       		.uleb128 0x6
+ 392 0187 18000000 		.4byte	.LVL13
+ 393 018b 04020000 		.4byte	0x204
+ 394 018f 99010000 		.4byte	0x199
+ 395 0193 07       		.uleb128 0x7
+ 396 0194 01       		.uleb128 0x1
+ 397 0195 50       		.byte	0x50
+ 398 0196 01       		.uleb128 0x1
+ 399 0197 31       		.byte	0x31
+ 400 0198 00       		.byte	0
+ 401 0199 06       		.uleb128 0x6
+ 402 019a 28000000 		.4byte	.LVL14
+ 403 019e 48020000 		.4byte	0x248
+ 404 01a2 B0010000 		.4byte	0x1b0
+ 405 01a6 07       		.uleb128 0x7
+ 406 01a7 01       		.uleb128 0x1
+ 407 01a8 50       		.byte	0x50
+ 408 01a9 05       		.uleb128 0x5
+ 409 01aa 03       		.byte	0x3
+ 410 01ab 00000000 		.4byte	GPIOIsrHandler
+ 411 01af 00       		.byte	0
+ 412 01b0 06       		.uleb128 0x6
+ 413 01b1 2E000000 		.4byte	.LVL15
+ 414 01b5 53020000 		.4byte	0x253
+ 415 01b9 C3010000 		.4byte	0x1c3
+ 416 01bd 07       		.uleb128 0x7
+ 417 01be 01       		.uleb128 0x1
+ 418 01bf 50       		.byte	0x50
+ 419 01c0 01       		.uleb128 0x1
+ 420 01c1 33       		.byte	0x33
+ 421 01c2 00       		.byte	0
+ 422 01c3 06       		.uleb128 0x6
+ 423 01c4 3E000000 		.4byte	.LVL16
+ 424 01c8 48020000 		.4byte	0x248
+ 425 01cc DA010000 		.4byte	0x1da
+ 426 01d0 07       		.uleb128 0x7
+ 427 01d1 01       		.uleb128 0x1
+ 428 01d2 50       		.byte	0x50
+ 429 01d3 05       		.uleb128 0x5
+ 430 01d4 03       		.byte	0x3
+ 431 01d5 00000000 		.4byte	GPIOIsrHandler_0
+ 432 01d9 00       		.byte	0
+ 433 01da 0A       		.uleb128 0xa
+ 434 01db 44000000 		.4byte	.LVL17
+ 435 01df 53020000 		.4byte	0x253
+ 436 01e3 07       		.uleb128 0x7
+ 437 01e4 01       		.uleb128 0x1
+ 438 01e5 50       		.byte	0x50
+ 439 01e6 01       		.uleb128 0x1
+ 440 01e7 33       		.byte	0x33
+ 441 01e8 00       		.byte	0
+ 442 01e9 00       		.byte	0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 10
+
+
+ 443 01ea 0B       		.uleb128 0xb
+ 444 01eb 4B00     		.ascii	"K\000"
+ 445 01ed 01       		.byte	0x1
+ 446 01ee 15       		.byte	0x15
+ 447 01ef 6B000000 		.4byte	0x6b
+ 448 01f3 05       		.uleb128 0x5
+ 449 01f4 03       		.byte	0x3
+ 450 01f5 00000000 		.4byte	K
+ 451 01f9 0C       		.uleb128 0xc
+ 452 01fa B4000000 		.4byte	.LASF16
+ 453 01fe B4000000 		.4byte	.LASF16
+ 454 0202 02       		.byte	0x2
+ 455 0203 33       		.byte	0x33
+ 456 0204 0C       		.uleb128 0xc
+ 457 0205 00000000 		.4byte	.LASF17
+ 458 0209 00000000 		.4byte	.LASF17
+ 459 020d 03       		.byte	0x3
+ 460 020e 33       		.byte	0x33
+ 461 020f 0D       		.uleb128 0xd
+ 462 0210 BB010000 		.4byte	.LASF18
+ 463 0214 BB010000 		.4byte	.LASF18
+ 464 0218 04       		.byte	0x4
+ 465 0219 3201     		.2byte	0x132
+ 466 021b 0C       		.uleb128 0xc
+ 467 021c 9B010000 		.4byte	.LASF19
+ 468 0220 9B010000 		.4byte	.LASF19
+ 469 0224 05       		.byte	0x5
+ 470 0225 28       		.byte	0x28
+ 471 0226 0C       		.uleb128 0xc
+ 472 0227 5B010000 		.4byte	.LASF20
+ 473 022b 5B010000 		.4byte	.LASF20
+ 474 022f 06       		.byte	0x6
+ 475 0230 39       		.byte	0x39
+ 476 0231 0D       		.uleb128 0xd
+ 477 0232 EF010000 		.4byte	.LASF21
+ 478 0236 EF010000 		.4byte	.LASF21
+ 479 023a 04       		.byte	0x4
+ 480 023b 3301     		.2byte	0x133
+ 481 023d 0C       		.uleb128 0xc
+ 482 023e F8010000 		.4byte	.LASF22
+ 483 0242 F8010000 		.4byte	.LASF22
+ 484 0246 07       		.byte	0x7
+ 485 0247 23       		.byte	0x23
+ 486 0248 0C       		.uleb128 0xc
+ 487 0249 38000000 		.4byte	.LASF23
+ 488 024d 38000000 		.4byte	.LASF23
+ 489 0251 05       		.byte	0x5
+ 490 0252 18       		.byte	0x18
+ 491 0253 0C       		.uleb128 0xc
+ 492 0254 23000000 		.4byte	.LASF24
+ 493 0258 23000000 		.4byte	.LASF24
+ 494 025c 05       		.byte	0x5
+ 495 025d 20       		.byte	0x20
+ 496 025e 00       		.byte	0
+ 497              		.section	.debug_abbrev,"",%progbits
+ 498              	.Ldebug_abbrev0:
+ 499 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 11
+
+
+ 500 0001 11       		.uleb128 0x11
+ 501 0002 01       		.byte	0x1
+ 502 0003 25       		.uleb128 0x25
+ 503 0004 0E       		.uleb128 0xe
+ 504 0005 13       		.uleb128 0x13
+ 505 0006 0B       		.uleb128 0xb
+ 506 0007 03       		.uleb128 0x3
+ 507 0008 0E       		.uleb128 0xe
+ 508 0009 1B       		.uleb128 0x1b
+ 509 000a 0E       		.uleb128 0xe
+ 510 000b 55       		.uleb128 0x55
+ 511 000c 17       		.uleb128 0x17
+ 512 000d 11       		.uleb128 0x11
+ 513 000e 01       		.uleb128 0x1
+ 514 000f 10       		.uleb128 0x10
+ 515 0010 17       		.uleb128 0x17
+ 516 0011 00       		.byte	0
+ 517 0012 00       		.byte	0
+ 518 0013 02       		.uleb128 0x2
+ 519 0014 24       		.uleb128 0x24
+ 520 0015 00       		.byte	0
+ 521 0016 0B       		.uleb128 0xb
+ 522 0017 0B       		.uleb128 0xb
+ 523 0018 3E       		.uleb128 0x3e
+ 524 0019 0B       		.uleb128 0xb
+ 525 001a 03       		.uleb128 0x3
+ 526 001b 0E       		.uleb128 0xe
+ 527 001c 00       		.byte	0
+ 528 001d 00       		.byte	0
+ 529 001e 03       		.uleb128 0x3
+ 530 001f 24       		.uleb128 0x24
+ 531 0020 00       		.byte	0
+ 532 0021 0B       		.uleb128 0xb
+ 533 0022 0B       		.uleb128 0xb
+ 534 0023 3E       		.uleb128 0x3e
+ 535 0024 0B       		.uleb128 0xb
+ 536 0025 03       		.uleb128 0x3
+ 537 0026 08       		.uleb128 0x8
+ 538 0027 00       		.byte	0
+ 539 0028 00       		.byte	0
+ 540 0029 04       		.uleb128 0x4
+ 541 002a 16       		.uleb128 0x16
+ 542 002b 00       		.byte	0
+ 543 002c 03       		.uleb128 0x3
+ 544 002d 0E       		.uleb128 0xe
+ 545 002e 3A       		.uleb128 0x3a
+ 546 002f 0B       		.uleb128 0xb
+ 547 0030 3B       		.uleb128 0x3b
+ 548 0031 05       		.uleb128 0x5
+ 549 0032 49       		.uleb128 0x49
+ 550 0033 13       		.uleb128 0x13
+ 551 0034 00       		.byte	0
+ 552 0035 00       		.byte	0
+ 553 0036 05       		.uleb128 0x5
+ 554 0037 2E       		.uleb128 0x2e
+ 555 0038 01       		.byte	0x1
+ 556 0039 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 12
+
+
+ 557 003a 19       		.uleb128 0x19
+ 558 003b 03       		.uleb128 0x3
+ 559 003c 0E       		.uleb128 0xe
+ 560 003d 3A       		.uleb128 0x3a
+ 561 003e 0B       		.uleb128 0xb
+ 562 003f 3B       		.uleb128 0x3b
+ 563 0040 0B       		.uleb128 0xb
+ 564 0041 27       		.uleb128 0x27
+ 565 0042 19       		.uleb128 0x19
+ 566 0043 11       		.uleb128 0x11
+ 567 0044 01       		.uleb128 0x1
+ 568 0045 12       		.uleb128 0x12
+ 569 0046 06       		.uleb128 0x6
+ 570 0047 40       		.uleb128 0x40
+ 571 0048 18       		.uleb128 0x18
+ 572 0049 9742     		.uleb128 0x2117
+ 573 004b 19       		.uleb128 0x19
+ 574 004c 01       		.uleb128 0x1
+ 575 004d 13       		.uleb128 0x13
+ 576 004e 00       		.byte	0
+ 577 004f 00       		.byte	0
+ 578 0050 06       		.uleb128 0x6
+ 579 0051 898201   		.uleb128 0x4109
+ 580 0054 01       		.byte	0x1
+ 581 0055 11       		.uleb128 0x11
+ 582 0056 01       		.uleb128 0x1
+ 583 0057 31       		.uleb128 0x31
+ 584 0058 13       		.uleb128 0x13
+ 585 0059 01       		.uleb128 0x1
+ 586 005a 13       		.uleb128 0x13
+ 587 005b 00       		.byte	0
+ 588 005c 00       		.byte	0
+ 589 005d 07       		.uleb128 0x7
+ 590 005e 8A8201   		.uleb128 0x410a
+ 591 0061 00       		.byte	0
+ 592 0062 02       		.uleb128 0x2
+ 593 0063 18       		.uleb128 0x18
+ 594 0064 9142     		.uleb128 0x2111
+ 595 0066 18       		.uleb128 0x18
+ 596 0067 00       		.byte	0
+ 597 0068 00       		.byte	0
+ 598 0069 08       		.uleb128 0x8
+ 599 006a 898201   		.uleb128 0x4109
+ 600 006d 00       		.byte	0
+ 601 006e 11       		.uleb128 0x11
+ 602 006f 01       		.uleb128 0x1
+ 603 0070 31       		.uleb128 0x31
+ 604 0071 13       		.uleb128 0x13
+ 605 0072 00       		.byte	0
+ 606 0073 00       		.byte	0
+ 607 0074 09       		.uleb128 0x9
+ 608 0075 2E       		.uleb128 0x2e
+ 609 0076 01       		.byte	0x1
+ 610 0077 3F       		.uleb128 0x3f
+ 611 0078 19       		.uleb128 0x19
+ 612 0079 03       		.uleb128 0x3
+ 613 007a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 13
+
+
+ 614 007b 3A       		.uleb128 0x3a
+ 615 007c 0B       		.uleb128 0xb
+ 616 007d 3B       		.uleb128 0x3b
+ 617 007e 0B       		.uleb128 0xb
+ 618 007f 27       		.uleb128 0x27
+ 619 0080 19       		.uleb128 0x19
+ 620 0081 49       		.uleb128 0x49
+ 621 0082 13       		.uleb128 0x13
+ 622 0083 8701     		.uleb128 0x87
+ 623 0085 19       		.uleb128 0x19
+ 624 0086 11       		.uleb128 0x11
+ 625 0087 01       		.uleb128 0x1
+ 626 0088 12       		.uleb128 0x12
+ 627 0089 06       		.uleb128 0x6
+ 628 008a 40       		.uleb128 0x40
+ 629 008b 18       		.uleb128 0x18
+ 630 008c 9742     		.uleb128 0x2117
+ 631 008e 19       		.uleb128 0x19
+ 632 008f 01       		.uleb128 0x1
+ 633 0090 13       		.uleb128 0x13
+ 634 0091 00       		.byte	0
+ 635 0092 00       		.byte	0
+ 636 0093 0A       		.uleb128 0xa
+ 637 0094 898201   		.uleb128 0x4109
+ 638 0097 01       		.byte	0x1
+ 639 0098 11       		.uleb128 0x11
+ 640 0099 01       		.uleb128 0x1
+ 641 009a 31       		.uleb128 0x31
+ 642 009b 13       		.uleb128 0x13
+ 643 009c 00       		.byte	0
+ 644 009d 00       		.byte	0
+ 645 009e 0B       		.uleb128 0xb
+ 646 009f 34       		.uleb128 0x34
+ 647 00a0 00       		.byte	0
+ 648 00a1 03       		.uleb128 0x3
+ 649 00a2 08       		.uleb128 0x8
+ 650 00a3 3A       		.uleb128 0x3a
+ 651 00a4 0B       		.uleb128 0xb
+ 652 00a5 3B       		.uleb128 0x3b
+ 653 00a6 0B       		.uleb128 0xb
+ 654 00a7 49       		.uleb128 0x49
+ 655 00a8 13       		.uleb128 0x13
+ 656 00a9 3F       		.uleb128 0x3f
+ 657 00aa 19       		.uleb128 0x19
+ 658 00ab 02       		.uleb128 0x2
+ 659 00ac 18       		.uleb128 0x18
+ 660 00ad 00       		.byte	0
+ 661 00ae 00       		.byte	0
+ 662 00af 0C       		.uleb128 0xc
+ 663 00b0 2E       		.uleb128 0x2e
+ 664 00b1 00       		.byte	0
+ 665 00b2 3F       		.uleb128 0x3f
+ 666 00b3 19       		.uleb128 0x19
+ 667 00b4 3C       		.uleb128 0x3c
+ 668 00b5 19       		.uleb128 0x19
+ 669 00b6 6E       		.uleb128 0x6e
+ 670 00b7 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 14
+
+
+ 671 00b8 03       		.uleb128 0x3
+ 672 00b9 0E       		.uleb128 0xe
+ 673 00ba 3A       		.uleb128 0x3a
+ 674 00bb 0B       		.uleb128 0xb
+ 675 00bc 3B       		.uleb128 0x3b
+ 676 00bd 0B       		.uleb128 0xb
+ 677 00be 00       		.byte	0
+ 678 00bf 00       		.byte	0
+ 679 00c0 0D       		.uleb128 0xd
+ 680 00c1 2E       		.uleb128 0x2e
+ 681 00c2 00       		.byte	0
+ 682 00c3 3F       		.uleb128 0x3f
+ 683 00c4 19       		.uleb128 0x19
+ 684 00c5 3C       		.uleb128 0x3c
+ 685 00c6 19       		.uleb128 0x19
+ 686 00c7 6E       		.uleb128 0x6e
+ 687 00c8 0E       		.uleb128 0xe
+ 688 00c9 03       		.uleb128 0x3
+ 689 00ca 0E       		.uleb128 0xe
+ 690 00cb 3A       		.uleb128 0x3a
+ 691 00cc 0B       		.uleb128 0xb
+ 692 00cd 3B       		.uleb128 0x3b
+ 693 00ce 05       		.uleb128 0x5
+ 694 00cf 00       		.byte	0
+ 695 00d0 00       		.byte	0
+ 696 00d1 00       		.byte	0
+ 697              		.section	.debug_aranges,"",%progbits
+ 698 0000 2C000000 		.4byte	0x2c
+ 699 0004 0200     		.2byte	0x2
+ 700 0006 00000000 		.4byte	.Ldebug_info0
+ 701 000a 04       		.byte	0x4
+ 702 000b 00       		.byte	0
+ 703 000c 0000     		.2byte	0
+ 704 000e 0000     		.2byte	0
+ 705 0010 00000000 		.4byte	.LFB33
+ 706 0014 28000000 		.4byte	.LFE33-.LFB33
+ 707 0018 00000000 		.4byte	.LFB34
+ 708 001c 28000000 		.4byte	.LFE34-.LFB34
+ 709 0020 00000000 		.4byte	.LFB32
+ 710 0024 54000000 		.4byte	.LFE32-.LFB32
+ 711 0028 00000000 		.4byte	0
+ 712 002c 00000000 		.4byte	0
+ 713              		.section	.debug_ranges,"",%progbits
+ 714              	.Ldebug_ranges0:
+ 715 0000 00000000 		.4byte	.LFB33
+ 716 0004 28000000 		.4byte	.LFE33
+ 717 0008 00000000 		.4byte	.LFB34
+ 718 000c 28000000 		.4byte	.LFE34
+ 719 0010 00000000 		.4byte	.LFB32
+ 720 0014 54000000 		.4byte	.LFE32
+ 721 0018 00000000 		.4byte	0
+ 722 001c 00000000 		.4byte	0
+ 723              		.section	.debug_line,"",%progbits
+ 724              	.Ldebug_line0:
+ 725 0000 D9000000 		.section	.debug_str,"MS",%progbits,1
+ 725      02008D00 
+ 725      00000201 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 15
+
+
+ 725      FB0E0D00 
+ 725      01010101 
+ 726              	.LASF17:
+ 727 0000 50696E5F 		.ascii	"Pin_Blue_Write\000"
+ 727      426C7565 
+ 727      5F577269 
+ 727      746500
+ 728              	.LASF9:
+ 729 000f 666C6F61 		.ascii	"float\000"
+ 729      7400
+ 730              	.LASF1:
+ 731 0015 756E7369 		.ascii	"unsigned char\000"
+ 731      676E6564 
+ 731      20636861 
+ 731      7200
+ 732              	.LASF24:
+ 733 0023 6973725F 		.ascii	"isr_GPIO_SetPriority\000"
+ 733      4750494F 
+ 733      5F536574 
+ 733      5072696F 
+ 733      72697479 
+ 734              	.LASF23:
+ 735 0038 6973725F 		.ascii	"isr_GPIO_StartEx\000"
+ 735      4750494F 
+ 735      5F537461 
+ 735      72744578 
+ 735      00
+ 736              	.LASF5:
+ 737 0049 6C6F6E67 		.ascii	"long unsigned int\000"
+ 737      20756E73 
+ 737      69676E65 
+ 737      6420696E 
+ 737      7400
+ 738              	.LASF3:
+ 739 005b 73686F72 		.ascii	"short unsigned int\000"
+ 739      7420756E 
+ 739      7369676E 
+ 739      65642069 
+ 739      6E7400
+ 740              	.LASF10:
+ 741 006e 646F7562 		.ascii	"double\000"
+ 741      6C6500
+ 742              	.LASF29:
+ 743 0075 6D61696E 		.ascii	"main\000"
+ 743      00
+ 744              	.LASF15:
+ 745 007a 4750494F 		.ascii	"GPIOIsrHandler_0\000"
+ 745      49737248 
+ 745      616E646C 
+ 745      65725F30 
+ 745      00
+ 746              	.LASF28:
+ 747 008b 696E7438 		.ascii	"int8\000"
+ 747      00
+ 748              	.LASF8:
+ 749 0090 756E7369 		.ascii	"unsigned int\000"
+ 749      676E6564 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 16
+
+
+ 749      20696E74 
+ 749      00
+ 750              	.LASF7:
+ 751 009d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 751      206C6F6E 
+ 751      6720756E 
+ 751      7369676E 
+ 751      65642069 
+ 752              	.LASF16:
+ 753 00b4 50696E5F 		.ascii	"Pin_Green_Write\000"
+ 753      47726565 
+ 753      6E5F5772 
+ 753      69746500 
+ 754              	.LASF25:
+ 755 00c4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 755      43313120 
+ 755      352E342E 
+ 755      31203230 
+ 755      31363036 
+ 756 00f7 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 756      20726576 
+ 756      6973696F 
+ 756      6E203233 
+ 756      37373135 
+ 757 012a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 757      66756E63 
+ 757      74696F6E 
+ 757      2D736563 
+ 757      74696F6E 
+ 758              	.LASF13:
+ 759 0152 73697A65 		.ascii	"sizetype\000"
+ 759      74797065 
+ 759      00
+ 760              	.LASF20:
+ 761 015b 50696E5F 		.ascii	"Pin_SW2_ClearInterrupt\000"
+ 761      5357325F 
+ 761      436C6561 
+ 761      72496E74 
+ 761      65727275 
+ 762              	.LASF6:
+ 763 0172 6C6F6E67 		.ascii	"long long int\000"
+ 763      206C6F6E 
+ 763      6720696E 
+ 763      7400
+ 764              	.LASF26:
+ 765 0180 6D61696E 		.ascii	"main.c\000"
+ 765      2E6300
+ 766              	.LASF11:
+ 767 0187 63686172 		.ascii	"char\000"
+ 767      00
+ 768              	.LASF14:
+ 769 018c 4750494F 		.ascii	"GPIOIsrHandler\000"
+ 769      49737248 
+ 769      616E646C 
+ 769      657200
+ 770              	.LASF19:
+ 771 019b 6973725F 		.ascii	"isr_GPIO_ClearPending\000"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\cctKFMiP.s 			page 17
+
+
+ 771      4750494F 
+ 771      5F436C65 
+ 771      61725065 
+ 771      6E64696E 
+ 772              	.LASF2:
+ 773 01b1 73686F72 		.ascii	"short int\000"
+ 773      7420696E 
+ 773      7400
+ 774              	.LASF18:
+ 775 01bb 50574D5F 		.ascii	"PWM_Start\000"
+ 775      53746172 
+ 775      7400
+ 776              	.LASF27:
+ 777 01c5 443A5C4D 		.ascii	"D:\\Microprocess2\\Lab2\\Lab2\\Design01.cydsn\000"
+ 777      6963726F 
+ 777      70726F63 
+ 777      65737332 
+ 777      5C4C6162 
+ 778              	.LASF21:
+ 779 01ef 50574D5F 		.ascii	"PWM_Stop\000"
+ 779      53746F70 
+ 779      00
+ 780              	.LASF22:
+ 781 01f8 436C6F63 		.ascii	"Clock_Start\000"
+ 781      6B5F5374 
+ 781      61727400 
+ 782              	.LASF4:
+ 783 0204 6C6F6E67 		.ascii	"long int\000"
+ 783      20696E74 
+ 783      00
+ 784              	.LASF12:
+ 785 020d 6C6F6E67 		.ascii	"long double\000"
+ 785      20646F75 
+ 785      626C6500 
+ 786              	.LASF0:
+ 787 0219 7369676E 		.ascii	"signed char\000"
+ 787      65642063 
+ 787      68617200 
+ 788              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,3339 @@
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 1
+   4              		.fpu fpv4-sp-d16
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.thumb
+  15              		.syntax unified
+  16              		.file	"main_cm4.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.section	.text.main,"ax",%progbits
+  21              		.align	2
+  22              		.global	main
+  23              		.thumb
+  24              		.thumb_func
+  25              		.type	main, %function
+  26              	main:
+  27              	.LFB409:
+  28              		.file 1 "main_cm4.c"
+   1:main_cm4.c    **** /* ========================================
+   2:main_cm4.c    ****  *
+   3:main_cm4.c    ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main_cm4.c    ****  * All Rights Reserved
+   5:main_cm4.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main_cm4.c    ****  *
+   7:main_cm4.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main_cm4.c    ****  * WHICH IS THE PROPERTY OF your company.
+   9:main_cm4.c    ****  *
+  10:main_cm4.c    ****  * ========================================
+  11:main_cm4.c    **** */
+  12:main_cm4.c    **** #include "project.h"
+  13:main_cm4.c    **** #include "PWM.h"
+  14:main_cm4.c    **** int main(void)
+  15:main_cm4.c    **** {
+  29              		.loc 1 15 0
+  30              		.cfi_startproc
+  31              		@ Volatile: function does not return.
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34 0000 08B5     		push	{r3, lr}
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  38              	.LBB10:
+  39              	.LBB11:
+  40              		.file 2 "Generated_Source\\PSoC6\\pdl\\cmsis/include/cmsis_gcc.h"
+   1:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**************************************************************************//**
+   2:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 2
+
+
+   3:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+   4:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @version  V5.0.3
+   5:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @date     16. January 2018
+   6:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /*
+   8:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
+   9:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  10:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  12:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  16:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  18:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * limitations under the License.
+  23:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+  24:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  25:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  28:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  34:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  38:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  39:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  43:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  46:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  49:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif                                           
+  52:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  55:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __USED
+  56:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  58:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 3
+
+
+  60:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  61:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  64:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  67:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  70:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  78:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  86:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  94:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 102:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 110:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 113:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 116:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 4
+
+
+ 117:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 118:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   @{
+ 122:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 123:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 124:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
+ 125:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 129:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
+ 131:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+  41              		.loc 2 131 0
+  42              		.syntax unified
+  43              	@ 131 "Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h" 1
+  44 0002 62B6     		cpsie i
+  45              	@ 0 "" 2
+  46              		.thumb
+  47              		.syntax unified
+  48              	.LBE11:
+  49              	.LBE10:
+  16:main_cm4.c    ****     __enable_irq();
+  17:main_cm4.c    ****     (void) Cy_TCPWM_PWM_Init(PWM_HW, PWM_CNT_NUM, &PWM_config);
+  50              		.loc 1 17 0
+  51 0004 044C     		ldr	r4, .L4
+  52 0006 054A     		ldr	r2, .L4+4
+  53 0008 0121     		movs	r1, #1
+  54 000a 2046     		mov	r0, r4
+  55 000c FFF7FEFF 		bl	Cy_TCPWM_PWM_Init
+  56              	.LVL0:
+  57              	.LBB12:
+  58              	.LBB13:
+  59              		.file 3 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm.h"
+   1:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /***************************************************************************//**
+   2:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \file cy_tcpwm.h
+   3:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \version 1.10
+   4:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+   5:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The header file of the TCPWM driver.
+   6:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+   7:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ********************************************************************************
+   8:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \copyright
+   9:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Copyright 2016-2018, Cypress Semiconductor Corporation. All rights reserved.
+  10:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * You may use this file only in accordance with the license, terms, conditions,
+  11:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * disclaimers, and limitations in the end user license agreement accompanying
+  12:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the software package with which this file was provided.
+  13:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+  14:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+  15:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+  16:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm
+  17:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+  18:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_common  Common
+  19:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_counter Timer/Counter (TCPWM)
+  20:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_pwm     PWM (TCPWM)
+  21:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_quaddec Quadrature Decoder (TCPWM)
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 5
+
+
+  22:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \} */
+  23:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+  24:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+  25:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm
+  26:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+  27:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * 
+  28:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The TCPWM driver is a multifunction driver that implements Timer Counter, 
+  29:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * PWM, and Quadrature Decoder functionality using the TCPWM block.
+  30:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  31:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The functions and other declarations used in this driver are in cy_tcpwm_counter.h, 
+  32:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * cy_tcpwm_pwm.h, cy_tcpwm_quaddec.h respectively. Include cy_pdl.h 
+  33:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * (ModusToolbox only) to get access to all functions and declarations in the PDL.
+  34:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  35:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Each TCPWM block is a collection of counters that can all be triggered 
+  36:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously. For each function call, the base register address of 
+  37:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the TCPWM being used must be passed first, followed by the index of 
+  38:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter you want to touch next. 
+  39:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For some functions, you can manage multiple counters simultaneously. You 
+  40:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * provide a bit field representing each counter, rather than the single counter 
+  41:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * index). 
+  42:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  43:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The TCPWM supports three operating modes:
+  44:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Timer/Counter
+  45:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * PWM
+  46:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Quadrature Decoder
+  47:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  48:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
+  49:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Timer/Counter
+  50:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  51:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Use this mode whenever a specific timing interval or measurement is 
+  52:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * needed. Examples include:
+  53:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Creating a periodic interrupt for running other system tasks
+  54:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring frequency of an input signal
+  55:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring pulse width of an input signal
+  56:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Measuring time between two external events
+  57:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Counting events
+  58:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Triggering other system resources after x number events
+  59:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Capturing time stamps when events occur
+  60:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  61:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Timer/Counter has the following features:
+  62:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Timer/Counter
+  63:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Programmable Period Register
+  64:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Programmable Compare Register. Compare value can be swapped with a 
+  65:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * buffered compare value on comparison event
+  66:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Capture with buffer register
+  67:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Count Up, Count Down, or Count Up and Down Counting modes
+  68:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Continuous or One Shot Run modes
+  69:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Interrupt and Output on Overflow, Underflow, Capture, or Compare 
+  70:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Start, Reload, Stop, Capture, and Count Inputs
+  71:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  72:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
+  73:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b PWM
+  74:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  75:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Use this mode when an output square wave is needed with a specific 
+  76:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * period and duty cycle, such as:
+  77:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Creating arbitrary square wave outputs
+  78:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Driving an LED (changing the brightness)
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 6
+
+
+  79:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Driving Motors (dead time assertion available)
+  80:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  81:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The PWM has the following features:
+  82:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Counter
+  83:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Programmable Period registers that can be swapped
+  84:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two Output Compare registers that can be swapped on overflow and/or 
+  85:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * underflow
+  86:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Left Aligned, Right Aligned, Center Aligned, and Asymmetric Aligned modes
+  87:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Continuous or One Shot run modes
+  88:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Pseudo Random mode
+  89:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Two PWM outputs with Dead Time insertion, and programmable polarity
+  90:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Interrupt and Output on Overflow, Underflow, or Compare 
+  91:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Start, Reload, Stop, Swap (Capture), and Count Inputs
+  92:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Multiple Components can be synchronized together for applications 
+  93:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * such as three phase motor control
+  94:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  95:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \n
+  96:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \b Quadrature \b Decoder
+  97:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+  98:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder is used to decode the output of a quadrature encoder. 
+  99:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature encoder senses the position, velocity, and direction of 
+ 100:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * an object (for example a rotating axle, or a spinning mouse ball). 
+ 101:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A quadrature decoder can also be used for precision measurement of speed, 
+ 102:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * acceleration, and position of a motor's rotor, or with a rotary switch to 
+ 103:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * determine user input. \n
+ 104:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * 
+ 105:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Quadrature Decoder has the following features:
+ 106:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * 16- or 32-bit Counter
+ 107:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Counter Resolution of x1, x2, and x4 the frequency of the phiA (Count) and 
+ 108:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * phiB (Start) inputs
+ 109:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * Index Input to determine absolute position
+ 110:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * A positive edge on phiA increments the counter when phiB is 0 and decrements
+ 111:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * the counter when phiB is 1
+ 112:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 113:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_configuration Configuration Considerations
+ 114:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 115:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For each mode, the TCPWM driver has a configuration structure, an Init 
+ 116:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * function, and an Enable function. 
+ 117:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 118:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Provide the configuration parameters in the appropriate structure (see
+ 119:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Counter \ref group_tcpwm_data_structures_counter, PWM 
+ 120:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_pwm, or QuadDec 
+ 121:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_quaddec). 
+ 122:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Then call the appropriate Init function: 
+ 123:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_Counter_Init, \ref Cy_TCPWM_PWM_Init, or 
+ 124:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_QuadDec_Init. Provide the address of the filled structure as a 
+ 125:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * parameter. To enable the counter, call the appropriate Enable function: 
+ 126:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_Counter_Enable, \ref Cy_TCPWM_PWM_Enable, or 
+ 127:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_QuadDec_Enable).
+ 128:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 129:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Many functions work with an individual counter. You can also manage multiple 
+ 130:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * counters simultaneously for certain functions. These are listed in the 
+ 131:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_functions_common 
+ 132:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * section of the TCPWM. You can enable, disable, or trigger (in various ways) 
+ 133:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * multiple counters simultaneously. For these functions you provide a bit field 
+ 134:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * representing each counter in the TCPWM you want to control. You can 
+ 135:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * represent the bit field as an ORed mask of each counter, like 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 7
+
+
+ 136:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * ((1U << cntNumX) | (1U << cntNumX) | (1U << cntNumX)), where X is the counter 
+ 137:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * number from 0 to 31.
+ 138:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 139:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \note
+ 140:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If none of the input terminals (start, reload(index)) are used, the 
+ 141:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * software event \ref Cy_TCPWM_TriggerStart or 
+ 142:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref Cy_TCPWM_TriggerReloadOrIndex must be called to start the counting.
+ 143:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * * If count input terminal is not used, the \ref CY_TCPWM_INPUT_LEVEL macro 
+ 144:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * should be set for the countInputMode parameter and the \ref CY_TCPWM_INPUT_1 
+ 145:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * macro should be set for the countInput parameter in the configuration 
+ 146:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * structure of the appropriate mode(Counter 
+ 147:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_counter, PWM 
+ 148:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_pwm, or QuadDec 
+ 149:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_tcpwm_data_structures_quaddec).
+ 150:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 151:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \subsection group_tcpwm_pins Assign and Configure Pins
+ 152:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The dedicated TCPWM pins can be used. The HSIOM register must be configured to
+ 153:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * connect the block to the pins. Use the \ref group_gpio driver API to do that.
+ 154:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 155:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Pins
+ 156:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 157:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \subsection group_tcpwm_clock Assign Clock Divider
+ 158:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The clock source must be connected to proper working.
+ 159:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Any of the peripheral clock dividers could be used. Use the  
+ 160:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \ref group_sysclk driver API to do that.
+ 161:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 162:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Clock
+ 163:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 164:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_more_information More Information
+ 165:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 166:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * For more information on the TCPWM peripheral, refer to the technical 
+ 167:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * reference manual (TRM).
+ 168:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 169:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_MISRA MISRA-C Compliance 
+ 170:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * <table class="doxtable">
+ 171:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 172:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>MISRA Rule</th>
+ 173:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Rule Class (Required/Advisory)</th>
+ 174:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Rule Description</th>
+ 175:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <th>Description of Deviation(s)</th>
+ 176:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 177:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 178:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>14.2</td>
+ 179:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>R</td>
+ 180:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>All non-null statements shall either: a) have at least one side-effect
+ 181:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         however executed, or b) cause control flow to change.</td>
+ 182:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>The unused function parameters are cast to void. This statement
+ 183:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         has no side-effect and is used to suppress a compiler warning.</td>
+ 184:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 185:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * </table>
+ 186:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 187:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \section group_tcpwm_changelog Changelog
+ 188:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * <table class="doxtable">
+ 189:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
+ 190:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 191:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td rowspan="2">1.10</td>
+ 192:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Flattened the organization of the driver source code into the single 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 8
+
+
+ 193:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         source directory and the single include directory.
+ 194:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     </td>
+ 195:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Driver library directory-structure simplification.</td>
+ 196:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 197:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 198:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Added register access layer. Use register access macros instead
+ 199:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         of direct register access using dereferenced pointers.</td>
+ 200:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Makes register access device-independent, so that the PDL does 
+ 201:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         not need to be recompiled for each supported part number.</td>
+ 202:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 203:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 204:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0.1</td>
+ 205:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Added a deviation to the MISRA Compliance section.
+ 206:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *         Added function-level code snippets.</td>
+ 207:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Documentation update and clarification</td>
+ 208:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 209:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   <tr>
+ 210:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>1.0</td>
+ 211:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td>Initial version</td>
+ 212:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *     <td></td>
+ 213:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *   </tr>
+ 214:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * </table>
+ 215:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 216:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 217:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm */
+ 218:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 219:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 220:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_common
+ 221:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Common API for the Timer Counter PWM Block.
+ 222:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 223:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * This is the common API that provides an interface to the TCPWM hardware.
+ 224:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The Timer Counter, PWM, and Quadrature Decoder drivers use this common API.
+ 225:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Most users will use individual drivers and do not need to use the common
+ 226:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * API for the TCPWM.
+ 227:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 228:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The functions and other declarations used in this part of the driver are in cy_tcpwm.h. 
+ 229:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Include either of cy_tcpwm_counter.h, cy_tcpwm_pwm.h, cy_tcpwm_quaddec.h 
+ 230:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * depending on the desired functionality. You can also include cy_pdl.h 
+ 231:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * to get access to all functions and declarations in the PDL.
+ 232:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 233:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 234:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_macros_common           Macros
+ 235:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_functions_common        Functions
+ 236:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_data_structures_common  Data Structures
+ 237:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_enums Enumerated Types
+ 238:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 239:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 240:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 241:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #if !defined(CY_TCPWM_H)
+ 242:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_H
+ 243:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 244:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stdint.h>
+ 245:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stdbool.h>
+ 246:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include <stddef.h>
+ 247:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "cy_syslib.h"
+ 248:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "cy_device_headers.h"
+ 249:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #include "cy_device.h"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 9
+
+
+ 250:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 251:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #ifdef CY_IP_MXTCPWM
+ 252:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 253:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #if defined(__cplusplus)
+ 254:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** extern "C" {
+ 255:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #endif
+ 256:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 257:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 258:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_macros_common
+ 259:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 260:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 261:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 262:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver major version */
+ 263:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MAJOR       1
+ 264:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 265:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Driver minor version */
+ 266:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_DRV_VERSION_MINOR       10
+ 267:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 268:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 269:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /******************************************************************************
+ 270:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * API Constants
+ 271:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ******************************************************************************/
+ 272:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 273:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** TCPWM driver identifier */
+ 274:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_ID                     (CY_PDL_DRV_ID(0x2DU))
+ 275:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 276:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \defgroup group_tcpwm_input_selection  TCPWM Input Selection
+ 277:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 278:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Selects which input to use
+ 279:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 280:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_0                (0U)  /**< Input is tied to logic 0 */
+ 281:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_1                (1U)  /**< Input is tied to logic 1 */
+ 282:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_0           (2U)  /**< Input is connected to the trigger input 0 */
+ 283:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_1           (3U)  /**< Input is connected to the trigger input 1 */
+ 284:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_2           (4U)  /**< Input is connected to the trigger input 2 */
+ 285:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_3           (5U)  /**< Input is connected to the trigger input 3 */
+ 286:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_4           (6U)  /**< Input is connected to the trigger input 4 */
+ 287:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_5           (7U)  /**< Input is connected to the trigger input 5 */
+ 288:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_6           (8U)  /**< Input is connected to the trigger input 6 */
+ 289:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_7           (9U)  /**< Input is connected to the trigger input 7 */
+ 290:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_8           (10U) /**< Input is connected to the trigger input 8 */
+ 291:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_9           (11U) /**< Input is connected to the trigger input 9 */
+ 292:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_10          (12U) /**< Input is connected to the trigger input 10 */
+ 293:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_11          (13U) /**< Input is connected to the trigger input 11 */
+ 294:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_12          (14U) /**< Input is connected to the trigger input 12 */
+ 295:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_TRIG_13          (15U) /**< Input is connected to the trigger input 13 */
+ 296:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 297:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Input is defined by Creator, and Init() function does not need to configure input */
+ 298:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_CREATOR          (0xFFFFFFFFU)
+ 299:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_input_selection */
+ 300:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 301:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 302:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_input_modes  Input Modes
+ 303:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 304:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Configures how TCPWM inputs behave
+ 305:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 306:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A rising edge triggers the event (Capture, Start, Reload, etc..) */
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 10
+
+
+ 307:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_RISINGEDGE       (0U)
+ 308:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A falling edge triggers the event (Capture, Start, Reload, etc..) */
+ 309:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_FALLINGEDGE      (1U)
+ 310:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** A rising edge or falling edge triggers the event (Capture, Start, Reload, etc..) */
+ 311:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_EITHEREDGE       (2U)
+ 312:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** The event is triggered on each edge of the TCPWM clock if the input is high */
+ 313:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INPUT_LEVEL            (3U)
+ 314:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_input_modes */
+ 315:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 316:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 317:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_interrupt_sources  Interrupt Sources
+ 318:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 319:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Interrupt Sources 
+ 320:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 321:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_TC              (1U) /**< Interrupt on Terminal count(TC) */
+ 322:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC              (2U) /**< Interrupt on Compare/Capture(CC) */
+ 323:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_NONE               (0U) /**< No Interrupt */
+ 324:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_INT_ON_CC_OR_TC        (3U) /**< Interrupt on TC or CC */
+ 325:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_interrupt_sources */
+ 326:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 327:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 328:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /***************************************
+ 329:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *        Registers Constants
+ 330:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ***************************************/
+ 331:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 332:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 333:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \defgroup group_tcpwm_reg_const Default registers constants
+ 334:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 335:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Default constants for CNT Registers
+ 336:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 337:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CTRL_DEFAULT           (0x0U) /**< Default value for CTRL register */
+ 338:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_COUNTER_DEFAULT        (0x0U) /**< Default value for COUNTER register */
+ 339:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CC_DEFAULT             (0xFFFFFFFFU) /**< Default value for CC register */
+ 340:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_CC_BUFF_DEFAULT        (0xFFFFFFFFU) /**< Default value for CC_BUFF register *
+ 341:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_PERIOD_DEFAULT         (0xFFFFFFFFU) /**< Default value for PERIOD register */
+ 342:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_PERIOD_BUFF_DEFAULT    (0xFFFFFFFFU) /**< Default value for PERIOD_BUFF regist
+ 343:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL0_DEFAULT       (0x10U)  /**< Default value for TR_CTRL0 register */
+ 344:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL1_DEFAULT       (0x3FFU) /**< Default value for TR_CTRL1 register */
+ 345:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_TR_CTRL2_DEFAULT       (0x3FU)  /**< Default value for TR_CTRL2 register */
+ 346:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_DEFAULT           (0x3U)   /**< Default value for INTR register */
+ 347:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_SET_DEFAULT       (0x0U)   /**< Default value for INTR_SET register */
+ 348:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_INTR_MASK_DEFAULT      (0x0U)   /**< Default value for INTR_MASK register */
+ 349:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_reg_const */
+ 350:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 351:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Position of Up counting counter status */
+ 352:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_STATUS_UP_POS          (0x1U)
+ 353:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Initial value for the counter in the Up counting mode */
+ 354:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_UP_INIT_VAL            (0x0U)
+ 355:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** Initial value for the counter in the Up/Down counting modes */
+ 356:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** #define CY_TCPWM_CNT_UP_DOWN_INIT_VAL       (0x1U)
+ 357:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_macros_common */
+ 358:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 359:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 360:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 361:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  * Enumerations
+ 362:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  ******************************************************************************/
+ 363:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 11
+
+
+ 364:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  /**
+ 365:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_enums
+ 366:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 367:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 368:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 369:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** TCPWM status definitions */
+ 370:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** typedef enum 
+ 371:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
+ 372:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     CY_TCPWM_SUCCESS = 0x00U,                                           /**< Successful */
+ 373:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     CY_TCPWM_BAD_PARAM = CY_TCPWM_ID | CY_PDL_STATUS_ERROR | 0x01U,     /**< One or more invalid pa
+ 374:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** } cy_en_tcpwm_status_t;
+ 375:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /** \} group_tcpwm_enums */
+ 376:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****  
+ 377:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 378:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *        Function Prototypes
+ 379:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+ 380:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 381:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /**
+ 382:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \addtogroup group_tcpwm_functions_common
+ 383:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \{
+ 384:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** */
+ 385:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 386:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Enable_Multiple(TCPWM_Type *base, uint32_t counters);
+ 387:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Disable_Multiple(TCPWM_Type *base, uint32_t counters);
+ 388:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerStart(TCPWM_Type *base, uint32_t counters);
+ 389:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerReloadOrIndex(TCPWM_Type *base, uint32_t counters);
+ 390:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerStopOrKill(TCPWM_Type *base, uint32_t counters);
+ 391:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerCaptureOrSwap(TCPWM_Type *base, uint32_t counters);
+ 392:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptStatus(TCPWM_Type const *base, uint32_t cntNum);
+ 393:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_ClearInterrupt(TCPWM_Type *base, uint32_t cntNum, uint32_t source);
+ 394:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_SetInterrupt(TCPWM_Type *base, uint32_t cntNum, uint32_t source);
+ 395:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_SetInterruptMask(TCPWM_Type *base, uint32_t cntNum, uint32_t mask);
+ 396:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptMask(TCPWM_Type const *base, uint32_t cntNum);
+ 397:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE uint32_t Cy_TCPWM_GetInterruptStatusMasked(TCPWM_Type const *base, uint32_t cntNum)
+ 398:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 399:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 400:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 401:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Function Name: Cy_TCPWM_Enable_Multiple
+ 402:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ****************************************************************************//**
+ 403:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 404:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Enables the counter(s) in the TCPWM block. Multiple blocks can be started 
+ 405:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously.
+ 406:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 407:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param base
+ 408:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The pointer to a TCPWM instance.
+ 409:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 410:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param counters
+ 411:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A bit field representing each counter in the TCPWM block.
+ 412:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 413:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \funcusage
+ 414:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Enable_Multiple
+ 415:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 416:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+ 417:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Enable_Multiple(TCPWM_Type *base, uint32_t counters)
+ 418:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
+ 419:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     TCPWM_CTRL_SET(base) = counters;
+  60              		.loc 3 419 0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 12
+
+
+  61 0010 0223     		movs	r3, #2
+  62 0012 A360     		str	r3, [r4, #8]
+  63              	.LVL1:
+  64              	.LBE13:
+  65              	.LBE12:
+  66              	.LBB14:
+  67              	.LBB15:
+ 420:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** }
+ 421:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 422:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 423:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 424:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Function Name: Cy_TCPWM_Disable_Multiple
+ 425:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ****************************************************************************//**
+ 426:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 427:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Disables the counter(s) in the TCPWM block. Multiple TCPWM can be disabled 
+ 428:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * simultaneously.
+ 429:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 430:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param base
+ 431:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The pointer to a TCPWM instance.
+ 432:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 433:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param counters
+ 434:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A bit field representing each counter in the TCPWM block.
+ 435:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 436:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \funcusage
+ 437:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Disable_Multiple
+ 438:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 439:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+ 440:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_Disable_Multiple(TCPWM_Type *base, uint32_t counters)
+ 441:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
+ 442:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     TCPWM_CTRL_CLR(base) = counters;
+ 443:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** }
+ 444:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 445:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 446:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 447:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Function Name: Cy_TCPWM_TriggerStart
+ 448:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ****************************************************************************//**
+ 449:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 450:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Triggers a software start on the selected TCPWMs.
+ 451:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 452:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param base
+ 453:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The pointer to a TCPWM instance.
+ 454:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 455:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param counters
+ 456:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A bit field representing each counter in the TCPWM block.
+ 457:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 458:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \funcusage
+ 459:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_Enable_Multiple
+ 460:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 461:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+ 462:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE  void Cy_TCPWM_TriggerStart(TCPWM_Type *base, uint32_t counters)
+ 463:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
+ 464:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     TCPWM_CMD_START(base) = counters;
+ 465:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** }
+ 466:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 467:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** 
+ 468:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** /*******************************************************************************
+ 469:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Function Name: Cy_TCPWM_TriggerReloadOrIndex
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 13
+
+
+ 470:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** ****************************************************************************//**
+ 471:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 472:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * Triggers a software reload event (or index in QuadDec mode).
+ 473:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 474:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param base
+ 475:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * The pointer to a TCPWM instance
+ 476:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 477:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \param counters
+ 478:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * A bit field representing each counter in the TCPWM block.
+ 479:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 480:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \funcusage
+ 481:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** * \snippet tcpwm\1.10\counter\snippet\main.c snippet_Cy_TCPWM_TriggerReloadOrIndex
+ 482:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *
+ 483:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** *******************************************************************************/
+ 484:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** __STATIC_INLINE void Cy_TCPWM_TriggerReloadOrIndex(TCPWM_Type *base, uint32_t counters)
+ 485:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h **** {
+ 486:Generated_Source\PSoC6\pdl\drivers/peripheral/tcpwm/cy_tcpwm.h ****     TCPWM_CMD_RELOAD(base) = counters;
+  68              		.loc 3 486 0
+  69 0014 2361     		str	r3, [r4, #16]
+  70              	.L2:
+  71 0016 FEE7     		b	.L2
+  72              	.L5:
+  73              		.align	2
+  74              	.L4:
+  75 0018 00003840 		.word	1077411840
+  76 001c 00000000 		.word	PWM_config
+  77              	.LBE15:
+  78              	.LBE14:
+  79              		.cfi_endproc
+  80              	.LFE409:
+  81              		.size	main, .-main
+  82              		.text
+  83              	.Letext0:
+  84              		.file 4 "d:\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\include\\mac
+  85              		.file 5 "d:\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\include\\sys
+  86              		.file 6 "Generated_Source\\PSoC6\\pdl\\devices/psoc6/include/ip/cyip_tcpwm.h"
+  87              		.file 7 "Generated_Source\\PSoC6\\pdl\\devices/psoc6/include/psoc6_01_config.h"
+  88              		.file 8 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/device/cy_device.h"
+  89              		.file 9 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm_pwm.h"
+  90              		.file 10 "Generated_Source\\PSoC6\\pdl\\cmsis/include/core_cm4.h"
+  91              		.file 11 "Generated_Source\\PSoC6/PWM.h"
+  92              		.section	.debug_info,"",%progbits
+  93              	.Ldebug_info0:
+  94 0000 24090000 		.4byte	0x924
+  95 0004 0400     		.2byte	0x4
+  96 0006 00000000 		.4byte	.Ldebug_abbrev0
+  97 000a 04       		.byte	0x4
+  98 000b 01       		.uleb128 0x1
+  99 000c 20090000 		.4byte	.LASF170
+ 100 0010 0C       		.byte	0xc
+ 101 0011 060A0000 		.4byte	.LASF171
+ 102 0015 0E050000 		.4byte	.LASF172
+ 103 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 104 001d 00000000 		.4byte	0
+ 105 0021 00000000 		.4byte	.Ldebug_line0
+ 106 0025 02       		.uleb128 0x2
+ 107 0026 02       		.byte	0x2
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 14
+
+
+ 108 0027 05       		.byte	0x5
+ 109 0028 66060000 		.4byte	.LASF0
+ 110 002c 02       		.uleb128 0x2
+ 111 002d 01       		.byte	0x1
+ 112 002e 06       		.byte	0x6
+ 113 002f AD010000 		.4byte	.LASF1
+ 114 0033 03       		.uleb128 0x3
+ 115 0034 B6000000 		.4byte	.LASF3
+ 116 0038 04       		.byte	0x4
+ 117 0039 1D       		.byte	0x1d
+ 118 003a 3E000000 		.4byte	0x3e
+ 119 003e 02       		.uleb128 0x2
+ 120 003f 01       		.byte	0x1
+ 121 0040 08       		.byte	0x8
+ 122 0041 44060000 		.4byte	.LASF2
+ 123 0045 03       		.uleb128 0x3
+ 124 0046 F5020000 		.4byte	.LASF4
+ 125 004a 04       		.byte	0x4
+ 126 004b 29       		.byte	0x29
+ 127 004c 25000000 		.4byte	0x25
+ 128 0050 03       		.uleb128 0x3
+ 129 0051 19070000 		.4byte	.LASF5
+ 130 0055 04       		.byte	0x4
+ 131 0056 2B       		.byte	0x2b
+ 132 0057 5B000000 		.4byte	0x5b
+ 133 005b 02       		.uleb128 0x2
+ 134 005c 02       		.byte	0x2
+ 135 005d 07       		.byte	0x7
+ 136 005e 84070000 		.4byte	.LASF6
+ 137 0062 03       		.uleb128 0x3
+ 138 0063 50070000 		.4byte	.LASF7
+ 139 0067 04       		.byte	0x4
+ 140 0068 3F       		.byte	0x3f
+ 141 0069 6D000000 		.4byte	0x6d
+ 142 006d 02       		.uleb128 0x2
+ 143 006e 04       		.byte	0x4
+ 144 006f 05       		.byte	0x5
+ 145 0070 28020000 		.4byte	.LASF8
+ 146 0074 03       		.uleb128 0x3
+ 147 0075 DA020000 		.4byte	.LASF9
+ 148 0079 04       		.byte	0x4
+ 149 007a 41       		.byte	0x41
+ 150 007b 7F000000 		.4byte	0x7f
+ 151 007f 02       		.uleb128 0x2
+ 152 0080 04       		.byte	0x4
+ 153 0081 07       		.byte	0x7
+ 154 0082 97030000 		.4byte	.LASF10
+ 155 0086 02       		.uleb128 0x2
+ 156 0087 08       		.byte	0x8
+ 157 0088 05       		.byte	0x5
+ 158 0089 9F010000 		.4byte	.LASF11
+ 159 008d 02       		.uleb128 0x2
+ 160 008e 08       		.byte	0x8
+ 161 008f 07       		.byte	0x7
+ 162 0090 0C010000 		.4byte	.LASF12
+ 163 0094 04       		.uleb128 0x4
+ 164 0095 04       		.byte	0x4
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 15
+
+
+ 165 0096 05       		.byte	0x5
+ 166 0097 696E7400 		.ascii	"int\000"
+ 167 009b 02       		.uleb128 0x2
+ 168 009c 04       		.byte	0x4
+ 169 009d 07       		.byte	0x7
+ 170 009e 52030000 		.4byte	.LASF13
+ 171 00a2 03       		.uleb128 0x3
+ 172 00a3 84080000 		.4byte	.LASF14
+ 173 00a7 05       		.byte	0x5
+ 174 00a8 18       		.byte	0x18
+ 175 00a9 33000000 		.4byte	0x33
+ 176 00ad 03       		.uleb128 0x3
+ 177 00ae 97010000 		.4byte	.LASF15
+ 178 00b2 05       		.byte	0x5
+ 179 00b3 20       		.byte	0x20
+ 180 00b4 45000000 		.4byte	0x45
+ 181 00b8 03       		.uleb128 0x3
+ 182 00b9 68030000 		.4byte	.LASF16
+ 183 00bd 05       		.byte	0x5
+ 184 00be 24       		.byte	0x24
+ 185 00bf 50000000 		.4byte	0x50
+ 186 00c3 03       		.uleb128 0x3
+ 187 00c4 3C060000 		.4byte	.LASF17
+ 188 00c8 05       		.byte	0x5
+ 189 00c9 2C       		.byte	0x2c
+ 190 00ca 62000000 		.4byte	0x62
+ 191 00ce 03       		.uleb128 0x3
+ 192 00cf D1060000 		.4byte	.LASF18
+ 193 00d3 05       		.byte	0x5
+ 194 00d4 30       		.byte	0x30
+ 195 00d5 74000000 		.4byte	0x74
+ 196 00d9 02       		.uleb128 0x2
+ 197 00da 04       		.byte	0x4
+ 198 00db 07       		.byte	0x7
+ 199 00dc FA040000 		.4byte	.LASF19
+ 200 00e0 05       		.uleb128 0x5
+ 201 00e1 CE000000 		.4byte	0xce
+ 202 00e5 06       		.uleb128 0x6
+ 203 00e6 E0000000 		.4byte	0xe0
+ 204 00ea 07       		.uleb128 0x7
+ 205 00eb 40       		.byte	0x40
+ 206 00ec 06       		.byte	0x6
+ 207 00ed 22       		.byte	0x22
+ 208 00ee B2010000 		.4byte	0x1b2
+ 209 00f2 08       		.uleb128 0x8
+ 210 00f3 31060000 		.4byte	.LASF20
+ 211 00f7 06       		.byte	0x6
+ 212 00f8 23       		.byte	0x23
+ 213 00f9 E0000000 		.4byte	0xe0
+ 214 00fd 00       		.byte	0
+ 215 00fe 08       		.uleb128 0x8
+ 216 00ff 1D080000 		.4byte	.LASF21
+ 217 0103 06       		.byte	0x6
+ 218 0104 24       		.byte	0x24
+ 219 0105 E5000000 		.4byte	0xe5
+ 220 0109 04       		.byte	0x4
+ 221 010a 08       		.uleb128 0x8
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 16
+
+
+ 222 010b AD050000 		.4byte	.LASF22
+ 223 010f 06       		.byte	0x6
+ 224 0110 25       		.byte	0x25
+ 225 0111 E0000000 		.4byte	0xe0
+ 226 0115 08       		.byte	0x8
+ 227 0116 09       		.uleb128 0x9
+ 228 0117 434300   		.ascii	"CC\000"
+ 229 011a 06       		.byte	0x6
+ 230 011b 26       		.byte	0x26
+ 231 011c E0000000 		.4byte	0xe0
+ 232 0120 0C       		.byte	0xc
+ 233 0121 08       		.uleb128 0x8
+ 234 0122 5B040000 		.4byte	.LASF23
+ 235 0126 06       		.byte	0x6
+ 236 0127 27       		.byte	0x27
+ 237 0128 E0000000 		.4byte	0xe0
+ 238 012c 10       		.byte	0x10
+ 239 012d 08       		.uleb128 0x8
+ 240 012e EC000000 		.4byte	.LASF24
+ 241 0132 06       		.byte	0x6
+ 242 0133 28       		.byte	0x28
+ 243 0134 E0000000 		.4byte	0xe0
+ 244 0138 14       		.byte	0x14
+ 245 0139 08       		.uleb128 0x8
+ 246 013a 78020000 		.4byte	.LASF25
+ 247 013e 06       		.byte	0x6
+ 248 013f 29       		.byte	0x29
+ 249 0140 E0000000 		.4byte	0xe0
+ 250 0144 18       		.byte	0x18
+ 251 0145 08       		.uleb128 0x8
+ 252 0146 70060000 		.4byte	.LASF26
+ 253 014a 06       		.byte	0x6
+ 254 014b 2A       		.byte	0x2a
+ 255 014c E5000000 		.4byte	0xe5
+ 256 0150 1C       		.byte	0x1c
+ 257 0151 08       		.uleb128 0x8
+ 258 0152 53020000 		.4byte	.LASF27
+ 259 0156 06       		.byte	0x6
+ 260 0157 2B       		.byte	0x2b
+ 261 0158 E0000000 		.4byte	0xe0
+ 262 015c 20       		.byte	0x20
+ 263 015d 08       		.uleb128 0x8
+ 264 015e 3F080000 		.4byte	.LASF28
+ 265 0162 06       		.byte	0x6
+ 266 0163 2C       		.byte	0x2c
+ 267 0164 E0000000 		.4byte	0xe0
+ 268 0168 24       		.byte	0x24
+ 269 0169 08       		.uleb128 0x8
+ 270 016a 48080000 		.4byte	.LASF29
+ 271 016e 06       		.byte	0x6
+ 272 016f 2D       		.byte	0x2d
+ 273 0170 E0000000 		.4byte	0xe0
+ 274 0174 28       		.byte	0x28
+ 275 0175 08       		.uleb128 0x8
+ 276 0176 EA050000 		.4byte	.LASF30
+ 277 017a 06       		.byte	0x6
+ 278 017b 2E       		.byte	0x2e
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 17
+
+
+ 279 017c E5000000 		.4byte	0xe5
+ 280 0180 2C       		.byte	0x2c
+ 281 0181 08       		.uleb128 0x8
+ 282 0182 59050000 		.4byte	.LASF31
+ 283 0186 06       		.byte	0x6
+ 284 0187 2F       		.byte	0x2f
+ 285 0188 E0000000 		.4byte	0xe0
+ 286 018c 30       		.byte	0x30
+ 287 018d 08       		.uleb128 0x8
+ 288 018e BE040000 		.4byte	.LASF32
+ 289 0192 06       		.byte	0x6
+ 290 0193 30       		.byte	0x30
+ 291 0194 E0000000 		.4byte	0xe0
+ 292 0198 34       		.byte	0x34
+ 293 0199 08       		.uleb128 0x8
+ 294 019a C6030000 		.4byte	.LASF33
+ 295 019e 06       		.byte	0x6
+ 296 019f 31       		.byte	0x31
+ 297 01a0 E0000000 		.4byte	0xe0
+ 298 01a4 38       		.byte	0x38
+ 299 01a5 08       		.uleb128 0x8
+ 300 01a6 B5050000 		.4byte	.LASF34
+ 301 01aa 06       		.byte	0x6
+ 302 01ab 32       		.byte	0x32
+ 303 01ac E5000000 		.4byte	0xe5
+ 304 01b0 3C       		.byte	0x3c
+ 305 01b1 00       		.byte	0
+ 306 01b2 03       		.uleb128 0x3
+ 307 01b3 A0070000 		.4byte	.LASF35
+ 308 01b7 06       		.byte	0x6
+ 309 01b8 33       		.byte	0x33
+ 310 01b9 EA000000 		.4byte	0xea
+ 311 01bd 0A       		.uleb128 0xa
+ 312 01be 0009     		.2byte	0x900
+ 313 01c0 06       		.byte	0x6
+ 314 01c1 38       		.byte	0x38
+ 315 01c2 40020000 		.4byte	0x240
+ 316 01c6 08       		.uleb128 0x8
+ 317 01c7 31060000 		.4byte	.LASF20
+ 318 01cb 06       		.byte	0x6
+ 319 01cc 39       		.byte	0x39
+ 320 01cd E0000000 		.4byte	0xe0
+ 321 01d1 00       		.byte	0
+ 322 01d2 08       		.uleb128 0x8
+ 323 01d3 36080000 		.4byte	.LASF36
+ 324 01d7 06       		.byte	0x6
+ 325 01d8 3A       		.byte	0x3a
+ 326 01d9 E0000000 		.4byte	0xe0
+ 327 01dd 04       		.byte	0x4
+ 328 01de 08       		.uleb128 0x8
+ 329 01df 5F030000 		.4byte	.LASF37
+ 330 01e3 06       		.byte	0x6
+ 331 01e4 3B       		.byte	0x3b
+ 332 01e5 E0000000 		.4byte	0xe0
+ 333 01e9 08       		.byte	0x8
+ 334 01ea 08       		.uleb128 0x8
+ 335 01eb 58010000 		.4byte	.LASF38
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 18
+
+
+ 336 01ef 06       		.byte	0x6
+ 337 01f0 3C       		.byte	0x3c
+ 338 01f1 E0000000 		.4byte	0xe0
+ 339 01f5 0C       		.byte	0xc
+ 340 01f6 08       		.uleb128 0x8
+ 341 01f7 6D020000 		.4byte	.LASF39
+ 342 01fb 06       		.byte	0x6
+ 343 01fc 3D       		.byte	0x3d
+ 344 01fd E0000000 		.4byte	0xe0
+ 345 0201 10       		.byte	0x10
+ 346 0202 08       		.uleb128 0x8
+ 347 0203 E0080000 		.4byte	.LASF40
+ 348 0207 06       		.byte	0x6
+ 349 0208 3E       		.byte	0x3e
+ 350 0209 E0000000 		.4byte	0xe0
+ 351 020d 14       		.byte	0x14
+ 352 020e 08       		.uleb128 0x8
+ 353 020f E0050000 		.4byte	.LASF41
+ 354 0213 06       		.byte	0x6
+ 355 0214 3F       		.byte	0x3f
+ 356 0215 E0000000 		.4byte	0xe0
+ 357 0219 18       		.byte	0x18
+ 358 021a 08       		.uleb128 0x8
+ 359 021b 31020000 		.4byte	.LASF42
+ 360 021f 06       		.byte	0x6
+ 361 0220 40       		.byte	0x40
+ 362 0221 E5000000 		.4byte	0xe5
+ 363 0225 1C       		.byte	0x1c
+ 364 0226 08       		.uleb128 0x8
+ 365 0227 70060000 		.4byte	.LASF26
+ 366 022b 06       		.byte	0x6
+ 367 022c 41       		.byte	0x41
+ 368 022d 55020000 		.4byte	0x255
+ 369 0231 20       		.byte	0x20
+ 370 0232 0B       		.uleb128 0xb
+ 371 0233 434E5400 		.ascii	"CNT\000"
+ 372 0237 06       		.byte	0x6
+ 373 0238 42       		.byte	0x42
+ 374 0239 5A020000 		.4byte	0x25a
+ 375 023d 0001     		.2byte	0x100
+ 376 023f 00       		.byte	0
+ 377 0240 0C       		.uleb128 0xc
+ 378 0241 E5000000 		.4byte	0xe5
+ 379 0245 50020000 		.4byte	0x250
+ 380 0249 0D       		.uleb128 0xd
+ 381 024a D9000000 		.4byte	0xd9
+ 382 024e 37       		.byte	0x37
+ 383 024f 00       		.byte	0
+ 384 0250 05       		.uleb128 0x5
+ 385 0251 40020000 		.4byte	0x240
+ 386 0255 06       		.uleb128 0x6
+ 387 0256 50020000 		.4byte	0x250
+ 388 025a 0C       		.uleb128 0xc
+ 389 025b B2010000 		.4byte	0x1b2
+ 390 025f 6A020000 		.4byte	0x26a
+ 391 0263 0D       		.uleb128 0xd
+ 392 0264 D9000000 		.4byte	0xd9
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 19
+
+
+ 393 0268 1F       		.byte	0x1f
+ 394 0269 00       		.byte	0
+ 395 026a 03       		.uleb128 0x3
+ 396 026b 42070000 		.4byte	.LASF43
+ 397 026f 06       		.byte	0x6
+ 398 0270 43       		.byte	0x43
+ 399 0271 BD010000 		.4byte	0x1bd
+ 400 0275 0E       		.uleb128 0xe
+ 401 0276 D3090000 		.4byte	.LASF44
+ 402 027a 07       		.byte	0x7
+ 403 027b 4206     		.2byte	0x642
+ 404 027d 6A020000 		.4byte	0x26a
+ 405 0281 02       		.uleb128 0x2
+ 406 0282 08       		.byte	0x8
+ 407 0283 04       		.byte	0x4
+ 408 0284 E3060000 		.4byte	.LASF45
+ 409 0288 07       		.uleb128 0x7
+ 410 0289 B8       		.byte	0xb8
+ 411 028a 08       		.byte	0x8
+ 412 028b 34       		.byte	0x34
+ 413 028c 99060000 		.4byte	0x699
+ 414 0290 08       		.uleb128 0x8
+ 415 0291 F3000000 		.4byte	.LASF46
+ 416 0295 08       		.byte	0x8
+ 417 0296 37       		.byte	0x37
+ 418 0297 CE000000 		.4byte	0xce
+ 419 029b 00       		.byte	0
+ 420 029c 08       		.uleb128 0x8
+ 421 029d CF020000 		.4byte	.LASF47
+ 422 02a1 08       		.byte	0x8
+ 423 02a2 38       		.byte	0x38
+ 424 02a3 CE000000 		.4byte	0xce
+ 425 02a7 04       		.byte	0x4
+ 426 02a8 08       		.uleb128 0x8
+ 427 02a9 4A020000 		.4byte	.LASF48
+ 428 02ad 08       		.byte	0x8
+ 429 02ae 39       		.byte	0x39
+ 430 02af CE000000 		.4byte	0xce
+ 431 02b3 08       		.byte	0x8
+ 432 02b4 08       		.uleb128 0x8
+ 433 02b5 29060000 		.4byte	.LASF49
+ 434 02b9 08       		.byte	0x8
+ 435 02ba 3A       		.byte	0x3a
+ 436 02bb CE000000 		.4byte	0xce
+ 437 02bf 0C       		.byte	0xc
+ 438 02c0 08       		.uleb128 0x8
+ 439 02c1 CE010000 		.4byte	.LASF50
+ 440 02c5 08       		.byte	0x8
+ 441 02c6 3B       		.byte	0x3b
+ 442 02c7 CE000000 		.4byte	0xce
+ 443 02cb 10       		.byte	0x10
+ 444 02cc 08       		.uleb128 0x8
+ 445 02cd 06020000 		.4byte	.LASF51
+ 446 02d1 08       		.byte	0x8
+ 447 02d2 3C       		.byte	0x3c
+ 448 02d3 CE000000 		.4byte	0xce
+ 449 02d7 14       		.byte	0x14
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 20
+
+
+ 450 02d8 08       		.uleb128 0x8
+ 451 02d9 D0030000 		.4byte	.LASF52
+ 452 02dd 08       		.byte	0x8
+ 453 02de 3D       		.byte	0x3d
+ 454 02df CE000000 		.4byte	0xce
+ 455 02e3 18       		.byte	0x18
+ 456 02e4 08       		.uleb128 0x8
+ 457 02e5 92000000 		.4byte	.LASF53
+ 458 02e9 08       		.byte	0x8
+ 459 02ea 3E       		.byte	0x3e
+ 460 02eb CE000000 		.4byte	0xce
+ 461 02ef 1C       		.byte	0x1c
+ 462 02f0 08       		.uleb128 0x8
+ 463 02f1 18090000 		.4byte	.LASF54
+ 464 02f5 08       		.byte	0x8
+ 465 02f6 3F       		.byte	0x3f
+ 466 02f7 CE000000 		.4byte	0xce
+ 467 02fb 20       		.byte	0x20
+ 468 02fc 08       		.uleb128 0x8
+ 469 02fd 88050000 		.4byte	.LASF55
+ 470 0301 08       		.byte	0x8
+ 471 0302 40       		.byte	0x40
+ 472 0303 CE000000 		.4byte	0xce
+ 473 0307 24       		.byte	0x24
+ 474 0308 08       		.uleb128 0x8
+ 475 0309 C7040000 		.4byte	.LASF56
+ 476 030d 08       		.byte	0x8
+ 477 030e 43       		.byte	0x43
+ 478 030f A2000000 		.4byte	0xa2
+ 479 0313 28       		.byte	0x28
+ 480 0314 08       		.uleb128 0x8
+ 481 0315 78000000 		.4byte	.LASF57
+ 482 0319 08       		.byte	0x8
+ 483 031a 44       		.byte	0x44
+ 484 031b A2000000 		.4byte	0xa2
+ 485 031f 29       		.byte	0x29
+ 486 0320 08       		.uleb128 0x8
+ 487 0321 0E090000 		.4byte	.LASF58
+ 488 0325 08       		.byte	0x8
+ 489 0326 45       		.byte	0x45
+ 490 0327 A2000000 		.4byte	0xa2
+ 491 032b 2A       		.byte	0x2a
+ 492 032c 08       		.uleb128 0x8
+ 493 032d 7A050000 		.4byte	.LASF59
+ 494 0331 08       		.byte	0x8
+ 495 0332 46       		.byte	0x46
+ 496 0333 A2000000 		.4byte	0xa2
+ 497 0337 2B       		.byte	0x2b
+ 498 0338 08       		.uleb128 0x8
+ 499 0339 3F040000 		.4byte	.LASF60
+ 500 033d 08       		.byte	0x8
+ 501 033e 47       		.byte	0x47
+ 502 033f A2000000 		.4byte	0xa2
+ 503 0343 2C       		.byte	0x2c
+ 504 0344 08       		.uleb128 0x8
+ 505 0345 5A070000 		.4byte	.LASF61
+ 506 0349 08       		.byte	0x8
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 21
+
+
+ 507 034a 48       		.byte	0x48
+ 508 034b A2000000 		.4byte	0xa2
+ 509 034f 2D       		.byte	0x2d
+ 510 0350 08       		.uleb128 0x8
+ 511 0351 D7010000 		.4byte	.LASF62
+ 512 0355 08       		.byte	0x8
+ 513 0356 49       		.byte	0x49
+ 514 0357 A2000000 		.4byte	0xa2
+ 515 035b 2E       		.byte	0x2e
+ 516 035c 08       		.uleb128 0x8
+ 517 035d D9040000 		.4byte	.LASF63
+ 518 0361 08       		.byte	0x8
+ 519 0362 4A       		.byte	0x4a
+ 520 0363 A2000000 		.4byte	0xa2
+ 521 0367 2F       		.byte	0x2f
+ 522 0368 08       		.uleb128 0x8
+ 523 0369 FF060000 		.4byte	.LASF64
+ 524 036d 08       		.byte	0x8
+ 525 036e 4B       		.byte	0x4b
+ 526 036f A2000000 		.4byte	0xa2
+ 527 0373 30       		.byte	0x30
+ 528 0374 08       		.uleb128 0x8
+ 529 0375 BB030000 		.4byte	.LASF65
+ 530 0379 08       		.byte	0x8
+ 531 037a 4E       		.byte	0x4e
+ 532 037b A2000000 		.4byte	0xa2
+ 533 037f 31       		.byte	0x31
+ 534 0380 08       		.uleb128 0x8
+ 535 0381 A8000000 		.4byte	.LASF66
+ 536 0385 08       		.byte	0x8
+ 537 0386 4F       		.byte	0x4f
+ 538 0387 A2000000 		.4byte	0xa2
+ 539 038b 32       		.byte	0x32
+ 540 038c 08       		.uleb128 0x8
+ 541 038d 46030000 		.4byte	.LASF67
+ 542 0391 08       		.byte	0x8
+ 543 0392 50       		.byte	0x50
+ 544 0393 A2000000 		.4byte	0xa2
+ 545 0397 33       		.byte	0x33
+ 546 0398 08       		.uleb128 0x8
+ 547 0399 180A0000 		.4byte	.LASF68
+ 548 039d 08       		.byte	0x8
+ 549 039e 51       		.byte	0x51
+ 550 039f A2000000 		.4byte	0xa2
+ 551 03a3 34       		.byte	0x34
+ 552 03a4 08       		.uleb128 0x8
+ 553 03a5 CF070000 		.4byte	.LASF69
+ 554 03a9 08       		.byte	0x8
+ 555 03aa 52       		.byte	0x52
+ 556 03ab AD000000 		.4byte	0xad
+ 557 03af 36       		.byte	0x36
+ 558 03b0 08       		.uleb128 0x8
+ 559 03b1 C6060000 		.4byte	.LASF70
+ 560 03b5 08       		.byte	0x8
+ 561 03b6 53       		.byte	0x53
+ 562 03b7 AD000000 		.4byte	0xad
+ 563 03bb 38       		.byte	0x38
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 22
+
+
+ 564 03bc 08       		.uleb128 0x8
+ 565 03bd 51080000 		.4byte	.LASF71
+ 566 03c1 08       		.byte	0x8
+ 567 03c2 54       		.byte	0x54
+ 568 03c3 AD000000 		.4byte	0xad
+ 569 03c7 3A       		.byte	0x3a
+ 570 03c8 08       		.uleb128 0x8
+ 571 03c9 F7010000 		.4byte	.LASF72
+ 572 03cd 08       		.byte	0x8
+ 573 03ce 55       		.byte	0x55
+ 574 03cf A2000000 		.4byte	0xa2
+ 575 03d3 3C       		.byte	0x3c
+ 576 03d4 08       		.uleb128 0x8
+ 577 03d5 99020000 		.4byte	.LASF73
+ 578 03d9 08       		.byte	0x8
+ 579 03da 56       		.byte	0x56
+ 580 03db A2000000 		.4byte	0xa2
+ 581 03df 3D       		.byte	0x3d
+ 582 03e0 08       		.uleb128 0x8
+ 583 03e1 A8060000 		.4byte	.LASF74
+ 584 03e5 08       		.byte	0x8
+ 585 03e6 57       		.byte	0x57
+ 586 03e7 A2000000 		.4byte	0xa2
+ 587 03eb 3E       		.byte	0x3e
+ 588 03ec 08       		.uleb128 0x8
+ 589 03ed 86000000 		.4byte	.LASF75
+ 590 03f1 08       		.byte	0x8
+ 591 03f2 58       		.byte	0x58
+ 592 03f3 A2000000 		.4byte	0xa2
+ 593 03f7 3F       		.byte	0x3f
+ 594 03f8 08       		.uleb128 0x8
+ 595 03f9 93050000 		.4byte	.LASF76
+ 596 03fd 08       		.byte	0x8
+ 597 03fe 59       		.byte	0x59
+ 598 03ff A2000000 		.4byte	0xa2
+ 599 0403 40       		.byte	0x40
+ 600 0404 08       		.uleb128 0x8
+ 601 0405 E5020000 		.4byte	.LASF77
+ 602 0409 08       		.byte	0x8
+ 603 040a 5A       		.byte	0x5a
+ 604 040b A2000000 		.4byte	0xa2
+ 605 040f 41       		.byte	0x41
+ 606 0410 08       		.uleb128 0x8
+ 607 0411 D9030000 		.4byte	.LASF78
+ 608 0415 08       		.byte	0x8
+ 609 0416 5B       		.byte	0x5b
+ 610 0417 A2000000 		.4byte	0xa2
+ 611 041b 42       		.byte	0x42
+ 612 041c 08       		.uleb128 0x8
+ 613 041d 6F050000 		.4byte	.LASF79
+ 614 0421 08       		.byte	0x8
+ 615 0422 5C       		.byte	0x5c
+ 616 0423 A2000000 		.4byte	0xa2
+ 617 0427 43       		.byte	0x43
+ 618 0428 08       		.uleb128 0x8
+ 619 0429 5C020000 		.4byte	.LASF80
+ 620 042d 08       		.byte	0x8
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 23
+
+
+ 621 042e 5D       		.byte	0x5d
+ 622 042f A2000000 		.4byte	0xa2
+ 623 0433 44       		.byte	0x44
+ 624 0434 08       		.uleb128 0x8
+ 625 0435 00000000 		.4byte	.LASF81
+ 626 0439 08       		.byte	0x8
+ 627 043a 5E       		.byte	0x5e
+ 628 043b CE000000 		.4byte	0xce
+ 629 043f 48       		.byte	0x48
+ 630 0440 08       		.uleb128 0x8
+ 631 0441 3C020000 		.4byte	.LASF82
+ 632 0445 08       		.byte	0x8
+ 633 0446 5F       		.byte	0x5f
+ 634 0447 CE000000 		.4byte	0xce
+ 635 044b 4C       		.byte	0x4c
+ 636 044c 08       		.uleb128 0x8
+ 637 044d 290A0000 		.4byte	.LASF83
+ 638 0451 08       		.byte	0x8
+ 639 0452 60       		.byte	0x60
+ 640 0453 A2000000 		.4byte	0xa2
+ 641 0457 50       		.byte	0x50
+ 642 0458 08       		.uleb128 0x8
+ 643 0459 71010000 		.4byte	.LASF84
+ 644 045d 08       		.byte	0x8
+ 645 045e 61       		.byte	0x61
+ 646 045f A2000000 		.4byte	0xa2
+ 647 0463 51       		.byte	0x51
+ 648 0464 08       		.uleb128 0x8
+ 649 0465 74080000 		.4byte	.LASF85
+ 650 0469 08       		.byte	0x8
+ 651 046a 62       		.byte	0x62
+ 652 046b A2000000 		.4byte	0xa2
+ 653 046f 52       		.byte	0x52
+ 654 0470 08       		.uleb128 0x8
+ 655 0471 F4090000 		.4byte	.LASF86
+ 656 0475 08       		.byte	0x8
+ 657 0476 63       		.byte	0x63
+ 658 0477 A2000000 		.4byte	0xa2
+ 659 047b 53       		.byte	0x53
+ 660 047c 08       		.uleb128 0x8
+ 661 047d B6060000 		.4byte	.LASF87
+ 662 0481 08       		.byte	0x8
+ 663 0482 64       		.byte	0x64
+ 664 0483 A2000000 		.4byte	0xa2
+ 665 0487 54       		.byte	0x54
+ 666 0488 08       		.uleb128 0x8
+ 667 0489 83010000 		.4byte	.LASF88
+ 668 048d 08       		.byte	0x8
+ 669 048e 65       		.byte	0x65
+ 670 048f A2000000 		.4byte	0xa2
+ 671 0493 55       		.byte	0x55
+ 672 0494 08       		.uleb128 0x8
+ 673 0495 83030000 		.4byte	.LASF89
+ 674 0499 08       		.byte	0x8
+ 675 049a 66       		.byte	0x66
+ 676 049b A2000000 		.4byte	0xa2
+ 677 049f 56       		.byte	0x56
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 24
+
+
+ 678 04a0 08       		.uleb128 0x8
+ 679 04a1 E5030000 		.4byte	.LASF90
+ 680 04a5 08       		.byte	0x8
+ 681 04a6 67       		.byte	0x67
+ 682 04a7 A2000000 		.4byte	0xa2
+ 683 04ab 57       		.byte	0x57
+ 684 04ac 08       		.uleb128 0x8
+ 685 04ad 33000000 		.4byte	.LASF91
+ 686 04b1 08       		.byte	0x8
+ 687 04b2 68       		.byte	0x68
+ 688 04b3 A2000000 		.4byte	0xa2
+ 689 04b7 58       		.byte	0x58
+ 690 04b8 08       		.uleb128 0x8
+ 691 04b9 52060000 		.4byte	.LASF92
+ 692 04bd 08       		.byte	0x8
+ 693 04be 69       		.byte	0x69
+ 694 04bf A2000000 		.4byte	0xa2
+ 695 04c3 59       		.byte	0x59
+ 696 04c4 08       		.uleb128 0x8
+ 697 04c5 03050000 		.4byte	.LASF93
+ 698 04c9 08       		.byte	0x8
+ 699 04ca 6E       		.byte	0x6e
+ 700 04cb B8000000 		.4byte	0xb8
+ 701 04cf 5A       		.byte	0x5a
+ 702 04d0 08       		.uleb128 0x8
+ 703 04d1 97070000 		.4byte	.LASF94
+ 704 04d5 08       		.byte	0x8
+ 705 04d6 6F       		.byte	0x6f
+ 706 04d7 B8000000 		.4byte	0xb8
+ 707 04db 5C       		.byte	0x5c
+ 708 04dc 08       		.uleb128 0x8
+ 709 04dd FD000000 		.4byte	.LASF95
+ 710 04e1 08       		.byte	0x8
+ 711 04e2 70       		.byte	0x70
+ 712 04e3 A2000000 		.4byte	0xa2
+ 713 04e7 5E       		.byte	0x5e
+ 714 04e8 08       		.uleb128 0x8
+ 715 04e9 0A060000 		.4byte	.LASF96
+ 716 04ed 08       		.byte	0x8
+ 717 04ee 71       		.byte	0x71
+ 718 04ef A2000000 		.4byte	0xa2
+ 719 04f3 5F       		.byte	0x5f
+ 720 04f4 08       		.uleb128 0x8
+ 721 04f5 5E050000 		.4byte	.LASF97
+ 722 04f9 08       		.byte	0x8
+ 723 04fa 72       		.byte	0x72
+ 724 04fb A2000000 		.4byte	0xa2
+ 725 04ff 60       		.byte	0x60
+ 726 0500 08       		.uleb128 0x8
+ 727 0501 CF050000 		.4byte	.LASF98
+ 728 0505 08       		.byte	0x8
+ 729 0506 73       		.byte	0x73
+ 730 0507 CE000000 		.4byte	0xce
+ 731 050b 64       		.byte	0x64
+ 732 050c 08       		.uleb128 0x8
+ 733 050d 32010000 		.4byte	.LASF99
+ 734 0511 08       		.byte	0x8
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 25
+
+
+ 735 0512 76       		.byte	0x76
+ 736 0513 B8000000 		.4byte	0xb8
+ 737 0517 68       		.byte	0x68
+ 738 0518 08       		.uleb128 0x8
+ 739 0519 71030000 		.4byte	.LASF100
+ 740 051d 08       		.byte	0x8
+ 741 051e 77       		.byte	0x77
+ 742 051f B8000000 		.4byte	0xb8
+ 743 0523 6A       		.byte	0x6a
+ 744 0524 08       		.uleb128 0x8
+ 745 0525 07040000 		.4byte	.LASF101
+ 746 0529 08       		.byte	0x8
+ 747 052a 78       		.byte	0x78
+ 748 052b B8000000 		.4byte	0xb8
+ 749 052f 6C       		.byte	0x6c
+ 750 0530 08       		.uleb128 0x8
+ 751 0531 32040000 		.4byte	.LASF102
+ 752 0535 08       		.byte	0x8
+ 753 0536 79       		.byte	0x79
+ 754 0537 B8000000 		.4byte	0xb8
+ 755 053b 6E       		.byte	0x6e
+ 756 053c 08       		.uleb128 0x8
+ 757 053d 79060000 		.4byte	.LASF103
+ 758 0541 08       		.byte	0x8
+ 759 0542 7B       		.byte	0x7b
+ 760 0543 A2000000 		.4byte	0xa2
+ 761 0547 70       		.byte	0x70
+ 762 0548 08       		.uleb128 0x8
+ 763 0549 B9010000 		.4byte	.LASF104
+ 764 054d 08       		.byte	0x8
+ 765 054e 7C       		.byte	0x7c
+ 766 054f A2000000 		.4byte	0xa2
+ 767 0553 71       		.byte	0x71
+ 768 0554 08       		.uleb128 0x8
+ 769 0555 DE090000 		.4byte	.LASF105
+ 770 0559 08       		.byte	0x8
+ 771 055a 7D       		.byte	0x7d
+ 772 055b A2000000 		.4byte	0xa2
+ 773 055f 72       		.byte	0x72
+ 774 0560 08       		.uleb128 0x8
+ 775 0561 34050000 		.4byte	.LASF106
+ 776 0565 08       		.byte	0x8
+ 777 0566 7E       		.byte	0x7e
+ 778 0567 A2000000 		.4byte	0xa2
+ 779 056b 73       		.byte	0x73
+ 780 056c 08       		.uleb128 0x8
+ 781 056d A9020000 		.4byte	.LASF107
+ 782 0571 08       		.byte	0x8
+ 783 0572 80       		.byte	0x80
+ 784 0573 B8000000 		.4byte	0xb8
+ 785 0577 74       		.byte	0x74
+ 786 0578 08       		.uleb128 0x8
+ 787 0579 2F070000 		.4byte	.LASF108
+ 788 057d 08       		.byte	0x8
+ 789 057e 81       		.byte	0x81
+ 790 057f B8000000 		.4byte	0xb8
+ 791 0583 76       		.byte	0x76
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 26
+
+
+ 792 0584 08       		.uleb128 0x8
+ 793 0585 84020000 		.4byte	.LASF109
+ 794 0589 08       		.byte	0x8
+ 795 058a 82       		.byte	0x82
+ 796 058b B8000000 		.4byte	0xb8
+ 797 058f 78       		.byte	0x78
+ 798 0590 08       		.uleb128 0x8
+ 799 0591 C0000000 		.4byte	.LASF110
+ 800 0595 08       		.byte	0x8
+ 801 0596 83       		.byte	0x83
+ 802 0597 B8000000 		.4byte	0xb8
+ 803 059b 7A       		.byte	0x7a
+ 804 059c 08       		.uleb128 0x8
+ 805 059d A1080000 		.4byte	.LASF111
+ 806 05a1 08       		.byte	0x8
+ 807 05a2 86       		.byte	0x86
+ 808 05a3 A2000000 		.4byte	0xa2
+ 809 05a7 7C       		.byte	0x7c
+ 810 05a8 08       		.uleb128 0x8
+ 811 05a9 0C080000 		.4byte	.LASF112
+ 812 05ad 08       		.byte	0x8
+ 813 05ae 87       		.byte	0x87
+ 814 05af A2000000 		.4byte	0xa2
+ 815 05b3 7D       		.byte	0x7d
+ 816 05b4 08       		.uleb128 0x8
+ 817 05b5 47000000 		.4byte	.LASF113
+ 818 05b9 08       		.byte	0x8
+ 819 05ba 88       		.byte	0x88
+ 820 05bb A2000000 		.4byte	0xa2
+ 821 05bf 7E       		.byte	0x7e
+ 822 05c0 08       		.uleb128 0x8
+ 823 05c1 BB020000 		.4byte	.LASF114
+ 824 05c5 08       		.byte	0x8
+ 825 05c6 89       		.byte	0x89
+ 826 05c7 A2000000 		.4byte	0xa2
+ 827 05cb 7F       		.byte	0x7f
+ 828 05cc 08       		.uleb128 0x8
+ 829 05cd 32030000 		.4byte	.LASF115
+ 830 05d1 08       		.byte	0x8
+ 831 05d2 8A       		.byte	0x8a
+ 832 05d3 A2000000 		.4byte	0xa2
+ 833 05d7 80       		.byte	0x80
+ 834 05d8 08       		.uleb128 0x8
+ 835 05d9 F5070000 		.4byte	.LASF116
+ 836 05dd 08       		.byte	0x8
+ 837 05de 8D       		.byte	0x8d
+ 838 05df CE000000 		.4byte	0xce
+ 839 05e3 84       		.byte	0x84
+ 840 05e4 08       		.uleb128 0x8
+ 841 05e5 D5000000 		.4byte	.LASF117
+ 842 05e9 08       		.byte	0x8
+ 843 05ea 8E       		.byte	0x8e
+ 844 05eb CE000000 		.4byte	0xce
+ 845 05ef 88       		.byte	0x88
+ 846 05f0 08       		.uleb128 0x8
+ 847 05f1 8C080000 		.4byte	.LASF118
+ 848 05f5 08       		.byte	0x8
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 27
+
+
+ 849 05f6 8F       		.byte	0x8f
+ 850 05f7 CE000000 		.4byte	0xce
+ 851 05fb 8C       		.byte	0x8c
+ 852 05fc 08       		.uleb128 0x8
+ 853 05fd E5040000 		.4byte	.LASF119
+ 854 0601 08       		.byte	0x8
+ 855 0602 90       		.byte	0x90
+ 856 0603 CE000000 		.4byte	0xce
+ 857 0607 90       		.byte	0x90
+ 858 0608 08       		.uleb128 0x8
+ 859 0609 1D030000 		.4byte	.LASF120
+ 860 060d 08       		.byte	0x8
+ 861 060e 91       		.byte	0x91
+ 862 060f CE000000 		.4byte	0xce
+ 863 0613 94       		.byte	0x94
+ 864 0614 08       		.uleb128 0x8
+ 865 0615 94040000 		.4byte	.LASF121
+ 866 0619 08       		.byte	0x8
+ 867 061a 92       		.byte	0x92
+ 868 061b CE000000 		.4byte	0xce
+ 869 061f 98       		.byte	0x98
+ 870 0620 08       		.uleb128 0x8
+ 871 0621 E9080000 		.4byte	.LASF122
+ 872 0625 08       		.byte	0x8
+ 873 0626 93       		.byte	0x93
+ 874 0627 CE000000 		.4byte	0xce
+ 875 062b 9C       		.byte	0x9c
+ 876 062c 08       		.uleb128 0x8
+ 877 062d 42010000 		.4byte	.LASF123
+ 878 0631 08       		.byte	0x8
+ 879 0632 94       		.byte	0x94
+ 880 0633 CE000000 		.4byte	0xce
+ 881 0637 A0       		.byte	0xa0
+ 882 0638 08       		.uleb128 0x8
+ 883 0639 E2010000 		.4byte	.LASF124
+ 884 063d 08       		.byte	0x8
+ 885 063e 95       		.byte	0x95
+ 886 063f B8000000 		.4byte	0xb8
+ 887 0643 A4       		.byte	0xa4
+ 888 0644 08       		.uleb128 0x8
+ 889 0645 7F040000 		.4byte	.LASF125
+ 890 0649 08       		.byte	0x8
+ 891 064a 96       		.byte	0x96
+ 892 064b B8000000 		.4byte	0xb8
+ 893 064f A6       		.byte	0xa6
+ 894 0650 08       		.uleb128 0x8
+ 895 0651 FE050000 		.4byte	.LASF126
+ 896 0655 08       		.byte	0x8
+ 897 0656 97       		.byte	0x97
+ 898 0657 B8000000 		.4byte	0xb8
+ 899 065b A8       		.byte	0xa8
+ 900 065c 08       		.uleb128 0x8
+ 901 065d 0B070000 		.4byte	.LASF127
+ 902 0661 08       		.byte	0x8
+ 903 0662 98       		.byte	0x98
+ 904 0663 B8000000 		.4byte	0xb8
+ 905 0667 AA       		.byte	0xaa
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 28
+
+
+ 906 0668 08       		.uleb128 0x8
+ 907 0669 16040000 		.4byte	.LASF128
+ 908 066d 08       		.byte	0x8
+ 909 066e 99       		.byte	0x99
+ 910 066f B8000000 		.4byte	0xb8
+ 911 0673 AC       		.byte	0xac
+ 912 0674 08       		.uleb128 0x8
+ 913 0675 4B050000 		.4byte	.LASF129
+ 914 0679 08       		.byte	0x8
+ 915 067a 9A       		.byte	0x9a
+ 916 067b B8000000 		.4byte	0xb8
+ 917 067f AE       		.byte	0xae
+ 918 0680 08       		.uleb128 0x8
+ 919 0681 B2070000 		.4byte	.LASF130
+ 920 0685 08       		.byte	0x8
+ 921 0686 9D       		.byte	0x9d
+ 922 0687 B8000000 		.4byte	0xb8
+ 923 068b B0       		.byte	0xb0
+ 924 068c 08       		.uleb128 0x8
+ 925 068d 64000000 		.4byte	.LASF131
+ 926 0691 08       		.byte	0x8
+ 927 0692 9E       		.byte	0x9e
+ 928 0693 CE000000 		.4byte	0xce
+ 929 0697 B4       		.byte	0xb4
+ 930 0698 00       		.byte	0
+ 931 0699 03       		.uleb128 0x3
+ 932 069a 4B040000 		.4byte	.LASF132
+ 933 069e 08       		.byte	0x8
+ 934 069f 9F       		.byte	0x9f
+ 935 06a0 88020000 		.4byte	0x288
+ 936 06a4 02       		.uleb128 0x2
+ 937 06a5 01       		.byte	0x1
+ 938 06a6 08       		.byte	0x8
+ 939 06a7 EF060000 		.4byte	.LASF133
+ 940 06ab 02       		.uleb128 0x2
+ 941 06ac 04       		.byte	0x4
+ 942 06ad 04       		.byte	0x4
+ 943 06ae C9050000 		.4byte	.LASF134
+ 944 06b2 02       		.uleb128 0x2
+ 945 06b3 08       		.byte	0x8
+ 946 06b4 04       		.byte	0x4
+ 947 06b5 110A0000 		.4byte	.LASF135
+ 948 06b9 02       		.uleb128 0x2
+ 949 06ba 01       		.byte	0x1
+ 950 06bb 02       		.byte	0x2
+ 951 06bc 36060000 		.4byte	.LASF136
+ 952 06c0 0F       		.uleb128 0xf
+ 953 06c1 10020000 		.4byte	.LASF173
+ 954 06c5 64       		.byte	0x64
+ 955 06c6 09       		.byte	0x9
+ 956 06c7 2F       		.byte	0x2f
+ 957 06c8 F9070000 		.4byte	0x7f9
+ 958 06cc 08       		.uleb128 0x8
+ 959 06cd C1050000 		.4byte	.LASF137
+ 960 06d1 09       		.byte	0x9
+ 961 06d2 31       		.byte	0x31
+ 962 06d3 CE000000 		.4byte	0xce
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 29
+
+
+ 963 06d7 00       		.byte	0
+ 964 06d8 08       		.uleb128 0x8
+ 965 06d9 23010000 		.4byte	.LASF138
+ 966 06dd 09       		.byte	0x9
+ 967 06de 33       		.byte	0x33
+ 968 06df CE000000 		.4byte	0xce
+ 969 06e3 04       		.byte	0x4
+ 970 06e4 08       		.uleb128 0x8
+ 971 06e5 9B000000 		.4byte	.LASF139
+ 972 06e9 09       		.byte	0x9
+ 973 06ea 34       		.byte	0x34
+ 974 06eb CE000000 		.4byte	0xce
+ 975 06ef 08       		.byte	0x8
+ 976 06f0 08       		.uleb128 0x8
+ 977 06f1 70040000 		.4byte	.LASF140
+ 978 06f5 09       		.byte	0x9
+ 979 06f6 35       		.byte	0x35
+ 980 06f7 CE000000 		.4byte	0xce
+ 981 06fb 0C       		.byte	0xc
+ 982 06fc 08       		.uleb128 0x8
+ 983 06fd 12000000 		.4byte	.LASF141
+ 984 0701 09       		.byte	0x9
+ 985 0702 36       		.byte	0x36
+ 986 0703 CE000000 		.4byte	0xce
+ 987 0707 10       		.byte	0x10
+ 988 0708 08       		.uleb128 0x8
+ 989 0709 DC070000 		.4byte	.LASF142
+ 990 070d 09       		.byte	0x9
+ 991 070e 37       		.byte	0x37
+ 992 070f CE000000 		.4byte	0xce
+ 993 0713 14       		.byte	0x14
+ 994 0714 08       		.uleb128 0x8
+ 995 0715 E4070000 		.4byte	.LASF143
+ 996 0719 09       		.byte	0x9
+ 997 071a 38       		.byte	0x38
+ 998 071b CE000000 		.4byte	0xce
+ 999 071f 18       		.byte	0x18
+ 1000 0720 08       		.uleb128 0x8
+ 1001 0721 8D060000 		.4byte	.LASF144
+ 1002 0725 09       		.byte	0x9
+ 1003 0726 39       		.byte	0x39
+ 1004 0727 B9060000 		.4byte	0x6b9
+ 1005 072b 1C       		.byte	0x1c
+ 1006 072c 08       		.uleb128 0x8
+ 1007 072d DA060000 		.4byte	.LASF145
+ 1008 0731 09       		.byte	0x9
+ 1009 0732 3A       		.byte	0x3a
+ 1010 0733 CE000000 		.4byte	0xce
+ 1011 0737 20       		.byte	0x20
+ 1012 0738 08       		.uleb128 0x8
+ 1013 0739 EC070000 		.4byte	.LASF146
+ 1014 073d 09       		.byte	0x9
+ 1015 073e 3B       		.byte	0x3b
+ 1016 073f CE000000 		.4byte	0xce
+ 1017 0743 24       		.byte	0x24
+ 1018 0744 08       		.uleb128 0x8
+ 1019 0745 A9030000 		.4byte	.LASF147
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 30
+
+
+ 1020 0749 09       		.byte	0x9
+ 1021 074a 3C       		.byte	0x3c
+ 1022 074b B9060000 		.4byte	0x6b9
+ 1023 074f 28       		.byte	0x28
+ 1024 0750 08       		.uleb128 0x8
+ 1025 0751 67070000 		.4byte	.LASF148
+ 1026 0755 09       		.byte	0x9
+ 1027 0756 3E       		.byte	0x3e
+ 1028 0757 CE000000 		.4byte	0xce
+ 1029 075b 2C       		.byte	0x2c
+ 1030 075c 08       		.uleb128 0x8
+ 1031 075d 63040000 		.4byte	.LASF149
+ 1032 0761 09       		.byte	0x9
+ 1033 0762 3F       		.byte	0x3f
+ 1034 0763 CE000000 		.4byte	0xce
+ 1035 0767 30       		.byte	0x30
+ 1036 0768 08       		.uleb128 0x8
+ 1037 0769 66080000 		.4byte	.LASF150
+ 1038 076d 09       		.byte	0x9
+ 1039 076e 40       		.byte	0x40
+ 1040 076f CE000000 		.4byte	0xce
+ 1041 0773 34       		.byte	0x34
+ 1042 0774 08       		.uleb128 0x8
+ 1043 0775 20060000 		.4byte	.LASF151
+ 1044 0779 09       		.byte	0x9
+ 1045 077a 41       		.byte	0x41
+ 1046 077b CE000000 		.4byte	0xce
+ 1047 077f 38       		.byte	0x38
+ 1048 0780 08       		.uleb128 0x8
+ 1049 0781 F9030000 		.4byte	.LASF152
+ 1050 0785 09       		.byte	0x9
+ 1051 0786 42       		.byte	0x42
+ 1052 0787 CE000000 		.4byte	0xce
+ 1053 078b 3C       		.byte	0x3c
+ 1054 078c 08       		.uleb128 0x8
+ 1055 078d 9E060000 		.4byte	.LASF153
+ 1056 0791 09       		.byte	0x9
+ 1057 0792 44       		.byte	0x44
+ 1058 0793 CE000000 		.4byte	0xce
+ 1059 0797 40       		.byte	0x40
+ 1060 0798 08       		.uleb128 0x8
+ 1061 0799 D0080000 		.4byte	.LASF154
+ 1062 079d 09       		.byte	0x9
+ 1063 079e 45       		.byte	0x45
+ 1064 079f CE000000 		.4byte	0xce
+ 1065 07a3 44       		.byte	0x44
+ 1066 07a4 08       		.uleb128 0x8
+ 1067 07a5 78070000 		.4byte	.LASF155
+ 1068 07a9 09       		.byte	0x9
+ 1069 07aa 47       		.byte	0x47
+ 1070 07ab CE000000 		.4byte	0xce
+ 1071 07af 48       		.byte	0x48
+ 1072 07b0 08       		.uleb128 0x8
+ 1073 07b1 C0070000 		.4byte	.LASF156
+ 1074 07b5 09       		.byte	0x9
+ 1075 07b6 48       		.byte	0x48
+ 1076 07b7 CE000000 		.4byte	0xce
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 31
+
+
+ 1077 07bb 4C       		.byte	0x4c
+ 1078 07bc 08       		.uleb128 0x8
+ 1079 07bd B3040000 		.4byte	.LASF157
+ 1080 07c1 09       		.byte	0x9
+ 1081 07c2 4A       		.byte	0x4a
+ 1082 07c3 CE000000 		.4byte	0xce
+ 1083 07c7 50       		.byte	0x50
+ 1084 07c8 08       		.uleb128 0x8
+ 1085 07c9 24040000 		.4byte	.LASF158
+ 1086 07cd 09       		.byte	0x9
+ 1087 07ce 4B       		.byte	0x4b
+ 1088 07cf CE000000 		.4byte	0xce
+ 1089 07d3 54       		.byte	0x54
+ 1090 07d4 08       		.uleb128 0x8
+ 1091 07d5 5A000000 		.4byte	.LASF159
+ 1092 07d9 09       		.byte	0x9
+ 1093 07da 4D       		.byte	0x4d
+ 1094 07db CE000000 		.4byte	0xce
+ 1095 07df 58       		.byte	0x58
+ 1096 07e0 08       		.uleb128 0x8
+ 1097 07e1 FF080000 		.4byte	.LASF160
+ 1098 07e5 09       		.byte	0x9
+ 1099 07e6 4E       		.byte	0x4e
+ 1100 07e7 CE000000 		.4byte	0xce
+ 1101 07eb 5C       		.byte	0x5c
+ 1102 07ec 08       		.uleb128 0x8
+ 1103 07ed F4060000 		.4byte	.LASF161
+ 1104 07f1 09       		.byte	0x9
+ 1105 07f2 50       		.byte	0x50
+ 1106 07f3 CE000000 		.4byte	0xce
+ 1107 07f7 60       		.byte	0x60
+ 1108 07f8 00       		.byte	0
+ 1109 07f9 03       		.uleb128 0x3
+ 1110 07fa B6080000 		.4byte	.LASF162
+ 1111 07fe 09       		.byte	0x9
+ 1112 07ff 51       		.byte	0x51
+ 1113 0800 C0060000 		.4byte	0x6c0
+ 1114 0804 10       		.uleb128 0x10
+ 1115 0805 A0050000 		.4byte	.LASF174
+ 1116 0809 02       		.byte	0x2
+ 1117 080a 81       		.byte	0x81
+ 1118 080b 03       		.byte	0x3
+ 1119 080c 11       		.uleb128 0x11
+ 1120 080d FF020000 		.4byte	.LASF165
+ 1121 0811 03       		.byte	0x3
+ 1122 0812 E401     		.2byte	0x1e4
+ 1123 0814 03       		.byte	0x3
+ 1124 0815 32080000 		.4byte	0x832
+ 1125 0819 12       		.uleb128 0x12
+ 1126 081a D4040000 		.4byte	.LASF163
+ 1127 081e 03       		.byte	0x3
+ 1128 081f E401     		.2byte	0x1e4
+ 1129 0821 32080000 		.4byte	0x832
+ 1130 0825 12       		.uleb128 0x12
+ 1131 0826 AA040000 		.4byte	.LASF164
+ 1132 082a 03       		.byte	0x3
+ 1133 082b E401     		.2byte	0x1e4
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 32
+
+
+ 1134 082d CE000000 		.4byte	0xce
+ 1135 0831 00       		.byte	0
+ 1136 0832 13       		.uleb128 0x13
+ 1137 0833 04       		.byte	0x4
+ 1138 0834 75020000 		.4byte	0x275
+ 1139 0838 11       		.uleb128 0x11
+ 1140 0839 1A000000 		.4byte	.LASF166
+ 1141 083d 03       		.byte	0x3
+ 1142 083e A101     		.2byte	0x1a1
+ 1143 0840 03       		.byte	0x3
+ 1144 0841 5E080000 		.4byte	0x85e
+ 1145 0845 12       		.uleb128 0x12
+ 1146 0846 D4040000 		.4byte	.LASF163
+ 1147 084a 03       		.byte	0x3
+ 1148 084b A101     		.2byte	0x1a1
+ 1149 084d 32080000 		.4byte	0x832
+ 1150 0851 12       		.uleb128 0x12
+ 1151 0852 AA040000 		.4byte	.LASF164
+ 1152 0856 03       		.byte	0x3
+ 1153 0857 A101     		.2byte	0x1a1
+ 1154 0859 CE000000 		.4byte	0xce
+ 1155 085d 00       		.byte	0
+ 1156 085e 14       		.uleb128 0x14
+ 1157 085f A4020000 		.4byte	.LASF175
+ 1158 0863 01       		.byte	0x1
+ 1159 0864 0E       		.byte	0xe
+ 1160 0865 94000000 		.4byte	0x94
+ 1161 0869 00000000 		.4byte	.LFB409
+ 1162 086d 20000000 		.4byte	.LFE409-.LFB409
+ 1163 0871 01       		.uleb128 0x1
+ 1164 0872 9C       		.byte	0x9c
+ 1165 0873 E5080000 		.4byte	0x8e5
+ 1166 0877 15       		.uleb128 0x15
+ 1167 0878 04080000 		.4byte	0x804
+ 1168 087c 02000000 		.4byte	.LBB10
+ 1169 0880 02000000 		.4byte	.LBE10-.LBB10
+ 1170 0884 01       		.byte	0x1
+ 1171 0885 10       		.byte	0x10
+ 1172 0886 16       		.uleb128 0x16
+ 1173 0887 38080000 		.4byte	0x838
+ 1174 088b 10000000 		.4byte	.LBB12
+ 1175 088f 04000000 		.4byte	.LBE12-.LBB12
+ 1176 0893 01       		.byte	0x1
+ 1177 0894 12       		.byte	0x12
+ 1178 0895 AC080000 		.4byte	0x8ac
+ 1179 0899 17       		.uleb128 0x17
+ 1180 089a 51080000 		.4byte	0x851
+ 1181 089e 00000000 		.4byte	.LLST0
+ 1182 08a2 17       		.uleb128 0x17
+ 1183 08a3 45080000 		.4byte	0x845
+ 1184 08a7 14000000 		.4byte	.LLST1
+ 1185 08ab 00       		.byte	0
+ 1186 08ac 16       		.uleb128 0x16
+ 1187 08ad 0C080000 		.4byte	0x80c
+ 1188 08b1 14000000 		.4byte	.LBB14
+ 1189 08b5 0C000000 		.4byte	.LBE14-.LBB14
+ 1190 08b9 01       		.byte	0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 33
+
+
+ 1191 08ba 13       		.byte	0x13
+ 1192 08bb CF080000 		.4byte	0x8cf
+ 1193 08bf 18       		.uleb128 0x18
+ 1194 08c0 25080000 		.4byte	0x825
+ 1195 08c4 02       		.byte	0x2
+ 1196 08c5 19       		.uleb128 0x19
+ 1197 08c6 19080000 		.4byte	0x819
+ 1198 08ca 00003840 		.4byte	0x40380000
+ 1199 08ce 00       		.byte	0
+ 1200 08cf 1A       		.uleb128 0x1a
+ 1201 08d0 10000000 		.4byte	.LVL0
+ 1202 08d4 1C090000 		.4byte	0x91c
+ 1203 08d8 1B       		.uleb128 0x1b
+ 1204 08d9 01       		.uleb128 0x1
+ 1205 08da 50       		.byte	0x50
+ 1206 08db 02       		.uleb128 0x2
+ 1207 08dc 74       		.byte	0x74
+ 1208 08dd 00       		.sleb128 0
+ 1209 08de 1B       		.uleb128 0x1b
+ 1210 08df 01       		.uleb128 0x1
+ 1211 08e0 51       		.byte	0x51
+ 1212 08e1 01       		.uleb128 0x1
+ 1213 08e2 31       		.byte	0x31
+ 1214 08e3 00       		.byte	0
+ 1215 08e4 00       		.byte	0
+ 1216 08e5 1C       		.uleb128 0x1c
+ 1217 08e6 64010000 		.4byte	.LASF167
+ 1218 08ea 0A       		.byte	0xa
+ 1219 08eb F907     		.2byte	0x7f9
+ 1220 08ed F1080000 		.4byte	0x8f1
+ 1221 08f1 05       		.uleb128 0x5
+ 1222 08f2 C3000000 		.4byte	0xc3
+ 1223 08f6 1D       		.uleb128 0x1d
+ 1224 08f7 F4050000 		.4byte	.LASF168
+ 1225 08fb 08       		.byte	0x8
+ 1226 08fc A7       		.byte	0xa7
+ 1227 08fd 01090000 		.4byte	0x901
+ 1228 0901 13       		.uleb128 0x13
+ 1229 0902 04       		.byte	0x4
+ 1230 0903 07090000 		.4byte	0x907
+ 1231 0907 06       		.uleb128 0x6
+ 1232 0908 99060000 		.4byte	0x699
+ 1233 090c 1D       		.uleb128 0x1d
+ 1234 090d 24070000 		.4byte	.LASF169
+ 1235 0911 0B       		.byte	0xb
+ 1236 0912 1F       		.byte	0x1f
+ 1237 0913 17090000 		.4byte	0x917
+ 1238 0917 06       		.uleb128 0x6
+ 1239 0918 F9070000 		.4byte	0x7f9
+ 1240 091c 1E       		.uleb128 0x1e
+ 1241 091d 24080000 		.4byte	.LASF176
+ 1242 0921 24080000 		.4byte	.LASF176
+ 1243 0925 09       		.byte	0x9
+ 1244 0926 CA       		.byte	0xca
+ 1245 0927 00       		.byte	0
+ 1246              		.section	.debug_abbrev,"",%progbits
+ 1247              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 34
+
+
+ 1248 0000 01       		.uleb128 0x1
+ 1249 0001 11       		.uleb128 0x11
+ 1250 0002 01       		.byte	0x1
+ 1251 0003 25       		.uleb128 0x25
+ 1252 0004 0E       		.uleb128 0xe
+ 1253 0005 13       		.uleb128 0x13
+ 1254 0006 0B       		.uleb128 0xb
+ 1255 0007 03       		.uleb128 0x3
+ 1256 0008 0E       		.uleb128 0xe
+ 1257 0009 1B       		.uleb128 0x1b
+ 1258 000a 0E       		.uleb128 0xe
+ 1259 000b 55       		.uleb128 0x55
+ 1260 000c 17       		.uleb128 0x17
+ 1261 000d 11       		.uleb128 0x11
+ 1262 000e 01       		.uleb128 0x1
+ 1263 000f 10       		.uleb128 0x10
+ 1264 0010 17       		.uleb128 0x17
+ 1265 0011 00       		.byte	0
+ 1266 0012 00       		.byte	0
+ 1267 0013 02       		.uleb128 0x2
+ 1268 0014 24       		.uleb128 0x24
+ 1269 0015 00       		.byte	0
+ 1270 0016 0B       		.uleb128 0xb
+ 1271 0017 0B       		.uleb128 0xb
+ 1272 0018 3E       		.uleb128 0x3e
+ 1273 0019 0B       		.uleb128 0xb
+ 1274 001a 03       		.uleb128 0x3
+ 1275 001b 0E       		.uleb128 0xe
+ 1276 001c 00       		.byte	0
+ 1277 001d 00       		.byte	0
+ 1278 001e 03       		.uleb128 0x3
+ 1279 001f 16       		.uleb128 0x16
+ 1280 0020 00       		.byte	0
+ 1281 0021 03       		.uleb128 0x3
+ 1282 0022 0E       		.uleb128 0xe
+ 1283 0023 3A       		.uleb128 0x3a
+ 1284 0024 0B       		.uleb128 0xb
+ 1285 0025 3B       		.uleb128 0x3b
+ 1286 0026 0B       		.uleb128 0xb
+ 1287 0027 49       		.uleb128 0x49
+ 1288 0028 13       		.uleb128 0x13
+ 1289 0029 00       		.byte	0
+ 1290 002a 00       		.byte	0
+ 1291 002b 04       		.uleb128 0x4
+ 1292 002c 24       		.uleb128 0x24
+ 1293 002d 00       		.byte	0
+ 1294 002e 0B       		.uleb128 0xb
+ 1295 002f 0B       		.uleb128 0xb
+ 1296 0030 3E       		.uleb128 0x3e
+ 1297 0031 0B       		.uleb128 0xb
+ 1298 0032 03       		.uleb128 0x3
+ 1299 0033 08       		.uleb128 0x8
+ 1300 0034 00       		.byte	0
+ 1301 0035 00       		.byte	0
+ 1302 0036 05       		.uleb128 0x5
+ 1303 0037 35       		.uleb128 0x35
+ 1304 0038 00       		.byte	0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 35
+
+
+ 1305 0039 49       		.uleb128 0x49
+ 1306 003a 13       		.uleb128 0x13
+ 1307 003b 00       		.byte	0
+ 1308 003c 00       		.byte	0
+ 1309 003d 06       		.uleb128 0x6
+ 1310 003e 26       		.uleb128 0x26
+ 1311 003f 00       		.byte	0
+ 1312 0040 49       		.uleb128 0x49
+ 1313 0041 13       		.uleb128 0x13
+ 1314 0042 00       		.byte	0
+ 1315 0043 00       		.byte	0
+ 1316 0044 07       		.uleb128 0x7
+ 1317 0045 13       		.uleb128 0x13
+ 1318 0046 01       		.byte	0x1
+ 1319 0047 0B       		.uleb128 0xb
+ 1320 0048 0B       		.uleb128 0xb
+ 1321 0049 3A       		.uleb128 0x3a
+ 1322 004a 0B       		.uleb128 0xb
+ 1323 004b 3B       		.uleb128 0x3b
+ 1324 004c 0B       		.uleb128 0xb
+ 1325 004d 01       		.uleb128 0x1
+ 1326 004e 13       		.uleb128 0x13
+ 1327 004f 00       		.byte	0
+ 1328 0050 00       		.byte	0
+ 1329 0051 08       		.uleb128 0x8
+ 1330 0052 0D       		.uleb128 0xd
+ 1331 0053 00       		.byte	0
+ 1332 0054 03       		.uleb128 0x3
+ 1333 0055 0E       		.uleb128 0xe
+ 1334 0056 3A       		.uleb128 0x3a
+ 1335 0057 0B       		.uleb128 0xb
+ 1336 0058 3B       		.uleb128 0x3b
+ 1337 0059 0B       		.uleb128 0xb
+ 1338 005a 49       		.uleb128 0x49
+ 1339 005b 13       		.uleb128 0x13
+ 1340 005c 38       		.uleb128 0x38
+ 1341 005d 0B       		.uleb128 0xb
+ 1342 005e 00       		.byte	0
+ 1343 005f 00       		.byte	0
+ 1344 0060 09       		.uleb128 0x9
+ 1345 0061 0D       		.uleb128 0xd
+ 1346 0062 00       		.byte	0
+ 1347 0063 03       		.uleb128 0x3
+ 1348 0064 08       		.uleb128 0x8
+ 1349 0065 3A       		.uleb128 0x3a
+ 1350 0066 0B       		.uleb128 0xb
+ 1351 0067 3B       		.uleb128 0x3b
+ 1352 0068 0B       		.uleb128 0xb
+ 1353 0069 49       		.uleb128 0x49
+ 1354 006a 13       		.uleb128 0x13
+ 1355 006b 38       		.uleb128 0x38
+ 1356 006c 0B       		.uleb128 0xb
+ 1357 006d 00       		.byte	0
+ 1358 006e 00       		.byte	0
+ 1359 006f 0A       		.uleb128 0xa
+ 1360 0070 13       		.uleb128 0x13
+ 1361 0071 01       		.byte	0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 36
+
+
+ 1362 0072 0B       		.uleb128 0xb
+ 1363 0073 05       		.uleb128 0x5
+ 1364 0074 3A       		.uleb128 0x3a
+ 1365 0075 0B       		.uleb128 0xb
+ 1366 0076 3B       		.uleb128 0x3b
+ 1367 0077 0B       		.uleb128 0xb
+ 1368 0078 01       		.uleb128 0x1
+ 1369 0079 13       		.uleb128 0x13
+ 1370 007a 00       		.byte	0
+ 1371 007b 00       		.byte	0
+ 1372 007c 0B       		.uleb128 0xb
+ 1373 007d 0D       		.uleb128 0xd
+ 1374 007e 00       		.byte	0
+ 1375 007f 03       		.uleb128 0x3
+ 1376 0080 08       		.uleb128 0x8
+ 1377 0081 3A       		.uleb128 0x3a
+ 1378 0082 0B       		.uleb128 0xb
+ 1379 0083 3B       		.uleb128 0x3b
+ 1380 0084 0B       		.uleb128 0xb
+ 1381 0085 49       		.uleb128 0x49
+ 1382 0086 13       		.uleb128 0x13
+ 1383 0087 38       		.uleb128 0x38
+ 1384 0088 05       		.uleb128 0x5
+ 1385 0089 00       		.byte	0
+ 1386 008a 00       		.byte	0
+ 1387 008b 0C       		.uleb128 0xc
+ 1388 008c 01       		.uleb128 0x1
+ 1389 008d 01       		.byte	0x1
+ 1390 008e 49       		.uleb128 0x49
+ 1391 008f 13       		.uleb128 0x13
+ 1392 0090 01       		.uleb128 0x1
+ 1393 0091 13       		.uleb128 0x13
+ 1394 0092 00       		.byte	0
+ 1395 0093 00       		.byte	0
+ 1396 0094 0D       		.uleb128 0xd
+ 1397 0095 21       		.uleb128 0x21
+ 1398 0096 00       		.byte	0
+ 1399 0097 49       		.uleb128 0x49
+ 1400 0098 13       		.uleb128 0x13
+ 1401 0099 2F       		.uleb128 0x2f
+ 1402 009a 0B       		.uleb128 0xb
+ 1403 009b 00       		.byte	0
+ 1404 009c 00       		.byte	0
+ 1405 009d 0E       		.uleb128 0xe
+ 1406 009e 16       		.uleb128 0x16
+ 1407 009f 00       		.byte	0
+ 1408 00a0 03       		.uleb128 0x3
+ 1409 00a1 0E       		.uleb128 0xe
+ 1410 00a2 3A       		.uleb128 0x3a
+ 1411 00a3 0B       		.uleb128 0xb
+ 1412 00a4 3B       		.uleb128 0x3b
+ 1413 00a5 05       		.uleb128 0x5
+ 1414 00a6 49       		.uleb128 0x49
+ 1415 00a7 13       		.uleb128 0x13
+ 1416 00a8 00       		.byte	0
+ 1417 00a9 00       		.byte	0
+ 1418 00aa 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 37
+
+
+ 1419 00ab 13       		.uleb128 0x13
+ 1420 00ac 01       		.byte	0x1
+ 1421 00ad 03       		.uleb128 0x3
+ 1422 00ae 0E       		.uleb128 0xe
+ 1423 00af 0B       		.uleb128 0xb
+ 1424 00b0 0B       		.uleb128 0xb
+ 1425 00b1 3A       		.uleb128 0x3a
+ 1426 00b2 0B       		.uleb128 0xb
+ 1427 00b3 3B       		.uleb128 0x3b
+ 1428 00b4 0B       		.uleb128 0xb
+ 1429 00b5 01       		.uleb128 0x1
+ 1430 00b6 13       		.uleb128 0x13
+ 1431 00b7 00       		.byte	0
+ 1432 00b8 00       		.byte	0
+ 1433 00b9 10       		.uleb128 0x10
+ 1434 00ba 2E       		.uleb128 0x2e
+ 1435 00bb 00       		.byte	0
+ 1436 00bc 03       		.uleb128 0x3
+ 1437 00bd 0E       		.uleb128 0xe
+ 1438 00be 3A       		.uleb128 0x3a
+ 1439 00bf 0B       		.uleb128 0xb
+ 1440 00c0 3B       		.uleb128 0x3b
+ 1441 00c1 0B       		.uleb128 0xb
+ 1442 00c2 27       		.uleb128 0x27
+ 1443 00c3 19       		.uleb128 0x19
+ 1444 00c4 20       		.uleb128 0x20
+ 1445 00c5 0B       		.uleb128 0xb
+ 1446 00c6 00       		.byte	0
+ 1447 00c7 00       		.byte	0
+ 1448 00c8 11       		.uleb128 0x11
+ 1449 00c9 2E       		.uleb128 0x2e
+ 1450 00ca 01       		.byte	0x1
+ 1451 00cb 03       		.uleb128 0x3
+ 1452 00cc 0E       		.uleb128 0xe
+ 1453 00cd 3A       		.uleb128 0x3a
+ 1454 00ce 0B       		.uleb128 0xb
+ 1455 00cf 3B       		.uleb128 0x3b
+ 1456 00d0 05       		.uleb128 0x5
+ 1457 00d1 27       		.uleb128 0x27
+ 1458 00d2 19       		.uleb128 0x19
+ 1459 00d3 20       		.uleb128 0x20
+ 1460 00d4 0B       		.uleb128 0xb
+ 1461 00d5 01       		.uleb128 0x1
+ 1462 00d6 13       		.uleb128 0x13
+ 1463 00d7 00       		.byte	0
+ 1464 00d8 00       		.byte	0
+ 1465 00d9 12       		.uleb128 0x12
+ 1466 00da 05       		.uleb128 0x5
+ 1467 00db 00       		.byte	0
+ 1468 00dc 03       		.uleb128 0x3
+ 1469 00dd 0E       		.uleb128 0xe
+ 1470 00de 3A       		.uleb128 0x3a
+ 1471 00df 0B       		.uleb128 0xb
+ 1472 00e0 3B       		.uleb128 0x3b
+ 1473 00e1 05       		.uleb128 0x5
+ 1474 00e2 49       		.uleb128 0x49
+ 1475 00e3 13       		.uleb128 0x13
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 38
+
+
+ 1476 00e4 00       		.byte	0
+ 1477 00e5 00       		.byte	0
+ 1478 00e6 13       		.uleb128 0x13
+ 1479 00e7 0F       		.uleb128 0xf
+ 1480 00e8 00       		.byte	0
+ 1481 00e9 0B       		.uleb128 0xb
+ 1482 00ea 0B       		.uleb128 0xb
+ 1483 00eb 49       		.uleb128 0x49
+ 1484 00ec 13       		.uleb128 0x13
+ 1485 00ed 00       		.byte	0
+ 1486 00ee 00       		.byte	0
+ 1487 00ef 14       		.uleb128 0x14
+ 1488 00f0 2E       		.uleb128 0x2e
+ 1489 00f1 01       		.byte	0x1
+ 1490 00f2 3F       		.uleb128 0x3f
+ 1491 00f3 19       		.uleb128 0x19
+ 1492 00f4 03       		.uleb128 0x3
+ 1493 00f5 0E       		.uleb128 0xe
+ 1494 00f6 3A       		.uleb128 0x3a
+ 1495 00f7 0B       		.uleb128 0xb
+ 1496 00f8 3B       		.uleb128 0x3b
+ 1497 00f9 0B       		.uleb128 0xb
+ 1498 00fa 27       		.uleb128 0x27
+ 1499 00fb 19       		.uleb128 0x19
+ 1500 00fc 49       		.uleb128 0x49
+ 1501 00fd 13       		.uleb128 0x13
+ 1502 00fe 8701     		.uleb128 0x87
+ 1503 0100 19       		.uleb128 0x19
+ 1504 0101 11       		.uleb128 0x11
+ 1505 0102 01       		.uleb128 0x1
+ 1506 0103 12       		.uleb128 0x12
+ 1507 0104 06       		.uleb128 0x6
+ 1508 0105 40       		.uleb128 0x40
+ 1509 0106 18       		.uleb128 0x18
+ 1510 0107 9742     		.uleb128 0x2117
+ 1511 0109 19       		.uleb128 0x19
+ 1512 010a 01       		.uleb128 0x1
+ 1513 010b 13       		.uleb128 0x13
+ 1514 010c 00       		.byte	0
+ 1515 010d 00       		.byte	0
+ 1516 010e 15       		.uleb128 0x15
+ 1517 010f 1D       		.uleb128 0x1d
+ 1518 0110 00       		.byte	0
+ 1519 0111 31       		.uleb128 0x31
+ 1520 0112 13       		.uleb128 0x13
+ 1521 0113 11       		.uleb128 0x11
+ 1522 0114 01       		.uleb128 0x1
+ 1523 0115 12       		.uleb128 0x12
+ 1524 0116 06       		.uleb128 0x6
+ 1525 0117 58       		.uleb128 0x58
+ 1526 0118 0B       		.uleb128 0xb
+ 1527 0119 59       		.uleb128 0x59
+ 1528 011a 0B       		.uleb128 0xb
+ 1529 011b 00       		.byte	0
+ 1530 011c 00       		.byte	0
+ 1531 011d 16       		.uleb128 0x16
+ 1532 011e 1D       		.uleb128 0x1d
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 39
+
+
+ 1533 011f 01       		.byte	0x1
+ 1534 0120 31       		.uleb128 0x31
+ 1535 0121 13       		.uleb128 0x13
+ 1536 0122 11       		.uleb128 0x11
+ 1537 0123 01       		.uleb128 0x1
+ 1538 0124 12       		.uleb128 0x12
+ 1539 0125 06       		.uleb128 0x6
+ 1540 0126 58       		.uleb128 0x58
+ 1541 0127 0B       		.uleb128 0xb
+ 1542 0128 59       		.uleb128 0x59
+ 1543 0129 0B       		.uleb128 0xb
+ 1544 012a 01       		.uleb128 0x1
+ 1545 012b 13       		.uleb128 0x13
+ 1546 012c 00       		.byte	0
+ 1547 012d 00       		.byte	0
+ 1548 012e 17       		.uleb128 0x17
+ 1549 012f 05       		.uleb128 0x5
+ 1550 0130 00       		.byte	0
+ 1551 0131 31       		.uleb128 0x31
+ 1552 0132 13       		.uleb128 0x13
+ 1553 0133 02       		.uleb128 0x2
+ 1554 0134 17       		.uleb128 0x17
+ 1555 0135 00       		.byte	0
+ 1556 0136 00       		.byte	0
+ 1557 0137 18       		.uleb128 0x18
+ 1558 0138 05       		.uleb128 0x5
+ 1559 0139 00       		.byte	0
+ 1560 013a 31       		.uleb128 0x31
+ 1561 013b 13       		.uleb128 0x13
+ 1562 013c 1C       		.uleb128 0x1c
+ 1563 013d 0B       		.uleb128 0xb
+ 1564 013e 00       		.byte	0
+ 1565 013f 00       		.byte	0
+ 1566 0140 19       		.uleb128 0x19
+ 1567 0141 05       		.uleb128 0x5
+ 1568 0142 00       		.byte	0
+ 1569 0143 31       		.uleb128 0x31
+ 1570 0144 13       		.uleb128 0x13
+ 1571 0145 1C       		.uleb128 0x1c
+ 1572 0146 06       		.uleb128 0x6
+ 1573 0147 00       		.byte	0
+ 1574 0148 00       		.byte	0
+ 1575 0149 1A       		.uleb128 0x1a
+ 1576 014a 898201   		.uleb128 0x4109
+ 1577 014d 01       		.byte	0x1
+ 1578 014e 11       		.uleb128 0x11
+ 1579 014f 01       		.uleb128 0x1
+ 1580 0150 31       		.uleb128 0x31
+ 1581 0151 13       		.uleb128 0x13
+ 1582 0152 00       		.byte	0
+ 1583 0153 00       		.byte	0
+ 1584 0154 1B       		.uleb128 0x1b
+ 1585 0155 8A8201   		.uleb128 0x410a
+ 1586 0158 00       		.byte	0
+ 1587 0159 02       		.uleb128 0x2
+ 1588 015a 18       		.uleb128 0x18
+ 1589 015b 9142     		.uleb128 0x2111
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 40
+
+
+ 1590 015d 18       		.uleb128 0x18
+ 1591 015e 00       		.byte	0
+ 1592 015f 00       		.byte	0
+ 1593 0160 1C       		.uleb128 0x1c
+ 1594 0161 34       		.uleb128 0x34
+ 1595 0162 00       		.byte	0
+ 1596 0163 03       		.uleb128 0x3
+ 1597 0164 0E       		.uleb128 0xe
+ 1598 0165 3A       		.uleb128 0x3a
+ 1599 0166 0B       		.uleb128 0xb
+ 1600 0167 3B       		.uleb128 0x3b
+ 1601 0168 05       		.uleb128 0x5
+ 1602 0169 49       		.uleb128 0x49
+ 1603 016a 13       		.uleb128 0x13
+ 1604 016b 3F       		.uleb128 0x3f
+ 1605 016c 19       		.uleb128 0x19
+ 1606 016d 3C       		.uleb128 0x3c
+ 1607 016e 19       		.uleb128 0x19
+ 1608 016f 00       		.byte	0
+ 1609 0170 00       		.byte	0
+ 1610 0171 1D       		.uleb128 0x1d
+ 1611 0172 34       		.uleb128 0x34
+ 1612 0173 00       		.byte	0
+ 1613 0174 03       		.uleb128 0x3
+ 1614 0175 0E       		.uleb128 0xe
+ 1615 0176 3A       		.uleb128 0x3a
+ 1616 0177 0B       		.uleb128 0xb
+ 1617 0178 3B       		.uleb128 0x3b
+ 1618 0179 0B       		.uleb128 0xb
+ 1619 017a 49       		.uleb128 0x49
+ 1620 017b 13       		.uleb128 0x13
+ 1621 017c 3F       		.uleb128 0x3f
+ 1622 017d 19       		.uleb128 0x19
+ 1623 017e 3C       		.uleb128 0x3c
+ 1624 017f 19       		.uleb128 0x19
+ 1625 0180 00       		.byte	0
+ 1626 0181 00       		.byte	0
+ 1627 0182 1E       		.uleb128 0x1e
+ 1628 0183 2E       		.uleb128 0x2e
+ 1629 0184 00       		.byte	0
+ 1630 0185 3F       		.uleb128 0x3f
+ 1631 0186 19       		.uleb128 0x19
+ 1632 0187 3C       		.uleb128 0x3c
+ 1633 0188 19       		.uleb128 0x19
+ 1634 0189 6E       		.uleb128 0x6e
+ 1635 018a 0E       		.uleb128 0xe
+ 1636 018b 03       		.uleb128 0x3
+ 1637 018c 0E       		.uleb128 0xe
+ 1638 018d 3A       		.uleb128 0x3a
+ 1639 018e 0B       		.uleb128 0xb
+ 1640 018f 3B       		.uleb128 0x3b
+ 1641 0190 0B       		.uleb128 0xb
+ 1642 0191 00       		.byte	0
+ 1643 0192 00       		.byte	0
+ 1644 0193 00       		.byte	0
+ 1645              		.section	.debug_loc,"",%progbits
+ 1646              	.Ldebug_loc0:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 41
+
+
+ 1647              	.LLST0:
+ 1648 0000 10000000 		.4byte	.LVL0
+ 1649 0004 14000000 		.4byte	.LVL1
+ 1650 0008 0200     		.2byte	0x2
+ 1651 000a 32       		.byte	0x32
+ 1652 000b 9F       		.byte	0x9f
+ 1653 000c 00000000 		.4byte	0
+ 1654 0010 00000000 		.4byte	0
+ 1655              	.LLST1:
+ 1656 0014 10000000 		.4byte	.LVL0
+ 1657 0018 14000000 		.4byte	.LVL1
+ 1658 001c 0600     		.2byte	0x6
+ 1659 001e 0C       		.byte	0xc
+ 1660 001f 00003840 		.4byte	0x40380000
+ 1661 0023 9F       		.byte	0x9f
+ 1662 0024 00000000 		.4byte	0
+ 1663 0028 00000000 		.4byte	0
+ 1664              		.section	.debug_aranges,"",%progbits
+ 1665 0000 1C000000 		.4byte	0x1c
+ 1666 0004 0200     		.2byte	0x2
+ 1667 0006 00000000 		.4byte	.Ldebug_info0
+ 1668 000a 04       		.byte	0x4
+ 1669 000b 00       		.byte	0
+ 1670 000c 0000     		.2byte	0
+ 1671 000e 0000     		.2byte	0
+ 1672 0010 00000000 		.4byte	.LFB409
+ 1673 0014 20000000 		.4byte	.LFE409-.LFB409
+ 1674 0018 00000000 		.4byte	0
+ 1675 001c 00000000 		.4byte	0
+ 1676              		.section	.debug_ranges,"",%progbits
+ 1677              	.Ldebug_ranges0:
+ 1678 0000 00000000 		.4byte	.LFB409
+ 1679 0004 20000000 		.4byte	.LFE409
+ 1680 0008 00000000 		.4byte	0
+ 1681 000c 00000000 		.4byte	0
+ 1682              		.section	.debug_line,"",%progbits
+ 1683              	.Ldebug_line0:
+ 1684 0000 99020000 		.section	.debug_str,"MS",%progbits,1
+ 1684      02006E02 
+ 1684      00000201 
+ 1684      FB0E0D00 
+ 1684      01010101 
+ 1685              	.LASF81:
+ 1686 0000 70726F74 		.ascii	"protBusMasterMask\000"
+ 1686      4275734D 
+ 1686      61737465 
+ 1686      724D6173 
+ 1686      6B00
+ 1687              	.LASF141:
+ 1688 0012 72756E4D 		.ascii	"runMode\000"
+ 1688      6F646500 
+ 1689              	.LASF166:
+ 1690 001a 43795F54 		.ascii	"Cy_TCPWM_Enable_Multiple\000"
+ 1690      4350574D 
+ 1690      5F456E61 
+ 1690      626C655F 
+ 1690      4D756C74 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 42
+
+
+ 1691              	.LASF91:
+ 1692 0033 666C6173 		.ascii	"flashCtlMainWs3Freq\000"
+ 1692      6843746C 
+ 1692      4D61696E 
+ 1692      57733346 
+ 1692      72657100 
+ 1693              	.LASF113:
+ 1694 0047 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
+ 1694      50727443 
+ 1694      6667496E 
+ 1694      4F666673 
+ 1694      657400
+ 1695              	.LASF159:
+ 1696 005a 6B696C6C 		.ascii	"killInput\000"
+ 1696      496E7075 
+ 1696      7400
+ 1697              	.LASF131:
+ 1698 0064 6970634C 		.ascii	"ipcLockStatusOffset\000"
+ 1698      6F636B53 
+ 1698      74617475 
+ 1698      734F6666 
+ 1698      73657400 
+ 1699              	.LASF57:
+ 1700 0078 63727970 		.ascii	"cryptoVersion\000"
+ 1700      746F5665 
+ 1700      7273696F 
+ 1700      6E00
+ 1701              	.LASF75:
+ 1702 0086 70657269 		.ascii	"periClockNr\000"
+ 1702      436C6F63 
+ 1702      6B4E7200 
+ 1703              	.LASF53:
+ 1704 0092 70617373 		.ascii	"passBase\000"
+ 1704      42617365 
+ 1704      00
+ 1705              	.LASF139:
+ 1706 009b 70776D41 		.ascii	"pwmAlignment\000"
+ 1706      6C69676E 
+ 1706      6D656E74 
+ 1706      00
+ 1707              	.LASF66:
+ 1708 00a8 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 1708      73497063 
+ 1708      4972714E 
+ 1708      7200
+ 1709              	.LASF3:
+ 1710 00b6 5F5F7569 		.ascii	"__uint8_t\000"
+ 1710      6E74385F 
+ 1710      7400
+ 1711              	.LASF110:
+ 1712 00c0 70657269 		.ascii	"periDiv24_5CtlOffset\000"
+ 1712      44697632 
+ 1712      345F3543 
+ 1712      746C4F66 
+ 1712      66736574 
+ 1713              	.LASF117:
+ 1714 00d5 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 43
+
+
+ 1714      73436D34 
+ 1714      436C6F63 
+ 1714      6B43746C 
+ 1714      4F666673 
+ 1715              	.LASF24:
+ 1716 00ec 50455249 		.ascii	"PERIOD\000"
+ 1716      4F4400
+ 1717              	.LASF46:
+ 1718 00f3 63707573 		.ascii	"cpussBase\000"
+ 1718      73426173 
+ 1718      6500
+ 1719              	.LASF95:
+ 1720 00fd 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 1720      43746C50 
+ 1720      72696F50 
+ 1720      6F7300
+ 1721              	.LASF12:
+ 1722 010c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1722      206C6F6E 
+ 1722      6720756E 
+ 1722      7369676E 
+ 1722      65642069 
+ 1723              	.LASF138:
+ 1724 0123 636C6F63 		.ascii	"clockPrescaler\000"
+ 1724      6B507265 
+ 1724      7363616C 
+ 1724      657200
+ 1725              	.LASF99:
+ 1726 0132 70657269 		.ascii	"periTrCmdOffset\000"
+ 1726      5472436D 
+ 1726      644F6666 
+ 1726      73657400 
+ 1727              	.LASF123:
+ 1728 0142 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ 1728      73537973 
+ 1728      5469636B 
+ 1728      43746C4F 
+ 1728      66667365 
+ 1729              	.LASF38:
+ 1730 0158 434D445F 		.ascii	"CMD_CAPTURE\000"
+ 1730      43415054 
+ 1730      55524500 
+ 1731              	.LASF167:
+ 1732 0164 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1732      52784275 
+ 1732      66666572 
+ 1732      00
+ 1733              	.LASF84:
+ 1734 0171 666C6173 		.ascii	"flashPipeRequired\000"
+ 1734      68506970 
+ 1734      65526571 
+ 1734      75697265 
+ 1734      6400
+ 1735              	.LASF88:
+ 1736 0183 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 1736      6843746C 
+ 1736      4D61696E 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 44
+
+
+ 1736      57733046 
+ 1736      72657100 
+ 1737              	.LASF15:
+ 1738 0197 696E7431 		.ascii	"int16_t\000"
+ 1738      365F7400 
+ 1739              	.LASF11:
+ 1740 019f 6C6F6E67 		.ascii	"long long int\000"
+ 1740      206C6F6E 
+ 1740      6720696E 
+ 1740      7400
+ 1741              	.LASF1:
+ 1742 01ad 7369676E 		.ascii	"signed char\000"
+ 1742      65642063 
+ 1742      68617200 
+ 1743              	.LASF104:
+ 1744 01b9 70657269 		.ascii	"periDivCmdTypeSelPos\000"
+ 1744      44697643 
+ 1744      6D645479 
+ 1744      70655365 
+ 1744      6C506F73 
+ 1745              	.LASF50:
+ 1746 01ce 70726F74 		.ascii	"protBase\000"
+ 1746      42617365 
+ 1746      00
+ 1747              	.LASF62:
+ 1748 01d7 69706356 		.ascii	"ipcVersion\000"
+ 1748      65727369 
+ 1748      6F6E00
+ 1749              	.LASF124:
+ 1750 01e2 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 1750      73436D30 
+ 1750      4E6D6943 
+ 1750      746C4F66 
+ 1750      66736574 
+ 1751              	.LASF72:
+ 1752 01f7 73727373 		.ascii	"srssNumClkpath\000"
+ 1752      4E756D43 
+ 1752      6C6B7061 
+ 1752      746800
+ 1753              	.LASF51:
+ 1754 0206 6873696F 		.ascii	"hsiomBase\000"
+ 1754      6D426173 
+ 1754      6500
+ 1755              	.LASF173:
+ 1756 0210 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config\000"
+ 1756      74635F74 
+ 1756      6370776D 
+ 1756      5F70776D 
+ 1756      5F636F6E 
+ 1757              	.LASF8:
+ 1758 0228 6C6F6E67 		.ascii	"long int\000"
+ 1758      20696E74 
+ 1758      00
+ 1759              	.LASF42:
+ 1760 0231 494E5452 		.ascii	"INTR_CAUSE\000"
+ 1760      5F434155 
+ 1760      534500
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 45
+
+
+ 1761              	.LASF82:
+ 1762 023c 63727970 		.ascii	"cryptoMemSize\000"
+ 1762      746F4D65 
+ 1762      6D53697A 
+ 1762      6500
+ 1763              	.LASF48:
+ 1764 024a 70657269 		.ascii	"periBase\000"
+ 1764      42617365 
+ 1764      00
+ 1765              	.LASF27:
+ 1766 0253 54525F43 		.ascii	"TR_CTRL0\000"
+ 1766      54524C30 
+ 1766      00
+ 1767              	.LASF80:
+ 1768 025c 73797350 		.ascii	"sysPmSimoPresent\000"
+ 1768      6D53696D 
+ 1768      6F507265 
+ 1768      73656E74 
+ 1768      00
+ 1769              	.LASF39:
+ 1770 026d 434D445F 		.ascii	"CMD_RELOAD\000"
+ 1770      52454C4F 
+ 1770      414400
+ 1771              	.LASF25:
+ 1772 0278 50455249 		.ascii	"PERIOD_BUFF\000"
+ 1772      4F445F42 
+ 1772      55464600 
+ 1773              	.LASF109:
+ 1774 0284 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 1774      44697631 
+ 1774      365F3543 
+ 1774      746C4F66 
+ 1774      66736574 
+ 1775              	.LASF73:
+ 1776 0299 73727373 		.ascii	"srssNumPll\000"
+ 1776      4E756D50 
+ 1776      6C6C00
+ 1777              	.LASF175:
+ 1778 02a4 6D61696E 		.ascii	"main\000"
+ 1778      00
+ 1779              	.LASF107:
+ 1780 02a9 70657269 		.ascii	"periDiv8CtlOffset\000"
+ 1780      44697638 
+ 1780      43746C4F 
+ 1780      66667365 
+ 1780      7400
+ 1781              	.LASF114:
+ 1782 02bb 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ 1782      50727443 
+ 1782      66674F75 
+ 1782      744F6666 
+ 1782      73657400 
+ 1783              	.LASF47:
+ 1784 02cf 666C6173 		.ascii	"flashcBase\000"
+ 1784      68634261 
+ 1784      736500
+ 1785              	.LASF9:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 46
+
+
+ 1786 02da 5F5F7569 		.ascii	"__uint32_t\000"
+ 1786      6E743332 
+ 1786      5F7400
+ 1787              	.LASF77:
+ 1788 02e5 70617373 		.ascii	"passSarChannels\000"
+ 1788      53617243 
+ 1788      68616E6E 
+ 1788      656C7300 
+ 1789              	.LASF4:
+ 1790 02f5 5F5F696E 		.ascii	"__int16_t\000"
+ 1790      7431365F 
+ 1790      7400
+ 1791              	.LASF165:
+ 1792 02ff 43795F54 		.ascii	"Cy_TCPWM_TriggerReloadOrIndex\000"
+ 1792      4350574D 
+ 1792      5F547269 
+ 1792      67676572 
+ 1792      52656C6F 
+ 1793              	.LASF120:
+ 1794 031d 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
+ 1794      73436D34 
+ 1794      50777243 
+ 1794      746C4F66 
+ 1794      66736574 
+ 1795              	.LASF115:
+ 1796 0332 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 1796      50727443 
+ 1796      66675369 
+ 1796      6F4F6666 
+ 1796      73657400 
+ 1797              	.LASF67:
+ 1798 0346 63707573 		.ascii	"cpussDwChNr\000"
+ 1798      73447743 
+ 1798      684E7200 
+ 1799              	.LASF13:
+ 1800 0352 756E7369 		.ascii	"unsigned int\000"
+ 1800      676E6564 
+ 1800      20696E74 
+ 1800      00
+ 1801              	.LASF37:
+ 1802 035f 4354524C 		.ascii	"CTRL_SET\000"
+ 1802      5F534554 
+ 1802      00
+ 1803              	.LASF16:
+ 1804 0368 75696E74 		.ascii	"uint16_t\000"
+ 1804      31365F74 
+ 1804      00
+ 1805              	.LASF100:
+ 1806 0371 70657269 		.ascii	"periTrCmdGrSelMsk\000"
+ 1806      5472436D 
+ 1806      64477253 
+ 1806      656C4D73 
+ 1806      6B00
+ 1807              	.LASF89:
+ 1808 0383 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 1808      6843746C 
+ 1808      4D61696E 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 47
+
+
+ 1808      57733146 
+ 1808      72657100 
+ 1809              	.LASF10:
+ 1810 0397 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1810      20756E73 
+ 1810      69676E65 
+ 1810      6420696E 
+ 1810      7400
+ 1811              	.LASF147:
+ 1812 03a9 656E6162 		.ascii	"enableCompareSwap\000"
+ 1812      6C65436F 
+ 1812      6D706172 
+ 1812      65537761 
+ 1812      7000
+ 1813              	.LASF65:
+ 1814 03bb 63707573 		.ascii	"cpussIpcNr\000"
+ 1814      73497063 
+ 1814      4E7200
+ 1815              	.LASF33:
+ 1816 03c6 494E5452 		.ascii	"INTR_MASK\000"
+ 1816      5F4D4153 
+ 1816      4B00
+ 1817              	.LASF52:
+ 1818 03d0 6770696F 		.ascii	"gpioBase\000"
+ 1818      42617365 
+ 1818      00
+ 1819              	.LASF78:
+ 1820 03d9 65704D6F 		.ascii	"epMonitorNr\000"
+ 1820      6E69746F 
+ 1820      724E7200 
+ 1821              	.LASF90:
+ 1822 03e5 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 1822      6843746C 
+ 1822      4D61696E 
+ 1822      57733246 
+ 1822      72657100 
+ 1823              	.LASF152:
+ 1824 03f9 73776170 		.ascii	"swapInputMode\000"
+ 1824      496E7075 
+ 1824      744D6F64 
+ 1824      6500
+ 1825              	.LASF101:
+ 1826 0407 70657269 		.ascii	"periTrGrOffset\000"
+ 1826      54724772 
+ 1826      4F666673 
+ 1826      657400
+ 1827              	.LASF128:
+ 1828 0416 63707573 		.ascii	"cpussRam1Ctl0\000"
+ 1828      7352616D 
+ 1828      3143746C 
+ 1828      3000
+ 1829              	.LASF158:
+ 1830 0424 6B696C6C 		.ascii	"killInputMode\000"
+ 1830      496E7075 
+ 1830      744D6F64 
+ 1830      6500
+ 1831              	.LASF102:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 48
+
+
+ 1832 0432 70657269 		.ascii	"periTrGrSize\000"
+ 1832      54724772 
+ 1832      53697A65 
+ 1832      00
+ 1833              	.LASF60:
+ 1834 043f 6770696F 		.ascii	"gpioVersion\000"
+ 1834      56657273 
+ 1834      696F6E00 
+ 1835              	.LASF132:
+ 1836 044b 63795F73 		.ascii	"cy_stc_device_t\000"
+ 1836      74635F64 
+ 1836      65766963 
+ 1836      655F7400 
+ 1837              	.LASF23:
+ 1838 045b 43435F42 		.ascii	"CC_BUFF\000"
+ 1838      55464600 
+ 1839              	.LASF149:
+ 1840 0463 696E7665 		.ascii	"invertPWMOut\000"
+ 1840      72745057 
+ 1840      4D4F7574 
+ 1840      00
+ 1841              	.LASF140:
+ 1842 0470 64656164 		.ascii	"deadTimeClocks\000"
+ 1842      54696D65 
+ 1842      436C6F63 
+ 1842      6B7300
+ 1843              	.LASF125:
+ 1844 047f 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
+ 1844      73436D34 
+ 1844      4E6D6943 
+ 1844      746C4F66 
+ 1844      66736574 
+ 1845              	.LASF121:
+ 1846 0494 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
+ 1846      73547269 
+ 1846      6D52616D 
+ 1846      43746C4F 
+ 1846      66667365 
+ 1847              	.LASF164:
+ 1848 04aa 636F756E 		.ascii	"counters\000"
+ 1848      74657273 
+ 1848      00
+ 1849              	.LASF157:
+ 1850 04b3 73746172 		.ascii	"startInput\000"
+ 1850      74496E70 
+ 1850      757400
+ 1851              	.LASF32:
+ 1852 04be 494E5452 		.ascii	"INTR_SET\000"
+ 1852      5F534554 
+ 1852      00
+ 1853              	.LASF56:
+ 1854 04c7 63707573 		.ascii	"cpussVersion\000"
+ 1854      73566572 
+ 1854      73696F6E 
+ 1854      00
+ 1855              	.LASF163:
+ 1856 04d4 62617365 		.ascii	"base\000"
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 49
+
+
+ 1856      00
+ 1857              	.LASF63:
+ 1858 04d9 70657269 		.ascii	"periVersion\000"
+ 1858      56657273 
+ 1858      696F6E00 
+ 1859              	.LASF119:
+ 1860 04e5 63707573 		.ascii	"cpussCm0StatusOffset\000"
+ 1860      73436D30 
+ 1860      53746174 
+ 1860      75734F66 
+ 1860      66736574 
+ 1861              	.LASF19:
+ 1862 04fa 73697A65 		.ascii	"sizetype\000"
+ 1862      74797065 
+ 1862      00
+ 1863              	.LASF93:
+ 1864 0503 64774368 		.ascii	"dwChOffset\000"
+ 1864      4F666673 
+ 1864      657400
+ 1865              	.LASF172:
+ 1866 050e 443A5C4D 		.ascii	"D:\\Microprocess2\\Lab8\\Lab8\\Lab8.cydsn\000"
+ 1866      6963726F 
+ 1866      70726F63 
+ 1866      65737332 
+ 1866      5C4C6162 
+ 1867              	.LASF106:
+ 1868 0534 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 1868      44697643 
+ 1868      6D645061 
+ 1868      54797065 
+ 1868      53656C50 
+ 1869              	.LASF129:
+ 1870 054b 63707573 		.ascii	"cpussRam2Ctl0\000"
+ 1870      7352616D 
+ 1870      3243746C 
+ 1870      3000
+ 1871              	.LASF31:
+ 1872 0559 494E5452 		.ascii	"INTR\000"
+ 1872      00
+ 1873              	.LASF97:
+ 1874 055e 64775374 		.ascii	"dwStatusChIdxPos\000"
+ 1874      61747573 
+ 1874      43684964 
+ 1874      78506F73 
+ 1874      00
+ 1875              	.LASF79:
+ 1876 056f 75646250 		.ascii	"udbPresent\000"
+ 1876      72657365 
+ 1876      6E7400
+ 1877              	.LASF59:
+ 1878 057a 666C6173 		.ascii	"flashcVersion\000"
+ 1878      68635665 
+ 1878      7273696F 
+ 1878      6E00
+ 1879              	.LASF55:
+ 1880 0588 63727970 		.ascii	"cryptoBase\000"
+ 1880      746F4261 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 50
+
+
+ 1880      736500
+ 1881              	.LASF76:
+ 1882 0593 736D6966 		.ascii	"smifDeviceNr\000"
+ 1882      44657669 
+ 1882      63654E72 
+ 1882      00
+ 1883              	.LASF174:
+ 1884 05a0 5F5F656E 		.ascii	"__enable_irq\000"
+ 1884      61626C65 
+ 1884      5F697271 
+ 1884      00
+ 1885              	.LASF22:
+ 1886 05ad 434F554E 		.ascii	"COUNTER\000"
+ 1886      54455200 
+ 1887              	.LASF34:
+ 1888 05b5 494E5452 		.ascii	"INTR_MASKED\000"
+ 1888      5F4D4153 
+ 1888      4B454400 
+ 1889              	.LASF137:
+ 1890 05c1 70776D4D 		.ascii	"pwmMode\000"
+ 1890      6F646500 
+ 1891              	.LASF134:
+ 1892 05c9 666C6F61 		.ascii	"float\000"
+ 1892      7400
+ 1893              	.LASF98:
+ 1894 05cf 64775374 		.ascii	"dwStatusChIdxMsk\000"
+ 1894      61747573 
+ 1894      43684964 
+ 1894      784D736B 
+ 1894      00
+ 1895              	.LASF41:
+ 1896 05e0 434D445F 		.ascii	"CMD_START\000"
+ 1896      53544152 
+ 1896      5400
+ 1897              	.LASF30:
+ 1898 05ea 52455345 		.ascii	"RESERVED1\000"
+ 1898      52564544 
+ 1898      3100
+ 1899              	.LASF168:
+ 1900 05f4 63795F64 		.ascii	"cy_device\000"
+ 1900      65766963 
+ 1900      6500
+ 1901              	.LASF126:
+ 1902 05fe 63707573 		.ascii	"cpussRomCtl\000"
+ 1902      73526F6D 
+ 1902      43746C00 
+ 1903              	.LASF96:
+ 1904 060a 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 1904      43746C50 
+ 1904      7265656D 
+ 1904      70746162 
+ 1904      6C65506F 
+ 1905              	.LASF151:
+ 1906 0620 6B696C6C 		.ascii	"killMode\000"
+ 1906      4D6F6465 
+ 1906      00
+ 1907              	.LASF49:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 51
+
+
+ 1908 0629 75646242 		.ascii	"udbBase\000"
+ 1908      61736500 
+ 1909              	.LASF20:
+ 1910 0631 4354524C 		.ascii	"CTRL\000"
+ 1910      00
+ 1911              	.LASF136:
+ 1912 0636 5F426F6F 		.ascii	"_Bool\000"
+ 1912      6C00
+ 1913              	.LASF17:
+ 1914 063c 696E7433 		.ascii	"int32_t\000"
+ 1914      325F7400 
+ 1915              	.LASF2:
+ 1916 0644 756E7369 		.ascii	"unsigned char\000"
+ 1916      676E6564 
+ 1916      20636861 
+ 1916      7200
+ 1917              	.LASF92:
+ 1918 0652 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
+ 1918      6843746C 
+ 1918      4D61696E 
+ 1918      57733446 
+ 1918      72657100 
+ 1919              	.LASF0:
+ 1920 0666 73686F72 		.ascii	"short int\000"
+ 1920      7420696E 
+ 1920      7400
+ 1921              	.LASF26:
+ 1922 0670 52455345 		.ascii	"RESERVED\000"
+ 1922      52564544 
+ 1922      00
+ 1923              	.LASF103:
+ 1924 0679 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 1924      44697643 
+ 1924      6D644469 
+ 1924      7653656C 
+ 1924      4D736B00 
+ 1925              	.LASF144:
+ 1926 068d 656E6162 		.ascii	"enablePeriodSwap\000"
+ 1926      6C655065 
+ 1926      72696F64 
+ 1926      53776170 
+ 1926      00
+ 1927              	.LASF153:
+ 1928 069e 73776170 		.ascii	"swapInput\000"
+ 1928      496E7075 
+ 1928      7400
+ 1929              	.LASF74:
+ 1930 06a8 73727373 		.ascii	"srssNumHfroot\000"
+ 1930      4E756D48 
+ 1930      66726F6F 
+ 1930      7400
+ 1931              	.LASF87:
+ 1932 06b6 666C6173 		.ascii	"flashEraseDelay\000"
+ 1932      68457261 
+ 1932      73654465 
+ 1932      6C617900 
+ 1933              	.LASF70:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 52
+
+
+ 1934 06c6 63707573 		.ascii	"cpussFmIrq\000"
+ 1934      73466D49 
+ 1934      727100
+ 1935              	.LASF18:
+ 1936 06d1 75696E74 		.ascii	"uint32_t\000"
+ 1936      33325F74 
+ 1936      00
+ 1937              	.LASF145:
+ 1938 06da 636F6D70 		.ascii	"compare0\000"
+ 1938      61726530 
+ 1938      00
+ 1939              	.LASF45:
+ 1940 06e3 6C6F6E67 		.ascii	"long double\000"
+ 1940      20646F75 
+ 1940      626C6500 
+ 1941              	.LASF133:
+ 1942 06ef 63686172 		.ascii	"char\000"
+ 1942      00
+ 1943              	.LASF161:
+ 1944 06f4 636F756E 		.ascii	"countInput\000"
+ 1944      74496E70 
+ 1944      757400
+ 1945              	.LASF64:
+ 1946 06ff 70726F74 		.ascii	"protVersion\000"
+ 1946      56657273 
+ 1946      696F6E00 
+ 1947              	.LASF127:
+ 1948 070b 63707573 		.ascii	"cpussRam0Ctl0\000"
+ 1948      7352616D 
+ 1948      3043746C 
+ 1948      3000
+ 1949              	.LASF5:
+ 1950 0719 5F5F7569 		.ascii	"__uint16_t\000"
+ 1950      6E743136 
+ 1950      5F7400
+ 1951              	.LASF169:
+ 1952 0724 50574D5F 		.ascii	"PWM_config\000"
+ 1952      636F6E66 
+ 1952      696700
+ 1953              	.LASF108:
+ 1954 072f 70657269 		.ascii	"periDiv16CtlOffset\000"
+ 1954      44697631 
+ 1954      3643746C 
+ 1954      4F666673 
+ 1954      657400
+ 1955              	.LASF43:
+ 1956 0742 54435057 		.ascii	"TCPWM_V1_Type\000"
+ 1956      4D5F5631 
+ 1956      5F547970 
+ 1956      6500
+ 1957              	.LASF7:
+ 1958 0750 5F5F696E 		.ascii	"__int32_t\000"
+ 1958      7433325F 
+ 1958      7400
+ 1959              	.LASF61:
+ 1960 075a 6873696F 		.ascii	"hsiomVersion\000"
+ 1960      6D566572 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 53
+
+
+ 1960      73696F6E 
+ 1960      00
+ 1961              	.LASF148:
+ 1962 0767 696E7465 		.ascii	"interruptSources\000"
+ 1962      72727570 
+ 1962      74536F75 
+ 1962      72636573 
+ 1962      00
+ 1963              	.LASF155:
+ 1964 0778 72656C6F 		.ascii	"reloadInput\000"
+ 1964      6164496E 
+ 1964      70757400 
+ 1965              	.LASF6:
+ 1966 0784 73686F72 		.ascii	"short unsigned int\000"
+ 1966      7420756E 
+ 1966      7369676E 
+ 1966      65642069 
+ 1966      6E7400
+ 1967              	.LASF94:
+ 1968 0797 64774368 		.ascii	"dwChSize\000"
+ 1968      53697A65 
+ 1968      00
+ 1969              	.LASF35:
+ 1970 07a0 54435057 		.ascii	"TCPWM_CNT_V1_Type\000"
+ 1970      4D5F434E 
+ 1970      545F5631 
+ 1970      5F547970 
+ 1970      6500
+ 1971              	.LASF130:
+ 1972 07b2 69706353 		.ascii	"ipcStructSize\000"
+ 1972      74727563 
+ 1972      7453697A 
+ 1972      6500
+ 1973              	.LASF156:
+ 1974 07c0 73746172 		.ascii	"startInputMode\000"
+ 1974      74496E70 
+ 1974      75744D6F 
+ 1974      646500
+ 1975              	.LASF69:
+ 1976 07cf 63707573 		.ascii	"cpussIpc0Irq\000"
+ 1976      73497063 
+ 1976      30497271 
+ 1976      00
+ 1977              	.LASF142:
+ 1978 07dc 70657269 		.ascii	"period0\000"
+ 1978      6F643000 
+ 1979              	.LASF143:
+ 1980 07e4 70657269 		.ascii	"period1\000"
+ 1980      6F643100 
+ 1981              	.LASF146:
+ 1982 07ec 636F6D70 		.ascii	"compare1\000"
+ 1982      61726531 
+ 1982      00
+ 1983              	.LASF116:
+ 1984 07f5 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
+ 1984      73436D30 
+ 1984      436C6F63 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 54
+
+
+ 1984      6B43746C 
+ 1984      4F666673 
+ 1985              	.LASF112:
+ 1986 080c 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+ 1986      50727443 
+ 1986      66674F66 
+ 1986      66736574 
+ 1986      00
+ 1987              	.LASF21:
+ 1988 081d 53544154 		.ascii	"STATUS\000"
+ 1988      555300
+ 1989              	.LASF176:
+ 1990 0824 43795F54 		.ascii	"Cy_TCPWM_PWM_Init\000"
+ 1990      4350574D 
+ 1990      5F50574D 
+ 1990      5F496E69 
+ 1990      7400
+ 1991              	.LASF36:
+ 1992 0836 4354524C 		.ascii	"CTRL_CLR\000"
+ 1992      5F434C52 
+ 1992      00
+ 1993              	.LASF28:
+ 1994 083f 54525F43 		.ascii	"TR_CTRL1\000"
+ 1994      54524C31 
+ 1994      00
+ 1995              	.LASF29:
+ 1996 0848 54525F43 		.ascii	"TR_CTRL2\000"
+ 1996      54524C32 
+ 1996      00
+ 1997              	.LASF71:
+ 1998 0851 63707573 		.ascii	"cpussNotConnectedIrq\000"
+ 1998      734E6F74 
+ 1998      436F6E6E 
+ 1998      65637465 
+ 1998      64497271 
+ 1999              	.LASF150:
+ 2000 0866 696E7665 		.ascii	"invertPWMOutN\000"
+ 2000      72745057 
+ 2000      4D4F7574 
+ 2000      4E00
+ 2001              	.LASF85:
+ 2002 0874 666C6173 		.ascii	"flashWriteDelay\000"
+ 2002      68577269 
+ 2002      74654465 
+ 2002      6C617900 
+ 2003              	.LASF14:
+ 2004 0884 75696E74 		.ascii	"uint8_t\000"
+ 2004      385F7400 
+ 2005              	.LASF118:
+ 2006 088c 63707573 		.ascii	"cpussCm4StatusOffset\000"
+ 2006      73436D34 
+ 2006      53746174 
+ 2006      75734F66 
+ 2006      66736574 
+ 2007              	.LASF111:
+ 2008 08a1 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
+ 2008      50727449 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 55
+
+
+ 2008      6E747243 
+ 2008      66674F66 
+ 2008      66736574 
+ 2009              	.LASF162:
+ 2010 08b6 63795F73 		.ascii	"cy_stc_tcpwm_pwm_config_t\000"
+ 2010      74635F74 
+ 2010      6370776D 
+ 2010      5F70776D 
+ 2010      5F636F6E 
+ 2011              	.LASF154:
+ 2012 08d0 72656C6F 		.ascii	"reloadInputMode\000"
+ 2012      6164496E 
+ 2012      7075744D 
+ 2012      6F646500 
+ 2013              	.LASF40:
+ 2014 08e0 434D445F 		.ascii	"CMD_STOP\000"
+ 2014      53544F50 
+ 2014      00
+ 2015              	.LASF122:
+ 2016 08e9 63707573 		.ascii	"cpussTrimRomCtlOffset\000"
+ 2016      73547269 
+ 2016      6D526F6D 
+ 2016      43746C4F 
+ 2016      66667365 
+ 2017              	.LASF160:
+ 2018 08ff 636F756E 		.ascii	"countInputMode\000"
+ 2018      74496E70 
+ 2018      75744D6F 
+ 2018      646500
+ 2019              	.LASF58:
+ 2020 090e 64775665 		.ascii	"dwVersion\000"
+ 2020      7273696F 
+ 2020      6E00
+ 2021              	.LASF54:
+ 2022 0918 69706342 		.ascii	"ipcBase\000"
+ 2022      61736500 
+ 2023              	.LASF170:
+ 2024 0920 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2024      43313120 
+ 2024      352E342E 
+ 2024      31203230 
+ 2024      31363036 
+ 2025 0953 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
+ 2025      20726576 
+ 2025      6973696F 
+ 2025      6E203233 
+ 2025      37373135 
+ 2026 0986 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
+ 2026      70202D6D 
+ 2026      6670753D 
+ 2026      66707634 
+ 2026      2D73702D 
+ 2027 09b9 65637469 		.ascii	"ections -ffat-lto-objects\000"
+ 2027      6F6E7320 
+ 2027      2D666661 
+ 2027      742D6C74 
+ 2027      6F2D6F62 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccMZRUVo.s 			page 56
+
+
+ 2028              	.LASF44:
+ 2029 09d3 54435057 		.ascii	"TCPWM_Type\000"
+ 2029      4D5F5479 
+ 2029      706500
+ 2030              	.LASF105:
+ 2031 09de 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
+ 2031      44697643 
+ 2031      6D645061 
+ 2031      44697653 
+ 2031      656C506F 
+ 2032              	.LASF86:
+ 2033 09f4 666C6173 		.ascii	"flashProgramDelay\000"
+ 2033      6850726F 
+ 2033      6772616D 
+ 2033      44656C61 
+ 2033      7900
+ 2034              	.LASF171:
+ 2035 0a06 6D61696E 		.ascii	"main_cm4.c\000"
+ 2035      5F636D34 
+ 2035      2E6300
+ 2036              	.LASF135:
+ 2037 0a11 646F7562 		.ascii	"double\000"
+ 2037      6C6500
+ 2038              	.LASF68:
+ 2039 0a18 63707573 		.ascii	"cpussFlashPaSize\000"
+ 2039      73466C61 
+ 2039      73685061 
+ 2039      53697A65 
+ 2039      00
+ 2040              	.LASF83:
+ 2041 0a29 666C6173 		.ascii	"flashRwwRequired\000"
+ 2041      68527777 
+ 2041      52657175 
+ 2041      69726564 
+ 2041      00
+ 2042              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,2048 @@
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"EZI2C_EZI2C.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.EZI2C_EzI2CInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	EZI2C_EzI2CInit
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	EZI2C_EzI2CInit, %function
+  25              	EZI2C_EzI2CInit:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\EZI2C_EZI2C.c"
+   1:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \file EZI2C_EZI2C.c
+   3:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \version 4.0
+   4:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+   5:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \brief
+   6:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  This file provides the source code to the API for the SCB Component in
+   7:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C mode.
+   8:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+   9:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Note:
+  10:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+  11:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************
+  12:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \copyright
+  13:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  19:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #include "EZI2C_PVT.h"
+  20:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #include "EZI2C_EZI2C_PVT.h"
+  21:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  22:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  23:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /***************************************
+  24:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *      EZI2C Private Vars
+  25:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ***************************************/
+  26:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  27:Generated_Source\PSoC4/EZI2C_EZI2C.c **** volatile uint8 EZI2C_curStatus; /* Status byte */
+  28:Generated_Source\PSoC4/EZI2C_EZI2C.c **** uint8 EZI2C_fsmState;           /* FSM state   */
+  29:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  30:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /* Variables intended to be used with Buffer 1: Primary slave address */
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 2
+
+
+  31:Generated_Source\PSoC4/EZI2C_EZI2C.c **** volatile uint8 * EZI2C_dataBuffer1; /* Pointer to data buffer 1 */
+  32:Generated_Source\PSoC4/EZI2C_EZI2C.c **** uint16 EZI2C_bufSizeBuf1;           /* Size of buffer 1 in bytes      */
+  33:Generated_Source\PSoC4/EZI2C_EZI2C.c **** uint16 EZI2C_protectBuf1;           /* Start index of write protected area buffer 1 */
+  34:Generated_Source\PSoC4/EZI2C_EZI2C.c **** uint16 EZI2C_offsetBuf1; /* Current offset within buffer 1 */
+  35:Generated_Source\PSoC4/EZI2C_EZI2C.c **** uint16 EZI2C_indexBuf1;             /* Current index within buffer 1  */
+  36:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  37:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #if(EZI2C_SECONDARY_ADDRESS_ENABLE_CONST)
+  38:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint8 EZI2C_addrBuf1; /* Primary slave address. Used for software comparison   */
+  39:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint8 EZI2C_addrBuf2; /* Secondary slave address. Used for software comparison */
+  40:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  41:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     /* Variables intended to be used with Buffer 2: Primary slave address */
+  42:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     volatile uint8 * EZI2C_dataBuffer2; /* Pointer to data buffer 2 */
+  43:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint16 EZI2C_bufSizeBuf2;           /* Size of buffer 2 in bytes */
+  44:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint16 EZI2C_protectBuf2;           /* Start index of write protected area buffer 2 */
+  45:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint16 EZI2C_offsetBuf2; /* Current offset within buffer 2 */
+  46:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint16 EZI2C_indexBuf2;             /* Current index within buffer 2 */
+  47:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #endif /* (EZI2C_SECONDARY_ADDRESS_ENABLE_CONST) */
+  48:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  49:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  50:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /***************************************
+  51:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *      EZI2C Private Functions
+  52:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ***************************************/
+  53:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  54:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #if(EZI2C_SECONDARY_ADDRESS_ENABLE_CONST)
+  55:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     static uint32 EZI2C_EzI2CUpdateRxMatchReg(uint32 addr1, uint32 addr2);
+  56:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #endif /* (EZI2C_SECONDARY_ADDRESS_ENABLE_CONST) */
+  57:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  58:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #if(EZI2C_SCB_MODE_UNCONFIG_CONST_CFG)
+  59:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  60:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     /***************************************
+  61:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  Configuration Structure Initialization
+  62:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     ***************************************/
+  63:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  64:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     /* Constant configuration of EZI2C */
+  65:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     const EZI2C_EZI2C_INIT_STRUCT EZI2C_configEzI2C =
+  66:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+  67:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_CLOCK_STRETCHING,
+  68:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_MEDIAN_FILTER_ENABLE,
+  69:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_NUMBER_OF_ADDRESSES,
+  70:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_PRIMARY_SLAVE_ADDRESS,
+  71:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_SECONDARY_SLAVE_ADDRESS,
+  72:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_SUB_ADDRESS_SIZE,
+  73:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_WAKE_ENABLE,
+  74:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EZI2C_BYTE_MODE_ENABLE
+  75:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     };
+  76:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+  77:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     /*******************************************************************************
+  78:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     * Function Name: EZI2C_EzI2CInit
+  79:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     ****************************************************************************//**
+  80:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *
+  81:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  Configures the EZI2C for EZI2C operation.
+  82:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *
+  83:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  This function is intended specifically to be used when the EZI2C 
+  84:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  configuration is set to “Unconfigured EZI2C” in the customizer. 
+  85:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  After initializing the EZI2C in EZI2C mode using this function, 
+  86:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  the component can be enabled using the EZI2C_Start() or 
+  87:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     * EZI2C_Enable() function.
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 3
+
+
+  88:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  This function uses a pointer to a structure that provides the configuration 
+  89:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  settings. This structure contains the same information that would otherwise 
+  90:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  be provided by the customizer settings.
+  91:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *
+  92:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     * \param config: pointer to a structure that contains the following list of 
+  93:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  fields. These fields match the selections available in the customizer. 
+  94:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  Refer to the customizer for further description of the settings.
+  95:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *
+  96:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *******************************************************************************/
+  97:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     void EZI2C_EzI2CInit(const EZI2C_EZI2C_INIT_STRUCT *config)
+  98:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+  99:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         if(NULL == config)
+ 100:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         {
+ 101:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
+ 102:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         }
+ 103:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         else
+ 104:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         {
+ 105:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Configure pins */
+ 106:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_SetPins(EZI2C_SCB_MODE_EZI2C, EZI2C_DUMMY_PARAM,
+ 107:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                                                       EZI2C_DUMMY_PARAM);
+ 108:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 109:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Store internal configuration */
+ 110:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_scbMode       = (uint8) EZI2C_SCB_MODE_EZI2C;
+ 111:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_scbEnableWake = (uint8) config->enableWake;
+ 112:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_scbEnableIntr = (uint8) EZI2C_SCB_IRQ_INTERNAL;
+ 113:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 114:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_numberOfAddr  = (uint8) config->numberOfAddresses;
+ 115:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_subAddrSize   = (uint8) config->subAddrSize;
+ 116:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 117:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         #if (EZI2C_CY_SCBIP_V0)
+ 118:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Adjust SDA filter settings. Ticket ID#150521 */
+ 119:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_SET_I2C_CFG_SDA_FILT_TRIM(EZI2C_EC_AM_I2C_CFG_SDA_FILT_TRIM);
+ 120:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         #endif /* (EZI2C_CY_SCBIP_V0) */
+ 121:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 122:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Adjust AF and DF filter settings, AF = 1, DF = 0. Ticket ID#176179 */
+ 123:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_I2C_CFG_ANALOG_FITER_ENABLE;
+ 124:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 125:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Configure I2C interface */
+ 126:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_CTRL_REG     = EZI2C_GET_CTRL_BYTE_MODE  (config->enableByteMode)    |
+ 127:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                             EZI2C_GET_CTRL_ADDR_ACCEPT(config->numberOfAddresses) |
+ 128:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                             EZI2C_GET_CTRL_EC_AM_MODE (config->enableWake);
+ 129:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 130:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_I2C_CTRL_REG = EZI2C_EZI2C_CTRL;
+ 131:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 132:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Configure RX direction */
+ 133:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_RX_CTRL_REG = EZI2C_EZI2C_RX_CTRL |
+ 134:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                         EZI2C_GET_RX_CTRL_MEDIAN(EZI2C_DIGITAL_FILTER_DISABLE);
+ 135:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                                 ;
+ 136:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_RX_FIFO_CTRL_REG = EZI2C_CLEAR_REG;
+ 137:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 138:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Set default address and mask */
+ 139:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             if(EZI2C_EZI2C_PRIMARY_ADDRESS == config->numberOfAddresses)
+ 140:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             {
+ 141:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 EZI2C_RX_MATCH_REG = EZI2C_EzI2CUpdateRxMatchReg(config->primarySlaveAddr,
+ 142:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                                                                        config->prim
+ 143:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             }
+ 144:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             else
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 4
+
+
+ 145:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             {
+ 146:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 EZI2C_RX_MATCH_REG = EZI2C_EzI2CUpdateRxMatchReg(config->primarySlaveAddr,
+ 147:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                                                                        config->seco
+ 148:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             }
+ 149:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 150:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Configure TX direction */
+ 151:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_TX_CTRL_REG      = EZI2C_EZI2C_TX_CTRL;
+ 152:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_TX_FIFO_CTRL_REG = ((0u != (config->enableClockStretch)) ?
+ 153:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                                  EZI2C_CLEAR_REG : EZI2C_EZI2C_TX_FIFO_CTRL);
+ 154:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 155:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Configure interrupt sources */
+ 156:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         #if (!EZI2C_CY_SCBIP_V1)
+ 157:Generated_Source\PSoC4/EZI2C_EZI2C.c ****            EZI2C_INTR_SPI_EC_MASK_REG = EZI2C_NO_INTR_SOURCES;
+ 158:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         #endif /* (!EZI2C_CY_SCBIP_V1) */
+ 159:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 160:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_INTR_I2C_EC_MASK_REG = EZI2C_NO_INTR_SOURCES;
+ 161:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_INTR_MASTER_MASK_REG = EZI2C_NO_INTR_SOURCES;
+ 162:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_INTR_SLAVE_MASK_REG  = EZI2C_EZI2C_INTR_SLAVE_MASK;
+ 163:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_INTR_TX_MASK_REG     = EZI2C_NO_INTR_SOURCES;
+ 164:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 165:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Configure interrupt with EZI2C handler but do not enable it */
+ 166:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             CyIntDisable    (EZI2C_ISR_NUMBER);
+ 167:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             CyIntSetPriority(EZI2C_ISR_NUMBER, EZI2C_ISR_PRIORITY);
+ 168:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             (void) CyIntSetVector(EZI2C_ISR_NUMBER, (0u != (config->enableClockStretch)) ?
+ 169:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                                                       (&EZI2C_EZI2C_STRETCH_ISR) :
+ 170:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                                                                       (&EZI2C_EZI2C_NO_STRETCH_ISR)
+ 171:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 172:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             if(0u != (config->enableClockStretch))
+ 173:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             {
+ 174:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 /* Configure interrupt sources */
+ 175:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 EZI2C_INTR_SLAVE_MASK_REG |= EZI2C_INTR_SLAVE_I2C_ADDR_MATCH;
+ 176:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 EZI2C_INTR_RX_MASK_REG     = EZI2C_NO_INTR_SOURCES;
+ 177:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             }
+ 178:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             else
+ 179:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             {
+ 180:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 /* Enable Auto ACK/NACK features */
+ 181:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 EZI2C_I2C_CTRL_REG |= EZI2C_EZI2C_CTRL_AUTO;
+ 182:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 183:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 /* Configure RX interrupt source */
+ 184:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 EZI2C_INTR_SLAVE_MASK_REG |= EZI2C_INTR_SLAVE_I2C_START;
+ 185:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                 EZI2C_INTR_RX_MASK_REG     = EZI2C_INTR_RX_NOT_EMPTY;
+ 186:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             }
+ 187:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 188:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             /* Configure global variables */
+ 189:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_fsmState = EZI2C_EZI2C_FSM_IDLE;
+ 190:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 191:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_curStatus  = 0u;
+ 192:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_indexBuf1  = 0u;
+ 193:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_offsetBuf1 = 0u;
+ 194:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_indexBuf2  = 0u;
+ 195:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_offsetBuf2 = 0u;
+ 196:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 197:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_addrBuf1 = (uint8) config->primarySlaveAddr;
+ 198:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             EZI2C_addrBuf2 = (uint8) config->secondarySlaveAddr;
+ 199:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         }
+ 200:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 201:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 5
+
+
+ 202:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #else
+ 203:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 204:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     /*******************************************************************************
+ 205:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     * Function Name: EZI2C_EzI2CInit
+ 206:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     ****************************************************************************//**
+ 207:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *
+ 208:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *  Configures the SCB for the EZI2C operation.
+ 209:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *
+ 210:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     *******************************************************************************/
+ 211:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     void EZI2C_EzI2CInit(void)
+ 212:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+  28              		.loc 1 212 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+ 213:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Configure I2C interface */
+ 214:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_CTRL_REG     = EZI2C_EZI2C_DEFAULT_CTRL;
+  36              		.loc 1 214 0
+  37 0002 0024     		movs	r4, #0
+  38 0004 1C4B     		ldr	r3, .L2
+  39 0006 1C60     		str	r4, [r3]
+ 215:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_I2C_CTRL_REG = EZI2C_EZI2C_DEFAULT_I2C_CTRL;
+  40              		.loc 1 215 0
+  41 0008 1C4A     		ldr	r2, .L2+4
+  42 000a 1D4B     		ldr	r3, .L2+8
+  43 000c 1A60     		str	r2, [r3]
+ 216:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 217:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if (EZI2C_CY_SCBIP_V0)
+ 218:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Adjust SDA filter settings. Ticket ID#150521 */
+ 219:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_SET_I2C_CFG_SDA_FILT_TRIM(EZI2C_EC_AM_I2C_CFG_SDA_FILT_TRIM);
+  44              		.loc 1 219 0
+  45 000e 1D4A     		ldr	r2, .L2+12
+  46 0010 1168     		ldr	r1, [r2]
+  47 0012 0C23     		movs	r3, #12
+  48 0014 0B43     		orrs	r3, r1
+  49 0016 1360     		str	r3, [r2]
+ 220:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif /* (EZI2C_CY_SCBIP_V0) */
+ 221:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 222:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Configure RX direction */
+ 223:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_RX_CTRL_REG      = EZI2C_EZI2C_DEFAULT_RX_CTRL;
+  50              		.loc 1 223 0
+  51 0018 1B4B     		ldr	r3, .L2+16
+  52 001a 1C4A     		ldr	r2, .L2+20
+  53 001c 1360     		str	r3, [r2]
+ 224:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_RX_FIFO_CTRL_REG = EZI2C_EZI2C_DEFAULT_RX_FIFO_CTRL;
+  54              		.loc 1 224 0
+  55 001e 1C4A     		ldr	r2, .L2+24
+  56 0020 1460     		str	r4, [r2]
+ 225:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 226:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Set default address and mask */
+ 227:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_RX_MATCH_REG     = EZI2C_EZI2C_DEFAULT_RX_MATCH;
+  57              		.loc 1 227 0
+  58 0022 1C49     		ldr	r1, .L2+28
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 6
+
+
+  59 0024 1C4A     		ldr	r2, .L2+32
+  60 0026 1160     		str	r1, [r2]
+ 228:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 229:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Configure TX direction */
+ 230:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_TX_CTRL_REG      = EZI2C_EZI2C_DEFAULT_TX_CTRL;
+  61              		.loc 1 230 0
+  62 0028 1C4A     		ldr	r2, .L2+36
+  63 002a 1360     		str	r3, [r2]
+ 231:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_TX_FIFO_CTRL_REG = EZI2C_EZI2C_DEFAULT_TX_FIFO_CTRL;
+  64              		.loc 1 231 0
+  65 002c 1C4B     		ldr	r3, .L2+40
+  66 002e 1C60     		str	r4, [r3]
+ 232:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 233:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Configure interrupt with EZI2C handler but do not enable it */
+ 234:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if !defined (CY_EXTERNAL_INTERRUPT_CONFIG)
+ 235:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         CyIntDisable    (EZI2C_ISR_NUMBER);
+  67              		.loc 1 235 0
+  68 0030 0B20     		movs	r0, #11
+  69 0032 FFF7FEFF 		bl	CyIntDisable
+  70              	.LVL0:
+ 236:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         CyIntSetPriority(EZI2C_ISR_NUMBER, EZI2C_ISR_PRIORITY);
+  71              		.loc 1 236 0
+  72 0036 0321     		movs	r1, #3
+  73 0038 0B20     		movs	r0, #11
+  74 003a FFF7FEFF 		bl	CyIntSetPriority
+  75              	.LVL1:
+ 237:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 238:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if (EZI2C_EZI2C_SCL_STRETCH_ENABLE_CONST)
+ 239:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         (void) CyIntSetVector(EZI2C_ISR_NUMBER, &EZI2C_EZI2C_STRETCH_ISR);
+  76              		.loc 1 239 0
+  77 003e 1949     		ldr	r1, .L2+44
+  78 0040 0B20     		movs	r0, #11
+  79 0042 FFF7FEFF 		bl	CyIntSetVector
+  80              	.LVL2:
+ 240:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #else
+ 241:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         (void) CyIntSetVector(EZI2C_ISR_NUMBER, &EZI2C_EZI2C_NO_STRETCH_ISR);
+ 242:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif /* (EZI2C_EZI2C_SCL_STRETCH_ENABLE_CONST) */
+ 243:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 244:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif /* !defined (CY_EXTERNAL_INTERRUPT_CONFIG) */
+ 245:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 246:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Configure interrupt sources */
+ 247:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if (!EZI2C_CY_SCBIP_V1)
+ 248:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_INTR_SPI_EC_MASK_REG = EZI2C_EZI2C_DEFAULT_INTR_SPI_EC_MASK;
+  81              		.loc 1 248 0
+  82 0046 184B     		ldr	r3, .L2+48
+  83 0048 1C60     		str	r4, [r3]
+ 249:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif /* (!EZI2C_CY_SCBIP_V1) */
+ 250:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 251:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_INTR_I2C_EC_MASK_REG = EZI2C_EZI2C_DEFAULT_INTR_I2C_EC_MASK;
+  84              		.loc 1 251 0
+  85 004a 184B     		ldr	r3, .L2+52
+  86 004c 1C60     		str	r4, [r3]
+ 252:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_INTR_SLAVE_MASK_REG  = EZI2C_EZI2C_DEFAULT_INTR_SLAVE_MASK;
+  87              		.loc 1 252 0
+  88 004e 5222     		movs	r2, #82
+  89 0050 FF32     		adds	r2, r2, #255
+  90 0052 174B     		ldr	r3, .L2+56
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 7
+
+
+  91 0054 1A60     		str	r2, [r3]
+ 253:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_INTR_MASTER_MASK_REG = EZI2C_EZI2C_DEFAULT_INTR_MASTER_MASK;
+  92              		.loc 1 253 0
+  93 0056 174B     		ldr	r3, .L2+60
+  94 0058 1C60     		str	r4, [r3]
+ 254:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_INTR_RX_MASK_REG     = EZI2C_EZI2C_DEFAULT_INTR_RX_MASK;
+  95              		.loc 1 254 0
+  96 005a 174B     		ldr	r3, .L2+64
+  97 005c 1C60     		str	r4, [r3]
+ 255:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_INTR_TX_MASK_REG     = EZI2C_EZI2C_DEFAULT_INTR_TX_MASK;
+  98              		.loc 1 255 0
+  99 005e 174B     		ldr	r3, .L2+68
+ 100 0060 1C60     		str	r4, [r3]
+ 256:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 257:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Configure global variables */
+ 258:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_fsmState = EZI2C_EZI2C_FSM_IDLE;
+ 101              		.loc 1 258 0
+ 102 0062 503A     		subs	r2, r2, #80
+ 103 0064 FF3A     		subs	r2, r2, #255
+ 104 0066 164B     		ldr	r3, .L2+72
+ 105 0068 1A70     		strb	r2, [r3]
+ 259:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 260:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_curStatus  = 0u;
+ 106              		.loc 1 260 0
+ 107 006a 164B     		ldr	r3, .L2+76
+ 108 006c 1C70     		strb	r4, [r3]
+ 261:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_indexBuf1  = 0u;
+ 109              		.loc 1 261 0
+ 110 006e 164B     		ldr	r3, .L2+80
+ 111 0070 1C80     		strh	r4, [r3]
+ 262:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_offsetBuf1 = 0u;
+ 112              		.loc 1 262 0
+ 113 0072 164B     		ldr	r3, .L2+84
+ 114 0074 1C80     		strh	r4, [r3]
+ 263:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 264:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if(EZI2C_SECONDARY_ADDRESS_ENABLE_CONST)
+ 265:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_indexBuf2  = 0u;
+ 266:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_offsetBuf2 = 0u;
+ 267:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 268:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_addrBuf1 = EZI2C_EZI2C_PRIMARY_SLAVE_ADDRESS;
+ 269:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_addrBuf2 = EZI2C_EZI2C_SECONDARY_SLAVE_ADDRESS;
+ 270:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif /* (EZI2C_SECONDARY_ADDRESS_ENABLE_CONST) */
+ 271:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 115              		.loc 1 271 0
+ 116              		@ sp needed
+ 117 0076 10BD     		pop	{r4, pc}
+ 118              	.L3:
+ 119              		.align	2
+ 120              	.L2:
+ 121 0078 00000740 		.word	1074200576
+ 122 007c 00080040 		.word	1073743872
+ 123 0080 60000740 		.word	1074200672
+ 124 0084 70000740 		.word	1074200688
+ 125 0088 07010080 		.word	-2147483385
+ 126 008c 00030740 		.word	1074201344
+ 127 0090 04030740 		.word	1074201348
+ 128 0094 1000FE00 		.word	16646160
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 8
+
+
+ 129 0098 10030740 		.word	1074201360
+ 130 009c 00020740 		.word	1074201088
+ 131 00a0 04020740 		.word	1074201092
+ 132 00a4 00000000 		.word	EZI2C_EZI2C_STRETCH_ISR
+ 133 00a8 C80E0740 		.word	1074204360
+ 134 00ac 880E0740 		.word	1074204296
+ 135 00b0 480F0740 		.word	1074204488
+ 136 00b4 080F0740 		.word	1074204424
+ 137 00b8 C80F0740 		.word	1074204616
+ 138 00bc 880F0740 		.word	1074204552
+ 139 00c0 00000000 		.word	EZI2C_fsmState
+ 140 00c4 00000000 		.word	EZI2C_curStatus
+ 141 00c8 00000000 		.word	EZI2C_indexBuf1
+ 142 00cc 00000000 		.word	EZI2C_offsetBuf1
+ 143              		.cfi_endproc
+ 144              	.LFE0:
+ 145              		.size	EZI2C_EzI2CInit, .-EZI2C_EzI2CInit
+ 146              		.section	.text.EZI2C_EzI2CStop,"ax",%progbits
+ 147              		.align	2
+ 148              		.global	EZI2C_EzI2CStop
+ 149              		.code	16
+ 150              		.thumb_func
+ 151              		.type	EZI2C_EzI2CStop, %function
+ 152              	EZI2C_EzI2CStop:
+ 153              	.LFB1:
+ 272:Generated_Source\PSoC4/EZI2C_EZI2C.c **** #endif /* (EZI2C_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 273:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 274:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 275:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /*******************************************************************************
+ 276:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Function Name: EZI2C_EzI2CStop
+ 277:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ****************************************************************************//**
+ 278:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 279:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Resets the EZI2C FSM into the default state.
+ 280:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 281:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************/
+ 282:Generated_Source\PSoC4/EZI2C_EZI2C.c **** void EZI2C_EzI2CStop(void)
+ 283:Generated_Source\PSoC4/EZI2C_EZI2C.c **** {
+ 154              		.loc 1 283 0
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              		@ link register save eliminated.
+ 284:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     EZI2C_fsmState = EZI2C_EZI2C_FSM_IDLE;
+ 159              		.loc 1 284 0
+ 160 0000 0222     		movs	r2, #2
+ 161 0002 014B     		ldr	r3, .L5
+ 162 0004 1A70     		strb	r2, [r3]
+ 285:Generated_Source\PSoC4/EZI2C_EZI2C.c **** }
+ 163              		.loc 1 285 0
+ 164              		@ sp needed
+ 165 0006 7047     		bx	lr
+ 166              	.L6:
+ 167              		.align	2
+ 168              	.L5:
+ 169 0008 00000000 		.word	EZI2C_fsmState
+ 170              		.cfi_endproc
+ 171              	.LFE1:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 9
+
+
+ 172              		.size	EZI2C_EzI2CStop, .-EZI2C_EzI2CStop
+ 173              		.section	.text.EZI2C_EzI2CGetActivity,"ax",%progbits
+ 174              		.align	2
+ 175              		.global	EZI2C_EzI2CGetActivity
+ 176              		.code	16
+ 177              		.thumb_func
+ 178              		.type	EZI2C_EzI2CGetActivity, %function
+ 179              	EZI2C_EzI2CGetActivity:
+ 180              	.LFB2:
+ 286:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 287:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 288:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /*******************************************************************************
+ 289:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Function Name: EZI2C_EzI2CGetActivity
+ 290:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ****************************************************************************//**
+ 291:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 292:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Returns the EZI2C slave status.
+ 293:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  The read, write and error status flags reset to zero after this function
+ 294:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  call. The busy status flag is cleared when the transaction intended for
+ 295:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  the EZI2C slave completes.
+ 296:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 297:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \return
+ 298:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Returns the status of the EZI2C Slave activity.
+ 299:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  - EZI2C_EZI2C_STATUS_READ1 - Read transfer complete. The transfer 
+ 300:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    used the primary slave address. The error condition status bit must be 
+ 301:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    checked to ensure that read transfer was completed successfully.
+ 302:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  - EZI2C_EZI2C_STATUS_WRITE1 - Write transfer complete. The buffer 
+ 303:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    content was modified. The transfer used the primary slave address. 
+ 304:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    The error condition status bit must be checked to ensure that write 
+ 305:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    transfer was completed successfully.
+ 306:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  - EZI2C_EZI2C_STATUS_READ2 - Read transfer complete. The transfer
+ 307:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    used the secondary slave address. The error condition status bit must be 
+ 308:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    checked to ensure that read transfer was completed successfully.
+ 309:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  - EZI2C_EZI2C_STATUS_WRITE2 - Write transfer complete. The buffer
+ 310:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    content was modified. The transfer used the secondary slave address. 
+ 311:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    The error condition status bit must be checked to ensure that write 
+ 312:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    transfer was completed successfully.
+ 313:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  - EZI2C_EZI2C_STATUS_BUSY - A transfer intended for the primary 
+ 314:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    or secondary address is in progress. The status bit is set after an 
+ 315:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    address match and cleared on a Stop or ReStart condition.
+ 316:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  - EZI2C_EZI2C_STATUS_ERR - An error occurred during a transfer 
+ 317:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    intended for the primary or secondary slave address. The sources of error
+ 318:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    are: misplaced Start or Stop condition or lost arbitration while slave 
+ 319:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    drives SDA.
+ 320:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    The write buffer may contain invalid byte or part of the transaction when 
+ 321:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    EZI2C_EZI2C_STATUS_ERR and EZI2C_EZI2C_STATUS_WRITE1/2 
+ 322:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *    is set. It is recommended to discard buffer content in this case.
+ 323:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 324:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \globalvars
+ 325:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C_curStatus - used to store the current status of the EZI2C 
+ 326:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  slave.
+ 327:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 328:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************/
+ 329:Generated_Source\PSoC4/EZI2C_EZI2C.c **** uint32 EZI2C_EzI2CGetActivity(void)
+ 330:Generated_Source\PSoC4/EZI2C_EZI2C.c **** {
+ 181              		.loc 1 330 0
+ 182              		.cfi_startproc
+ 183              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 10
+
+
+ 184              		@ frame_needed = 0, uses_anonymous_args = 0
+ 185 0000 10B5     		push	{r4, lr}
+ 186              		.cfi_def_cfa_offset 8
+ 187              		.cfi_offset 4, -8
+ 188              		.cfi_offset 14, -4
+ 331:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint32 status;
+ 332:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 333:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     EZI2C_DisableInt();  /* Lock from interruption */
+ 189              		.loc 1 333 0
+ 190 0002 0B20     		movs	r0, #11
+ 191 0004 FFF7FEFF 		bl	CyIntDisable
+ 192              	.LVL3:
+ 334:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 335:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     status = EZI2C_curStatus;
+ 193              		.loc 1 335 0
+ 194 0008 054B     		ldr	r3, .L8
+ 195 000a 1C78     		ldrb	r4, [r3]
+ 196 000c E4B2     		uxtb	r4, r4
+ 197              	.LVL4:
+ 336:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 337:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     /* Relay on address match event from HW as bus busy status */
+ 338:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if(EZI2C_EZI2C_SCL_STRETCH_DISABLE)
+ 339:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+ 340:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* For EZI2C_CY_SCBIP_V0 the wake is prohibited by customizer */
+ 341:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         #if(EZI2C_EZI2C_EC_AM_ENABLE)
+ 342:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         {
+ 343:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             status |= EZI2C_CHECK_INTR_I2C_EC(EZI2C_INTR_I2C_EC_WAKE_UP) ?
+ 344:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                         EZI2C_EZI2C_STATUS_BUSY : 0u;
+ 345:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         }
+ 346:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         #else
+ 347:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         {
+ 348:Generated_Source\PSoC4/EZI2C_EZI2C.c ****             status |= EZI2C_CHECK_INTR_SLAVE(EZI2C_INTR_SLAVE_I2C_ADDR_MATCH) ?
+ 349:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                         EZI2C_EZI2C_STATUS_BUSY : 0u;
+ 350:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         }
+ 351:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         #endif
+ 352:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 353:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif
+ 354:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 355:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     EZI2C_curStatus &= ((uint8) ~EZI2C_EZI2C_CLEAR_STATUS);
+ 198              		.loc 1 355 0
+ 199 000e 1A78     		ldrb	r2, [r3]
+ 200 0010 1F21     		movs	r1, #31
+ 201 0012 8A43     		bics	r2, r1
+ 202 0014 1A70     		strb	r2, [r3]
+ 356:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 357:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     EZI2C_EnableInt();   /* Release lock */
+ 203              		.loc 1 357 0
+ 204 0016 0B20     		movs	r0, #11
+ 205 0018 FFF7FEFF 		bl	CyIntEnable
+ 206              	.LVL5:
+ 358:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 359:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     return(status);
+ 360:Generated_Source\PSoC4/EZI2C_EZI2C.c **** }
+ 207              		.loc 1 360 0
+ 208 001c 2000     		movs	r0, r4
+ 209              		@ sp needed
+ 210              	.LVL6:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 11
+
+
+ 211 001e 10BD     		pop	{r4, pc}
+ 212              	.L9:
+ 213              		.align	2
+ 214              	.L8:
+ 215 0020 00000000 		.word	EZI2C_curStatus
+ 216              		.cfi_endproc
+ 217              	.LFE2:
+ 218              		.size	EZI2C_EzI2CGetActivity, .-EZI2C_EzI2CGetActivity
+ 219              		.section	.text.EZI2C_EzI2CSetAddress1,"ax",%progbits
+ 220              		.align	2
+ 221              		.global	EZI2C_EzI2CSetAddress1
+ 222              		.code	16
+ 223              		.thumb_func
+ 224              		.type	EZI2C_EzI2CSetAddress1, %function
+ 225              	EZI2C_EzI2CSetAddress1:
+ 226              	.LFB3:
+ 361:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 362:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 363:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /*******************************************************************************
+ 364:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Function Name: EZI2C_EzI2CSetAddress1
+ 365:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ****************************************************************************//**
+ 366:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 367:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Sets the primary EZI2C slave address.
+ 368:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 369:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \param address: I2C slave address for the secondary device.
+ 370:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  This address is the 7-bit right-justified slave address and does not 
+ 371:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *   include the R/W bit.
+ 372:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 373:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  The address value is not checked to see if it violates the I2C spec. 
+ 374:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  The preferred addresses are in the range between 8 and 120 (0x08 to 0x78).
+ 375:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 376:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \globalvars
+ 377:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C_addrBuf1 - used to store the primary 7-bit slave address 
+ 378:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  value.
+ 379:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 380:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************/
+ 381:Generated_Source\PSoC4/EZI2C_EZI2C.c **** void EZI2C_EzI2CSetAddress1(uint32 address)
+ 382:Generated_Source\PSoC4/EZI2C_EZI2C.c **** {
+ 227              		.loc 1 382 0
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 232              	.LVL7:
+ 233 0000 0300     		movs	r3, r0
+ 234              	.LBB2:
+ 383:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if(EZI2C_SECONDARY_ADDRESS_ENABLE)
+ 384:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+ 385:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_addrBuf1 = (uint8) address;
+ 386:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 387:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_RX_MATCH_REG = 
+ 388:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                         EZI2C_EzI2CUpdateRxMatchReg(address, (uint32) EZI2C_addrBuf2);
+ 389:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 390:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #else
+ 391:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+ 392:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         uint32 matchReg;
+ 393:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 12
+
+
+ 394:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         matchReg = EZI2C_RX_MATCH_REG;
+ 235              		.loc 1 394 0
+ 236 0002 0449     		ldr	r1, .L11
+ 237 0004 0A68     		ldr	r2, [r1]
+ 238              	.LVL8:
+ 395:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 396:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         /* Set address. */
+ 397:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         matchReg &= (uint32) ~EZI2C_RX_MATCH_ADDR_MASK;
+ 239              		.loc 1 397 0
+ 240 0006 FF20     		movs	r0, #255
+ 241              	.LVL9:
+ 242 0008 8243     		bics	r2, r0
+ 243              	.LVL10:
+ 398:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         matchReg |= (uint32)  EZI2C_GET_I2C_8BIT_ADDRESS(address);
+ 244              		.loc 1 398 0
+ 245 000a 5B00     		lsls	r3, r3, #1
+ 246              	.LVL11:
+ 247 000c 1840     		ands	r0, r3
+ 248 000e 1043     		orrs	r0, r2
+ 249              	.LVL12:
+ 399:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 400:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_RX_MATCH_REG = matchReg;
+ 250              		.loc 1 400 0
+ 251 0010 0860     		str	r0, [r1]
+ 252              	.LBE2:
+ 401:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 402:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif
+ 403:Generated_Source\PSoC4/EZI2C_EZI2C.c **** }
+ 253              		.loc 1 403 0
+ 254              		@ sp needed
+ 255 0012 7047     		bx	lr
+ 256              	.L12:
+ 257              		.align	2
+ 258              	.L11:
+ 259 0014 10030740 		.word	1074201360
+ 260              		.cfi_endproc
+ 261              	.LFE3:
+ 262              		.size	EZI2C_EzI2CSetAddress1, .-EZI2C_EzI2CSetAddress1
+ 263              		.section	.text.EZI2C_EzI2CGetAddress1,"ax",%progbits
+ 264              		.align	2
+ 265              		.global	EZI2C_EzI2CGetAddress1
+ 266              		.code	16
+ 267              		.thumb_func
+ 268              		.type	EZI2C_EzI2CGetAddress1, %function
+ 269              	EZI2C_EzI2CGetAddress1:
+ 270              	.LFB4:
+ 404:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 405:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 406:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /*******************************************************************************
+ 407:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Function Name: EZI2C_EzI2CGetAddress1
+ 408:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ****************************************************************************//**
+ 409:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 410:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Returns primary the EZ I2C slave address.
+ 411:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  This address is the 7-bit right-justified slave address and does not include 
+ 412:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  the R/W bit.
+ 413:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 414:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \return
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 13
+
+
+ 415:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Primary EZI2C slave address.
+ 416:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 417:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \globalvars
+ 418:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C_addrBuf1 - used to store the primary 7-bit slave address 
+ 419:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  value.
+ 420:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 421:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************/
+ 422:Generated_Source\PSoC4/EZI2C_EZI2C.c **** uint32 EZI2C_EzI2CGetAddress1(void)
+ 423:Generated_Source\PSoC4/EZI2C_EZI2C.c **** {
+ 271              		.loc 1 423 0
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 0
+ 274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 275              		@ link register save eliminated.
+ 424:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     uint32 address;
+ 425:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 426:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #if(EZI2C_SECONDARY_ADDRESS_ENABLE)
+ 427:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+ 428:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         address = (uint32) EZI2C_addrBuf1;
+ 429:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 430:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #else
+ 431:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+ 432:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         address = (EZI2C_GET_RX_MATCH_ADDR(EZI2C_RX_MATCH_REG) >>
+ 276              		.loc 1 432 0
+ 277 0000 024B     		ldr	r3, .L14
+ 278 0002 1868     		ldr	r0, [r3]
+ 279 0004 4008     		lsrs	r0, r0, #1
+ 280 0006 7F23     		movs	r3, #127
+ 281 0008 1840     		ands	r0, r3
+ 282              	.LVL13:
+ 433:Generated_Source\PSoC4/EZI2C_EZI2C.c ****                    EZI2C_I2C_SLAVE_ADDR_POS);
+ 434:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 435:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     #endif
+ 436:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 437:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     return(address);
+ 438:Generated_Source\PSoC4/EZI2C_EZI2C.c **** }
+ 283              		.loc 1 438 0
+ 284              		@ sp needed
+ 285 000a 7047     		bx	lr
+ 286              	.L15:
+ 287              		.align	2
+ 288              	.L14:
+ 289 000c 10030740 		.word	1074201360
+ 290              		.cfi_endproc
+ 291              	.LFE4:
+ 292              		.size	EZI2C_EzI2CGetAddress1, .-EZI2C_EzI2CGetAddress1
+ 293              		.section	.text.EZI2C_EzI2CSetBuffer1,"ax",%progbits
+ 294              		.align	2
+ 295              		.global	EZI2C_EzI2CSetBuffer1
+ 296              		.code	16
+ 297              		.thumb_func
+ 298              		.type	EZI2C_EzI2CSetBuffer1, %function
+ 299              	EZI2C_EzI2CSetBuffer1:
+ 300              	.LFB5:
+ 439:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 440:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 441:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /*******************************************************************************
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 14
+
+
+ 442:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Function Name: EZI2C_EzI2CSetBuffer1
+ 443:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ****************************************************************************//**
+ 444:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 445:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Sets up the data buffer to be exposed to the I2C master on a primary slave
+ 446:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  address request.
+ 447:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 448:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \param bufSize: Size of the buffer in bytes.
+ 449:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \param rwBoundary: Number of data bytes starting from the beginning of the 
+ 450:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  buffer with read and write access. Data bytes located at offset rwBoundary 
+ 451:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  or greater are read only.
+ 452:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  This value must be less than or equal to the buffer size.
+ 453:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \param buffer: Pointer to the data buffer.
+ 454:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 455:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \sideeffect
+ 456:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Calling this function in the middle of a transaction intended for the 
+ 457:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  primary slave address leads to unexpected behavior.
+ 458:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 459:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \globalvars
+ 460:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C_dataBuffer1 – the pointer to the buffer to be exposed to the
+ 461:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  master on a primary address.
+ 462:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C_bufSizeBuf1 - the size of the buffer to be exposed to the 
+ 463:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  master on a primary address.
+ 464:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C_protectBuf1 - the start index of the read-only region in the
+ 465:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  buffer to be exposed to the master on a primary address. The read-only region
+ 466:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  continues up to the end the buffer.
+ 467:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 468:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************/
+ 469:Generated_Source\PSoC4/EZI2C_EZI2C.c **** void EZI2C_EzI2CSetBuffer1(uint32 bufSize, uint32 rwBoundary, volatile uint8 * buffer)
+ 470:Generated_Source\PSoC4/EZI2C_EZI2C.c **** {
+ 301              		.loc 1 470 0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 305              	.LVL14:
+ 306 0000 70B5     		push	{r4, r5, r6, lr}
+ 307              		.cfi_def_cfa_offset 16
+ 308              		.cfi_offset 4, -16
+ 309              		.cfi_offset 5, -12
+ 310              		.cfi_offset 6, -8
+ 311              		.cfi_offset 14, -4
+ 312 0002 0600     		movs	r6, r0
+ 313 0004 0D00     		movs	r5, r1
+ 314 0006 141E     		subs	r4, r2, #0
+ 471:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     if (NULL != buffer)
+ 315              		.loc 1 471 0
+ 316 0008 0BD0     		beq	.L16
+ 472:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     {
+ 473:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_DisableInt();  /* Lock from interruption */
+ 317              		.loc 1 473 0
+ 318 000a 0B20     		movs	r0, #11
+ 319              	.LVL15:
+ 320 000c FFF7FEFF 		bl	CyIntDisable
+ 321              	.LVL16:
+ 474:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 475:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_dataBuffer1 =  buffer;
+ 322              		.loc 1 475 0
+ 323 0010 044B     		ldr	r3, .L18
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 15
+
+
+ 324 0012 1C60     		str	r4, [r3]
+ 476:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_bufSizeBuf1 = (uint16) bufSize;
+ 325              		.loc 1 476 0
+ 326 0014 044B     		ldr	r3, .L18+4
+ 327 0016 1E80     		strh	r6, [r3]
+ 477:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_protectBuf1 = (uint16) rwBoundary;
+ 328              		.loc 1 477 0
+ 329 0018 044B     		ldr	r3, .L18+8
+ 330 001a 1D80     		strh	r5, [r3]
+ 478:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 479:Generated_Source\PSoC4/EZI2C_EZI2C.c ****         EZI2C_EnableInt();   /* Release lock */
+ 331              		.loc 1 479 0
+ 332 001c 0B20     		movs	r0, #11
+ 333 001e FFF7FEFF 		bl	CyIntEnable
+ 334              	.LVL17:
+ 335              	.L16:
+ 480:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     }
+ 481:Generated_Source\PSoC4/EZI2C_EZI2C.c **** }
+ 336              		.loc 1 481 0
+ 337              		@ sp needed
+ 338              	.LVL18:
+ 339              	.LVL19:
+ 340              	.LVL20:
+ 341 0022 70BD     		pop	{r4, r5, r6, pc}
+ 342              	.L19:
+ 343              		.align	2
+ 344              	.L18:
+ 345 0024 00000000 		.word	EZI2C_dataBuffer1
+ 346 0028 00000000 		.word	EZI2C_bufSizeBuf1
+ 347 002c 00000000 		.word	EZI2C_protectBuf1
+ 348              		.cfi_endproc
+ 349              	.LFE5:
+ 350              		.size	EZI2C_EzI2CSetBuffer1, .-EZI2C_EzI2CSetBuffer1
+ 351              		.section	.text.EZI2C_EzI2CSetReadBoundaryBuffer1,"ax",%progbits
+ 352              		.align	2
+ 353              		.global	EZI2C_EzI2CSetReadBoundaryBuffer1
+ 354              		.code	16
+ 355              		.thumb_func
+ 356              		.type	EZI2C_EzI2CSetReadBoundaryBuffer1, %function
+ 357              	EZI2C_EzI2CSetReadBoundaryBuffer1:
+ 358              	.LFB6:
+ 482:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 483:Generated_Source\PSoC4/EZI2C_EZI2C.c **** 
+ 484:Generated_Source\PSoC4/EZI2C_EZI2C.c **** /*******************************************************************************
+ 485:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * Function Name: EZI2C_EzI2CSetReadBoundaryBuffer1
+ 486:Generated_Source\PSoC4/EZI2C_EZI2C.c **** ****************************************************************************//**
+ 487:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 488:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Sets the read only boundary in the data buffer to be exposed to the I2C
+ 489:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  master on a primary slave address request.
+ 490:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 491:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \param rwBoundry: Number of data bytes starting from the beginning of the 
+ 492:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  buffer with read and write access. Data bytes located at offset rwBoundary 
+ 493:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  or greater are read only.
+ 494:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  This value must be less than or equal to the buffer size.
+ 495:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 496:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \sideeffect
+ 497:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  Calling this function in the middle of a transaction intended for the 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 16
+
+
+ 498:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  primary slave address leads to unexpected behavior.
+ 499:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 500:Generated_Source\PSoC4/EZI2C_EZI2C.c **** * \globalvars
+ 501:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  EZI2C_protectBuf1 - the start index of the read-only region in the
+ 502:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  buffer to be exposed to the master on a primary address. The read-only region
+ 503:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *  continues up to the end the buffer.
+ 504:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *
+ 505:Generated_Source\PSoC4/EZI2C_EZI2C.c **** *******************************************************************************/
+ 506:Generated_Source\PSoC4/EZI2C_EZI2C.c **** void EZI2C_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
+ 507:Generated_Source\PSoC4/EZI2C_EZI2C.c **** {
+ 359              		.loc 1 507 0
+ 360              		.cfi_startproc
+ 361              		@ args = 0, pretend = 0, frame = 0
+ 362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 363              		@ link register save eliminated.
+ 364              	.LVL21:
+ 508:Generated_Source\PSoC4/EZI2C_EZI2C.c ****     EZI2C_protectBuf1 = (uint16) rwBoundary;
+ 365              		.loc 1 508 0
+ 366 0000 014B     		ldr	r3, .L21
+ 367 0002 1880     		strh	r0, [r3]
+ 509:Generated_Source\PSoC4/EZI2C_EZI2C.c **** }
+ 368              		.loc 1 509 0
+ 369              		@ sp needed
+ 370 0004 7047     		bx	lr
+ 371              	.L22:
+ 372 0006 C046     		.align	2
+ 373              	.L21:
+ 374 0008 00000000 		.word	EZI2C_protectBuf1
+ 375              		.cfi_endproc
+ 376              	.LFE6:
+ 377              		.size	EZI2C_EzI2CSetReadBoundaryBuffer1, .-EZI2C_EzI2CSetReadBoundaryBuffer1
+ 378              		.comm	EZI2C_indexBuf1,2,2
+ 379              		.comm	EZI2C_offsetBuf1,2,2
+ 380              		.comm	EZI2C_protectBuf1,2,2
+ 381              		.comm	EZI2C_bufSizeBuf1,2,2
+ 382              		.comm	EZI2C_dataBuffer1,4,4
+ 383              		.comm	EZI2C_fsmState,1,1
+ 384              		.comm	EZI2C_curStatus,1,1
+ 385              		.text
+ 386              	.Letext0:
+ 387              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 388              		.file 3 "Generated_Source\\PSoC4/CyLib.h"
+ 389              		.section	.debug_info,"",%progbits
+ 390              	.Ldebug_info0:
+ 391 0000 15030000 		.4byte	0x315
+ 392 0004 0400     		.2byte	0x4
+ 393 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 394 000a 04       		.byte	0x4
+ 395 000b 01       		.uleb128 0x1
+ 396 000c B3010000 		.4byte	.LASF41
+ 397 0010 0C       		.byte	0xc
+ 398 0011 B4000000 		.4byte	.LASF42
+ 399 0015 BE020000 		.4byte	.LASF43
+ 400 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 401 001d 00000000 		.4byte	0
+ 402 0021 00000000 		.4byte	.Ldebug_line0
+ 403 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 17
+
+
+ 404 0026 01       		.byte	0x1
+ 405 0027 06       		.byte	0x6
+ 406 0028 14030000 		.4byte	.LASF0
+ 407 002c 02       		.uleb128 0x2
+ 408 002d 01       		.byte	0x1
+ 409 002e 08       		.byte	0x8
+ 410 002f DF000000 		.4byte	.LASF1
+ 411 0033 02       		.uleb128 0x2
+ 412 0034 02       		.byte	0x2
+ 413 0035 05       		.byte	0x5
+ 414 0036 92020000 		.4byte	.LASF2
+ 415 003a 02       		.uleb128 0x2
+ 416 003b 02       		.byte	0x2
+ 417 003c 07       		.byte	0x7
+ 418 003d 56000000 		.4byte	.LASF3
+ 419 0041 02       		.uleb128 0x2
+ 420 0042 04       		.byte	0x4
+ 421 0043 05       		.byte	0x5
+ 422 0044 B5020000 		.4byte	.LASF4
+ 423 0048 02       		.uleb128 0x2
+ 424 0049 04       		.byte	0x4
+ 425 004a 07       		.byte	0x7
+ 426 004b FD000000 		.4byte	.LASF5
+ 427 004f 02       		.uleb128 0x2
+ 428 0050 08       		.byte	0x8
+ 429 0051 05       		.byte	0x5
+ 430 0052 60020000 		.4byte	.LASF6
+ 431 0056 02       		.uleb128 0x2
+ 432 0057 08       		.byte	0x8
+ 433 0058 07       		.byte	0x7
+ 434 0059 84010000 		.4byte	.LASF7
+ 435 005d 03       		.uleb128 0x3
+ 436 005e 04       		.byte	0x4
+ 437 005f 05       		.byte	0x5
+ 438 0060 696E7400 		.ascii	"int\000"
+ 439 0064 02       		.uleb128 0x2
+ 440 0065 04       		.byte	0x4
+ 441 0066 07       		.byte	0x7
+ 442 0067 6F010000 		.4byte	.LASF8
+ 443 006b 04       		.uleb128 0x4
+ 444 006c 0F010000 		.4byte	.LASF9
+ 445 0070 02       		.byte	0x2
+ 446 0071 FC01     		.2byte	0x1fc
+ 447 0073 2C000000 		.4byte	0x2c
+ 448 0077 04       		.uleb128 0x4
+ 449 0078 4F010000 		.4byte	.LASF10
+ 450 007c 02       		.byte	0x2
+ 451 007d FD01     		.2byte	0x1fd
+ 452 007f 3A000000 		.4byte	0x3a
+ 453 0083 04       		.uleb128 0x4
+ 454 0084 56010000 		.4byte	.LASF11
+ 455 0088 02       		.byte	0x2
+ 456 0089 FE01     		.2byte	0x1fe
+ 457 008b 48000000 		.4byte	0x48
+ 458 008f 02       		.uleb128 0x2
+ 459 0090 04       		.byte	0x4
+ 460 0091 04       		.byte	0x4
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 18
+
+
+ 461 0092 D9000000 		.4byte	.LASF12
+ 462 0096 02       		.uleb128 0x2
+ 463 0097 08       		.byte	0x8
+ 464 0098 04       		.byte	0x4
+ 465 0099 25010000 		.4byte	.LASF13
+ 466 009d 02       		.uleb128 0x2
+ 467 009e 01       		.byte	0x1
+ 468 009f 08       		.byte	0x8
+ 469 00a0 6E020000 		.4byte	.LASF14
+ 470 00a4 05       		.uleb128 0x5
+ 471 00a5 6B000000 		.4byte	0x6b
+ 472 00a9 04       		.uleb128 0x4
+ 473 00aa 00000000 		.4byte	.LASF15
+ 474 00ae 02       		.byte	0x2
+ 475 00af A802     		.2byte	0x2a8
+ 476 00b1 B5000000 		.4byte	0xb5
+ 477 00b5 05       		.uleb128 0x5
+ 478 00b6 83000000 		.4byte	0x83
+ 479 00ba 02       		.uleb128 0x2
+ 480 00bb 08       		.byte	0x8
+ 481 00bc 04       		.byte	0x4
+ 482 00bd F1020000 		.4byte	.LASF16
+ 483 00c1 02       		.uleb128 0x2
+ 484 00c2 04       		.byte	0x4
+ 485 00c3 07       		.byte	0x7
+ 486 00c4 41020000 		.4byte	.LASF17
+ 487 00c8 06       		.uleb128 0x6
+ 488 00c9 37000000 		.4byte	.LASF18
+ 489 00cd 01       		.byte	0x1
+ 490 00ce D3       		.byte	0xd3
+ 491 00cf 00000000 		.4byte	.LFB0
+ 492 00d3 D0000000 		.4byte	.LFE0-.LFB0
+ 493 00d7 01       		.uleb128 0x1
+ 494 00d8 9C       		.byte	0x9c
+ 495 00d9 18010000 		.4byte	0x118
+ 496 00dd 07       		.uleb128 0x7
+ 497 00de 36000000 		.4byte	.LVL0
+ 498 00e2 EC020000 		.4byte	0x2ec
+ 499 00e6 F0000000 		.4byte	0xf0
+ 500 00ea 08       		.uleb128 0x8
+ 501 00eb 01       		.uleb128 0x1
+ 502 00ec 50       		.byte	0x50
+ 503 00ed 01       		.uleb128 0x1
+ 504 00ee 3B       		.byte	0x3b
+ 505 00ef 00       		.byte	0
+ 506 00f0 07       		.uleb128 0x7
+ 507 00f1 3E000000 		.4byte	.LVL1
+ 508 00f5 F7020000 		.4byte	0x2f7
+ 509 00f9 08010000 		.4byte	0x108
+ 510 00fd 08       		.uleb128 0x8
+ 511 00fe 01       		.uleb128 0x1
+ 512 00ff 50       		.byte	0x50
+ 513 0100 01       		.uleb128 0x1
+ 514 0101 3B       		.byte	0x3b
+ 515 0102 08       		.uleb128 0x8
+ 516 0103 01       		.uleb128 0x1
+ 517 0104 51       		.byte	0x51
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 19
+
+
+ 518 0105 01       		.uleb128 0x1
+ 519 0106 33       		.byte	0x33
+ 520 0107 00       		.byte	0
+ 521 0108 09       		.uleb128 0x9
+ 522 0109 46000000 		.4byte	.LVL2
+ 523 010d 02030000 		.4byte	0x302
+ 524 0111 08       		.uleb128 0x8
+ 525 0112 01       		.uleb128 0x1
+ 526 0113 50       		.byte	0x50
+ 527 0114 01       		.uleb128 0x1
+ 528 0115 3B       		.byte	0x3b
+ 529 0116 00       		.byte	0
+ 530 0117 00       		.byte	0
+ 531 0118 0A       		.uleb128 0xa
+ 532 0119 15010000 		.4byte	.LASF44
+ 533 011d 01       		.byte	0x1
+ 534 011e 1A01     		.2byte	0x11a
+ 535 0120 00000000 		.4byte	.LFB1
+ 536 0124 0C000000 		.4byte	.LFE1-.LFB1
+ 537 0128 01       		.uleb128 0x1
+ 538 0129 9C       		.byte	0x9c
+ 539 012a 0B       		.uleb128 0xb
+ 540 012b 2C010000 		.4byte	.LASF22
+ 541 012f 01       		.byte	0x1
+ 542 0130 4901     		.2byte	0x149
+ 543 0132 83000000 		.4byte	0x83
+ 544 0136 00000000 		.4byte	.LFB2
+ 545 013a 24000000 		.4byte	.LFE2-.LFB2
+ 546 013e 01       		.uleb128 0x1
+ 547 013f 9C       		.byte	0x9c
+ 548 0140 77010000 		.4byte	0x177
+ 549 0144 0C       		.uleb128 0xc
+ 550 0145 AD000000 		.4byte	.LASF20
+ 551 0149 01       		.byte	0x1
+ 552 014a 4B01     		.2byte	0x14b
+ 553 014c 83000000 		.4byte	0x83
+ 554 0150 00000000 		.4byte	.LLST0
+ 555 0154 07       		.uleb128 0x7
+ 556 0155 08000000 		.4byte	.LVL3
+ 557 0159 EC020000 		.4byte	0x2ec
+ 558 015d 67010000 		.4byte	0x167
+ 559 0161 08       		.uleb128 0x8
+ 560 0162 01       		.uleb128 0x1
+ 561 0163 50       		.byte	0x50
+ 562 0164 01       		.uleb128 0x1
+ 563 0165 3B       		.byte	0x3b
+ 564 0166 00       		.byte	0
+ 565 0167 09       		.uleb128 0x9
+ 566 0168 1C000000 		.4byte	.LVL5
+ 567 016c 0D030000 		.4byte	0x30d
+ 568 0170 08       		.uleb128 0x8
+ 569 0171 01       		.uleb128 0x1
+ 570 0172 50       		.byte	0x50
+ 571 0173 01       		.uleb128 0x1
+ 572 0174 3B       		.byte	0x3b
+ 573 0175 00       		.byte	0
+ 574 0176 00       		.byte	0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 20
+
+
+ 575 0177 0D       		.uleb128 0xd
+ 576 0178 96000000 		.4byte	.LASF19
+ 577 017c 01       		.byte	0x1
+ 578 017d 7D01     		.2byte	0x17d
+ 579 017f 00000000 		.4byte	.LFB3
+ 580 0183 18000000 		.4byte	.LFE3-.LFB3
+ 581 0187 01       		.uleb128 0x1
+ 582 0188 9C       		.byte	0x9c
+ 583 0189 B8010000 		.4byte	0x1b8
+ 584 018d 0E       		.uleb128 0xe
+ 585 018e 7C010000 		.4byte	.LASF24
+ 586 0192 01       		.byte	0x1
+ 587 0193 7D01     		.2byte	0x17d
+ 588 0195 83000000 		.4byte	0x83
+ 589 0199 1E000000 		.4byte	.LLST1
+ 590 019d 0F       		.uleb128 0xf
+ 591 019e 02000000 		.4byte	.LBB2
+ 592 01a2 10000000 		.4byte	.LBE2-.LBB2
+ 593 01a6 0C       		.uleb128 0xc
+ 594 01a7 E8020000 		.4byte	.LASF21
+ 595 01ab 01       		.byte	0x1
+ 596 01ac 8801     		.2byte	0x188
+ 597 01ae 83000000 		.4byte	0x83
+ 598 01b2 4A000000 		.4byte	.LLST2
+ 599 01b6 00       		.byte	0
+ 600 01b7 00       		.byte	0
+ 601 01b8 0B       		.uleb128 0xb
+ 602 01b9 FD020000 		.4byte	.LASF23
+ 603 01bd 01       		.byte	0x1
+ 604 01be A601     		.2byte	0x1a6
+ 605 01c0 83000000 		.4byte	0x83
+ 606 01c4 00000000 		.4byte	.LFB4
+ 607 01c8 10000000 		.4byte	.LFE4-.LFB4
+ 608 01cc 01       		.uleb128 0x1
+ 609 01cd 9C       		.byte	0x9c
+ 610 01ce E1010000 		.4byte	0x1e1
+ 611 01d2 10       		.uleb128 0x10
+ 612 01d3 7C010000 		.4byte	.LASF24
+ 613 01d7 01       		.byte	0x1
+ 614 01d8 A801     		.2byte	0x1a8
+ 615 01da 83000000 		.4byte	0x83
+ 616 01de 01       		.uleb128 0x1
+ 617 01df 50       		.byte	0x50
+ 618 01e0 00       		.byte	0
+ 619 01e1 0D       		.uleb128 0xd
+ 620 01e2 4A020000 		.4byte	.LASF25
+ 621 01e6 01       		.byte	0x1
+ 622 01e7 D501     		.2byte	0x1d5
+ 623 01e9 00000000 		.4byte	.LFB5
+ 624 01ed 30000000 		.4byte	.LFE5-.LFB5
+ 625 01f1 01       		.uleb128 0x1
+ 626 01f2 9C       		.byte	0x9c
+ 627 01f3 4A020000 		.4byte	0x24a
+ 628 01f7 0E       		.uleb128 0xe
+ 629 01f8 AD020000 		.4byte	.LASF26
+ 630 01fc 01       		.byte	0x1
+ 631 01fd D501     		.2byte	0x1d5
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 21
+
+
+ 632 01ff 83000000 		.4byte	0x83
+ 633 0203 68000000 		.4byte	.LLST3
+ 634 0207 0E       		.uleb128 0xe
+ 635 0208 69000000 		.4byte	.LASF27
+ 636 020c 01       		.byte	0x1
+ 637 020d D501     		.2byte	0x1d5
+ 638 020f 83000000 		.4byte	0x83
+ 639 0213 94000000 		.4byte	.LLST4
+ 640 0217 0E       		.uleb128 0xe
+ 641 0218 AC010000 		.4byte	.LASF28
+ 642 021c 01       		.byte	0x1
+ 643 021d D501     		.2byte	0x1d5
+ 644 021f 4A020000 		.4byte	0x24a
+ 645 0223 C0000000 		.4byte	.LLST5
+ 646 0227 07       		.uleb128 0x7
+ 647 0228 10000000 		.4byte	.LVL16
+ 648 022c EC020000 		.4byte	0x2ec
+ 649 0230 3A020000 		.4byte	0x23a
+ 650 0234 08       		.uleb128 0x8
+ 651 0235 01       		.uleb128 0x1
+ 652 0236 50       		.byte	0x50
+ 653 0237 01       		.uleb128 0x1
+ 654 0238 3B       		.byte	0x3b
+ 655 0239 00       		.byte	0
+ 656 023a 09       		.uleb128 0x9
+ 657 023b 22000000 		.4byte	.LVL17
+ 658 023f 0D030000 		.4byte	0x30d
+ 659 0243 08       		.uleb128 0x8
+ 660 0244 01       		.uleb128 0x1
+ 661 0245 50       		.byte	0x50
+ 662 0246 01       		.uleb128 0x1
+ 663 0247 3B       		.byte	0x3b
+ 664 0248 00       		.byte	0
+ 665 0249 00       		.byte	0
+ 666 024a 11       		.uleb128 0x11
+ 667 024b 04       		.byte	0x4
+ 668 024c A4000000 		.4byte	0xa4
+ 669 0250 0D       		.uleb128 0xd
+ 670 0251 74000000 		.4byte	.LASF29
+ 671 0255 01       		.byte	0x1
+ 672 0256 FA01     		.2byte	0x1fa
+ 673 0258 00000000 		.4byte	.LFB6
+ 674 025c 0C000000 		.4byte	.LFE6-.LFB6
+ 675 0260 01       		.uleb128 0x1
+ 676 0261 9C       		.byte	0x9c
+ 677 0262 75020000 		.4byte	0x275
+ 678 0266 12       		.uleb128 0x12
+ 679 0267 69000000 		.4byte	.LASF27
+ 680 026b 01       		.byte	0x1
+ 681 026c FA01     		.2byte	0x1fa
+ 682 026e 83000000 		.4byte	0x83
+ 683 0272 01       		.uleb128 0x1
+ 684 0273 50       		.byte	0x50
+ 685 0274 00       		.byte	0
+ 686 0275 13       		.uleb128 0x13
+ 687 0276 06000000 		.4byte	.LASF30
+ 688 027a 01       		.byte	0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 22
+
+
+ 689 027b 1B       		.byte	0x1b
+ 690 027c A4000000 		.4byte	0xa4
+ 691 0280 05       		.uleb128 0x5
+ 692 0281 03       		.byte	0x3
+ 693 0282 00000000 		.4byte	EZI2C_curStatus
+ 694 0286 13       		.uleb128 0x13
+ 695 0287 47000000 		.4byte	.LASF31
+ 696 028b 01       		.byte	0x1
+ 697 028c 1C       		.byte	0x1c
+ 698 028d 6B000000 		.4byte	0x6b
+ 699 0291 05       		.uleb128 0x5
+ 700 0292 03       		.byte	0x3
+ 701 0293 00000000 		.4byte	EZI2C_fsmState
+ 702 0297 13       		.uleb128 0x13
+ 703 0298 73020000 		.4byte	.LASF32
+ 704 029c 01       		.byte	0x1
+ 705 029d 1F       		.byte	0x1f
+ 706 029e 4A020000 		.4byte	0x24a
+ 707 02a2 05       		.uleb128 0x5
+ 708 02a3 03       		.byte	0x3
+ 709 02a4 00000000 		.4byte	EZI2C_dataBuffer1
+ 710 02a8 13       		.uleb128 0x13
+ 711 02a9 25000000 		.4byte	.LASF33
+ 712 02ad 01       		.byte	0x1
+ 713 02ae 20       		.byte	0x20
+ 714 02af 77000000 		.4byte	0x77
+ 715 02b3 05       		.uleb128 0x5
+ 716 02b4 03       		.byte	0x3
+ 717 02b5 00000000 		.4byte	EZI2C_bufSizeBuf1
+ 718 02b9 13       		.uleb128 0x13
+ 719 02ba 5D010000 		.4byte	.LASF34
+ 720 02be 01       		.byte	0x1
+ 721 02bf 21       		.byte	0x21
+ 722 02c0 77000000 		.4byte	0x77
+ 723 02c4 05       		.uleb128 0x5
+ 724 02c5 03       		.byte	0x3
+ 725 02c6 00000000 		.4byte	EZI2C_protectBuf1
+ 726 02ca 13       		.uleb128 0x13
+ 727 02cb 9C020000 		.4byte	.LASF35
+ 728 02cf 01       		.byte	0x1
+ 729 02d0 22       		.byte	0x22
+ 730 02d1 77000000 		.4byte	0x77
+ 731 02d5 05       		.uleb128 0x5
+ 732 02d6 03       		.byte	0x3
+ 733 02d7 00000000 		.4byte	EZI2C_offsetBuf1
+ 734 02db 13       		.uleb128 0x13
+ 735 02dc ED000000 		.4byte	.LASF36
+ 736 02e0 01       		.byte	0x1
+ 737 02e1 23       		.byte	0x23
+ 738 02e2 77000000 		.4byte	0x77
+ 739 02e6 05       		.uleb128 0x5
+ 740 02e7 03       		.byte	0x3
+ 741 02e8 00000000 		.4byte	EZI2C_indexBuf1
+ 742 02ec 14       		.uleb128 0x14
+ 743 02ed 85020000 		.4byte	.LASF37
+ 744 02f1 85020000 		.4byte	.LASF37
+ 745 02f5 03       		.byte	0x3
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 23
+
+
+ 746 02f6 D8       		.byte	0xd8
+ 747 02f7 14       		.uleb128 0x14
+ 748 02f8 9B010000 		.4byte	.LASF38
+ 749 02fc 9B010000 		.4byte	.LASF38
+ 750 0300 03       		.byte	0x3
+ 751 0301 D3       		.byte	0xd3
+ 752 0302 14       		.uleb128 0x14
+ 753 0303 16000000 		.4byte	.LASF39
+ 754 0307 16000000 		.4byte	.LASF39
+ 755 030b 03       		.byte	0x3
+ 756 030c D0       		.byte	0xd0
+ 757 030d 14       		.uleb128 0x14
+ 758 030e 43010000 		.4byte	.LASF40
+ 759 0312 43010000 		.4byte	.LASF40
+ 760 0316 03       		.byte	0x3
+ 761 0317 D6       		.byte	0xd6
+ 762 0318 00       		.byte	0
+ 763              		.section	.debug_abbrev,"",%progbits
+ 764              	.Ldebug_abbrev0:
+ 765 0000 01       		.uleb128 0x1
+ 766 0001 11       		.uleb128 0x11
+ 767 0002 01       		.byte	0x1
+ 768 0003 25       		.uleb128 0x25
+ 769 0004 0E       		.uleb128 0xe
+ 770 0005 13       		.uleb128 0x13
+ 771 0006 0B       		.uleb128 0xb
+ 772 0007 03       		.uleb128 0x3
+ 773 0008 0E       		.uleb128 0xe
+ 774 0009 1B       		.uleb128 0x1b
+ 775 000a 0E       		.uleb128 0xe
+ 776 000b 55       		.uleb128 0x55
+ 777 000c 17       		.uleb128 0x17
+ 778 000d 11       		.uleb128 0x11
+ 779 000e 01       		.uleb128 0x1
+ 780 000f 10       		.uleb128 0x10
+ 781 0010 17       		.uleb128 0x17
+ 782 0011 00       		.byte	0
+ 783 0012 00       		.byte	0
+ 784 0013 02       		.uleb128 0x2
+ 785 0014 24       		.uleb128 0x24
+ 786 0015 00       		.byte	0
+ 787 0016 0B       		.uleb128 0xb
+ 788 0017 0B       		.uleb128 0xb
+ 789 0018 3E       		.uleb128 0x3e
+ 790 0019 0B       		.uleb128 0xb
+ 791 001a 03       		.uleb128 0x3
+ 792 001b 0E       		.uleb128 0xe
+ 793 001c 00       		.byte	0
+ 794 001d 00       		.byte	0
+ 795 001e 03       		.uleb128 0x3
+ 796 001f 24       		.uleb128 0x24
+ 797 0020 00       		.byte	0
+ 798 0021 0B       		.uleb128 0xb
+ 799 0022 0B       		.uleb128 0xb
+ 800 0023 3E       		.uleb128 0x3e
+ 801 0024 0B       		.uleb128 0xb
+ 802 0025 03       		.uleb128 0x3
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 24
+
+
+ 803 0026 08       		.uleb128 0x8
+ 804 0027 00       		.byte	0
+ 805 0028 00       		.byte	0
+ 806 0029 04       		.uleb128 0x4
+ 807 002a 16       		.uleb128 0x16
+ 808 002b 00       		.byte	0
+ 809 002c 03       		.uleb128 0x3
+ 810 002d 0E       		.uleb128 0xe
+ 811 002e 3A       		.uleb128 0x3a
+ 812 002f 0B       		.uleb128 0xb
+ 813 0030 3B       		.uleb128 0x3b
+ 814 0031 05       		.uleb128 0x5
+ 815 0032 49       		.uleb128 0x49
+ 816 0033 13       		.uleb128 0x13
+ 817 0034 00       		.byte	0
+ 818 0035 00       		.byte	0
+ 819 0036 05       		.uleb128 0x5
+ 820 0037 35       		.uleb128 0x35
+ 821 0038 00       		.byte	0
+ 822 0039 49       		.uleb128 0x49
+ 823 003a 13       		.uleb128 0x13
+ 824 003b 00       		.byte	0
+ 825 003c 00       		.byte	0
+ 826 003d 06       		.uleb128 0x6
+ 827 003e 2E       		.uleb128 0x2e
+ 828 003f 01       		.byte	0x1
+ 829 0040 3F       		.uleb128 0x3f
+ 830 0041 19       		.uleb128 0x19
+ 831 0042 03       		.uleb128 0x3
+ 832 0043 0E       		.uleb128 0xe
+ 833 0044 3A       		.uleb128 0x3a
+ 834 0045 0B       		.uleb128 0xb
+ 835 0046 3B       		.uleb128 0x3b
+ 836 0047 0B       		.uleb128 0xb
+ 837 0048 27       		.uleb128 0x27
+ 838 0049 19       		.uleb128 0x19
+ 839 004a 11       		.uleb128 0x11
+ 840 004b 01       		.uleb128 0x1
+ 841 004c 12       		.uleb128 0x12
+ 842 004d 06       		.uleb128 0x6
+ 843 004e 40       		.uleb128 0x40
+ 844 004f 18       		.uleb128 0x18
+ 845 0050 9742     		.uleb128 0x2117
+ 846 0052 19       		.uleb128 0x19
+ 847 0053 01       		.uleb128 0x1
+ 848 0054 13       		.uleb128 0x13
+ 849 0055 00       		.byte	0
+ 850 0056 00       		.byte	0
+ 851 0057 07       		.uleb128 0x7
+ 852 0058 898201   		.uleb128 0x4109
+ 853 005b 01       		.byte	0x1
+ 854 005c 11       		.uleb128 0x11
+ 855 005d 01       		.uleb128 0x1
+ 856 005e 31       		.uleb128 0x31
+ 857 005f 13       		.uleb128 0x13
+ 858 0060 01       		.uleb128 0x1
+ 859 0061 13       		.uleb128 0x13
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 25
+
+
+ 860 0062 00       		.byte	0
+ 861 0063 00       		.byte	0
+ 862 0064 08       		.uleb128 0x8
+ 863 0065 8A8201   		.uleb128 0x410a
+ 864 0068 00       		.byte	0
+ 865 0069 02       		.uleb128 0x2
+ 866 006a 18       		.uleb128 0x18
+ 867 006b 9142     		.uleb128 0x2111
+ 868 006d 18       		.uleb128 0x18
+ 869 006e 00       		.byte	0
+ 870 006f 00       		.byte	0
+ 871 0070 09       		.uleb128 0x9
+ 872 0071 898201   		.uleb128 0x4109
+ 873 0074 01       		.byte	0x1
+ 874 0075 11       		.uleb128 0x11
+ 875 0076 01       		.uleb128 0x1
+ 876 0077 31       		.uleb128 0x31
+ 877 0078 13       		.uleb128 0x13
+ 878 0079 00       		.byte	0
+ 879 007a 00       		.byte	0
+ 880 007b 0A       		.uleb128 0xa
+ 881 007c 2E       		.uleb128 0x2e
+ 882 007d 00       		.byte	0
+ 883 007e 3F       		.uleb128 0x3f
+ 884 007f 19       		.uleb128 0x19
+ 885 0080 03       		.uleb128 0x3
+ 886 0081 0E       		.uleb128 0xe
+ 887 0082 3A       		.uleb128 0x3a
+ 888 0083 0B       		.uleb128 0xb
+ 889 0084 3B       		.uleb128 0x3b
+ 890 0085 05       		.uleb128 0x5
+ 891 0086 27       		.uleb128 0x27
+ 892 0087 19       		.uleb128 0x19
+ 893 0088 11       		.uleb128 0x11
+ 894 0089 01       		.uleb128 0x1
+ 895 008a 12       		.uleb128 0x12
+ 896 008b 06       		.uleb128 0x6
+ 897 008c 40       		.uleb128 0x40
+ 898 008d 18       		.uleb128 0x18
+ 899 008e 9742     		.uleb128 0x2117
+ 900 0090 19       		.uleb128 0x19
+ 901 0091 00       		.byte	0
+ 902 0092 00       		.byte	0
+ 903 0093 0B       		.uleb128 0xb
+ 904 0094 2E       		.uleb128 0x2e
+ 905 0095 01       		.byte	0x1
+ 906 0096 3F       		.uleb128 0x3f
+ 907 0097 19       		.uleb128 0x19
+ 908 0098 03       		.uleb128 0x3
+ 909 0099 0E       		.uleb128 0xe
+ 910 009a 3A       		.uleb128 0x3a
+ 911 009b 0B       		.uleb128 0xb
+ 912 009c 3B       		.uleb128 0x3b
+ 913 009d 05       		.uleb128 0x5
+ 914 009e 27       		.uleb128 0x27
+ 915 009f 19       		.uleb128 0x19
+ 916 00a0 49       		.uleb128 0x49
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 26
+
+
+ 917 00a1 13       		.uleb128 0x13
+ 918 00a2 11       		.uleb128 0x11
+ 919 00a3 01       		.uleb128 0x1
+ 920 00a4 12       		.uleb128 0x12
+ 921 00a5 06       		.uleb128 0x6
+ 922 00a6 40       		.uleb128 0x40
+ 923 00a7 18       		.uleb128 0x18
+ 924 00a8 9742     		.uleb128 0x2117
+ 925 00aa 19       		.uleb128 0x19
+ 926 00ab 01       		.uleb128 0x1
+ 927 00ac 13       		.uleb128 0x13
+ 928 00ad 00       		.byte	0
+ 929 00ae 00       		.byte	0
+ 930 00af 0C       		.uleb128 0xc
+ 931 00b0 34       		.uleb128 0x34
+ 932 00b1 00       		.byte	0
+ 933 00b2 03       		.uleb128 0x3
+ 934 00b3 0E       		.uleb128 0xe
+ 935 00b4 3A       		.uleb128 0x3a
+ 936 00b5 0B       		.uleb128 0xb
+ 937 00b6 3B       		.uleb128 0x3b
+ 938 00b7 05       		.uleb128 0x5
+ 939 00b8 49       		.uleb128 0x49
+ 940 00b9 13       		.uleb128 0x13
+ 941 00ba 02       		.uleb128 0x2
+ 942 00bb 17       		.uleb128 0x17
+ 943 00bc 00       		.byte	0
+ 944 00bd 00       		.byte	0
+ 945 00be 0D       		.uleb128 0xd
+ 946 00bf 2E       		.uleb128 0x2e
+ 947 00c0 01       		.byte	0x1
+ 948 00c1 3F       		.uleb128 0x3f
+ 949 00c2 19       		.uleb128 0x19
+ 950 00c3 03       		.uleb128 0x3
+ 951 00c4 0E       		.uleb128 0xe
+ 952 00c5 3A       		.uleb128 0x3a
+ 953 00c6 0B       		.uleb128 0xb
+ 954 00c7 3B       		.uleb128 0x3b
+ 955 00c8 05       		.uleb128 0x5
+ 956 00c9 27       		.uleb128 0x27
+ 957 00ca 19       		.uleb128 0x19
+ 958 00cb 11       		.uleb128 0x11
+ 959 00cc 01       		.uleb128 0x1
+ 960 00cd 12       		.uleb128 0x12
+ 961 00ce 06       		.uleb128 0x6
+ 962 00cf 40       		.uleb128 0x40
+ 963 00d0 18       		.uleb128 0x18
+ 964 00d1 9742     		.uleb128 0x2117
+ 965 00d3 19       		.uleb128 0x19
+ 966 00d4 01       		.uleb128 0x1
+ 967 00d5 13       		.uleb128 0x13
+ 968 00d6 00       		.byte	0
+ 969 00d7 00       		.byte	0
+ 970 00d8 0E       		.uleb128 0xe
+ 971 00d9 05       		.uleb128 0x5
+ 972 00da 00       		.byte	0
+ 973 00db 03       		.uleb128 0x3
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 27
+
+
+ 974 00dc 0E       		.uleb128 0xe
+ 975 00dd 3A       		.uleb128 0x3a
+ 976 00de 0B       		.uleb128 0xb
+ 977 00df 3B       		.uleb128 0x3b
+ 978 00e0 05       		.uleb128 0x5
+ 979 00e1 49       		.uleb128 0x49
+ 980 00e2 13       		.uleb128 0x13
+ 981 00e3 02       		.uleb128 0x2
+ 982 00e4 17       		.uleb128 0x17
+ 983 00e5 00       		.byte	0
+ 984 00e6 00       		.byte	0
+ 985 00e7 0F       		.uleb128 0xf
+ 986 00e8 0B       		.uleb128 0xb
+ 987 00e9 01       		.byte	0x1
+ 988 00ea 11       		.uleb128 0x11
+ 989 00eb 01       		.uleb128 0x1
+ 990 00ec 12       		.uleb128 0x12
+ 991 00ed 06       		.uleb128 0x6
+ 992 00ee 00       		.byte	0
+ 993 00ef 00       		.byte	0
+ 994 00f0 10       		.uleb128 0x10
+ 995 00f1 34       		.uleb128 0x34
+ 996 00f2 00       		.byte	0
+ 997 00f3 03       		.uleb128 0x3
+ 998 00f4 0E       		.uleb128 0xe
+ 999 00f5 3A       		.uleb128 0x3a
+ 1000 00f6 0B       		.uleb128 0xb
+ 1001 00f7 3B       		.uleb128 0x3b
+ 1002 00f8 05       		.uleb128 0x5
+ 1003 00f9 49       		.uleb128 0x49
+ 1004 00fa 13       		.uleb128 0x13
+ 1005 00fb 02       		.uleb128 0x2
+ 1006 00fc 18       		.uleb128 0x18
+ 1007 00fd 00       		.byte	0
+ 1008 00fe 00       		.byte	0
+ 1009 00ff 11       		.uleb128 0x11
+ 1010 0100 0F       		.uleb128 0xf
+ 1011 0101 00       		.byte	0
+ 1012 0102 0B       		.uleb128 0xb
+ 1013 0103 0B       		.uleb128 0xb
+ 1014 0104 49       		.uleb128 0x49
+ 1015 0105 13       		.uleb128 0x13
+ 1016 0106 00       		.byte	0
+ 1017 0107 00       		.byte	0
+ 1018 0108 12       		.uleb128 0x12
+ 1019 0109 05       		.uleb128 0x5
+ 1020 010a 00       		.byte	0
+ 1021 010b 03       		.uleb128 0x3
+ 1022 010c 0E       		.uleb128 0xe
+ 1023 010d 3A       		.uleb128 0x3a
+ 1024 010e 0B       		.uleb128 0xb
+ 1025 010f 3B       		.uleb128 0x3b
+ 1026 0110 05       		.uleb128 0x5
+ 1027 0111 49       		.uleb128 0x49
+ 1028 0112 13       		.uleb128 0x13
+ 1029 0113 02       		.uleb128 0x2
+ 1030 0114 18       		.uleb128 0x18
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 28
+
+
+ 1031 0115 00       		.byte	0
+ 1032 0116 00       		.byte	0
+ 1033 0117 13       		.uleb128 0x13
+ 1034 0118 34       		.uleb128 0x34
+ 1035 0119 00       		.byte	0
+ 1036 011a 03       		.uleb128 0x3
+ 1037 011b 0E       		.uleb128 0xe
+ 1038 011c 3A       		.uleb128 0x3a
+ 1039 011d 0B       		.uleb128 0xb
+ 1040 011e 3B       		.uleb128 0x3b
+ 1041 011f 0B       		.uleb128 0xb
+ 1042 0120 49       		.uleb128 0x49
+ 1043 0121 13       		.uleb128 0x13
+ 1044 0122 3F       		.uleb128 0x3f
+ 1045 0123 19       		.uleb128 0x19
+ 1046 0124 02       		.uleb128 0x2
+ 1047 0125 18       		.uleb128 0x18
+ 1048 0126 00       		.byte	0
+ 1049 0127 00       		.byte	0
+ 1050 0128 14       		.uleb128 0x14
+ 1051 0129 2E       		.uleb128 0x2e
+ 1052 012a 00       		.byte	0
+ 1053 012b 3F       		.uleb128 0x3f
+ 1054 012c 19       		.uleb128 0x19
+ 1055 012d 3C       		.uleb128 0x3c
+ 1056 012e 19       		.uleb128 0x19
+ 1057 012f 6E       		.uleb128 0x6e
+ 1058 0130 0E       		.uleb128 0xe
+ 1059 0131 03       		.uleb128 0x3
+ 1060 0132 0E       		.uleb128 0xe
+ 1061 0133 3A       		.uleb128 0x3a
+ 1062 0134 0B       		.uleb128 0xb
+ 1063 0135 3B       		.uleb128 0x3b
+ 1064 0136 0B       		.uleb128 0xb
+ 1065 0137 00       		.byte	0
+ 1066 0138 00       		.byte	0
+ 1067 0139 00       		.byte	0
+ 1068              		.section	.debug_loc,"",%progbits
+ 1069              	.Ldebug_loc0:
+ 1070              	.LLST0:
+ 1071 0000 0E000000 		.4byte	.LVL4
+ 1072 0004 1E000000 		.4byte	.LVL6
+ 1073 0008 0100     		.2byte	0x1
+ 1074 000a 54       		.byte	0x54
+ 1075 000b 1E000000 		.4byte	.LVL6
+ 1076 000f 24000000 		.4byte	.LFE2
+ 1077 0013 0100     		.2byte	0x1
+ 1078 0015 50       		.byte	0x50
+ 1079 0016 00000000 		.4byte	0
+ 1080 001a 00000000 		.4byte	0
+ 1081              	.LLST1:
+ 1082 001e 00000000 		.4byte	.LVL7
+ 1083 0022 08000000 		.4byte	.LVL9
+ 1084 0026 0100     		.2byte	0x1
+ 1085 0028 50       		.byte	0x50
+ 1086 0029 08000000 		.4byte	.LVL9
+ 1087 002d 0C000000 		.4byte	.LVL11
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 29
+
+
+ 1088 0031 0100     		.2byte	0x1
+ 1089 0033 53       		.byte	0x53
+ 1090 0034 0C000000 		.4byte	.LVL11
+ 1091 0038 18000000 		.4byte	.LFE3
+ 1092 003c 0400     		.2byte	0x4
+ 1093 003e F3       		.byte	0xf3
+ 1094 003f 01       		.uleb128 0x1
+ 1095 0040 50       		.byte	0x50
+ 1096 0041 9F       		.byte	0x9f
+ 1097 0042 00000000 		.4byte	0
+ 1098 0046 00000000 		.4byte	0
+ 1099              	.LLST2:
+ 1100 004a 06000000 		.4byte	.LVL8
+ 1101 004e 10000000 		.4byte	.LVL12
+ 1102 0052 0100     		.2byte	0x1
+ 1103 0054 52       		.byte	0x52
+ 1104 0055 10000000 		.4byte	.LVL12
+ 1105 0059 18000000 		.4byte	.LFE3
+ 1106 005d 0100     		.2byte	0x1
+ 1107 005f 50       		.byte	0x50
+ 1108 0060 00000000 		.4byte	0
+ 1109 0064 00000000 		.4byte	0
+ 1110              	.LLST3:
+ 1111 0068 00000000 		.4byte	.LVL14
+ 1112 006c 0C000000 		.4byte	.LVL15
+ 1113 0070 0100     		.2byte	0x1
+ 1114 0072 50       		.byte	0x50
+ 1115 0073 0C000000 		.4byte	.LVL15
+ 1116 0077 22000000 		.4byte	.LVL20
+ 1117 007b 0100     		.2byte	0x1
+ 1118 007d 56       		.byte	0x56
+ 1119 007e 22000000 		.4byte	.LVL20
+ 1120 0082 30000000 		.4byte	.LFE5
+ 1121 0086 0400     		.2byte	0x4
+ 1122 0088 F3       		.byte	0xf3
+ 1123 0089 01       		.uleb128 0x1
+ 1124 008a 50       		.byte	0x50
+ 1125 008b 9F       		.byte	0x9f
+ 1126 008c 00000000 		.4byte	0
+ 1127 0090 00000000 		.4byte	0
+ 1128              	.LLST4:
+ 1129 0094 00000000 		.4byte	.LVL14
+ 1130 0098 0F000000 		.4byte	.LVL16-1
+ 1131 009c 0100     		.2byte	0x1
+ 1132 009e 51       		.byte	0x51
+ 1133 009f 0F000000 		.4byte	.LVL16-1
+ 1134 00a3 22000000 		.4byte	.LVL19
+ 1135 00a7 0100     		.2byte	0x1
+ 1136 00a9 55       		.byte	0x55
+ 1137 00aa 22000000 		.4byte	.LVL19
+ 1138 00ae 30000000 		.4byte	.LFE5
+ 1139 00b2 0400     		.2byte	0x4
+ 1140 00b4 F3       		.byte	0xf3
+ 1141 00b5 01       		.uleb128 0x1
+ 1142 00b6 51       		.byte	0x51
+ 1143 00b7 9F       		.byte	0x9f
+ 1144 00b8 00000000 		.4byte	0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 30
+
+
+ 1145 00bc 00000000 		.4byte	0
+ 1146              	.LLST5:
+ 1147 00c0 00000000 		.4byte	.LVL14
+ 1148 00c4 0F000000 		.4byte	.LVL16-1
+ 1149 00c8 0100     		.2byte	0x1
+ 1150 00ca 52       		.byte	0x52
+ 1151 00cb 0F000000 		.4byte	.LVL16-1
+ 1152 00cf 22000000 		.4byte	.LVL18
+ 1153 00d3 0100     		.2byte	0x1
+ 1154 00d5 54       		.byte	0x54
+ 1155 00d6 22000000 		.4byte	.LVL18
+ 1156 00da 30000000 		.4byte	.LFE5
+ 1157 00de 0400     		.2byte	0x4
+ 1158 00e0 F3       		.byte	0xf3
+ 1159 00e1 01       		.uleb128 0x1
+ 1160 00e2 52       		.byte	0x52
+ 1161 00e3 9F       		.byte	0x9f
+ 1162 00e4 00000000 		.4byte	0
+ 1163 00e8 00000000 		.4byte	0
+ 1164              		.section	.debug_aranges,"",%progbits
+ 1165 0000 4C000000 		.4byte	0x4c
+ 1166 0004 0200     		.2byte	0x2
+ 1167 0006 00000000 		.4byte	.Ldebug_info0
+ 1168 000a 04       		.byte	0x4
+ 1169 000b 00       		.byte	0
+ 1170 000c 0000     		.2byte	0
+ 1171 000e 0000     		.2byte	0
+ 1172 0010 00000000 		.4byte	.LFB0
+ 1173 0014 D0000000 		.4byte	.LFE0-.LFB0
+ 1174 0018 00000000 		.4byte	.LFB1
+ 1175 001c 0C000000 		.4byte	.LFE1-.LFB1
+ 1176 0020 00000000 		.4byte	.LFB2
+ 1177 0024 24000000 		.4byte	.LFE2-.LFB2
+ 1178 0028 00000000 		.4byte	.LFB3
+ 1179 002c 18000000 		.4byte	.LFE3-.LFB3
+ 1180 0030 00000000 		.4byte	.LFB4
+ 1181 0034 10000000 		.4byte	.LFE4-.LFB4
+ 1182 0038 00000000 		.4byte	.LFB5
+ 1183 003c 30000000 		.4byte	.LFE5-.LFB5
+ 1184 0040 00000000 		.4byte	.LFB6
+ 1185 0044 0C000000 		.4byte	.LFE6-.LFB6
+ 1186 0048 00000000 		.4byte	0
+ 1187 004c 00000000 		.4byte	0
+ 1188              		.section	.debug_ranges,"",%progbits
+ 1189              	.Ldebug_ranges0:
+ 1190 0000 00000000 		.4byte	.LFB0
+ 1191 0004 D0000000 		.4byte	.LFE0
+ 1192 0008 00000000 		.4byte	.LFB1
+ 1193 000c 0C000000 		.4byte	.LFE1
+ 1194 0010 00000000 		.4byte	.LFB2
+ 1195 0014 24000000 		.4byte	.LFE2
+ 1196 0018 00000000 		.4byte	.LFB3
+ 1197 001c 18000000 		.4byte	.LFE3
+ 1198 0020 00000000 		.4byte	.LFB4
+ 1199 0024 10000000 		.4byte	.LFE4
+ 1200 0028 00000000 		.4byte	.LFB5
+ 1201 002c 30000000 		.4byte	.LFE5
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 31
+
+
+ 1202 0030 00000000 		.4byte	.LFB6
+ 1203 0034 0C000000 		.4byte	.LFE6
+ 1204 0038 00000000 		.4byte	0
+ 1205 003c 00000000 		.4byte	0
+ 1206              		.section	.debug_line,"",%progbits
+ 1207              	.Ldebug_line0:
+ 1208 0000 00010000 		.section	.debug_str,"MS",%progbits,1
+ 1208      02005300 
+ 1208      00000201 
+ 1208      FB0E0D00 
+ 1208      01010101 
+ 1209              	.LASF15:
+ 1210 0000 72656733 		.ascii	"reg32\000"
+ 1210      3200
+ 1211              	.LASF30:
+ 1212 0006 455A4932 		.ascii	"EZI2C_curStatus\000"
+ 1212      435F6375 
+ 1212      72537461 
+ 1212      74757300 
+ 1213              	.LASF39:
+ 1214 0016 4379496E 		.ascii	"CyIntSetVector\000"
+ 1214      74536574 
+ 1214      56656374 
+ 1214      6F7200
+ 1215              	.LASF33:
+ 1216 0025 455A4932 		.ascii	"EZI2C_bufSizeBuf1\000"
+ 1216      435F6275 
+ 1216      6653697A 
+ 1216      65427566 
+ 1216      3100
+ 1217              	.LASF18:
+ 1218 0037 455A4932 		.ascii	"EZI2C_EzI2CInit\000"
+ 1218      435F457A 
+ 1218      49324349 
+ 1218      6E697400 
+ 1219              	.LASF31:
+ 1220 0047 455A4932 		.ascii	"EZI2C_fsmState\000"
+ 1220      435F6673 
+ 1220      6D537461 
+ 1220      746500
+ 1221              	.LASF3:
+ 1222 0056 73686F72 		.ascii	"short unsigned int\000"
+ 1222      7420756E 
+ 1222      7369676E 
+ 1222      65642069 
+ 1222      6E7400
+ 1223              	.LASF27:
+ 1224 0069 7277426F 		.ascii	"rwBoundary\000"
+ 1224      756E6461 
+ 1224      727900
+ 1225              	.LASF29:
+ 1226 0074 455A4932 		.ascii	"EZI2C_EzI2CSetReadBoundaryBuffer1\000"
+ 1226      435F457A 
+ 1226      49324353 
+ 1226      65745265 
+ 1226      6164426F 
+ 1227              	.LASF19:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 32
+
+
+ 1228 0096 455A4932 		.ascii	"EZI2C_EzI2CSetAddress1\000"
+ 1228      435F457A 
+ 1228      49324353 
+ 1228      65744164 
+ 1228      64726573 
+ 1229              	.LASF20:
+ 1230 00ad 73746174 		.ascii	"status\000"
+ 1230      757300
+ 1231              	.LASF42:
+ 1232 00b4 47656E65 		.ascii	"Generated_Source\\PSoC4\\EZI2C_EZI2C.c\000"
+ 1232      72617465 
+ 1232      645F536F 
+ 1232      75726365 
+ 1232      5C50536F 
+ 1233              	.LASF12:
+ 1234 00d9 666C6F61 		.ascii	"float\000"
+ 1234      7400
+ 1235              	.LASF1:
+ 1236 00df 756E7369 		.ascii	"unsigned char\000"
+ 1236      676E6564 
+ 1236      20636861 
+ 1236      7200
+ 1237              	.LASF36:
+ 1238 00ed 455A4932 		.ascii	"EZI2C_indexBuf1\000"
+ 1238      435F696E 
+ 1238      64657842 
+ 1238      75663100 
+ 1239              	.LASF5:
+ 1240 00fd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1240      20756E73 
+ 1240      69676E65 
+ 1240      6420696E 
+ 1240      7400
+ 1241              	.LASF9:
+ 1242 010f 75696E74 		.ascii	"uint8\000"
+ 1242      3800
+ 1243              	.LASF44:
+ 1244 0115 455A4932 		.ascii	"EZI2C_EzI2CStop\000"
+ 1244      435F457A 
+ 1244      49324353 
+ 1244      746F7000 
+ 1245              	.LASF13:
+ 1246 0125 646F7562 		.ascii	"double\000"
+ 1246      6C6500
+ 1247              	.LASF22:
+ 1248 012c 455A4932 		.ascii	"EZI2C_EzI2CGetActivity\000"
+ 1248      435F457A 
+ 1248      49324347 
+ 1248      65744163 
+ 1248      74697669 
+ 1249              	.LASF40:
+ 1250 0143 4379496E 		.ascii	"CyIntEnable\000"
+ 1250      74456E61 
+ 1250      626C6500 
+ 1251              	.LASF10:
+ 1252 014f 75696E74 		.ascii	"uint16\000"
+ 1252      313600
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 33
+
+
+ 1253              	.LASF11:
+ 1254 0156 75696E74 		.ascii	"uint32\000"
+ 1254      333200
+ 1255              	.LASF34:
+ 1256 015d 455A4932 		.ascii	"EZI2C_protectBuf1\000"
+ 1256      435F7072 
+ 1256      6F746563 
+ 1256      74427566 
+ 1256      3100
+ 1257              	.LASF8:
+ 1258 016f 756E7369 		.ascii	"unsigned int\000"
+ 1258      676E6564 
+ 1258      20696E74 
+ 1258      00
+ 1259              	.LASF24:
+ 1260 017c 61646472 		.ascii	"address\000"
+ 1260      65737300 
+ 1261              	.LASF7:
+ 1262 0184 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1262      206C6F6E 
+ 1262      6720756E 
+ 1262      7369676E 
+ 1262      65642069 
+ 1263              	.LASF38:
+ 1264 019b 4379496E 		.ascii	"CyIntSetPriority\000"
+ 1264      74536574 
+ 1264      5072696F 
+ 1264      72697479 
+ 1264      00
+ 1265              	.LASF28:
+ 1266 01ac 62756666 		.ascii	"buffer\000"
+ 1266      657200
+ 1267              	.LASF41:
+ 1268 01b3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1268      43313120 
+ 1268      352E342E 
+ 1268      31203230 
+ 1268      31363036 
+ 1269 01e6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1269      20726576 
+ 1269      6973696F 
+ 1269      6E203233 
+ 1269      37373135 
+ 1270 0219 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1270      66756E63 
+ 1270      74696F6E 
+ 1270      2D736563 
+ 1270      74696F6E 
+ 1271              	.LASF17:
+ 1272 0241 73697A65 		.ascii	"sizetype\000"
+ 1272      74797065 
+ 1272      00
+ 1273              	.LASF25:
+ 1274 024a 455A4932 		.ascii	"EZI2C_EzI2CSetBuffer1\000"
+ 1274      435F457A 
+ 1274      49324353 
+ 1274      65744275 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 34
+
+
+ 1274      66666572 
+ 1275              	.LASF6:
+ 1276 0260 6C6F6E67 		.ascii	"long long int\000"
+ 1276      206C6F6E 
+ 1276      6720696E 
+ 1276      7400
+ 1277              	.LASF14:
+ 1278 026e 63686172 		.ascii	"char\000"
+ 1278      00
+ 1279              	.LASF32:
+ 1280 0273 455A4932 		.ascii	"EZI2C_dataBuffer1\000"
+ 1280      435F6461 
+ 1280      74614275 
+ 1280      66666572 
+ 1280      3100
+ 1281              	.LASF37:
+ 1282 0285 4379496E 		.ascii	"CyIntDisable\000"
+ 1282      74446973 
+ 1282      61626C65 
+ 1282      00
+ 1283              	.LASF2:
+ 1284 0292 73686F72 		.ascii	"short int\000"
+ 1284      7420696E 
+ 1284      7400
+ 1285              	.LASF35:
+ 1286 029c 455A4932 		.ascii	"EZI2C_offsetBuf1\000"
+ 1286      435F6F66 
+ 1286      66736574 
+ 1286      42756631 
+ 1286      00
+ 1287              	.LASF26:
+ 1288 02ad 62756653 		.ascii	"bufSize\000"
+ 1288      697A6500 
+ 1289              	.LASF4:
+ 1290 02b5 6C6F6E67 		.ascii	"long int\000"
+ 1290      20696E74 
+ 1290      00
+ 1291              	.LASF43:
+ 1292 02be 443A5C4D 		.ascii	"D:\\Microprocess2\\Lab4\\Lab4\\Design01.cydsn\000"
+ 1292      6963726F 
+ 1292      70726F63 
+ 1292      65737332 
+ 1292      5C4C6162 
+ 1293              	.LASF21:
+ 1294 02e8 6D617463 		.ascii	"matchReg\000"
+ 1294      68526567 
+ 1294      00
+ 1295              	.LASF16:
+ 1296 02f1 6C6F6E67 		.ascii	"long double\000"
+ 1296      20646F75 
+ 1296      626C6500 
+ 1297              	.LASF23:
+ 1298 02fd 455A4932 		.ascii	"EZI2C_EzI2CGetAddress1\000"
+ 1298      435F457A 
+ 1298      49324347 
+ 1298      65744164 
+ 1298      64726573 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccmLGaj8.s 			page 35
+
+
+ 1299              	.LASF0:
+ 1300 0314 7369676E 		.ascii	"signed char\000"
+ 1300      65642063 
+ 1300      68617200 
+ 1301              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

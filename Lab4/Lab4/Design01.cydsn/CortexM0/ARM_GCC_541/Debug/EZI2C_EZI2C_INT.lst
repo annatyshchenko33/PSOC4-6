@@ -1,0 +1,2080 @@
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"EZI2C_EZI2C_INT.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.EZI2C_EZI2C_STRETCH_ISR,"ax",%progbits
+  20              		.align	2
+  21              		.global	EZI2C_EZI2C_STRETCH_ISR
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	EZI2C_EZI2C_STRETCH_ISR, %function
+  25              	EZI2C_EZI2C_STRETCH_ISR:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\EZI2C_EZI2C_INT.c"
+   1:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * \file EZI2C_EZI2C_INT.c
+   3:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * \version 4.0
+   4:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** *
+   5:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * \brief
+   6:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** *  This file provides the source code to the Interrupt Service Routine for
+   7:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** *  the SCB Component in EZI2C mode.
+   8:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** *
+   9:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * Note:
+  10:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** *
+  11:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * \copyright
+  13:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  19:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** #include "EZI2C_PVT.h"
+  20:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** #include "EZI2C_EZI2C_PVT.h"
+  21:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** #include "cyapicallbacks.h"
+  22:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  23:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** #if(EZI2C_EZI2C_SCL_STRETCH_ENABLE_CONST)
+  24:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     /*******************************************************************************
+  25:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     * Function Name: EZI2C_EZI2C_STRETCH_ISR
+  26:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     ****************************************************************************//**
+  27:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     *
+  28:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     *  Handles the Interrupt Service Routine for the SCB EZI2C mode.
+  29:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     *  The clock stretching is used during operation.
+  30:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     *
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 2
+
+
+  31:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     *******************************************************************************/
+  32:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     CY_ISR_PROTO(EZI2C_EZI2C_STRETCH_ISR)
+  33:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     {
+  28              		.loc 1 33 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 4, -16
+  35              		.cfi_offset 5, -12
+  36              		.cfi_offset 6, -8
+  37              		.cfi_offset 14, -4
+  34:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         static uint16 locBufSize;
+  35:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 locIndex;
+  36:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 locStatus;
+  37:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  38:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 endTransfer;
+  39:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 fifoIndex;
+  40:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 locByte;
+  41:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  42:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 locIntrCause;
+  43:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 locIntrSlave;
+  44:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  45:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #ifdef EZI2C_EZI2C_STRETCH_ISR_ENTRY_CALLBACK
+  46:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         EZI2C_EZI2C_STRETCH_ISR_EntryCallback();
+  47:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #endif /* EZI2C_EZI2C_STRETCH_ISR_ENTRY_CALLBACK */
+  48:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  49:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #if(EZI2C_SECONDARY_ADDRESS_ENABLE_CONST)
+  50:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         /* Variable intended to be used with either buffer */
+  51:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         static volatile uint8 * EZI2C_dataBuffer; /* Pointer to data buffer              */
+  52:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         static uint16 EZI2C_bufSizeBuf;           /* Size of buffer in bytes             */
+  53:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         static uint16 EZI2C_protectBuf;           /* Start index of write protected area */
+  54:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  55:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         static uint8 activeAddress;
+  56:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         uint32 ackResponse;
+  57:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  58:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         ackResponse = EZI2C_EZI2C_ACK_RECEIVED_ADDRESS;
+  59:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #endif /* (EZI2C_SECONDARY_ADDRESS_ENABLE_CONST) */
+  60:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  61:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #if !defined (CY_REMOVE_EZI2C_CUSTOM_INTR_HANDLER)
+  62:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         if(NULL != EZI2C_customIntrHandler)
+  38              		.loc 1 62 0
+  39 0002 B54B     		ldr	r3, .L39
+  40 0004 1B68     		ldr	r3, [r3]
+  41 0006 002B     		cmp	r3, #0
+  42 0008 00D0     		beq	.L2
+  63:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         {
+  64:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_customIntrHandler();
+  43              		.loc 1 64 0
+  44 000a 9847     		blx	r3
+  45              	.LVL0:
+  46              	.L2:
+  65:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         }
+  66:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #else
+  67:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         CY_EZI2C_CUSTOM_INTR_HANDLER();
+  68:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #endif /* !defined (CY_REMOVE_EZI2C_CUSTOM_INTR_HANDLER) */
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 3
+
+
+  69:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  70:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         /* Make local copy of global variable */
+  71:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         locIndex = EZI2C_EZI2C_GET_INDEX(activeAddress);
+  47              		.loc 1 71 0
+  48 000c B34B     		ldr	r3, .L39+4
+  49 000e 1C88     		ldrh	r4, [r3]
+  50              	.LVL1:
+  72:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  73:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         /* Get interrupt sources */
+  74:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         locIntrSlave = EZI2C_GetSlaveInterruptSource();
+  51              		.loc 1 74 0
+  52 0010 B34B     		ldr	r3, .L39+8
+  53 0012 1D68     		ldr	r5, [r3]
+  54              	.LVL2:
+  75:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         locIntrCause = EZI2C_GetInterruptCause();
+  55              		.loc 1 75 0
+  56 0014 B34B     		ldr	r3, .L39+12
+  57 0016 1E68     		ldr	r6, [r3]
+  58              	.LVL3:
+  76:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  77:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         /* INTR_SLAVE.I2C_ARB_LOST and INTR_SLAVE_I2C.BUS_ERROR */
+  78:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         /* Handles errors on the bus. There are cases when both bits are set.
+  79:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         * The error recovery is common: re-enable the scb IP. The content of the RX FIFO is lost.
+  80:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         */
+  81:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         if(0u != (locIntrSlave & (EZI2C_INTR_SLAVE_I2C_ARB_LOST |
+  59              		.loc 1 81 0
+  60 0018 0223     		movs	r3, #2
+  61 001a FF33     		adds	r3, r3, #255
+  62 001c 1D42     		tst	r5, r3
+  63 001e 43D0     		beq	.L3
+  82:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                   EZI2C_INTR_SLAVE_I2C_BUS_ERROR)))
+  83:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         {
+  84:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_CTRL_REG &= (uint32) ~EZI2C_CTRL_ENABLED; /* Disable SCB block */
+  64              		.loc 1 84 0
+  65 0020 B14A     		ldr	r2, .L39+16
+  66 0022 1368     		ldr	r3, [r2]
+  67 0024 5B00     		lsls	r3, r3, #1
+  68 0026 5B08     		lsrs	r3, r3, #1
+  69 0028 1360     		str	r3, [r2]
+  85:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  86:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         #if(EZI2C_CY_SCBIP_V0)
+  87:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             if(0u != ((uint8) EZI2C_EZI2C_STATUS_BUSY & EZI2C_curStatus))
+  70              		.loc 1 87 0
+  71 002a B04B     		ldr	r3, .L39+20
+  72 002c 1B78     		ldrb	r3, [r3]
+  73 002e 9B06     		lsls	r3, r3, #26
+  74 0030 20D5     		bpl	.L4
+  88:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         #endif /* (EZI2C_CY_SCBIP_V0) */
+  89:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             {
+  90:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 EZI2C_curStatus &= (uint8) ~EZI2C_EZI2C_STATUS_BUSY;
+  75              		.loc 1 90 0
+  76 0032 AE4A     		ldr	r2, .L39+20
+  77 0034 1378     		ldrb	r3, [r2]
+  78 0036 2021     		movs	r1, #32
+  79 0038 8B43     		bics	r3, r1
+  80 003a 1370     		strb	r3, [r2]
+  91:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 EZI2C_curStatus |= (uint8)  EZI2C_EZI2C_STATUS_ERR;
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 4
+
+
+  81              		.loc 1 91 0
+  82 003c 1178     		ldrb	r1, [r2]
+  83 003e 1023     		movs	r3, #16
+  84 0040 0B43     		orrs	r3, r1
+  85 0042 DBB2     		uxtb	r3, r3
+  86 0044 1370     		strb	r3, [r2]
+  92:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+  93:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* INTR_TX_EMPTY is enabled in the address phase to receive data */
+  94:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 if(0u == (EZI2C_GetTxInterruptMode() & EZI2C_INTR_TX_EMPTY))
+  87              		.loc 1 94 0
+  88 0046 AA4B     		ldr	r3, .L39+24
+  89 0048 1B68     		ldr	r3, [r3]
+  90 004a DB06     		lsls	r3, r3, #27
+  91 004c 0CD4     		bmi	.L5
+  95:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+  96:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Write complete */
+  97:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     if(EZI2C_indexBuf1 != EZI2C_offsetBuf1)
+  92              		.loc 1 97 0
+  93 004e A34B     		ldr	r3, .L39+4
+  94 0050 1A88     		ldrh	r2, [r3]
+  95 0052 A84B     		ldr	r3, .L39+28
+  96 0054 1B88     		ldrh	r3, [r3]
+  97 0056 9A42     		cmp	r2, r3
+  98 0058 0CD0     		beq	.L4
+  98:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+  99:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_curStatus |= (uint8) EZI2C_INTR_SLAVE_I2C_WRITE_STOP;
+  99              		.loc 1 99 0
+ 100 005a A44A     		ldr	r2, .L39+20
+ 101 005c 1178     		ldrb	r1, [r2]
+ 102 005e 0823     		movs	r3, #8
+ 103 0060 0B43     		orrs	r3, r1
+ 104 0062 DBB2     		uxtb	r3, r3
+ 105 0064 1370     		strb	r3, [r2]
+ 106 0066 05E0     		b	.L4
+ 107              	.L5:
+ 100:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 101:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 102:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 else
+ 103:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+ 104:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Read complete */
+ 105:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     EZI2C_curStatus |= (uint8) EZI2C_INTR_SLAVE_I2C_NACK;
+ 108              		.loc 1 105 0
+ 109 0068 A04A     		ldr	r2, .L39+20
+ 110 006a 1178     		ldrb	r1, [r2]
+ 111 006c 0223     		movs	r3, #2
+ 112 006e 0B43     		orrs	r3, r1
+ 113 0070 DBB2     		uxtb	r3, r3
+ 114 0072 1370     		strb	r3, [r2]
+ 115              	.L4:
+ 106:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 107:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             }
+ 108:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 109:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_DISABLE_SLAVE_AUTO_DATA;
+ 116              		.loc 1 109 0
+ 117 0074 A04A     		ldr	r2, .L39+32
+ 118 0076 1168     		ldr	r1, [r2]
+ 119 0078 A04B     		ldr	r3, .L39+36
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 5
+
+
+ 120 007a 0B40     		ands	r3, r1
+ 121 007c 1360     		str	r3, [r2]
+ 110:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 111:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             /* Disable TX and RX interrupt sources */
+ 112:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_SetRxInterruptMode(EZI2C_NO_INTR_SOURCES);
+ 122              		.loc 1 112 0
+ 123 007e 0023     		movs	r3, #0
+ 124 0080 9F4A     		ldr	r2, .L39+40
+ 125 0082 1360     		str	r3, [r2]
+ 113:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_SetTxInterruptMode(EZI2C_NO_INTR_SOURCES);
+ 126              		.loc 1 113 0
+ 127 0084 9A4A     		ldr	r2, .L39+24
+ 128 0086 1360     		str	r3, [r2]
+ 114:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 115:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         #if(EZI2C_CY_SCBIP_V0)
+ 116:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             /* Clear interrupt sources as they are not automatically cleared after SCB is disabled 
+ 117:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_ClearRxInterruptSource(EZI2C_INTR_RX_ALL);
+ 129              		.loc 1 117 0
+ 130 0088 9E4A     		ldr	r2, .L39+44
+ 131 008a 9F4B     		ldr	r3, .L39+48
+ 132 008c 1A60     		str	r2, [r3]
+ 118:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_ClearSlaveInterruptSource(EZI2C_INTR_SLAVE_ALL);
+ 133              		.loc 1 118 0
+ 134 008e 9F4A     		ldr	r2, .L39+52
+ 135 0090 934B     		ldr	r3, .L39+8
+ 136 0092 1A60     		str	r2, [r3]
+ 119:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         #endif /* (EZI2C_CY_SCBIP_V0) */
+ 120:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 121:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_fsmState = EZI2C_EZI2C_FSM_IDLE;
+ 137              		.loc 1 121 0
+ 138 0094 0222     		movs	r2, #2
+ 139 0096 9E4B     		ldr	r3, .L39+56
+ 140 0098 1A70     		strb	r2, [r3]
+ 122:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 123:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             EZI2C_CTRL_REG |= (uint32) EZI2C_CTRL_ENABLED;  /* Enable SCB block */
+ 141              		.loc 1 123 0
+ 142 009a 934A     		ldr	r2, .L39+16
+ 143 009c 1368     		ldr	r3, [r2]
+ 144 009e 8021     		movs	r1, #128
+ 145 00a0 0906     		lsls	r1, r1, #24
+ 146 00a2 0B43     		orrs	r3, r1
+ 147 00a4 1360     		str	r3, [r2]
+ 148 00a6 14E1     		b	.L6
+ 149              	.L3:
+ 124:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         }
+ 125:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         else
+ 126:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         {
+ 127:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             /* INTR_I2C_EC_WAKE_UP */
+ 128:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             /* Wakes up device from deep sleep */
+ 129:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             if(0u != (locIntrCause & EZI2C_INTR_CAUSE_I2C_EC))
+ 150              		.loc 1 129 0
+ 151 00a8 F306     		lsls	r3, r6, #27
+ 152 00aa 02D5     		bpl	.L7
+ 130:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             {
+ 131:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* Disables wakeup interrupt source but does not clear it. It is cleared in INTR_SL
+ 132:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 EZI2C_SetI2CExtClkInterruptMode(EZI2C_NO_INTR_SOURCES);
+ 153              		.loc 1 132 0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 6
+
+
+ 154 00ac 0022     		movs	r2, #0
+ 155 00ae 994B     		ldr	r3, .L39+60
+ 156 00b0 1A60     		str	r2, [r3]
+ 157              	.L7:
+ 133:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             }
+ 134:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 135:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             if(0u != (locIntrCause & (EZI2C_INTR_CAUSE_RX | EZI2C_INTR_CAUSE_SLAVE)))
+ 158              		.loc 1 135 0
+ 159 00b2 0A23     		movs	r3, #10
+ 160 00b4 3342     		tst	r3, r6
+ 161 00b6 00D1     		bne	.LCB131
+ 162 00b8 A1E0     		b	.L8	@long jump
+ 163              	.LCB131:
+ 136:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             {
+ 137:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* INTR_RX.NOT_EMPTY */
+ 138:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* Receives data byte-by-byte. Does not use RX FIFO capabilities */
+ 139:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 if (0u != (EZI2C_GetRxInterruptSourceMasked() & EZI2C_INTR_RX_NOT_EMPTY))
+ 164              		.loc 1 139 0
+ 165 00ba 974B     		ldr	r3, .L39+64
+ 166 00bc 1B68     		ldr	r3, [r3]
+ 167 00be 5B07     		lsls	r3, r3, #29
+ 168 00c0 67D5     		bpl	.L9
+ 140:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+ 141:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 #if(EZI2C_SECONDARY_ADDRESS_ENABLE_CONST)
+ 142:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* If I2C_STOP service is delayed to I2C_ADDR_MATCH the address byte is in the 
+ 143:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     * RX_NOT_EMPTY is enabled. The address byte has to stay into RX FIFO therefore
+ 144:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     * RX.NOT_EMPTY service has to be skipped. The address byte has to be read by I2
+ 145:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     */
+ 146:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     if (0u == (locIntrCause & EZI2C_INTR_CAUSE_SLAVE))
+ 147:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 #endif /* (EZI2C_SECONDARY_ADDRESS_ENABLE_CONST) */
+ 148:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 149:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locByte = EZI2C_RX_FIFO_RD_REG;
+ 169              		.loc 1 149 0
+ 170 00c2 964B     		ldr	r3, .L39+68
+ 171 00c4 1A68     		ldr	r2, [r3]
+ 172              	.LVL4:
+ 150:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 151:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         switch(EZI2C_fsmState)
+ 173              		.loc 1 151 0
+ 174 00c6 924B     		ldr	r3, .L39+56
+ 175 00c8 1B78     		ldrb	r3, [r3]
+ 176 00ca 012B     		cmp	r3, #1
+ 177 00cc 04D0     		beq	.L11
+ 178 00ce 002B     		cmp	r3, #0
+ 179 00d0 21D0     		beq	.L12
+ 180 00d2 022B     		cmp	r3, #2
+ 181 00d4 15D0     		beq	.L13
+ 182 00d6 55E0     		b	.L38
+ 183              	.L11:
+ 152:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 153:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         case EZI2C_EZI2C_FSM_BYTE_WRITE:
+ 154:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             if(0u != locBufSize)
+ 184              		.loc 1 154 0
+ 185 00d8 914B     		ldr	r3, .L39+72
+ 186 00da 1B88     		ldrh	r3, [r3]
+ 187 00dc 002B     		cmp	r3, #0
+ 188 00de 0DD0     		beq	.L14
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 7
+
+
+ 155:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             {
+ 156:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Store data byte and ACK */
+ 157:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 EZI2C_I2C_SLAVE_GENERATE_ACK;
+ 189              		.loc 1 157 0
+ 190 00e0 0121     		movs	r1, #1
+ 191 00e2 904B     		ldr	r3, .L39+76
+ 192 00e4 1960     		str	r1, [r3]
+ 158:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 159:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 EZI2C_dataBuffer1[locIndex] = (uint8) locByte;
+ 193              		.loc 1 159 0
+ 194 00e6 904B     		ldr	r3, .L39+80
+ 195 00e8 1B68     		ldr	r3, [r3]
+ 196 00ea 1B19     		adds	r3, r3, r4
+ 197 00ec D2B2     		uxtb	r2, r2
+ 198              	.LVL5:
+ 199 00ee 1A70     		strb	r2, [r3]
+ 160:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 locIndex++;
+ 200              		.loc 1 160 0
+ 201 00f0 0134     		adds	r4, r4, #1
+ 202              	.LVL6:
+ 161:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 locBufSize--;
+ 203              		.loc 1 161 0
+ 204 00f2 8B4A     		ldr	r2, .L39+72
+ 205 00f4 1388     		ldrh	r3, [r2]
+ 206 00f6 013B     		subs	r3, r3, #1
+ 207 00f8 1380     		strh	r3, [r2]
+ 208 00fa 46E0     		b	.L15
+ 209              	.LVL7:
+ 210              	.L14:
+ 162:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             }
+ 163:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             else
+ 164:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             {
+ 165:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Discard data byte and NACK */
+ 166:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 EZI2C_I2C_SLAVE_GENERATE_NACK;
+ 211              		.loc 1 166 0
+ 212 00fc FFF7FEFF 		bl	EZI2C_I2CSlaveNackGeneration
+ 213              	.LVL8:
+ 214 0100 43E0     		b	.L15
+ 215              	.LVL9:
+ 216              	.L13:
+ 167:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             }
+ 168:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             break;
+ 169:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 170:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #if(EZI2C_SUB_ADDRESS_SIZE16_CONST)
+ 171:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         case EZI2C_EZI2C_FSM_OFFSET_HI8:
+ 172:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 173:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_I2C_SLAVE_GENERATE_ACK;
+ 217              		.loc 1 173 0
+ 218 0102 0121     		movs	r1, #1
+ 219 0104 874B     		ldr	r3, .L39+76
+ 220 0106 1960     		str	r1, [r3]
+ 174:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 175:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Store offset most significant byre */
+ 176:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             locBufSize = (uint16) ((uint8) locByte);
+ 221              		.loc 1 176 0
+ 222 0108 D2B2     		uxtb	r2, r2
+ 223              	.LVL10:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 8
+
+
+ 224 010a 854B     		ldr	r3, .L39+72
+ 225 010c 1A80     		strh	r2, [r3]
+ 177:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 178:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_fsmState = EZI2C_EZI2C_FSM_OFFSET_LO8;
+ 226              		.loc 1 178 0
+ 227 010e 0022     		movs	r2, #0
+ 228 0110 7F4B     		ldr	r3, .L39+56
+ 229 0112 1A70     		strb	r2, [r3]
+ 179:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 180:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             break;
+ 230              		.loc 1 180 0
+ 231 0114 39E0     		b	.L15
+ 232              	.LVL11:
+ 233              	.L12:
+ 181:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #endif /* (EZI2C_SUB_ADDRESS_SIZE16_CONST) */
+ 182:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 183:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         case EZI2C_EZI2C_FSM_OFFSET_LO8:
+ 184:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 185:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             #if (EZI2C_SUB_ADDRESS_SIZE16)
+ 186:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             {
+ 187:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Collect 2 bytes offset */
+ 188:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 locByte = ((uint32) ((uint32) locBufSize << 8u)) | locByte;
+ 234              		.loc 1 188 0
+ 235 0116 824B     		ldr	r3, .L39+72
+ 236 0118 1B88     		ldrh	r3, [r3]
+ 237 011a 1B02     		lsls	r3, r3, #8
+ 238 011c 1A43     		orrs	r2, r3
+ 239              	.LVL12:
+ 189:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             }
+ 190:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             #endif
+ 191:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 192:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Check offset against buffer size */
+ 193:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             if(locByte < (uint32) EZI2C_bufSizeBuf1)
+ 240              		.loc 1 193 0
+ 241 011e 834B     		ldr	r3, .L39+84
+ 242 0120 1B88     		ldrh	r3, [r3]
+ 243 0122 9A42     		cmp	r2, r3
+ 244 0124 2BD2     		bcs	.L16
+ 194:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             {
+ 195:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 EZI2C_I2C_SLAVE_GENERATE_ACK;
+ 245              		.loc 1 195 0
+ 246 0126 0121     		movs	r1, #1
+ 247 0128 7E4B     		ldr	r3, .L39+76
+ 248 012a 1960     		str	r1, [r3]
+ 249              	.LVL13:
+ 196:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 197:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Update local buffer index with new offset */
+ 198:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 locIndex = locByte;
+ 199:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 200:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Get available buffer size to write */
+ 201:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 locBufSize = (uint16) ((locByte < EZI2C_protectBuf1) ?
+ 250              		.loc 1 201 0
+ 251 012c 804B     		ldr	r3, .L39+88
+ 252 012e 1B88     		ldrh	r3, [r3]
+ 253 0130 9A42     		cmp	r2, r3
+ 254 0132 02D2     		bcs	.L35
+ 255              		.loc 1 201 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 9
+
+
+ 256 0134 9B1A     		subs	r3, r3, r2
+ 257 0136 9BB2     		uxth	r3, r3
+ 258 0138 00E0     		b	.L17
+ 259              	.L35:
+ 260              		.loc 1 201 0
+ 261 013a 0023     		movs	r3, #0
+ 262              	.L17:
+ 263              		.loc 1 201 0 discriminator 4
+ 264 013c 7849     		ldr	r1, .L39+72
+ 265 013e 0B80     		strh	r3, [r1]
+ 202:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                                        (EZI2C_protectBuf1 - locByte) : (0u));
+ 203:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 204:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             #if(EZI2C_CY_SCBIP_V0)
+ 205:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 206:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 if(locBufSize < EZI2C_EZI2C_FIFO_SIZE)
+ 266              		.loc 1 206 0 is_stmt 1 discriminator 4
+ 267 0140 072B     		cmp	r3, #7
+ 268 0142 03D8     		bhi	.L18
+ 207:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 {
+ 208:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     /* Set FSM state to receive byte by byte */
+ 209:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     EZI2C_fsmState = EZI2C_EZI2C_FSM_BYTE_WRITE;
+ 269              		.loc 1 209 0
+ 270 0144 0121     		movs	r1, #1
+ 271 0146 724B     		ldr	r3, .L39+56
+ 272 0148 1970     		strb	r1, [r3]
+ 273 014a 14E0     		b	.L19
+ 274              	.L18:
+ 210:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 }
+ 211:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Receive RX FIFO chunks */
+ 212:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 else if(locBufSize == EZI2C_EZI2C_FIFO_SIZE)
+ 275              		.loc 1 212 0
+ 276 014c 082B     		cmp	r3, #8
+ 277 014e 09D1     		bne	.L20
+ 213:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 {
+ 214:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     EZI2C_ENABLE_SLAVE_AUTO_DATA; /* NACK when RX FIFO is full */
+ 278              		.loc 1 214 0
+ 279 0150 6949     		ldr	r1, .L39+32
+ 280 0152 0B68     		ldr	r3, [r1]
+ 281 0154 A020     		movs	r0, #160
+ 282 0156 0002     		lsls	r0, r0, #8
+ 283 0158 0343     		orrs	r3, r0
+ 284 015a 0B60     		str	r3, [r1]
+ 215:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     EZI2C_SetRxInterruptMode(EZI2C_NO_INTR_SOURCES);
+ 285              		.loc 1 215 0
+ 286 015c 0021     		movs	r1, #0
+ 287 015e 684B     		ldr	r3, .L39+40
+ 288 0160 1960     		str	r1, [r3]
+ 289 0162 08E0     		b	.L19
+ 290              	.L20:
+ 216:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 }
+ 217:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 else
+ 218:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 {
+ 219:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     EZI2C_ENABLE_SLAVE_AUTO_DATA_ACK; /* Stretch when RX FIFO is fu
+ 291              		.loc 1 219 0
+ 292 0164 6449     		ldr	r1, .L39+32
+ 293 0166 0B68     		ldr	r3, [r1]
+ 294 0168 8020     		movs	r0, #128
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 10
+
+
+ 295 016a 8001     		lsls	r0, r0, #6
+ 296 016c 0343     		orrs	r3, r0
+ 297 016e 0B60     		str	r3, [r1]
+ 220:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     EZI2C_SetRxInterruptMode(EZI2C_INTR_RX_FULL);
+ 298              		.loc 1 220 0
+ 299 0170 0821     		movs	r1, #8
+ 300 0172 634B     		ldr	r3, .L39+40
+ 301 0174 1960     		str	r1, [r3]
+ 302              	.L19:
+ 221:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 }
+ 222:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 223:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             #else
+ 224:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 225:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 #if(EZI2C_SECONDARY_ADDRESS_ENABLE)
+ 226:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 {
+ 227:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     /* Set FSM state to receive byte by byte.
+ 228:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     * The byte by byte receive is always chosen for two addresses. 
+ 229:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     */
+ 230:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     EZI2C_fsmState = EZI2C_EZI2C_FSM_BYTE_WRITE;
+ 231:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 }
+ 232:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 #else
+ 233:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 {
+ 234:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     if (locBufSize < EZI2C_EZI2C_FIFO_SIZE)
+ 235:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     {
+ 236:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                         /* Set FSM state to receive byte by byte */
+ 237:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                         EZI2C_fsmState = EZI2C_EZI2C_FSM_BYTE_WRITE;
+ 238:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     }
+ 239:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     /* Receive RX FIFO chunks */
+ 240:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     else if (locBufSize == EZI2C_EZI2C_FIFO_SIZE)
+ 241:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     {
+ 242:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                         EZI2C_ENABLE_SLAVE_AUTO_DATA; /* NACK when RX FIFO is full 
+ 243:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                         EZI2C_SetRxInterruptMode(EZI2C_NO_INTR_SOURCES);
+ 244:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     }
+ 245:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     else
+ 246:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     {
+ 247:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                         EZI2C_ENABLE_SLAVE_AUTO_DATA_ACK; /* Stretch when RX FIFO i
+ 248:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                         EZI2C_SetRxInterruptMode(EZI2C_INTR_RX_FULL);
+ 249:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                     }
+ 250:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 }
+ 251:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 #endif
+ 252:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 253:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             #endif /* (EZI2C_CY_SCBIP_V0) */
+ 254:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 255:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Store local offset into global variable */
+ 256:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 EZI2C_EZI2C_SET_OFFSET(activeAddress, locIndex);
+ 303              		.loc 1 256 0
+ 304 0176 5F4B     		ldr	r3, .L39+28
+ 305 0178 1A80     		strh	r2, [r3]
+ 198:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 306              		.loc 1 198 0
+ 307 017a 1400     		movs	r4, r2
+ 308 017c 05E0     		b	.L15
+ 309              	.LVL14:
+ 310              	.L16:
+ 257:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             }
+ 258:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             else
+ 259:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             {
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 11
+
+
+ 260:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Discard offset byte and NACK */
+ 261:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 EZI2C_I2C_SLAVE_GENERATE_NACK;
+ 311              		.loc 1 261 0
+ 312 017e FFF7FEFF 		bl	EZI2C_I2CSlaveNackGeneration
+ 313              	.LVL15:
+ 314 0182 02E0     		b	.L15
+ 315              	.LVL16:
+ 316              	.L38:
+ 262:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             }
+ 263:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             break;
+ 264:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 265:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         default:
+ 266:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             CYASSERT(0u != 0u); /* Should never get there */
+ 317              		.loc 1 266 0 discriminator 1
+ 318 0184 0020     		movs	r0, #0
+ 319 0186 FFF7FEFF 		bl	CyHalt
+ 320              	.LVL17:
+ 321              	.L15:
+ 267:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             break;
+ 268:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 269:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 270:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ClearRxInterruptSource(EZI2C_INTR_RX_NOT_EMPTY);
+ 322              		.loc 1 270 0
+ 323 018a 0422     		movs	r2, #4
+ 324 018c 5E4B     		ldr	r3, .L39+48
+ 325 018e 1A60     		str	r2, [r3]
+ 326 0190 35E0     		b	.L8
+ 327              	.L9:
+ 271:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 272:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 273:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* INTR_RX.FULL, INTR_SLAVE.I2C_STOP */
+ 274:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* Receive FIFO chunks: auto data ACK is enabled */
+ 275:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 else if (0u != (EZI2C_I2C_CTRL_REG & EZI2C_I2C_CTRL_S_READY_DATA_ACK))
+ 328              		.loc 1 275 0
+ 329 0192 594B     		ldr	r3, .L39+32
+ 330 0194 1B68     		ldr	r3, [r3]
+ 331 0196 9B04     		lsls	r3, r3, #18
+ 332 0198 31D5     		bpl	.L8
+ 276:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+ 277:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Slave interrupt (I2C_STOP or I2C_ADDR_MATCH) leads to completion of read.
+ 278:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     * A completion event has a higher priority than the FIFO full.
+ 279:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     * Read remaining data from RX FIFO.
+ 280:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     */
+ 281:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     if(0u != (locIntrCause & EZI2C_INTR_CAUSE_SLAVE))
+ 333              		.loc 1 281 0
+ 334 019a B307     		lsls	r3, r6, #30
+ 335 019c 0DD5     		bpl	.L21
+ 282:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 283:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Read remaining bytes from RX FIFO */
+ 284:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         fifoIndex = EZI2C_GET_RX_FIFO_ENTRIES;
+ 336              		.loc 1 284 0
+ 337 019e 654B     		ldr	r3, .L39+92
+ 338 01a0 1B68     		ldr	r3, [r3]
+ 339 01a2 0F21     		movs	r1, #15
+ 340 01a4 1940     		ands	r1, r3
+ 341              	.LVL18:
+ 285:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 12
+
+
+ 286:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         #if(EZI2C_SECONDARY_ADDRESS_ENABLE)
+ 287:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 288:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Update with current address match */
+ 289:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             if(EZI2C_CHECK_INTR_SLAVE_MASKED(EZI2C_INTR_SLAVE_I2C_ADDR_MATCH))
+ 290:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             {
+ 291:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* Update RX FIFO entries as address byte is there now */
+ 292:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 fifoIndex = EZI2C_GET_RX_FIFO_ENTRIES;
+ 293:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 294:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 /* If SR is valid, RX FIFO is full and address is in SHIFTER:
+ 295:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 * read 8 entries and leave address in RX FIFO for further processin
+ 296:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 * If SR is invalid, address is already in RX FIFO: read (entries-1)
+ 297:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 */
+ 298:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                 fifoIndex -= ((0u != EZI2C_GET_RX_FIFO_SR_VALID) ? (0u) : (1u));
+ 299:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             }
+ 300:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 301:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         #endif
+ 302:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 303:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_DISABLE_SLAVE_AUTO_DATA;
+ 342              		.loc 1 303 0
+ 343 01a6 544A     		ldr	r2, .L39+32
+ 344 01a8 1068     		ldr	r0, [r2]
+ 345 01aa 544B     		ldr	r3, .L39+36
+ 346 01ac 0340     		ands	r3, r0
+ 347 01ae 1360     		str	r3, [r2]
+ 348              	.LVL19:
+ 304:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         endTransfer = EZI2C_EZI2C_CONTINUE_TRANSFER;
+ 349              		.loc 1 304 0
+ 350 01b0 0120     		movs	r0, #1
+ 351 01b2 14E0     		b	.L22
+ 352              	.LVL20:
+ 353              	.L36:
+ 305:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 306:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     else
+ 307:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* INTR_RX_FULL */
+ 308:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Continue transfer or disable INTR_RX_FULL to catch completion event. */
+ 309:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 310:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Calculate buffer size available to write data into */
+ 311:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locBufSize -= (uint16) EZI2C_EZI2C_FIFO_SIZE;
+ 312:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 313:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         if(locBufSize <= EZI2C_EZI2C_FIFO_SIZE)
+ 314:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 315:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Send NACK when RX FIFO overflow */
+ 316:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             fifoIndex   = locBufSize;
+ 317:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             endTransfer = EZI2C_EZI2C_COMPLETE_TRANSFER;
+ 318:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 319:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         else
+ 320:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 321:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Continue  transaction */
+ 322:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             fifoIndex   = EZI2C_EZI2C_FIFO_SIZE;
+ 354              		.loc 1 322 0
+ 355 01b4 0821     		movs	r1, #8
+ 323:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             endTransfer = EZI2C_EZI2C_CONTINUE_TRANSFER;
+ 356              		.loc 1 323 0
+ 357 01b6 0120     		movs	r0, #1
+ 358 01b8 11E0     		b	.L22
+ 359              	.L21:
+ 311:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 13
+
+
+ 360              		.loc 1 311 0
+ 361 01ba 594B     		ldr	r3, .L39+72
+ 362 01bc 1988     		ldrh	r1, [r3]
+ 363 01be 0839     		subs	r1, r1, #8
+ 364 01c0 89B2     		uxth	r1, r1
+ 365 01c2 1980     		strh	r1, [r3]
+ 313:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 366              		.loc 1 313 0
+ 367 01c4 0829     		cmp	r1, #8
+ 368 01c6 F5D8     		bhi	.L36
+ 369              	.LVL21:
+ 317:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 370              		.loc 1 317 0
+ 371 01c8 0020     		movs	r0, #0
+ 372 01ca 08E0     		b	.L22
+ 373              	.LVL22:
+ 374              	.L24:
+ 324:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 325:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 326:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 327:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     for(; (0u != fifoIndex); fifoIndex--)
+ 328:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 329:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Store data in buffer */
+ 330:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_dataBuffer1[locIndex] = (uint8) EZI2C_RX_FIFO_RD_REG;
+ 375              		.loc 1 330 0 discriminator 2
+ 376 01cc 564B     		ldr	r3, .L39+80
+ 377 01ce 1B68     		ldr	r3, [r3]
+ 378 01d0 1B19     		adds	r3, r3, r4
+ 379 01d2 524A     		ldr	r2, .L39+68
+ 380 01d4 1268     		ldr	r2, [r2]
+ 381 01d6 D2B2     		uxtb	r2, r2
+ 382 01d8 1A70     		strb	r2, [r3]
+ 331:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locIndex++;
+ 383              		.loc 1 331 0 discriminator 2
+ 384 01da 0134     		adds	r4, r4, #1
+ 385              	.LVL23:
+ 327:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 386              		.loc 1 327 0 discriminator 2
+ 387 01dc 0139     		subs	r1, r1, #1
+ 388              	.LVL24:
+ 389              	.L22:
+ 327:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 390              		.loc 1 327 0 is_stmt 0 discriminator 1
+ 391 01de 0029     		cmp	r1, #0
+ 392 01e0 F4D1     		bne	.L24
+ 332:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 333:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 334:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Complete transfer sending NACK when RX FIFO overflow */
+ 335:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     if(EZI2C_EZI2C_COMPLETE_TRANSFER == endTransfer)
+ 393              		.loc 1 335 0 is_stmt 1
+ 394 01e2 0028     		cmp	r0, #0
+ 395 01e4 08D1     		bne	.L25
+ 336:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 337:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ENABLE_SLAVE_AUTO_DATA_NACK;
+ 396              		.loc 1 337 0
+ 397 01e6 444A     		ldr	r2, .L39+32
+ 398 01e8 1368     		ldr	r3, [r2]
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 14
+
+
+ 399 01ea 8021     		movs	r1, #128
+ 400              	.LVL25:
+ 401 01ec 0902     		lsls	r1, r1, #8
+ 402 01ee 0B43     		orrs	r3, r1
+ 403 01f0 1360     		str	r3, [r2]
+ 338:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 339:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Disable INTR_RX_FULL during last RX FIFO chunk reception */
+ 340:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_SetRxInterruptMode(EZI2C_NO_INTR_SOURCES);
+ 404              		.loc 1 340 0
+ 405 01f2 0022     		movs	r2, #0
+ 406 01f4 424B     		ldr	r3, .L39+40
+ 407 01f6 1A60     		str	r2, [r3]
+ 408              	.L25:
+ 341:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 342:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 343:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     EZI2C_ClearRxInterruptSource(EZI2C_INTR_RX_FULL |
+ 409              		.loc 1 343 0
+ 410 01f8 0C22     		movs	r2, #12
+ 411 01fa 434B     		ldr	r3, .L39+48
+ 412 01fc 1A60     		str	r2, [r3]
+ 413              	.LVL26:
+ 414              	.L8:
+ 344:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                                                             EZI2C_INTR_RX_NOT_EMPTY);
+ 345:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 346:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 else
+ 347:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+ 348:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Exit for slave interrupts which are not active for RX direction:
+ 349:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     * INTR_SLAVE.I2C_ADDR_MATCH and INTR_SLAVE.I2C_STOP while byte-by-byte receptio
+ 350:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     */
+ 351:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 352:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             }
+ 353:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 354:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             if(0u != (locIntrCause & EZI2C_INTR_CAUSE_SLAVE))
+ 415              		.loc 1 354 0
+ 416 01fe B307     		lsls	r3, r6, #30
+ 417 0200 46D5     		bpl	.L26
+ 355:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             {
+ 356:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* INTR_SLAVE.I2C_STOP */
+ 357:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* Catch Stop condition: completion of write or read transfer */
+ 358:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             #if(!EZI2C_SECONDARY_ADDRESS_ENABLE_CONST)
+ 359:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 if(0u != (locIntrSlave & EZI2C_INTR_SLAVE_I2C_STOP))
+ 418              		.loc 1 359 0
+ 419 0202 EB06     		lsls	r3, r5, #27
+ 420 0204 15D5     		bpl	.L27
+ 360:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             #else
+ 361:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* Prevent triggering when matched address was NACKed */
+ 362:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 if((0u != (locIntrSlave & EZI2C_INTR_SLAVE_I2C_STOP)) &&
+ 363:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                    (0u != ((uint8) EZI2C_EZI2C_STATUS_BUSY & EZI2C_curStatus)))
+ 364:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             #endif
+ 365:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+ 366:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Disable TX and RX interrupt sources */
+ 367:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     EZI2C_SetRxInterruptMode(EZI2C_NO_INTR_SOURCES);
+ 421              		.loc 1 367 0
+ 422 0206 0023     		movs	r3, #0
+ 423 0208 3D4A     		ldr	r2, .L39+40
+ 424 020a 1360     		str	r3, [r2]
+ 368:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     EZI2C_SetTxInterruptMode(EZI2C_NO_INTR_SOURCES);
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 15
+
+
+ 425              		.loc 1 368 0
+ 426 020c 384A     		ldr	r2, .L39+24
+ 427 020e 1360     		str	r3, [r2]
+ 428              	.LVL27:
+ 369:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 370:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Set read completion mask */
+ 371:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     locStatus = EZI2C_INTR_SLAVE_I2C_NACK;
+ 372:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 373:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Check if buffer content was modified: the address phase resets the locIndex 
+ 374:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     if(locIndex != EZI2C_EZI2C_GET_OFFSET(activeAddress))
+ 429              		.loc 1 374 0
+ 430 0210 384B     		ldr	r3, .L39+28
+ 431 0212 1B88     		ldrh	r3, [r3]
+ 432 0214 9C42     		cmp	r4, r3
+ 433 0216 01D1     		bne	.L37
+ 371:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 434              		.loc 1 371 0
+ 435 0218 0223     		movs	r3, #2
+ 436 021a 00E0     		b	.L28
+ 437              	.L37:
+ 375:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 376:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locStatus |= EZI2C_INTR_SLAVE_I2C_WRITE_STOP;
+ 438              		.loc 1 376 0
+ 439 021c 0A23     		movs	r3, #10
+ 440              	.L28:
+ 441              	.LVL28:
+ 377:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 378:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 379:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Complete read or write transaction */
+ 380:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     locStatus &= locIntrSlave;
+ 442              		.loc 1 380 0
+ 443 021e 2B40     		ands	r3, r5
+ 444              	.LVL29:
+ 381:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     EZI2C_EZI2C_UPDATE_LOC_STATUS(activeAddress, locStatus);
+ 382:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     locStatus |= (uint32)  EZI2C_curStatus;
+ 445              		.loc 1 382 0
+ 446 0220 324A     		ldr	r2, .L39+20
+ 447 0222 1178     		ldrb	r1, [r2]
+ 448 0224 0B43     		orrs	r3, r1
+ 449              	.LVL30:
+ 383:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     locStatus &= (uint32) ~EZI2C_EZI2C_STATUS_BUSY;
+ 384:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     EZI2C_curStatus = (uint8) locStatus;
+ 450              		.loc 1 384 0
+ 451 0226 2021     		movs	r1, #32
+ 452 0228 8B43     		bics	r3, r1
+ 453              	.LVL31:
+ 454 022a 1370     		strb	r3, [r2]
+ 385:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 386:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     EZI2C_fsmState = EZI2C_EZI2C_FSM_IDLE;
+ 455              		.loc 1 386 0
+ 456 022c 0222     		movs	r2, #2
+ 457 022e 384B     		ldr	r3, .L39+56
+ 458 0230 1A70     		strb	r2, [r3]
+ 459              	.L27:
+ 387:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 388:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #if(EZI2C_SECONDARY_ADDRESS_ENABLE)
+ 389:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 16
+
+
+ 390:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Store local index into global variable, before address phase */
+ 391:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_EZI2C_SET_INDEX(activeAddress, locIndex);
+ 392:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 393:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #endif
+ 394:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 395:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 396:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* INTR_SLAVE.I2C_ADDR_MATCH */
+ 397:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* The matched address is received: the slave starts its operation.
+ 398:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 * INTR_SLAVE_I2C_STOP updates the buffer index before the address phase for two add
+ 399:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 * This is done to update buffer index correctly before the address phase changes it
+ 400:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 */
+ 401:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 if(0u != (locIntrSlave & EZI2C_INTR_SLAVE_I2C_ADDR_MATCH))
+ 460              		.loc 1 401 0
+ 461 0232 6B06     		lsls	r3, r5, #25
+ 462 0234 2AD5     		bpl	.L29
+ 402:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+ 403:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #if(EZI2C_SECONDARY_ADDRESS_ENABLE)
+ 404:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 405:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Read address byte from RX FIFO */
+ 406:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locByte = EZI2C_GET_I2C_7BIT_ADDRESS(EZI2C_RX_FIFO_RD_REG);
+ 407:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 408:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ClearRxInterruptSource(EZI2C_INTR_RX_NOT_EMPTY);
+ 409:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 410:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Check received address against device addresses */
+ 411:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         if(EZI2C_addrBuf1 == locByte)
+ 412:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 413:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Set buffer exposed to primary slave address */
+ 414:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_dataBuffer = EZI2C_dataBuffer1;
+ 415:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_bufSizeBuf = EZI2C_bufSizeBuf1;
+ 416:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_protectBuf = EZI2C_protectBuf1;
+ 417:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 418:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             activeAddress = EZI2C_EZI2C_ACTIVE_ADDRESS1;
+ 419:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 420:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         else if(EZI2C_addrBuf2 == locByte)
+ 421:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 422:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Set buffer exposed to secondary slave address */
+ 423:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_dataBuffer = EZI2C_dataBuffer2;
+ 424:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_bufSizeBuf = EZI2C_bufSizeBuf2;
+ 425:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_protectBuf = EZI2C_protectBuf2;
+ 426:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 427:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             activeAddress = EZI2C_EZI2C_ACTIVE_ADDRESS2;
+ 428:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 429:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         else
+ 430:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 431:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Address does not match */
+ 432:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             ackResponse = EZI2C_EZI2C_NACK_RECEIVED_ADDRESS;
+ 433:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 434:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 435:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #endif
+ 436:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 437:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 #if(EZI2C_SECONDARY_ADDRESS_ENABLE_CONST)
+ 438:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     if(EZI2C_EZI2C_NACK_RECEIVED_ADDRESS == ackResponse)
+ 439:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 440:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Clear interrupt sources before NACK address */
+ 441:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ClearI2CExtClkInterruptSource(EZI2C_INTR_I2C_EC_WAKE_UP);
+ 442:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ClearSlaveInterruptSource(EZI2C_INTR_SLAVE_ALL);
+ 443:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 17
+
+
+ 444:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #if(!EZI2C_CY_SCBIP_V0)
+ 445:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Disable INTR_I2C_STOP to not trigger after matched address is NACKed. Ti
+ 446:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_DISABLE_INTR_SLAVE(EZI2C_INTR_SLAVE_I2C_STOP);
+ 447:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #endif /* (!EZI2C_CY_SCBIP_V0) */
+ 448:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 449:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* NACK address byte: it does not match neither primary nor secondary */
+ 450:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_I2C_SLAVE_GENERATE_NACK;
+ 451:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 452:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     else
+ 453:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 #endif /* (EZI2C_SECONDARY_ADDRESS_ENABLE_CONST) */
+ 454:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 455:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 456:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #if(EZI2C_SCB_MODE_UNCONFIG_CONST_CFG)
+ 457:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         if(!EZI2C_SECONDARY_ADDRESS_ENABLE)
+ 458:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 459:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Set buffer exposed to primary slave address */
+ 460:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_dataBuffer = EZI2C_dataBuffer1;
+ 461:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_bufSizeBuf = EZI2C_bufSizeBuf1;
+ 462:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_protectBuf = EZI2C_protectBuf1;
+ 463:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 464:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             activeAddress = EZI2C_EZI2C_ACTIVE_ADDRESS1;
+ 465:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 466:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #endif /* (EZI2C_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 467:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 468:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Bus becomes busy after address is received */
+ 469:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_curStatus |= (uint8) EZI2C_EZI2C_STATUS_BUSY;
+ 463              		.loc 1 469 0
+ 464 0236 2D4A     		ldr	r2, .L39+20
+ 465 0238 1178     		ldrb	r1, [r2]
+ 466 023a 2023     		movs	r3, #32
+ 467 023c 0B43     		orrs	r3, r1
+ 468 023e DBB2     		uxtb	r3, r3
+ 469 0240 1370     		strb	r3, [r2]
+ 470:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 471:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Slave is read or written: set current offset */
+ 472:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locIndex = EZI2C_EZI2C_GET_OFFSET(activeAddress);
+ 470              		.loc 1 472 0
+ 471 0242 2C4B     		ldr	r3, .L39+28
+ 472 0244 1B88     		ldrh	r3, [r3]
+ 473 0246 1C00     		movs	r4, r3
+ 474              	.LVL32:
+ 473:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 474:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Check transaction direction */
+ 475:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         if(EZI2C_CHECK_I2C_STATUS(EZI2C_I2C_STATUS_S_READ))
+ 475              		.loc 1 475 0
+ 476 0248 3B4A     		ldr	r2, .L39+96
+ 477 024a 1268     		ldr	r2, [r2]
+ 478 024c D206     		lsls	r2, r2, #27
+ 479 024e 12D5     		bpl	.L30
+ 476:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 477:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Calculate slave buffer size */
+ 478:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             locBufSize = EZI2C_bufSizeBuf1 - (uint16) locIndex;
+ 480              		.loc 1 478 0
+ 481 0250 364A     		ldr	r2, .L39+84
+ 482 0252 1288     		ldrh	r2, [r2]
+ 483 0254 D31A     		subs	r3, r2, r3
+ 484              	.LVL33:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 18
+
+
+ 485 0256 324A     		ldr	r2, .L39+72
+ 486 0258 1380     		strh	r3, [r2]
+ 479:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 480:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Clear TX FIFO to start fill from offset */
+ 481:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_CLEAR_TX_FIFO;
+ 487              		.loc 1 481 0
+ 488 025a 384B     		ldr	r3, .L39+100
+ 489 025c 1A68     		ldr	r2, [r3]
+ 490 025e 8021     		movs	r1, #128
+ 491 0260 4902     		lsls	r1, r1, #9
+ 492 0262 0A43     		orrs	r2, r1
+ 493 0264 1A60     		str	r2, [r3]
+ 494 0266 1968     		ldr	r1, [r3]
+ 495 0268 354A     		ldr	r2, .L39+104
+ 496 026a 0A40     		ands	r2, r1
+ 497 026c 1A60     		str	r2, [r3]
+ 482:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_SetTxInterruptMode(EZI2C_INTR_TX_EMPTY);
+ 498              		.loc 1 482 0
+ 499 026e 1022     		movs	r2, #16
+ 500 0270 1F4B     		ldr	r3, .L39+24
+ 501 0272 1A60     		str	r2, [r3]
+ 502 0274 02E0     		b	.L31
+ 503              	.LVL34:
+ 504              	.L30:
+ 483:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 484:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         else
+ 485:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         {
+ 486:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             /* Master writes: enable reception interrupt. The FSM state was set in 
+ 487:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                             EZI2C_SetRxInterruptMode(EZI2C_INTR_RX_NOT_EMPTY);
+ 505              		.loc 1 487 0
+ 506 0276 0422     		movs	r2, #4
+ 507 0278 214B     		ldr	r3, .L39+40
+ 508              	.LVL35:
+ 509 027a 1A60     		str	r2, [r3]
+ 510              	.L31:
+ 488:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         }
+ 489:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 490:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Clear interrupt sources before ACK address */
+ 491:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ClearI2CExtClkInterruptSource(EZI2C_INTR_I2C_EC_WAKE_UP);
+ 511              		.loc 1 491 0
+ 512 027c 0123     		movs	r3, #1
+ 513 027e 314A     		ldr	r2, .L39+108
+ 514 0280 1360     		str	r3, [r2]
+ 492:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ClearSlaveInterruptSource(EZI2C_INTR_SLAVE_ALL);
+ 515              		.loc 1 492 0
+ 516 0282 2249     		ldr	r1, .L39+52
+ 517 0284 164A     		ldr	r2, .L39+8
+ 518 0286 1160     		str	r1, [r2]
+ 493:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 494:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #if (!EZI2C_CY_SCBIP_V0)
+ 495:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* Enable STOP to trigger after address match is ACKed. Ticket ID#156094 */
+ 496:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_ENABLE_INTR_SLAVE(EZI2C_INTR_SLAVE_I2C_STOP);
+ 497:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     #endif /* (!EZI2C_CY_SCBIP_V0) */
+ 498:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 499:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         /* ACK the address byte */
+ 500:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_I2C_SLAVE_GENERATE_ACK;
+ 519              		.loc 1 500 0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 19
+
+
+ 520 0288 264A     		ldr	r2, .L39+76
+ 521 028a 1360     		str	r3, [r2]
+ 522              	.L29:
+ 501:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 502:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 503:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 504:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* Clear slave interrupt sources */
+ 505:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 EZI2C_ClearSlaveInterruptSource(locIntrSlave);
+ 523              		.loc 1 505 0
+ 524 028c 144B     		ldr	r3, .L39+8
+ 525 028e 1D60     		str	r5, [r3]
+ 526              	.L26:
+ 506:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             }
+ 507:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 508:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             /* INTR_TX.EMPTY */
+ 509:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             /* Transmits data to the master: loads data into the TX FIFO. The 0xFF sends out if the
+ 510:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             * out the buffer. The address reception with a read flag clears the TX FIFO to be loade
+ 511:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             */
+ 512:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             if(0u != (EZI2C_GetInterruptCause() & EZI2C_INTR_CAUSE_TX))
+ 527              		.loc 1 512 0
+ 528 0290 144B     		ldr	r3, .L39+12
+ 529 0292 1B68     		ldr	r3, [r3]
+ 530 0294 5B07     		lsls	r3, r3, #29
+ 531 0296 1CD5     		bpl	.L6
+ 532              	.L34:
+ 513:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             {
+ 514:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 /* Put data into TX FIFO until there is a room */
+ 515:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 do
+ 516:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 {
+ 517:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     /* Check transmit buffer range: locBufSize calculates after address reception *
+ 518:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     if(0u != locBufSize)
+ 533              		.loc 1 518 0
+ 534 0298 214B     		ldr	r3, .L39+72
+ 535 029a 1B88     		ldrh	r3, [r3]
+ 536 029c 002B     		cmp	r3, #0
+ 537 029e 0CD0     		beq	.L32
+ 519:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 520:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_TX_FIFO_WR_REG = (uint32) EZI2C_dataBuffer1[locIndex];
+ 538              		.loc 1 520 0
+ 539 02a0 214B     		ldr	r3, .L39+80
+ 540 02a2 1B68     		ldr	r3, [r3]
+ 541 02a4 1B19     		adds	r3, r3, r4
+ 542 02a6 1B78     		ldrb	r3, [r3]
+ 543 02a8 DBB2     		uxtb	r3, r3
+ 544 02aa 274A     		ldr	r2, .L39+112
+ 545 02ac 1360     		str	r3, [r2]
+ 521:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locIndex++;
+ 546              		.loc 1 521 0
+ 547 02ae 0134     		adds	r4, r4, #1
+ 548              	.LVL36:
+ 522:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         locBufSize--;
+ 549              		.loc 1 522 0
+ 550 02b0 1B4A     		ldr	r2, .L39+72
+ 551 02b2 1388     		ldrh	r3, [r2]
+ 552 02b4 013B     		subs	r3, r3, #1
+ 553 02b6 1380     		strh	r3, [r2]
+ 554 02b8 02E0     		b	.L33
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 20
+
+
+ 555              	.L32:
+ 523:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 524:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     else
+ 525:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     {
+ 526:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                         EZI2C_TX_FIFO_WR_REG = EZI2C_EZI2C_OVFL_RETURN;
+ 556              		.loc 1 526 0
+ 557 02ba FF22     		movs	r2, #255
+ 558 02bc 224B     		ldr	r3, .L39+112
+ 559 02be 1A60     		str	r2, [r3]
+ 560              	.L33:
+ 527:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                     }
+ 528:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 }
+ 529:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 while(EZI2C_EZI2C_FIFO_SIZE != EZI2C_GET_TX_FIFO_ENTRIES);
+ 561              		.loc 1 529 0
+ 562 02c0 224B     		ldr	r3, .L39+116
+ 563 02c2 1B68     		ldr	r3, [r3]
+ 564 02c4 0F22     		movs	r2, #15
+ 565 02c6 1340     		ands	r3, r2
+ 566 02c8 082B     		cmp	r3, #8
+ 567 02ca E5D1     		bne	.L34
+ 530:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 531:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****                 EZI2C_ClearTxInterruptSource(EZI2C_INTR_TX_EMPTY);
+ 568              		.loc 1 531 0
+ 569 02cc 0132     		adds	r2, r2, #1
+ 570 02ce 204B     		ldr	r3, .L39+120
+ 571 02d0 1A60     		str	r2, [r3]
+ 572              	.L6:
+ 532:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****             }
+ 533:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         }
+ 534:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 535:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         /* Store local index copy into global variable */
+ 536:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         EZI2C_EZI2C_SET_INDEX(activeAddress, locIndex);
+ 573              		.loc 1 536 0
+ 574 02d2 024B     		ldr	r3, .L39+4
+ 575 02d4 1C80     		strh	r4, [r3]
+ 537:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 538:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #ifdef EZI2C_EZI2C_STRETCH_ISR_EXIT_CALLBACK
+ 539:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****         EZI2C_EZI2C_STRETCH_ISR_ExitCallback();
+ 540:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     #endif /* EZI2C_EZI2C_STRETCH_ISR_EXIT_CALLBACK */
+ 541:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c **** 
+ 542:Generated_Source\PSoC4/EZI2C_EZI2C_INT.c ****     }
+ 576              		.loc 1 542 0
+ 577              		@ sp needed
+ 578              	.LVL37:
+ 579              	.LVL38:
+ 580              	.LVL39:
+ 581 02d6 70BD     		pop	{r4, r5, r6, pc}
+ 582              	.L40:
+ 583              		.align	2
+ 584              	.L39:
+ 585 02d8 00000000 		.word	EZI2C_customIntrHandler
+ 586 02dc 00000000 		.word	EZI2C_indexBuf1
+ 587 02e0 400F0740 		.word	1074204480
+ 588 02e4 000E0740 		.word	1074204160
+ 589 02e8 00000740 		.word	1074200576
+ 590 02ec 00000000 		.word	EZI2C_curStatus
+ 591 02f0 880F0740 		.word	1074204552
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 21
+
+
+ 592 02f4 00000000 		.word	EZI2C_offsetBuf1
+ 593 02f8 60000740 		.word	1074200672
+ 594 02fc FF5FFFFF 		.word	-40961
+ 595 0300 C80F0740 		.word	1074204616
+ 596 0304 ED0F0000 		.word	4077
+ 597 0308 C00F0740 		.word	1074204608
+ 598 030c FF0F0000 		.word	4095
+ 599 0310 00000000 		.word	EZI2C_fsmState
+ 600 0314 880E0740 		.word	1074204296
+ 601 0318 CC0F0740 		.word	1074204620
+ 602 031c 40030740 		.word	1074201408
+ 603 0320 00000000 		.word	.LANCHOR0
+ 604 0324 6C000740 		.word	1074200684
+ 605 0328 00000000 		.word	EZI2C_dataBuffer1
+ 606 032c 00000000 		.word	EZI2C_bufSizeBuf1
+ 607 0330 00000000 		.word	EZI2C_protectBuf1
+ 608 0334 08030740 		.word	1074201352
+ 609 0338 64000740 		.word	1074200676
+ 610 033c 04020740 		.word	1074201092
+ 611 0340 FFFFFEFF 		.word	-65537
+ 612 0344 800E0740 		.word	1074204288
+ 613 0348 40020740 		.word	1074201152
+ 614 034c 08020740 		.word	1074201096
+ 615 0350 800F0740 		.word	1074204544
+ 616              		.cfi_endproc
+ 617              	.LFE0:
+ 618              		.size	EZI2C_EZI2C_STRETCH_ISR, .-EZI2C_EZI2C_STRETCH_ISR
+ 619              		.bss
+ 620              		.align	1
+ 621              		.set	.LANCHOR0,. + 0
+ 622              		.type	locBufSize.4923, %object
+ 623              		.size	locBufSize.4923, 2
+ 624              	locBufSize.4923:
+ 625 0000 0000     		.space	2
+ 626              		.text
+ 627              	.Letext0:
+ 628              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 629              		.file 3 "Generated_Source\\PSoC4\\EZI2C_PVT.h"
+ 630              		.file 4 "Generated_Source\\PSoC4\\EZI2C_EZI2C_PVT.h"
+ 631              		.file 5 "Generated_Source\\PSoC4\\EZI2C.h"
+ 632              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
+ 633              		.section	.debug_info,"",%progbits
+ 634              	.Ldebug_info0:
+ 635 0000 FE010000 		.4byte	0x1fe
+ 636 0004 0400     		.2byte	0x4
+ 637 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 638 000a 04       		.byte	0x4
+ 639 000b 01       		.uleb128 0x1
+ 640 000c 8C010000 		.4byte	.LASF37
+ 641 0010 0C       		.byte	0xc
+ 642 0011 0B010000 		.4byte	.LASF38
+ 643 0015 79020000 		.4byte	.LASF39
+ 644 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 645 001d 00000000 		.4byte	0
+ 646 0021 00000000 		.4byte	.Ldebug_line0
+ 647 0025 02       		.uleb128 0x2
+ 648 0026 01       		.byte	0x1
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 22
+
+
+ 649 0027 06       		.byte	0x6
+ 650 0028 AF020000 		.4byte	.LASF0
+ 651 002c 02       		.uleb128 0x2
+ 652 002d 01       		.byte	0x1
+ 653 002e 08       		.byte	0x8
+ 654 002f 9E000000 		.4byte	.LASF1
+ 655 0033 02       		.uleb128 0x2
+ 656 0034 02       		.byte	0x2
+ 657 0035 05       		.byte	0x5
+ 658 0036 48020000 		.4byte	.LASF2
+ 659 003a 02       		.uleb128 0x2
+ 660 003b 02       		.byte	0x2
+ 661 003c 07       		.byte	0x7
+ 662 003d 3E000000 		.4byte	.LASF3
+ 663 0041 02       		.uleb128 0x2
+ 664 0042 04       		.byte	0x4
+ 665 0043 05       		.byte	0x5
+ 666 0044 70020000 		.4byte	.LASF4
+ 667 0048 02       		.uleb128 0x2
+ 668 0049 04       		.byte	0x4
+ 669 004a 07       		.byte	0x7
+ 670 004b B6000000 		.4byte	.LASF5
+ 671 004f 02       		.uleb128 0x2
+ 672 0050 08       		.byte	0x8
+ 673 0051 05       		.byte	0x5
+ 674 0052 23020000 		.4byte	.LASF6
+ 675 0056 02       		.uleb128 0x2
+ 676 0057 08       		.byte	0x8
+ 677 0058 07       		.byte	0x7
+ 678 0059 68010000 		.4byte	.LASF7
+ 679 005d 03       		.uleb128 0x3
+ 680 005e 04       		.byte	0x4
+ 681 005f 05       		.byte	0x5
+ 682 0060 696E7400 		.ascii	"int\000"
+ 683 0064 02       		.uleb128 0x2
+ 684 0065 04       		.byte	0x4
+ 685 0066 07       		.byte	0x7
+ 686 0067 46010000 		.4byte	.LASF8
+ 687 006b 04       		.uleb128 0x4
+ 688 006c C8000000 		.4byte	.LASF9
+ 689 0070 02       		.byte	0x2
+ 690 0071 FC01     		.2byte	0x1fc
+ 691 0073 2C000000 		.4byte	0x2c
+ 692 0077 04       		.uleb128 0x4
+ 693 0078 FD000000 		.4byte	.LASF10
+ 694 007c 02       		.byte	0x2
+ 695 007d FD01     		.2byte	0x1fd
+ 696 007f 3A000000 		.4byte	0x3a
+ 697 0083 04       		.uleb128 0x4
+ 698 0084 04010000 		.4byte	.LASF11
+ 699 0088 02       		.byte	0x2
+ 700 0089 FE01     		.2byte	0x1fe
+ 701 008b 48000000 		.4byte	0x48
+ 702 008f 02       		.uleb128 0x2
+ 703 0090 04       		.byte	0x4
+ 704 0091 04       		.byte	0x4
+ 705 0092 8F000000 		.4byte	.LASF12
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 23
+
+
+ 706 0096 02       		.uleb128 0x2
+ 707 0097 08       		.byte	0x8
+ 708 0098 04       		.byte	0x4
+ 709 0099 F6000000 		.4byte	.LASF13
+ 710 009d 02       		.uleb128 0x2
+ 711 009e 01       		.byte	0x1
+ 712 009f 08       		.byte	0x8
+ 713 00a0 31020000 		.4byte	.LASF14
+ 714 00a4 05       		.uleb128 0x5
+ 715 00a5 6B000000 		.4byte	0x6b
+ 716 00a9 04       		.uleb128 0x4
+ 717 00aa 00000000 		.4byte	.LASF15
+ 718 00ae 02       		.byte	0x2
+ 719 00af A802     		.2byte	0x2a8
+ 720 00b1 B5000000 		.4byte	0xb5
+ 721 00b5 05       		.uleb128 0x5
+ 722 00b6 83000000 		.4byte	0x83
+ 723 00ba 04       		.uleb128 0x4
+ 724 00bb 7F010000 		.4byte	.LASF16
+ 725 00bf 02       		.byte	0x2
+ 726 00c0 B802     		.2byte	0x2b8
+ 727 00c2 C6000000 		.4byte	0xc6
+ 728 00c6 06       		.uleb128 0x6
+ 729 00c7 04       		.byte	0x4
+ 730 00c8 CC000000 		.4byte	0xcc
+ 731 00cc 07       		.uleb128 0x7
+ 732 00cd 02       		.uleb128 0x2
+ 733 00ce 08       		.byte	0x8
+ 734 00cf 04       		.byte	0x4
+ 735 00d0 A3020000 		.4byte	.LASF17
+ 736 00d4 02       		.uleb128 0x2
+ 737 00d5 04       		.byte	0x4
+ 738 00d6 07       		.byte	0x7
+ 739 00d7 1A020000 		.4byte	.LASF18
+ 740 00db 08       		.uleb128 0x8
+ 741 00dc BB020000 		.4byte	.LASF40
+ 742 00e0 01       		.byte	0x1
+ 743 00e1 20       		.byte	0x20
+ 744 00e2 00000000 		.4byte	.LFB0
+ 745 00e6 54030000 		.4byte	.LFE0-.LFB0
+ 746 00ea 01       		.uleb128 0x1
+ 747 00eb 9C       		.byte	0x9c
+ 748 00ec 8C010000 		.4byte	0x18c
+ 749 00f0 09       		.uleb128 0x9
+ 750 00f1 53010000 		.4byte	.LASF19
+ 751 00f5 01       		.byte	0x1
+ 752 00f6 22       		.byte	0x22
+ 753 00f7 77000000 		.4byte	0x77
+ 754 00fb 05       		.uleb128 0x5
+ 755 00fc 03       		.byte	0x3
+ 756 00fd 00000000 		.4byte	locBufSize.4923
+ 757 0101 0A       		.uleb128 0xa
+ 758 0102 95000000 		.4byte	.LASF20
+ 759 0106 01       		.byte	0x1
+ 760 0107 23       		.byte	0x23
+ 761 0108 83000000 		.4byte	0x83
+ 762 010c 00000000 		.4byte	.LLST0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 24
+
+
+ 763 0110 0A       		.uleb128 0xa
+ 764 0111 AC000000 		.4byte	.LASF21
+ 765 0115 01       		.byte	0x1
+ 766 0116 24       		.byte	0x24
+ 767 0117 83000000 		.4byte	0x83
+ 768 011b 55000000 		.4byte	.LLST1
+ 769 011f 0A       		.uleb128 0xa
+ 770 0120 5E000000 		.4byte	.LASF22
+ 771 0124 01       		.byte	0x1
+ 772 0125 26       		.byte	0x26
+ 773 0126 83000000 		.4byte	0x83
+ 774 012a 84000000 		.4byte	.LLST2
+ 775 012e 0A       		.uleb128 0xa
+ 776 012f 5E010000 		.4byte	.LASF23
+ 777 0133 01       		.byte	0x1
+ 778 0134 27       		.byte	0x27
+ 779 0135 83000000 		.4byte	0x83
+ 780 0139 AF000000 		.4byte	.LLST3
+ 781 013d 0A       		.uleb128 0xa
+ 782 013e 6A000000 		.4byte	.LASF24
+ 783 0142 01       		.byte	0x1
+ 784 0143 28       		.byte	0x28
+ 785 0144 83000000 		.4byte	0x83
+ 786 0148 CD000000 		.4byte	.LLST4
+ 787 014c 0A       		.uleb128 0xa
+ 788 014d 63020000 		.4byte	.LASF25
+ 789 0151 01       		.byte	0x1
+ 790 0152 2A       		.byte	0x2a
+ 791 0153 83000000 		.4byte	0x83
+ 792 0157 0C010000 		.4byte	.LLST5
+ 793 015b 0A       		.uleb128 0xa
+ 794 015c 51000000 		.4byte	.LASF26
+ 795 0160 01       		.byte	0x1
+ 796 0161 2B       		.byte	0x2b
+ 797 0162 83000000 		.4byte	0x83
+ 798 0166 1F010000 		.4byte	.LLST6
+ 799 016a 0B       		.uleb128 0xb
+ 800 016b 00010000 		.4byte	.LVL8
+ 801 016f EA010000 		.4byte	0x1ea
+ 802 0173 0B       		.uleb128 0xb
+ 803 0174 82010000 		.4byte	.LVL15
+ 804 0178 EA010000 		.4byte	0x1ea
+ 805 017c 0C       		.uleb128 0xc
+ 806 017d 8A010000 		.4byte	.LVL17
+ 807 0181 F6010000 		.4byte	0x1f6
+ 808 0185 0D       		.uleb128 0xd
+ 809 0186 01       		.uleb128 0x1
+ 810 0187 50       		.byte	0x50
+ 811 0188 01       		.uleb128 0x1
+ 812 0189 30       		.byte	0x30
+ 813 018a 00       		.byte	0
+ 814 018b 00       		.byte	0
+ 815 018c 0E       		.uleb128 0xe
+ 816 018d CE000000 		.4byte	.LASF27
+ 817 0191 03       		.byte	0x3
+ 818 0192 3B       		.byte	0x3b
+ 819 0193 BA000000 		.4byte	0xba
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 25
+
+
+ 820 0197 0E       		.uleb128 0xe
+ 821 0198 0D000000 		.4byte	.LASF28
+ 822 019c 04       		.byte	0x4
+ 823 019d 1E       		.byte	0x1e
+ 824 019e A4000000 		.4byte	0xa4
+ 825 01a2 0E       		.uleb128 0xe
+ 826 01a3 2F000000 		.4byte	.LASF29
+ 827 01a7 04       		.byte	0x4
+ 828 01a8 1F       		.byte	0x1f
+ 829 01a9 6B000000 		.4byte	0x6b
+ 830 01ad 0E       		.uleb128 0xe
+ 831 01ae 36020000 		.4byte	.LASF30
+ 832 01b2 04       		.byte	0x4
+ 833 01b3 22       		.byte	0x22
+ 834 01b4 B8010000 		.4byte	0x1b8
+ 835 01b8 06       		.uleb128 0x6
+ 836 01b9 04       		.byte	0x4
+ 837 01ba A4000000 		.4byte	0xa4
+ 838 01be 0E       		.uleb128 0xe
+ 839 01bf 1D000000 		.4byte	.LASF31
+ 840 01c3 04       		.byte	0x4
+ 841 01c4 23       		.byte	0x23
+ 842 01c5 77000000 		.4byte	0x77
+ 843 01c9 0E       		.uleb128 0xe
+ 844 01ca 34010000 		.4byte	.LASF32
+ 845 01ce 04       		.byte	0x4
+ 846 01cf 24       		.byte	0x24
+ 847 01d0 77000000 		.4byte	0x77
+ 848 01d4 0E       		.uleb128 0xe
+ 849 01d5 52020000 		.4byte	.LASF33
+ 850 01d9 04       		.byte	0x4
+ 851 01da 25       		.byte	0x25
+ 852 01db 77000000 		.4byte	0x77
+ 853 01df 0E       		.uleb128 0xe
+ 854 01e0 E6000000 		.4byte	.LASF34
+ 855 01e4 04       		.byte	0x4
+ 856 01e5 26       		.byte	0x26
+ 857 01e6 77000000 		.4byte	0x77
+ 858 01ea 0F       		.uleb128 0xf
+ 859 01eb 72000000 		.4byte	.LASF35
+ 860 01ef 72000000 		.4byte	.LASF35
+ 861 01f3 05       		.byte	0x5
+ 862 01f4 1E07     		.2byte	0x71e
+ 863 01f6 10       		.uleb128 0x10
+ 864 01f7 06000000 		.4byte	.LASF36
+ 865 01fb 06000000 		.4byte	.LASF36
+ 866 01ff 06       		.byte	0x6
+ 867 0200 FA       		.byte	0xfa
+ 868 0201 00       		.byte	0
+ 869              		.section	.debug_abbrev,"",%progbits
+ 870              	.Ldebug_abbrev0:
+ 871 0000 01       		.uleb128 0x1
+ 872 0001 11       		.uleb128 0x11
+ 873 0002 01       		.byte	0x1
+ 874 0003 25       		.uleb128 0x25
+ 875 0004 0E       		.uleb128 0xe
+ 876 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 26
+
+
+ 877 0006 0B       		.uleb128 0xb
+ 878 0007 03       		.uleb128 0x3
+ 879 0008 0E       		.uleb128 0xe
+ 880 0009 1B       		.uleb128 0x1b
+ 881 000a 0E       		.uleb128 0xe
+ 882 000b 55       		.uleb128 0x55
+ 883 000c 17       		.uleb128 0x17
+ 884 000d 11       		.uleb128 0x11
+ 885 000e 01       		.uleb128 0x1
+ 886 000f 10       		.uleb128 0x10
+ 887 0010 17       		.uleb128 0x17
+ 888 0011 00       		.byte	0
+ 889 0012 00       		.byte	0
+ 890 0013 02       		.uleb128 0x2
+ 891 0014 24       		.uleb128 0x24
+ 892 0015 00       		.byte	0
+ 893 0016 0B       		.uleb128 0xb
+ 894 0017 0B       		.uleb128 0xb
+ 895 0018 3E       		.uleb128 0x3e
+ 896 0019 0B       		.uleb128 0xb
+ 897 001a 03       		.uleb128 0x3
+ 898 001b 0E       		.uleb128 0xe
+ 899 001c 00       		.byte	0
+ 900 001d 00       		.byte	0
+ 901 001e 03       		.uleb128 0x3
+ 902 001f 24       		.uleb128 0x24
+ 903 0020 00       		.byte	0
+ 904 0021 0B       		.uleb128 0xb
+ 905 0022 0B       		.uleb128 0xb
+ 906 0023 3E       		.uleb128 0x3e
+ 907 0024 0B       		.uleb128 0xb
+ 908 0025 03       		.uleb128 0x3
+ 909 0026 08       		.uleb128 0x8
+ 910 0027 00       		.byte	0
+ 911 0028 00       		.byte	0
+ 912 0029 04       		.uleb128 0x4
+ 913 002a 16       		.uleb128 0x16
+ 914 002b 00       		.byte	0
+ 915 002c 03       		.uleb128 0x3
+ 916 002d 0E       		.uleb128 0xe
+ 917 002e 3A       		.uleb128 0x3a
+ 918 002f 0B       		.uleb128 0xb
+ 919 0030 3B       		.uleb128 0x3b
+ 920 0031 05       		.uleb128 0x5
+ 921 0032 49       		.uleb128 0x49
+ 922 0033 13       		.uleb128 0x13
+ 923 0034 00       		.byte	0
+ 924 0035 00       		.byte	0
+ 925 0036 05       		.uleb128 0x5
+ 926 0037 35       		.uleb128 0x35
+ 927 0038 00       		.byte	0
+ 928 0039 49       		.uleb128 0x49
+ 929 003a 13       		.uleb128 0x13
+ 930 003b 00       		.byte	0
+ 931 003c 00       		.byte	0
+ 932 003d 06       		.uleb128 0x6
+ 933 003e 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 27
+
+
+ 934 003f 00       		.byte	0
+ 935 0040 0B       		.uleb128 0xb
+ 936 0041 0B       		.uleb128 0xb
+ 937 0042 49       		.uleb128 0x49
+ 938 0043 13       		.uleb128 0x13
+ 939 0044 00       		.byte	0
+ 940 0045 00       		.byte	0
+ 941 0046 07       		.uleb128 0x7
+ 942 0047 15       		.uleb128 0x15
+ 943 0048 00       		.byte	0
+ 944 0049 27       		.uleb128 0x27
+ 945 004a 19       		.uleb128 0x19
+ 946 004b 00       		.byte	0
+ 947 004c 00       		.byte	0
+ 948 004d 08       		.uleb128 0x8
+ 949 004e 2E       		.uleb128 0x2e
+ 950 004f 01       		.byte	0x1
+ 951 0050 3F       		.uleb128 0x3f
+ 952 0051 19       		.uleb128 0x19
+ 953 0052 03       		.uleb128 0x3
+ 954 0053 0E       		.uleb128 0xe
+ 955 0054 3A       		.uleb128 0x3a
+ 956 0055 0B       		.uleb128 0xb
+ 957 0056 3B       		.uleb128 0x3b
+ 958 0057 0B       		.uleb128 0xb
+ 959 0058 27       		.uleb128 0x27
+ 960 0059 19       		.uleb128 0x19
+ 961 005a 11       		.uleb128 0x11
+ 962 005b 01       		.uleb128 0x1
+ 963 005c 12       		.uleb128 0x12
+ 964 005d 06       		.uleb128 0x6
+ 965 005e 40       		.uleb128 0x40
+ 966 005f 18       		.uleb128 0x18
+ 967 0060 9642     		.uleb128 0x2116
+ 968 0062 19       		.uleb128 0x19
+ 969 0063 01       		.uleb128 0x1
+ 970 0064 13       		.uleb128 0x13
+ 971 0065 00       		.byte	0
+ 972 0066 00       		.byte	0
+ 973 0067 09       		.uleb128 0x9
+ 974 0068 34       		.uleb128 0x34
+ 975 0069 00       		.byte	0
+ 976 006a 03       		.uleb128 0x3
+ 977 006b 0E       		.uleb128 0xe
+ 978 006c 3A       		.uleb128 0x3a
+ 979 006d 0B       		.uleb128 0xb
+ 980 006e 3B       		.uleb128 0x3b
+ 981 006f 0B       		.uleb128 0xb
+ 982 0070 49       		.uleb128 0x49
+ 983 0071 13       		.uleb128 0x13
+ 984 0072 02       		.uleb128 0x2
+ 985 0073 18       		.uleb128 0x18
+ 986 0074 00       		.byte	0
+ 987 0075 00       		.byte	0
+ 988 0076 0A       		.uleb128 0xa
+ 989 0077 34       		.uleb128 0x34
+ 990 0078 00       		.byte	0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 28
+
+
+ 991 0079 03       		.uleb128 0x3
+ 992 007a 0E       		.uleb128 0xe
+ 993 007b 3A       		.uleb128 0x3a
+ 994 007c 0B       		.uleb128 0xb
+ 995 007d 3B       		.uleb128 0x3b
+ 996 007e 0B       		.uleb128 0xb
+ 997 007f 49       		.uleb128 0x49
+ 998 0080 13       		.uleb128 0x13
+ 999 0081 02       		.uleb128 0x2
+ 1000 0082 17       		.uleb128 0x17
+ 1001 0083 00       		.byte	0
+ 1002 0084 00       		.byte	0
+ 1003 0085 0B       		.uleb128 0xb
+ 1004 0086 898201   		.uleb128 0x4109
+ 1005 0089 00       		.byte	0
+ 1006 008a 11       		.uleb128 0x11
+ 1007 008b 01       		.uleb128 0x1
+ 1008 008c 31       		.uleb128 0x31
+ 1009 008d 13       		.uleb128 0x13
+ 1010 008e 00       		.byte	0
+ 1011 008f 00       		.byte	0
+ 1012 0090 0C       		.uleb128 0xc
+ 1013 0091 898201   		.uleb128 0x4109
+ 1014 0094 01       		.byte	0x1
+ 1015 0095 11       		.uleb128 0x11
+ 1016 0096 01       		.uleb128 0x1
+ 1017 0097 31       		.uleb128 0x31
+ 1018 0098 13       		.uleb128 0x13
+ 1019 0099 00       		.byte	0
+ 1020 009a 00       		.byte	0
+ 1021 009b 0D       		.uleb128 0xd
+ 1022 009c 8A8201   		.uleb128 0x410a
+ 1023 009f 00       		.byte	0
+ 1024 00a0 02       		.uleb128 0x2
+ 1025 00a1 18       		.uleb128 0x18
+ 1026 00a2 9142     		.uleb128 0x2111
+ 1027 00a4 18       		.uleb128 0x18
+ 1028 00a5 00       		.byte	0
+ 1029 00a6 00       		.byte	0
+ 1030 00a7 0E       		.uleb128 0xe
+ 1031 00a8 34       		.uleb128 0x34
+ 1032 00a9 00       		.byte	0
+ 1033 00aa 03       		.uleb128 0x3
+ 1034 00ab 0E       		.uleb128 0xe
+ 1035 00ac 3A       		.uleb128 0x3a
+ 1036 00ad 0B       		.uleb128 0xb
+ 1037 00ae 3B       		.uleb128 0x3b
+ 1038 00af 0B       		.uleb128 0xb
+ 1039 00b0 49       		.uleb128 0x49
+ 1040 00b1 13       		.uleb128 0x13
+ 1041 00b2 3F       		.uleb128 0x3f
+ 1042 00b3 19       		.uleb128 0x19
+ 1043 00b4 3C       		.uleb128 0x3c
+ 1044 00b5 19       		.uleb128 0x19
+ 1045 00b6 00       		.byte	0
+ 1046 00b7 00       		.byte	0
+ 1047 00b8 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 29
+
+
+ 1048 00b9 2E       		.uleb128 0x2e
+ 1049 00ba 00       		.byte	0
+ 1050 00bb 3F       		.uleb128 0x3f
+ 1051 00bc 19       		.uleb128 0x19
+ 1052 00bd 3C       		.uleb128 0x3c
+ 1053 00be 19       		.uleb128 0x19
+ 1054 00bf 6E       		.uleb128 0x6e
+ 1055 00c0 0E       		.uleb128 0xe
+ 1056 00c1 03       		.uleb128 0x3
+ 1057 00c2 0E       		.uleb128 0xe
+ 1058 00c3 3A       		.uleb128 0x3a
+ 1059 00c4 0B       		.uleb128 0xb
+ 1060 00c5 3B       		.uleb128 0x3b
+ 1061 00c6 05       		.uleb128 0x5
+ 1062 00c7 00       		.byte	0
+ 1063 00c8 00       		.byte	0
+ 1064 00c9 10       		.uleb128 0x10
+ 1065 00ca 2E       		.uleb128 0x2e
+ 1066 00cb 00       		.byte	0
+ 1067 00cc 3F       		.uleb128 0x3f
+ 1068 00cd 19       		.uleb128 0x19
+ 1069 00ce 3C       		.uleb128 0x3c
+ 1070 00cf 19       		.uleb128 0x19
+ 1071 00d0 6E       		.uleb128 0x6e
+ 1072 00d1 0E       		.uleb128 0xe
+ 1073 00d2 03       		.uleb128 0x3
+ 1074 00d3 0E       		.uleb128 0xe
+ 1075 00d4 3A       		.uleb128 0x3a
+ 1076 00d5 0B       		.uleb128 0xb
+ 1077 00d6 3B       		.uleb128 0x3b
+ 1078 00d7 0B       		.uleb128 0xb
+ 1079 00d8 00       		.byte	0
+ 1080 00d9 00       		.byte	0
+ 1081 00da 00       		.byte	0
+ 1082              		.section	.debug_loc,"",%progbits
+ 1083              	.Ldebug_loc0:
+ 1084              	.LLST0:
+ 1085 0000 10000000 		.4byte	.LVL1
+ 1086 0004 2C010000 		.4byte	.LVL13
+ 1087 0008 0100     		.2byte	0x1
+ 1088 000a 54       		.byte	0x54
+ 1089 000b 2C010000 		.4byte	.LVL13
+ 1090 000f 7E010000 		.4byte	.LVL14
+ 1091 0013 0100     		.2byte	0x1
+ 1092 0015 52       		.byte	0x52
+ 1093 0016 7E010000 		.4byte	.LVL14
+ 1094 001a 48020000 		.4byte	.LVL32
+ 1095 001e 0100     		.2byte	0x1
+ 1096 0020 54       		.byte	0x54
+ 1097 0021 48020000 		.4byte	.LVL32
+ 1098 0025 56020000 		.4byte	.LVL33
+ 1099 0029 0100     		.2byte	0x1
+ 1100 002b 53       		.byte	0x53
+ 1101 002c 56020000 		.4byte	.LVL33
+ 1102 0030 76020000 		.4byte	.LVL34
+ 1103 0034 0100     		.2byte	0x1
+ 1104 0036 54       		.byte	0x54
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 30
+
+
+ 1105 0037 76020000 		.4byte	.LVL34
+ 1106 003b 7A020000 		.4byte	.LVL35
+ 1107 003f 0100     		.2byte	0x1
+ 1108 0041 53       		.byte	0x53
+ 1109 0042 7A020000 		.4byte	.LVL35
+ 1110 0046 D6020000 		.4byte	.LVL37
+ 1111 004a 0100     		.2byte	0x1
+ 1112 004c 54       		.byte	0x54
+ 1113 004d 00000000 		.4byte	0
+ 1114 0051 00000000 		.4byte	0
+ 1115              	.LLST1:
+ 1116 0055 10020000 		.4byte	.LVL27
+ 1117 0059 1E020000 		.4byte	.LVL28
+ 1118 005d 0200     		.2byte	0x2
+ 1119 005f 32       		.byte	0x32
+ 1120 0060 9F       		.byte	0x9f
+ 1121 0061 1E020000 		.4byte	.LVL28
+ 1122 0065 26020000 		.4byte	.LVL30
+ 1123 0069 0100     		.2byte	0x1
+ 1124 006b 53       		.byte	0x53
+ 1125 006c 26020000 		.4byte	.LVL30
+ 1126 0070 2A020000 		.4byte	.LVL31
+ 1127 0074 0600     		.2byte	0x6
+ 1128 0076 73       		.byte	0x73
+ 1129 0077 00       		.sleb128 0
+ 1130 0078 09       		.byte	0x9
+ 1131 0079 DF       		.byte	0xdf
+ 1132 007a 1A       		.byte	0x1a
+ 1133 007b 9F       		.byte	0x9f
+ 1134 007c 00000000 		.4byte	0
+ 1135 0080 00000000 		.4byte	0
+ 1136              	.LLST2:
+ 1137 0084 B0010000 		.4byte	.LVL19
+ 1138 0088 B4010000 		.4byte	.LVL20
+ 1139 008c 0200     		.2byte	0x2
+ 1140 008e 31       		.byte	0x31
+ 1141 008f 9F       		.byte	0x9f
+ 1142 0090 C8010000 		.4byte	.LVL21
+ 1143 0094 CC010000 		.4byte	.LVL22
+ 1144 0098 0200     		.2byte	0x2
+ 1145 009a 30       		.byte	0x30
+ 1146 009b 9F       		.byte	0x9f
+ 1147 009c CC010000 		.4byte	.LVL22
+ 1148 00a0 FE010000 		.4byte	.LVL26
+ 1149 00a4 0100     		.2byte	0x1
+ 1150 00a6 50       		.byte	0x50
+ 1151 00a7 00000000 		.4byte	0
+ 1152 00ab 00000000 		.4byte	0
+ 1153              	.LLST3:
+ 1154 00af A6010000 		.4byte	.LVL18
+ 1155 00b3 B4010000 		.4byte	.LVL20
+ 1156 00b7 0100     		.2byte	0x1
+ 1157 00b9 51       		.byte	0x51
+ 1158 00ba C8010000 		.4byte	.LVL21
+ 1159 00be EC010000 		.4byte	.LVL25
+ 1160 00c2 0100     		.2byte	0x1
+ 1161 00c4 51       		.byte	0x51
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 31
+
+
+ 1162 00c5 00000000 		.4byte	0
+ 1163 00c9 00000000 		.4byte	0
+ 1164              	.LLST4:
+ 1165 00cd C6000000 		.4byte	.LVL4
+ 1166 00d1 EE000000 		.4byte	.LVL5
+ 1167 00d5 0100     		.2byte	0x1
+ 1168 00d7 52       		.byte	0x52
+ 1169 00d8 FC000000 		.4byte	.LVL7
+ 1170 00dc FF000000 		.4byte	.LVL8-1
+ 1171 00e0 0100     		.2byte	0x1
+ 1172 00e2 52       		.byte	0x52
+ 1173 00e3 02010000 		.4byte	.LVL9
+ 1174 00e7 0A010000 		.4byte	.LVL10
+ 1175 00eb 0100     		.2byte	0x1
+ 1176 00ed 52       		.byte	0x52
+ 1177 00ee 16010000 		.4byte	.LVL11
+ 1178 00f2 81010000 		.4byte	.LVL15-1
+ 1179 00f6 0100     		.2byte	0x1
+ 1180 00f8 52       		.byte	0x52
+ 1181 00f9 84010000 		.4byte	.LVL16
+ 1182 00fd 89010000 		.4byte	.LVL17-1
+ 1183 0101 0100     		.2byte	0x1
+ 1184 0103 52       		.byte	0x52
+ 1185 0104 00000000 		.4byte	0
+ 1186 0108 00000000 		.4byte	0
+ 1187              	.LLST5:
+ 1188 010c 18000000 		.4byte	.LVL3
+ 1189 0110 D6020000 		.4byte	.LVL39
+ 1190 0114 0100     		.2byte	0x1
+ 1191 0116 56       		.byte	0x56
+ 1192 0117 00000000 		.4byte	0
+ 1193 011b 00000000 		.4byte	0
+ 1194              	.LLST6:
+ 1195 011f 14000000 		.4byte	.LVL2
+ 1196 0123 D6020000 		.4byte	.LVL38
+ 1197 0127 0100     		.2byte	0x1
+ 1198 0129 55       		.byte	0x55
+ 1199 012a 00000000 		.4byte	0
+ 1200 012e 00000000 		.4byte	0
+ 1201              		.section	.debug_aranges,"",%progbits
+ 1202 0000 1C000000 		.4byte	0x1c
+ 1203 0004 0200     		.2byte	0x2
+ 1204 0006 00000000 		.4byte	.Ldebug_info0
+ 1205 000a 04       		.byte	0x4
+ 1206 000b 00       		.byte	0
+ 1207 000c 0000     		.2byte	0
+ 1208 000e 0000     		.2byte	0
+ 1209 0010 00000000 		.4byte	.LFB0
+ 1210 0014 54030000 		.4byte	.LFE0-.LFB0
+ 1211 0018 00000000 		.4byte	0
+ 1212 001c 00000000 		.4byte	0
+ 1213              		.section	.debug_ranges,"",%progbits
+ 1214              	.Ldebug_ranges0:
+ 1215 0000 00000000 		.4byte	.LFB0
+ 1216 0004 54030000 		.4byte	.LFE0
+ 1217 0008 00000000 		.4byte	0
+ 1218 000c 00000000 		.4byte	0
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 32
+
+
+ 1219              		.section	.debug_line,"",%progbits
+ 1220              	.Ldebug_line0:
+ 1221 0000 43010000 		.section	.debug_str,"MS",%progbits,1
+ 1221      02008600 
+ 1221      00000201 
+ 1221      FB0E0D00 
+ 1221      01010101 
+ 1222              	.LASF15:
+ 1223 0000 72656733 		.ascii	"reg32\000"
+ 1223      3200
+ 1224              	.LASF36:
+ 1225 0006 43794861 		.ascii	"CyHalt\000"
+ 1225      6C7400
+ 1226              	.LASF28:
+ 1227 000d 455A4932 		.ascii	"EZI2C_curStatus\000"
+ 1227      435F6375 
+ 1227      72537461 
+ 1227      74757300 
+ 1228              	.LASF31:
+ 1229 001d 455A4932 		.ascii	"EZI2C_bufSizeBuf1\000"
+ 1229      435F6275 
+ 1229      6653697A 
+ 1229      65427566 
+ 1229      3100
+ 1230              	.LASF29:
+ 1231 002f 455A4932 		.ascii	"EZI2C_fsmState\000"
+ 1231      435F6673 
+ 1231      6D537461 
+ 1231      746500
+ 1232              	.LASF3:
+ 1233 003e 73686F72 		.ascii	"short unsigned int\000"
+ 1233      7420756E 
+ 1233      7369676E 
+ 1233      65642069 
+ 1233      6E7400
+ 1234              	.LASF26:
+ 1235 0051 6C6F6349 		.ascii	"locIntrSlave\000"
+ 1235      6E747253 
+ 1235      6C617665 
+ 1235      00
+ 1236              	.LASF22:
+ 1237 005e 656E6454 		.ascii	"endTransfer\000"
+ 1237      72616E73 
+ 1237      66657200 
+ 1238              	.LASF24:
+ 1239 006a 6C6F6342 		.ascii	"locByte\000"
+ 1239      79746500 
+ 1240              	.LASF35:
+ 1241 0072 455A4932 		.ascii	"EZI2C_I2CSlaveNackGeneration\000"
+ 1241      435F4932 
+ 1241      43536C61 
+ 1241      76654E61 
+ 1241      636B4765 
+ 1242              	.LASF12:
+ 1243 008f 666C6F61 		.ascii	"float\000"
+ 1243      7400
+ 1244              	.LASF20:
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 33
+
+
+ 1245 0095 6C6F6349 		.ascii	"locIndex\000"
+ 1245      6E646578 
+ 1245      00
+ 1246              	.LASF1:
+ 1247 009e 756E7369 		.ascii	"unsigned char\000"
+ 1247      676E6564 
+ 1247      20636861 
+ 1247      7200
+ 1248              	.LASF21:
+ 1249 00ac 6C6F6353 		.ascii	"locStatus\000"
+ 1249      74617475 
+ 1249      7300
+ 1250              	.LASF5:
+ 1251 00b6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1251      20756E73 
+ 1251      69676E65 
+ 1251      6420696E 
+ 1251      7400
+ 1252              	.LASF9:
+ 1253 00c8 75696E74 		.ascii	"uint8\000"
+ 1253      3800
+ 1254              	.LASF27:
+ 1255 00ce 455A4932 		.ascii	"EZI2C_customIntrHandler\000"
+ 1255      435F6375 
+ 1255      73746F6D 
+ 1255      496E7472 
+ 1255      48616E64 
+ 1256              	.LASF34:
+ 1257 00e6 455A4932 		.ascii	"EZI2C_indexBuf1\000"
+ 1257      435F696E 
+ 1257      64657842 
+ 1257      75663100 
+ 1258              	.LASF13:
+ 1259 00f6 646F7562 		.ascii	"double\000"
+ 1259      6C6500
+ 1260              	.LASF10:
+ 1261 00fd 75696E74 		.ascii	"uint16\000"
+ 1261      313600
+ 1262              	.LASF11:
+ 1263 0104 75696E74 		.ascii	"uint32\000"
+ 1263      333200
+ 1264              	.LASF38:
+ 1265 010b 47656E65 		.ascii	"Generated_Source\\PSoC4\\EZI2C_EZI2C_INT.c\000"
+ 1265      72617465 
+ 1265      645F536F 
+ 1265      75726365 
+ 1265      5C50536F 
+ 1266              	.LASF32:
+ 1267 0134 455A4932 		.ascii	"EZI2C_protectBuf1\000"
+ 1267      435F7072 
+ 1267      6F746563 
+ 1267      74427566 
+ 1267      3100
+ 1268              	.LASF8:
+ 1269 0146 756E7369 		.ascii	"unsigned int\000"
+ 1269      676E6564 
+ 1269      20696E74 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 34
+
+
+ 1269      00
+ 1270              	.LASF19:
+ 1271 0153 6C6F6342 		.ascii	"locBufSize\000"
+ 1271      75665369 
+ 1271      7A6500
+ 1272              	.LASF23:
+ 1273 015e 6669666F 		.ascii	"fifoIndex\000"
+ 1273      496E6465 
+ 1273      7800
+ 1274              	.LASF7:
+ 1275 0168 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1275      206C6F6E 
+ 1275      6720756E 
+ 1275      7369676E 
+ 1275      65642069 
+ 1276              	.LASF16:
+ 1277 017f 63796973 		.ascii	"cyisraddress\000"
+ 1277      72616464 
+ 1277      72657373 
+ 1277      00
+ 1278              	.LASF37:
+ 1279 018c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1279      43313120 
+ 1279      352E342E 
+ 1279      31203230 
+ 1279      31363036 
+ 1280 01bf 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1280      20726576 
+ 1280      6973696F 
+ 1280      6E203233 
+ 1280      37373135 
+ 1281 01f2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1281      66756E63 
+ 1281      74696F6E 
+ 1281      2D736563 
+ 1281      74696F6E 
+ 1282              	.LASF18:
+ 1283 021a 73697A65 		.ascii	"sizetype\000"
+ 1283      74797065 
+ 1283      00
+ 1284              	.LASF6:
+ 1285 0223 6C6F6E67 		.ascii	"long long int\000"
+ 1285      206C6F6E 
+ 1285      6720696E 
+ 1285      7400
+ 1286              	.LASF14:
+ 1287 0231 63686172 		.ascii	"char\000"
+ 1287      00
+ 1288              	.LASF30:
+ 1289 0236 455A4932 		.ascii	"EZI2C_dataBuffer1\000"
+ 1289      435F6461 
+ 1289      74614275 
+ 1289      66666572 
+ 1289      3100
+ 1290              	.LASF2:
+ 1291 0248 73686F72 		.ascii	"short int\000"
+ 1291      7420696E 
+ARM GAS  C:\Users\Lenovo\AppData\Local\Temp\ccAeOAAb.s 			page 35
+
+
+ 1291      7400
+ 1292              	.LASF33:
+ 1293 0252 455A4932 		.ascii	"EZI2C_offsetBuf1\000"
+ 1293      435F6F66 
+ 1293      66736574 
+ 1293      42756631 
+ 1293      00
+ 1294              	.LASF25:
+ 1295 0263 6C6F6349 		.ascii	"locIntrCause\000"
+ 1295      6E747243 
+ 1295      61757365 
+ 1295      00
+ 1296              	.LASF4:
+ 1297 0270 6C6F6E67 		.ascii	"long int\000"
+ 1297      20696E74 
+ 1297      00
+ 1298              	.LASF39:
+ 1299 0279 443A5C4D 		.ascii	"D:\\Microprocess2\\Lab4\\Lab4\\Design01.cydsn\000"
+ 1299      6963726F 
+ 1299      70726F63 
+ 1299      65737332 
+ 1299      5C4C6162 
+ 1300              	.LASF17:
+ 1301 02a3 6C6F6E67 		.ascii	"long double\000"
+ 1301      20646F75 
+ 1301      626C6500 
+ 1302              	.LASF0:
+ 1303 02af 7369676E 		.ascii	"signed char\000"
+ 1303      65642063 
+ 1303      68617200 
+ 1304              	.LASF40:
+ 1305 02bb 455A4932 		.ascii	"EZI2C_EZI2C_STRETCH_ISR\000"
+ 1305      435F455A 
+ 1305      4932435F 
+ 1305      53545245 
+ 1305      5443485F 
+ 1306              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

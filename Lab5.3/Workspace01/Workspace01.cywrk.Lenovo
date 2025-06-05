@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace01\BLE_FindMe01\Source Files\main.c">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\TopDesign</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Pins</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Analog</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Clocks</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Interrupts</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\System</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Directives</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Flash Security</v>
+<v>Workspace01\BLE_FindMe01\Header Files</v>
+<v>Workspace01\BLE_FindMe01\Header Files\common.h</v>
+<v>Workspace01\BLE_FindMe01\Header Files\ias.h</v>
+<v>Workspace01\BLE_FindMe01\Source Files</v>
+<v>Workspace01\BLE_FindMe01\Source Files\ias.c</v>
+<v>Workspace01\BLE_FindMe01\Source Files\main.c</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe.pdf</v>
+<v>Workspace01\BLE_FindMe01\cyapicallbacks.h</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4</v>
+<v>Workspace01\Design01</v>
+<v>Workspace01\Design01\TopDesign</v>
+<v>Workspace01\Design01\Design01.cydwr</v>
+<v>Workspace01\Design01\Design01.cydwr\Pins</v>
+<v>Workspace01\Design01\Design01.cydwr\Analog</v>
+<v>Workspace01\Design01\Design01.cydwr\Clocks</v>
+<v>Workspace01\Design01\Design01.cydwr\Interrupts</v>
+<v>Workspace01\Design01\Design01.cydwr\System</v>
+<v>Workspace01\Design01\Design01.cydwr\Directives</v>
+<v>Workspace01\Design01\Design01.cydwr\Flash Security</v>
+<v>Workspace01\Design01\Header Files</v>
+<v>Workspace01\Design01\Header Files\cyapicallbacks.h</v>
+<v>Workspace01\Design01\Source Files</v>
+<v>Workspace01\Design01\Source Files\main.c</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\TopDesign</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Pins</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Analog</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Clocks</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Interrupts</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\System</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Directives</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.cydwr\Flash Security</v>
+<v>Workspace01\BLE_FindMe01\Header Files</v>
+<v>Workspace01\BLE_FindMe01\Header Files\common.h</v>
+<v>Workspace01\BLE_FindMe01\Header Files\ias.h</v>
+<v>Workspace01\BLE_FindMe01\Source Files</v>
+<v>Workspace01\BLE_FindMe01\Source Files\ias.c</v>
+<v>Workspace01\BLE_FindMe01\Source Files\main.c</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe.pdf</v>
+<v>Workspace01\BLE_FindMe01\cyapicallbacks.h</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\Advertising_LED</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\Alert_LED</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\BLE</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\BLE_bless_isr</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cy_boot</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\Disconnect_LED</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>Workspace01\BLE_FindMe01\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\TopDesign</v>
+<v>Workspace01\BLE_FindMe01\TopDesign\TopDesign.cysch</v>
+<v>Workspace01\Design01</v>
+<v>Workspace01\Design01\TopDesign</v>
+<v>Workspace01\Design01\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\TopDesign</v>
+<v>Workspace01\BLE_FindMe01\TopDesign\TopDesign.cysch</v>
+<v>Workspace01\Design01</v>
+<v>Workspace01\Design01\TopDesign</v>
+<v>Workspace01\Design01\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\CortexM0</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\Advertising_LED.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\Advertising_LED_PM.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\Alert_LED.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\Alert_LED_PM.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_bless_isr.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_eventHandler.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_gatt.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_INT.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_PVT.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_ias.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\Disconnect_LED.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\Disconnect_LED_PM.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\ias.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\BLE_FindMe01.elf</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\BLE_FindMe01.hex</v>
+<v>Workspace01\BLE_FindMe01\CortexM0\ARM_GCC_541\Debug\BLE_FindMe01.map</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.gpdsc</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.rpt</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01_timing.html</v>
+<v>Workspace01\Design01</v>
+<v>Workspace01\Design01\Design01.gpdsc</v>
+<v>Workspace01\Design01\Design01.rpt</v>
+<v>Workspace01\Design01\Design01_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01.rpt</v>
+<v>Workspace01\BLE_FindMe01\BLE_FindMe01_timing.html</v>
+<v>Workspace01\Design01</v>
+<v>Workspace01\Design01\Design01.rpt</v>
+<v>Workspace01\Design01\Design01_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\PSoC 4 Architecture TRM</v>
+<v>Workspace01\BLE_FindMe01\PSoC 4200 BLE Family Datasheet</v>
+<v>Workspace01\BLE_FindMe01\System Reference Guides</v>
+<v>Workspace01\BLE_FindMe01\System Reference Guides\cy_boot_v5_60</v>
+<v>Workspace01\BLE_FindMe01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Workspace01\BLE_FindMe01\BLE_v3_30.pdf</v>
+<v>Workspace01\BLE_FindMe01\cy_pins_v2_20</v>
+<v>Workspace01\BLE_FindMe01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Workspace01\BLE_FindMe01\LED_v1_0</v>
+<v>Workspace01\BLE_FindMe01\LED_v1_0\LED_v1_0.pdf</v>
+<v>Workspace01\BLE_FindMe01\Power_v1_0</v>
+<v>Workspace01\BLE_FindMe01\Power_v1_0\Power_v1_0.pdf</v>
+<v>Workspace01\BLE_FindMe01\Resistor_v1_0</v>
+<v>Workspace01\BLE_FindMe01\Resistor_v1_0\Resistor_v1_0.pdf</v>
+<v>Workspace01\Design01</v>
+<v>Workspace01\Design01\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Design01\PSoC 4200 BLE Family Datasheet</v>
+<v>Workspace01\Design01\System Reference Guides</v>
+<v>Workspace01\Design01\System Reference Guides\cy_boot_v6_10</v>
+<v>Workspace01\Design01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Workspace01\Design01\BLE_v3_66.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\BLE_FindMe01</v>
+<v>Workspace01\BLE_FindMe01\PSoC 4 Architecture TRM</v>
+<v>Workspace01\BLE_FindMe01\PSoC 4200 BLE Family Datasheet</v>
+<v>Workspace01\BLE_FindMe01\System Reference Guides</v>
+<v>Workspace01\BLE_FindMe01\System Reference Guides\cy_boot_v5_60</v>
+<v>Workspace01\BLE_FindMe01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Workspace01\BLE_FindMe01\BLE_v3_30.pdf</v>
+<v>Workspace01\BLE_FindMe01\cy_pins_v2_20</v>
+<v>Workspace01\BLE_FindMe01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Workspace01\BLE_FindMe01\LED_v1_0</v>
+<v>Workspace01\BLE_FindMe01\LED_v1_0\LED_v1_0.pdf</v>
+<v>Workspace01\BLE_FindMe01\Power_v1_0</v>
+<v>Workspace01\BLE_FindMe01\Power_v1_0\Power_v1_0.pdf</v>
+<v>Workspace01\BLE_FindMe01\Resistor_v1_0</v>
+<v>Workspace01\BLE_FindMe01\Resistor_v1_0\Resistor_v1_0.pdf</v>
+<v>Workspace01\Design01</v>
+<v>Workspace01\Design01\PSoC 4 Architecture TRM</v>
+<v>Workspace01\Design01\PSoC 4200 BLE Family Datasheet</v>
+<v>Workspace01\Design01\System Reference Guides</v>
+<v>Workspace01\Design01\System Reference Guides\cy_boot_v6_10</v>
+<v>Workspace01\Design01\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Workspace01\Design01\BLE_v3_66.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Design01.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\Lab5.4\BLE_FindMe01.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\Lab5.4\BLE_FindMe01.cydsn\BLE_FindMe01.cydwr" />
+<name v="..\..\Lab5.4\BLE_FindMe01.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1092, 676" SelectedTabbedMdiWindow="ee767962-99fa-48ef-b818-2f3e66172434"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="07bf5c74-056f-4a1a-80b3-c79097ccf025" /><DocumentWindow Key="D:\Microprocess2\Lab5.3\Workspace01\Design01.cydsn\TopDesign\TopDesign.cysch" Guid="a6350d3d-f8f3-4a13-a870-d6358b8f4a2c" /><DocumentWindow Key="D:\Microprocess2\Lab5.4\BLE_FindMe01.cydsn\TopDesign\TopDesign.cysch" Guid="1d20bc66-e709-4544-ba44-2d6c9800d087" /><DocumentWindow Key="D:\Microprocess2\Lab5.4\BLE_FindMe01.cydsn\BLE_FindMe01.cydwr" Guid="0bcb54f3-b602-44a2-9e7a-5ac6b3953127" /><DocumentWindow Key="D:\Microprocess2\Lab5.4\BLE_FindMe01.cydsn\main.c" Guid="ee767962-99fa-48ef-b818-2f3e66172434" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

@@ -1,0 +1,6 @@
+D:\Microprocess2\LAB11.2\Workspace01\CE223727_EmWin_EInk_Display01.cydsn\CE223727_EmWin_EInk_Display01.cyprj|9c147ba4-51ab-4ae4-ba10-12948d61a22f
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|feba22da-26b1-4d30-a7cd-9b976924fb3b
+C:\Users\Lenovo\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|161fe1c3-aafd-4539-a5ae-088e05e06723
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|75f13853-f820-4090-a302-9bad1c2491bf
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ae277a75-a2b0-4495-867b-d5f197ddc9b5
+D:\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6524f78e-dd26-4e41-97cd-babeb44a7ff0

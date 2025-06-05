@@ -1,0 +1,134 @@
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Clock.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Clock.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Clock.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Clock.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Clock.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Cm0Start.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Cm0Start.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/cyapicallbacks.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Cm0Start.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/cyapicallbacks.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/CyFlash.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/CyLFClk.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/CyLib.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/PWM.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/PWM_PM.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM_PM.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM_PM.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Pin_Blue.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue_aliases.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Pin_Blue_PM.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue_PM.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue_PM.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Pin_Green.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green_aliases.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Pin_Green_PM.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green_PM.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green_PM.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Pin_SW2.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2_aliases.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/Pin_SW2_PM.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2_PM.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2_PM.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/cyPm.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyPm.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyPm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyPm.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyPm.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/cy_em_eeprom.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cy_em_eeprom.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cy_em_eeprom.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cy_em_eeprom.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cy_em_eeprom.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/cyfitter_cfg.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/cyapicallbacks.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/cymetadata.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cymetadata.c 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cymetadata.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/cyutils.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyutils.c 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyutils.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/isr_GPIO.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/isr_GPIO.c D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/isr_GPIO.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/cyapicallbacks.h 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/isr_GPIO.c : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/isr_GPIO.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/CortexM0/ARM_GCC_541/Debug/main.o : D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cmsis_armcc.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cmsis_compiler.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cmsis_gcc.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/core_cm0.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydisabledsheets.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/project.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Clock.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyFlash.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/CyLib.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/PWM.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Blue_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_Green_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/Pin_SW2_aliases.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyPm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cy_em_eeprom.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cypins.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cytypes.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/isr_GPIO.h D:/Microprocess2/Lab2/Lab2/Design01.cydsn/main.c 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cmsis_armcc.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cmsis_compiler.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cmsis_gcc.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/core_cm0.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/cydisabledsheets.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/Generated_Source/PSoC4/project.h : 
+
+D:/Microprocess2/Lab2/Lab2/Design01.cydsn/main.c : 
+
